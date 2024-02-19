@@ -1,0 +1,3274 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-19 19:50+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../plugin/YampConfig.py:677
+msgid ""
+"\n"
+"\n"
+"custom size of Display selected.\n"
+"\n"
+"Yamp is trying to read the size from YampLCD.xml!!\n"
+"\n"
+"No adjustment possible"
+msgstr ""
+
+#: ../plugin/Yamp.py:4494
+msgid ""
+"\n"
+"\n"
+"will be overwitten.\n"
+"\n"
+"Do you agree?"
+msgstr ""
+
+#: ../plugin/YampConfig.py:292
+msgid "  Artist-Art / MbId Search  "
+msgstr ""
+
+#: ../plugin/YampConfig.py:403
+msgid "  Box Display  "
+msgstr ""
+
+#: ../plugin/YampConfig.py:258
+msgid "  Cover Search / Auto Save  "
+msgstr ""
+
+#: ../plugin/YampConfig.py:227
+msgid "  Filelist / Databaselist / Playlist  "
+msgstr ""
+
+#: ../plugin/YampConfig.py:204
+msgid "  General Adjustments  "
+msgstr ""
+
+#: ../plugin/YampConfig.py:369
+msgid "  Lyrics - Scroll / Time Edit - Karaoke  "
+msgstr ""
+
+#: ../plugin/YampConfig.py:277
+msgid "  Lyrics Search / Auto Save  "
+msgstr ""
+
+#: ../plugin/YampConfig.py:455
+msgid "  Miscellaneous / Debug  "
+msgstr ""
+
+#: ../plugin/YampConfig.py:334
+msgid "  Operation / Display  "
+msgstr ""
+
+#: ../plugin/YampConfig.py:305
+msgid "  Screensaver / Dia-Show / Artist-Art  "
+msgstr ""
+
+#: ../plugin/YampConfig.py:386
+msgid "  Videoclip settings  "
+msgstr ""
+
+#: ../plugin/Yamp.py:6542
+msgid " actualized"
+msgstr ""
+
+#: ../plugin/Yamp.py:4489
+msgid ""
+" changed, Yamp restart required to apply new selection\n"
+"\n"
+"Do you want to close Yamp now?"
+msgstr ""
+
+#: ../plugin/Yamp.py:6541
+msgid " inserted"
+msgstr ""
+
+#: ../plugin/Yamp.py:6543
+msgid " skipped"
+msgstr ""
+
+#: ../plugin/Yamp.py:6397
+#, python-format
+msgid ""
+"%d files actualized\n"
+"\n"
+msgstr ""
+
+#: ../plugin/Yamp.py:6396
+#, python-format
+msgid ""
+"%d files added to database\n"
+"\n"
+msgstr ""
+
+#: ../plugin/Yamp.py:6398
+#, python-format
+msgid ""
+"%d files skipped\n"
+"\n"
+"\n"
+msgstr ""
+
+#: ../plugin/Yamp.py:236
+#, python-format
+msgid "%s or %s"
+msgstr ""
+
+#: ../plugin/Yamp.py:454
+msgid "1 line display"
+msgstr ""
+
+#: ../plugin/Yamp.py:465
+msgid "132 x 64"
+msgstr ""
+
+#: ../plugin/Yamp.py:455
+msgid "3 lines display"
+msgstr ""
+
+#: ../plugin/Yamp.py:273
+msgid "3 x blank: <   >"
+msgstr ""
+
+#: ../plugin/Yamp.py:464
+msgid "400 x 240"
+msgstr ""
+
+#: ../plugin/Yamp.py:463
+msgid "480 x 320"
+msgstr ""
+
+#: ../plugin/Yamp.py:462
+msgid "800 x 480"
+msgstr ""
+
+#: ../plugin/Yamp.py:2826
+msgid "A l b u m s"
+msgstr ""
+
+#: ../plugin/Yamp.py:2824
+msgid "A r t i s t s"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:432
+msgid "Access to chartlyrics.com failed."
+msgstr ""
+
+#: ../plugin/Yamp.py:750
+msgid "Activate/deactivate screensaver slideshow"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:1035
+msgid "Add lyrics line "
+msgstr ""
+
+#: ../plugin/Yamp.py:2323
+msgid ""
+"Add to Database\n"
+"Add to DB incl.Subdirs"
+msgstr ""
+
+#: ../plugin/Yamp.py:2332
+msgid "Add to Playlist"
+msgstr ""
+
+#: ../plugin/Yamp.py:2330
+msgid ""
+"Add to Playlist\n"
+"Add all to Playlist"
+msgstr ""
+
+#: ../plugin/Yamp.py:2322
+msgid ""
+"Add to Playlist\n"
+"Add to PL incl.Subdirs"
+msgstr ""
+
+#: ../plugin/Yamp.py:1462
+msgid "Albumcover saved"
+msgstr ""
+
+#: ../plugin/Yamp.py:2989
+#, python-format
+msgid "Albums (%d)"
+msgstr ""
+
+#: ../plugin/YampConfig.py:395
+msgid "Allow Lyrics screen on videos"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:1112
+msgid "Allow time edit"
+msgstr ""
+
+#: ../plugin/Yamp.py:5866
+#, python-format
+msgid ""
+"Artist %s not in database,\n"
+"online search for artist-art at fanart.tv not possible"
+msgstr ""
+
+#: ../plugin/Yamp.py:268
+msgid "Artist - Album"
+msgstr ""
+
+#: ../plugin/Yamp.py:264
+msgid "Artist - Album - Title"
+msgstr ""
+
+#: ../plugin/Yamp.py:267
+msgid "Artist - Title"
+msgstr ""
+
+#: ../plugin/Yamp.py:263
+msgid "Artist - Title - Album"
+msgstr ""
+
+#: ../plugin/Yamp.py:258
+msgid "Artist and Title"
+msgstr ""
+
+#: ../plugin/Yamp.py:5820
+msgid ""
+"Artist-Art-Pictures\n"
+"downloading: "
+msgstr ""
+
+#: ../plugin/YampConfig.py:295
+msgid "Artist-Art-Pictures online search at fanart.tv"
+msgstr ""
+
+#: ../plugin/Yamp.py:2984
+#, python-format
+msgid "Artists (%d)"
+msgstr ""
+
+#: ../plugin/Yamp.py:347
+msgid "Artwork as Screensaver"
+msgstr ""
+
+#: ../plugin/YampConfig.py:223
+msgid "Artwork slideshow base directory"
+msgstr ""
+
+#: ../plugin/Yamp.py:2872
+#, python-format
+msgid ""
+"Attention! Crash possible!\n"
+"\n"
+"In actual skin <%s> the file %s\n"
+"is missing\n"
+"\n"
+"Please check and repair!"
+msgstr ""
+
+#: ../plugin/Yamp.py:405 ../plugin/Yamp.py:412
+msgid "Audio always"
+msgstr ""
+
+#: ../plugin/Yamp.py:404 ../plugin/Yamp.py:410
+msgid "Audio only on Start only"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:1104
+msgid "Auto move Off"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:1106
+msgid "Auto move On"
+msgstr ""
+
+#: ../plugin/YampConfig.py:288
+msgid "Auto-save lyrics found online"
+msgstr ""
+
+#: ../plugin/YampConfig.py:389
+msgid "Automatic Full Screen Start Mode for Videos"
+msgstr ""
+
+#: ../plugin/YampHelp.py:74
+msgid "Basic Operation"
+msgstr ""
+
+#: ../plugin/YampConfig.py:382
+msgid "Black background on Lyrics Line (Karaoke)"
+msgstr ""
+
+#: ../plugin/YampConfig.py:399
+msgid "Blank Video runtime (ms)"
+msgstr ""
+
+#: ../plugin/Yamp.py:344
+msgid "Blank screen"
+msgstr ""
+
+#: ../plugin/Yamp.py:4586 ../plugin/YampConfig.py:151
+#, python-format
+msgid ""
+"Box display configuration file\n"
+"\n"
+"%s\n"
+"\n"
+"could not be written!\n"
+"\n"
+"Write protected? Wrong format?\n"
+"\n"
+"If not corrected, changes will be lost..."
+msgstr ""
+
+#: ../plugin/Yamp.py:4487
+msgid "Box-Display"
+msgstr ""
+
+#: ../plugin/YampConfig.py:353
+msgid "Calculate and display playlist run time"
+msgstr ""
+
+#: ../plugin/Yamp.py:6480
+msgid "Cancel"
+msgstr ""
+
+#: ../plugin/Yamp.py:2946
+#, python-format
+msgid "Cannot open database file %s."
+msgstr ""
+
+#: ../plugin/plugin.py:49
+#, python-format
+msgid "Cannot open mountpoint %s"
+msgstr ""
+
+#: ../plugin/Yamp.py:2948
+#, python-format
+msgid "Cannot write to database %s. Maybe Read-Only?"
+msgstr ""
+
+#: ../plugin/Yamp.py:4307
+msgid "Clear music database"
+msgstr ""
+
+#: ../plugin/YampHelp.py:88
+msgid "Close"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:134
+msgid "Close lyrics screen"
+msgstr ""
+
+#: ../plugin/YampConfig.py:420
+msgid "Color text line 2"
+msgstr ""
+
+#: ../plugin/YampConfig.py:421
+msgid "Color text line 3"
+msgstr ""
+
+#: ../plugin/YampConfig.py:419
+msgid "Color textline 1"
+msgstr ""
+
+#: ../plugin/YampConfig.py:600
+msgid "Common Options for Display and Operation"
+msgstr ""
+
+#: ../plugin/YampConfig.py:361
+msgid "Common button for Tv / Radio"
+msgstr ""
+
+#: ../plugin/YampConfig.py:359
+msgid "Common button for play / pause"
+msgstr ""
+
+#: ../plugin/Yamp.py:4306
+msgid "Compact music database"
+msgstr ""
+
+#: ../plugin/YampConfig.py:47
+msgid "Configuration"
+msgstr ""
+
+#: ../plugin/YampConfig.py:363
+msgid "Confirm exit"
+msgstr ""
+
+#: ../plugin/YampConfig.py:1101
+#, python-format
+msgid ""
+"Could not read cover size from\n"
+"\n"
+"%s\n"
+"\n"
+"Wrong formatted?\n"
+"\n"
+"Selection of box-display size <custom> disabled."
+msgstr ""
+
+#: ../plugin/YampConfig.py:424
+msgid "Cover color"
+msgstr ""
+
+#: ../plugin/YampConfig.py:425
+msgid "Cover horiz. alignment"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:117
+msgid "Cover provided by:"
+msgstr ""
+
+#: ../plugin/Yamp.py:1360
+msgid "Cover saved"
+msgstr ""
+
+#: ../plugin/YampConfig.py:261
+msgid "Cover search priority 1 (highest)"
+msgstr ""
+
+#: ../plugin/YampConfig.py:263
+msgid "Cover search priority 2"
+msgstr ""
+
+#: ../plugin/YampConfig.py:265
+msgid "Cover search priority 3"
+msgstr ""
+
+#: ../plugin/YampConfig.py:267
+msgid "Cover search priority 4"
+msgstr ""
+
+#: ../plugin/YampConfig.py:269
+msgid "Cover search priority 5 (lowest)"
+msgstr ""
+
+#: ../plugin/YampConfig.py:423
+msgid "Cover size"
+msgstr ""
+
+#: ../plugin/YampConfig.py:426
+msgid "Cover vertical alignment"
+msgstr ""
+
+#: ../plugin/Yamp.py:176 ../plugin/Yamp.py:185
+msgid "Custom Full HD skin"
+msgstr ""
+
+#: ../plugin/Yamp.py:346
+msgid "Custom Screensaver (Dia-Show)"
+msgstr ""
+
+#: ../plugin/Yamp.py:183 ../plugin/Yamp.py:192
+msgid "Custom skin (HD)"
+msgstr ""
+
+#: ../plugin/Yamp.py:176
+msgid "Custom skin HD"
+msgstr ""
+
+#: ../plugin/Yamp.py:2832
+msgid "D a t e s"
+msgstr ""
+
+#: ../plugin/Yamp.py:6552
+msgid "DB Insert:"
+msgstr ""
+
+#: ../plugin/Yamp.py:6561
+msgid "DB insert finished"
+msgstr ""
+
+#: ../plugin/Yamp.py:2912
+#, python-format
+msgid ""
+"DB-Upgrade to V3.3.1:\n"
+"%d titles have been actualized to the new feature 'Several Albums Greatest Hits separated by Artist possible'.\n"
+"Please check ..."
+msgstr ""
+
+#: ../plugin/Yamp.py:2321
+msgid "Database Mode"
+msgstr ""
+
+#: ../plugin/Yamp.py:4317
+msgid "Database actions"
+msgstr ""
+
+#: ../plugin/Yamp.py:2922
+msgid "Database has been upgraded to V3.3.1, but the database is empty. Online-search for fanart-pictures has been deactivated. To get all advantages from the new DB options, think about adding files to the database... As long as the online search is deactivated, you will not see this message again!"
+msgstr ""
+
+#: ../plugin/Yamp.py:2917
+msgid "Database has been upgraded to V3.3.1. To get all advantages from the new DB options, you should actualize the database. Just insert all your files again to the database..."
+msgstr ""
+
+#: ../plugin/YampLyrics.py:110
+msgid "Date"
+msgstr ""
+
+#: ../plugin/YampConfig.py:463
+msgid "Debug Mode"
+msgstr ""
+
+#: ../plugin/YampConfig.py:465
+msgid "Debug directory"
+msgstr ""
+
+#: ../plugin/YampConfig.py:467
+msgid "Debug memory usage"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:1098
+msgid "Delete"
+msgstr ""
+
+#: ../plugin/Yamp.py:4269
+msgid "Delete ALL artist's musicbrainz-ID entries"
+msgstr ""
+
+#: ../plugin/Yamp.py:2317
+msgid ""
+"Delete Playlist Entry\n"
+"Clear Playlist"
+msgstr ""
+
+#: ../plugin/Yamp.py:4287
+msgid "Delete album entries"
+msgstr ""
+
+#: ../plugin/Yamp.py:4283
+msgid "Delete artist's musicbrainz-ID entries"
+msgstr ""
+
+#: ../plugin/Yamp.py:4282
+msgid "Delete artist's title entries"
+msgstr ""
+
+#: ../plugin/Yamp.py:4295
+msgid "Delete date's title entries"
+msgstr ""
+
+#: ../plugin/Yamp.py:4299
+msgid "Delete ext. playlist entry"
+msgstr ""
+
+#: ../plugin/Yamp.py:4291
+msgid "Delete genre's title entries"
+msgstr ""
+
+#: ../plugin/Yamp.py:4262
+msgid "Delete playlist"
+msgstr ""
+
+#: ../plugin/Yamp.py:4305
+msgid "Delete title entry"
+msgstr ""
+
+#: ../plugin/YampConfig.py:219
+msgid "Directory for saved lyrics"
+msgstr ""
+
+#: ../plugin/YampConfig.py:215
+msgid "Directory for saved playlists"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:1110
+msgid "Disallow time edit"
+msgstr ""
+
+#: ../plugin/YampConfig.py:348
+#, python-format
+msgid "Display button description in Display (TV, Radio, %s)"
+msgstr ""
+
+#: ../plugin/YampConfig.py:350
+msgid "Display filename of current picture in Dia-Show"
+msgstr ""
+
+#: ../plugin/YampConfig.py:391
+msgid "Display time of Title for Videos (seconds, 0=off)"
+msgstr ""
+
+#: ../plugin/YampConfig.py:244
+msgid "Display unknown element (n/a) in info-bar as"
+msgstr ""
+
+#: ../plugin/YampConfig.py:346
+msgid "Display used skin name in Main Screen"
+msgstr ""
+
+#: ../plugin/Yamp.py:749
+msgid "Display/Hide Infobar"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:833
+#, python-format
+msgid ""
+"Do yo want to delete the lyrics file\n"
+"%s ?"
+msgstr ""
+
+#: ../plugin/Yamp.py:5727
+msgid "Do you really want to clear the whole database?"
+msgstr ""
+
+#: ../plugin/Yamp.py:5706
+msgid ""
+"Do you really want to compact the database?\n"
+"This may take a while..."
+msgstr ""
+
+#: ../plugin/Yamp.py:5494
+#, python-format
+msgid "Do you really want to delete all titles of album %s from database?"
+msgstr ""
+
+#: ../plugin/Yamp.py:5470
+#, python-format
+msgid "Do you really want to delete all titles of artist %s from database?"
+msgstr ""
+
+#: ../plugin/Yamp.py:5542
+#, python-format
+msgid "Do you really want to delete all titles of date %s from database?"
+msgstr ""
+
+#: ../plugin/Yamp.py:5518
+#, python-format
+msgid "Do you really want to delete all titles of genre %s from database?"
+msgstr ""
+
+#: ../plugin/Yamp.py:1472
+msgid "Do you really want to delete the current playlist?"
+msgstr ""
+
+#: ../plugin/Yamp.py:5457
+msgid "Do you really want to delete the musicbrainz-IDs for all artists from database?"
+msgstr ""
+
+#: ../plugin/Yamp.py:1599
+msgid "Do you really want to exit?"
+msgstr ""
+
+#: ../plugin/Yamp.py:2822
+msgid "E x t .  P l a y l i s t s"
+msgstr ""
+
+#: ../plugin/Yamp.py:4309
+msgid "Edit Configuration"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:1029
+msgid "Edit lyrics line "
+msgstr ""
+
+#: ../plugin/YampConfig.py:250
+msgid "Enable wrap around on move titles in playlist"
+msgstr ""
+
+#: ../plugin/Yamp.py:6407
+msgid ""
+"Error!\n"
+"Can not open database!\n"
+"Check if database path is correct and writeable!\n"
+"\n"
+"Press OK to close."
+msgstr ""
+
+#: ../plugin/YampConfig.py:232
+msgid "Exclude directories in DB-Search starting with"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:120
+msgid "Exit"
+msgstr ""
+
+#: ../plugin/YampConfig.py:357
+msgid "Exit button jumps to upper directory in filelist/databaselist"
+msgstr ""
+
+#: ../plugin/Yamp.py:734
+msgid "Exit screensaver, subscreens or YAMP"
+msgstr ""
+
+#: ../plugin/YampConfig.py:211
+msgid "Filebrowser startup directory"
+msgstr ""
+
+#: ../plugin/Yamp.py:2326
+msgid "Filelist Mode"
+msgstr ""
+
+#: ../plugin/Yamp.py:4315
+msgid "Filelist actions"
+msgstr ""
+
+#: ../plugin/Yamp.py:255
+msgid "Filename with Extension"
+msgstr ""
+
+#: ../plugin/Yamp.py:254
+msgid "Filename without Extension"
+msgstr ""
+
+#: ../plugin/YampConfig.py:428
+msgid "Font size for Graphical running text"
+msgstr ""
+
+#: ../plugin/YampConfig.py:416
+msgid "Fontsize line(s) 1(..3)"
+msgstr ""
+
+#: ../plugin/Yamp.py:184
+msgid "Full HD standard skin"
+msgstr ""
+
+#: ../plugin/Yamp.py:2830
+msgid "G e n r e s"
+msgstr ""
+
+#: ../plugin/YampConfig.py:254
+msgid "Gap reduction (1/10 seconds, 0 = off)"
+msgstr ""
+
+#: ../plugin/Yamp.py:2998
+#, python-format
+msgid "Genres (%d)"
+msgstr ""
+
+#: ../plugin/YampConfig.py:273
+msgid "Google cover auto save in title directory"
+msgstr ""
+
+#: ../plugin/YampConfig.py:271
+msgid "Google cover search for videos"
+msgstr ""
+
+#: ../plugin/YampHelp.py:75
+msgid "Hints"
+msgstr ""
+
+#: ../plugin/YampConfig.py:314
+msgid "Include subdirs in slideshow (custom or artwork) directory"
+msgstr ""
+
+#: ../plugin/YampConfig.py:397
+msgid "Insert Blank Video after Video"
+msgstr ""
+
+#: ../plugin/Yamp.py:731
+msgid "Insert into playlist and play"
+msgstr ""
+
+#: ../plugin/YampConfig.py:1189
+msgid "Invalid Location"
+msgstr ""
+
+#: ../plugin/Yamp.py:753
+msgid "Jump back to current playing song"
+msgstr ""
+
+#: ../plugin/Yamp.py:4281 ../plugin/Yamp.py:4286 ../plugin/Yamp.py:4290
+#: ../plugin/Yamp.py:4294 ../plugin/Yamp.py:4298 ../plugin/Yamp.py:4304
+msgid "Jump to entry"
+msgstr ""
+
+#: ../plugin/YampConfig.py:312
+msgid "Key <Audio> adjustment is reset at end of song"
+msgstr ""
+
+#: ../plugin/YampConfig.py:242
+msgid "Layout for display of >next song<"
+msgstr ""
+
+#: ../plugin/YampConfig.py:230
+msgid "Layout of Title of Filelist"
+msgstr ""
+
+#: ../plugin/YampConfig.py:374
+msgid "Line number for scrolling (this line stays selected)"
+msgstr ""
+
+#: ../plugin/myFileList.py:249 ../plugin/myFileList.py:469
+msgid "List of Storage Devices"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:936
+msgid ""
+"Lyrics  have been changed\n"
+"Do yo want to save before exit?"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:128
+msgid "Lyrics / Karaoke timestamp edit options"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:978
+msgid ""
+"Lyrics Edit / Karaoke Timestamp Offset\n"
+"\n"
+"Hint: You may try and test as much as you want, changes will be active 'on the fly' immediately, including offset in Karaoke Timestamp.\n"
+"\n"
+"You will be asked before the file with any changes will be saved.\n"
+"\n"
+"The different edit options also are described in the Help screen, Page 11. Reminder: Help Screen: INFO/EPG LONG\n"
+"\n"
+"Do you want to deactivate this message for the current session?"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:982 ../plugin/YampLyrics.py:986
+msgid "Lyrics Editor / Karaoke Timestamp Offset"
+msgstr ""
+
+#: ../plugin/YampConfig.py:280
+msgid "Lyrics Search priority 1 (highest)"
+msgstr ""
+
+#: ../plugin/YampConfig.py:282
+msgid "Lyrics Search priority 2"
+msgstr ""
+
+#: ../plugin/YampConfig.py:284
+msgid "Lyrics Search priority 3"
+msgstr ""
+
+#: ../plugin/YampConfig.py:286
+msgid "Lyrics Search priority 4 (lowest)"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:426
+msgid "Lyrics for this title not found on chartlyrics.com"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:756
+msgid ""
+"Lyrics have been changed\n"
+"Do yo want to save the lyrics file?"
+msgstr ""
+
+#: ../plugin/YampConfig.py:380
+msgid "Lyrics line max display time (seconds, 0 = no limit)"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:637
+#, python-format
+msgid "Lyrics saved to %s"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:836
+#, python-format
+msgid ""
+"Lyrics-file\n"
+"\n"
+"%s\n"
+"\n"
+"existing already.\n"
+"\n"
+"Do you really want to overwrite ?"
+msgstr ""
+
+#: ../plugin/Yamp.py:1086
+msgid "M u s i c  D a t a b a s e"
+msgstr ""
+
+#: ../plugin/Yamp.py:2372
+msgid "M u s i c  F i l e s"
+msgstr ""
+
+#: ../plugin/YampConfig.py:324
+#, python-format
+msgid "Manual activate/deactivate Screensaver by <%s> Button"
+msgstr ""
+
+#: ../plugin/YampConfig.py:326
+msgid "Max. Screensaver Off-Time manual (seconds, 0=unlimited)"
+msgstr ""
+
+#: ../plugin/YampConfig.py:339
+msgid "Max. display time \"Cover Scroll\" seconds, 0=off)"
+msgstr ""
+
+#: ../plugin/Yamp.py:5945 ../plugin/Yamp.py:6024
+msgid ""
+"MbID\n"
+" download failed"
+msgstr ""
+
+#: ../plugin/Yamp.py:5940
+msgid ""
+"MbID\n"
+" not found"
+msgstr ""
+
+#: ../plugin/YampConfig.py:372
+msgid "Min. number of lines for scrolling text"
+msgstr ""
+
+#: ../plugin/YampConfig.py:689
+msgid "Misc. basic and debug settings"
+msgstr ""
+
+#: ../plugin/YampConfig.py:414
+msgid "Mode of box display used"
+msgstr ""
+
+#: ../plugin/YampConfig.py:481
+msgid ""
+"More help is available at\n"
+"\n"
+"www.vuplus-support.org/wbb4\n"
+" and\n"
+"board.newnigma2.to/wbb4/\n"
+"\n"
+"just search for Yamp.\n"
+"\n"
+"A manual is available there for download also, and Frequently Asked Questions (FAQ).\n"
+"Please use it. :-)\n"
+"\n"
+"Have fun!\n"
+"\n"
+"@AlfredENeumann & @ekremtt"
+msgstr ""
+
+#: ../plugin/Yamp.py:2348
+#, python-format
+msgid ""
+"Move Entry Down\n"
+"Move Entry Down by %d"
+msgstr ""
+
+#: ../plugin/Yamp.py:2345
+#, python-format
+msgid ""
+"Move Entry Up\n"
+"Move Entry Up by %d"
+msgstr ""
+
+#: ../plugin/Yamp.py:746
+msgid "Move to end of list"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:135
+msgid "Move to first line"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:136
+msgid "Move to last line"
+msgstr ""
+
+#: ../plugin/Yamp.py:745
+msgid "Move to start of list"
+msgstr ""
+
+#: ../plugin/Yamp.py:2376
+msgid "Music Files"
+msgstr ""
+
+#: ../plugin/plugin.py:36
+msgid "Music Player with Artist-Art Background"
+msgstr ""
+
+#: ../plugin/Yamp.py:5937 ../plugin/Yamp.py:5946
+#, python-format
+msgid ""
+"Music-Brainz ID for Artist %s not found,\n"
+"online search for artist-art at fanart.tv not possible"
+msgstr ""
+
+#: ../plugin/YampConfig.py:301
+msgid "Musicbrainz Artist identification min score"
+msgstr ""
+
+#: ../plugin/YampConfig.py:299
+msgid "Musicbrainz-Artist-ID (MbId) search mode"
+msgstr ""
+
+#: ../plugin/Yamp.py:639 ../plugin/YampVideoSpecial.py:92
+msgid "Next Song"
+msgstr ""
+
+#: ../plugin/Yamp.py:739
+msgid "Next page"
+msgstr ""
+
+#: ../plugin/Yamp.py:3075
+msgid "No Year in Database, see Documentation"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:963
+msgid "No time data in lyrics, no time offset option"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:352
+msgid "Not found on azlyrics. Answer from Server: "
+msgstr ""
+
+#: ../plugin/Yamp.py:6563
+msgid "OK"
+msgstr ""
+
+#: ../plugin/YampConfig.py:378
+msgid "Offset for lyrics display while playing (milliseconds)"
+msgstr ""
+
+#: ../plugin/YampConfig.py:376
+msgid "Offset for time stamp in lyrics edit (milliseconds)"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:968
+msgid "Offset for timestamp  (text earlier) :  -"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:967
+msgid "Offset for timestamp (text later)     :   "
+msgstr ""
+
+#: ../plugin/Yamp.py:730
+msgid "Open dir, append to playlist | Play title, toggle screensaver"
+msgstr ""
+
+#: ../plugin/YampConfig.py:625
+msgid "Options for Lyrics Display in Lyrics screen and Karaoke-Line in Screensaver screen"
+msgstr ""
+
+#: ../plugin/YampConfig.py:562
+msgid ""
+"Options for the Artist-Art and MusicBrainz-ID (MbID) - Search. Only active when Database is used\n"
+"\n"
+"\n"
+"Hint: Whenever <Yamp-Directory> is mentioned, this means\n"
+"\n"
+"/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer"
+msgstr ""
+
+#: ../plugin/YampConfig.py:656
+msgid ""
+"Options for the Box-Display.\n"
+"\n"
+"The display should NOT be skinned in the used box-skin; otherwise the settings here will NOT have any effect!\n"
+"\n"
+"Many settings here will change the files YampLCD.xml and/or YampLcdRunning.xml in the used Yamp-Skin-directory!\n"
+"\n"
+"If you do not want this, you have to use <custom size> for the display.\n"
+"\n"
+"Otherwise (you do not want to edit the xml-files manualy): Please select first the size of the display, this will activate many other options"
+msgstr ""
+
+#: ../plugin/YampConfig.py:532
+msgid "Options for the Cover Search and Cover Saving"
+msgstr ""
+
+#: ../plugin/YampConfig.py:549
+msgid "Options for the Lyrics Search and Lyrics Saving"
+msgstr ""
+
+#: ../plugin/YampConfig.py:641
+msgid "Options for the Playback of Music-Videoclips"
+msgstr ""
+
+#: ../plugin/YampConfig.py:573
+msgid "Options for the Screensaver"
+msgstr ""
+
+#: ../plugin/YampConfig.py:502
+msgid "Options for the display and behaviour of Filelist/Database list / Playlist"
+msgstr ""
+
+#: ../plugin/Yamp.py:631
+msgid "P l a y l i s t"
+msgstr ""
+
+#: ../plugin/Yamp.py:5301
+msgid "PL: "
+msgstr ""
+
+#: ../plugin/YampFileList.py:54 ../plugin/myFileList.py:251
+#: ../plugin/myFileList.py:471
+msgid "Parent Directory"
+msgstr ""
+
+#: ../plugin/Yamp.py:224
+msgid "Path Only"
+msgstr ""
+
+#: ../plugin/Yamp.py:744
+msgid "Pause/resume screensaver slideshow"
+msgstr ""
+
+#: ../plugin/Yamp.py:732 ../plugin/YampLyrics.py:130
+msgid "Pause/resume title"
+msgstr ""
+
+#: ../plugin/Yamp.py:737 ../plugin/YampLyrics.py:133
+msgid "Play next title"
+msgstr ""
+
+#: ../plugin/Yamp.py:736 ../plugin/YampLyrics.py:132
+msgid "Play previous title"
+msgstr ""
+
+#: ../plugin/Yamp.py:4313
+msgid "Playlist actions"
+msgstr ""
+
+#: ../plugin/YampConfig.py:337
+msgid "Playlist entry move multiple lines"
+msgstr ""
+
+#: ../plugin/YampConfig.py:240
+msgid "Playlist layout"
+msgstr ""
+
+#: ../plugin/Yamp.py:3379 ../plugin/Yamp.py:3407
+#, python-format
+msgid "Playlist saved as %s"
+msgstr ""
+
+#: ../plugin/Yamp.py:3377 ../plugin/Yamp.py:3405
+#, python-format
+msgid "Playlist saving as %s failed"
+msgstr ""
+
+#: ../plugin/Yamp.py:2971
+#, python-format
+msgid "Playlists (%d)"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:994
+msgid "Please enter timestamp offset value in milliseconds"
+msgstr ""
+
+#: ../plugin/Yamp.py:6399
+msgid "Press OK to close."
+msgstr ""
+
+#: ../plugin/Yamp.py:738
+msgid "Previous page"
+msgstr ""
+
+#: ../plugin/Yamp.py:6402
+msgid "Process aborted."
+msgstr ""
+
+#: ../plugin/Yamp.py:6404
+msgid "Process finished."
+msgstr ""
+
+#: ../plugin/Yamp.py:396
+msgid "Radio PL endless, RadioLong shuffle"
+msgstr ""
+
+#: ../plugin/Yamp.py:395
+msgid "Radio shuffle, RadioLong PL endless"
+msgstr ""
+
+#: ../plugin/YampConfig.py:234
+msgid "Reduce number of artists by ignoring everything beginning with 'feat'"
+msgstr ""
+
+#: ../plugin/YampConfig.py:246
+msgid "Remember playlist on exit"
+msgstr ""
+
+#: ../plugin/YampConfig.py:248
+msgid "Repeat playlist at end"
+msgstr ""
+
+#: ../plugin/Yamp.py:459
+msgid "Running Text (graphical)"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:1100
+msgid "Save"
+msgstr ""
+
+#: ../plugin/Yamp.py:2349
+msgid ""
+"Save Cover\n"
+"Save Album Cover"
+msgstr ""
+
+#: ../plugin/Yamp.py:4253
+msgid "Save Playlist e2pls"
+msgstr ""
+
+#: ../plugin/Yamp.py:4255
+msgid "Save Playlist e2pls + m3u"
+msgstr ""
+
+#: ../plugin/Yamp.py:4254
+msgid "Save Playlist m3u"
+msgstr ""
+
+#: ../plugin/YampConfig.py:213
+msgid "Save filebrowser directory on exit"
+msgstr ""
+
+#: ../plugin/Yamp.py:1464
+msgid "Saving albumcover failed"
+msgstr ""
+
+#: ../plugin/Yamp.py:1362
+msgid "Saving cover failed"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:640
+#, python-format
+msgid "Saving lyrics %s failed"
+msgstr ""
+
+#: ../plugin/YampConfig.py:322
+msgid "Screensaver in dblist/filelist"
+msgstr ""
+
+#: ../plugin/YampConfig.py:310
+msgid "Screensaver pictures in background (Info-Bar visible)"
+msgstr ""
+
+#: ../plugin/YampConfig.py:221
+msgid "Screensaver slideshow directory"
+msgstr ""
+
+#: ../plugin/Yamp.py:754
+msgid "Screensaver: Blacklist current picture (don't show again)"
+msgstr ""
+
+#: ../plugin/Yamp.py:4271 ../plugin/Yamp.py:4285
+msgid "Search albums"
+msgstr ""
+
+#: ../plugin/Yamp.py:4268 ../plugin/Yamp.py:4280
+msgid "Search artists"
+msgstr ""
+
+#: ../plugin/Yamp.py:4245
+msgid "Search current album"
+msgstr ""
+
+#: ../plugin/Yamp.py:4243
+msgid "Search current artist"
+msgstr ""
+
+#: ../plugin/Yamp.py:4241
+msgid "Search current title"
+msgstr ""
+
+#: ../plugin/Yamp.py:4278 ../plugin/Yamp.py:4293
+msgid "Search dates"
+msgstr ""
+
+#: ../plugin/Yamp.py:4259
+msgid "Search filename"
+msgstr ""
+
+#: ../plugin/Yamp.py:4274 ../plugin/Yamp.py:4303
+msgid "Search files"
+msgstr ""
+
+#: ../plugin/Yamp.py:4276 ../plugin/Yamp.py:4289
+msgid "Search genres"
+msgstr ""
+
+#: ../plugin/Yamp.py:4239
+msgid "Search in Playlist"
+msgstr ""
+
+#: ../plugin/Yamp.py:4258
+msgid "Search path"
+msgstr ""
+
+#: ../plugin/Yamp.py:4256
+msgid "Search path/filename of current title"
+msgstr ""
+
+#: ../plugin/Yamp.py:4266 ../plugin/Yamp.py:4297
+msgid "Search playlists"
+msgstr ""
+
+#: ../plugin/Yamp.py:4273 ../plugin/Yamp.py:4302
+msgid "Search titles"
+msgstr ""
+
+#: ../plugin/Yamp.py:5584 ../plugin/Yamp.py:5598 ../plugin/Yamp.py:5612
+#: ../plugin/Yamp.py:5626 ../plugin/Yamp.py:5654
+#, python-format
+msgid "Search: %s"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:966
+msgid "Set time stamp offset value for all times in file"
+msgstr ""
+
+#: ../plugin/Yamp.py:6286
+#, python-format
+msgid "Several Artists %s found at musicbrainz.org, please select Artist"
+msgstr ""
+
+#: ../plugin/Yamp.py:2339
+msgid "Show Album"
+msgstr ""
+
+#: ../plugin/Yamp.py:2335
+msgid ""
+"Show Album\n"
+"Show Artist"
+msgstr ""
+
+#: ../plugin/Yamp.py:2337
+msgid "Show Albums"
+msgstr ""
+
+#: ../plugin/Yamp.py:2341
+msgid "Show Artist"
+msgstr ""
+
+#: ../plugin/YampConfig.py:365
+msgid "Show TV during Yamp"
+msgstr ""
+
+#: ../plugin/Yamp.py:743
+msgid "Show Yamp Help Screen"
+msgstr ""
+
+#: ../plugin/YampConfig.py:355
+msgid "Show Yamp Help on Start (always with INFO LONG)"
+msgstr ""
+
+#: ../plugin/YampConfig.py:328
+msgid "Show background in Info-Bar (visibility)"
+msgstr ""
+
+#: ../plugin/YampConfig.py:393
+msgid "Show clock while Video is running"
+msgstr ""
+
+#: ../plugin/YampConfig.py:330
+msgid "Show clock while screensaver active"
+msgstr ""
+
+#: ../plugin/Yamp.py:735
+msgid "Show context menu"
+msgstr ""
+
+#: ../plugin/YampConfig.py:341
+msgid "Show file icons in filelist"
+msgstr ""
+
+#: ../plugin/YampConfig.py:343
+msgid "Show file icons in playlist"
+msgstr ""
+
+#: ../plugin/Yamp.py:742
+msgid "Show lyrics"
+msgstr ""
+
+#: ../plugin/Yamp.py:4301
+msgid "Show similar titles"
+msgstr ""
+
+#: ../plugin/Yamp.py:752
+msgid "Show/hide Big Lyrics Line (Karaoke)"
+msgstr ""
+
+#: ../plugin/Yamp.py:751
+msgid "Show/hide Lyrics Line "
+msgstr ""
+
+#: ../plugin/YampConfig.py:413
+msgid "Size of box display used"
+msgstr ""
+
+#: ../plugin/Yamp.py:4484
+msgid "Skin"
+msgstr ""
+
+#: ../plugin/YampConfig.py:160
+#, python-format
+msgid ""
+"Skin <%s> not possible, as\n"
+"\n"
+"%s\n"
+"\n"
+"(and maybe more) is missing\n"
+"\n"
+"Skin is disabled now! To enable it again, Yamp has to be restarted"
+msgstr ""
+
+#: ../plugin/Yamp.py:2876
+#, python-format
+msgid ""
+"Skin changed to\n"
+"\n"
+"<%s>,  as\n"
+"\n"
+"%s\n"
+"\n"
+"(and maybe more) not existing"
+msgstr ""
+
+#: ../plugin/Yamp.py:1378
+msgid "Slide is the last slide and can not be removed"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:236
+msgid "Sorry, (still) no lyrics found"
+msgstr ""
+
+#: ../plugin/Yamp.py:4250
+msgid "Sort Playlist A-Z"
+msgstr ""
+
+#: ../plugin/Yamp.py:4252
+msgid "Sort Playlist Z-A"
+msgstr ""
+
+#: ../plugin/YampConfig.py:320
+msgid "Sorting of screensaver pictures"
+msgstr ""
+
+#: ../plugin/Yamp.py:345
+msgid "Standard Screensaver"
+msgstr ""
+
+#: ../plugin/Yamp.py:181 ../plugin/Yamp.py:190
+msgid "Standard skin (HD)"
+msgstr ""
+
+#: ../plugin/Yamp.py:182 ../plugin/Yamp.py:191
+msgid "Standard skin (HD) with Video Preview"
+msgstr ""
+
+#: ../plugin/Yamp.py:176
+msgid "Standard skin HD"
+msgstr ""
+
+#: ../plugin/Yamp.py:176
+msgid "Standard skin HD with Video Preview"
+msgstr ""
+
+#: ../plugin/YampConfig.py:238
+msgid "Standardize title and artist names"
+msgstr ""
+
+#: ../plugin/YampConfig.py:252
+msgid "Start playing immediate (if playlist exists)"
+msgstr ""
+
+#: ../plugin/Yamp.py:733 ../plugin/YampLyrics.py:131
+msgid "Stop title"
+msgstr ""
+
+#: ../plugin/Yamp.py:741
+msgid "Switch to filelist/database, Screensaver: previous slide"
+msgstr ""
+
+#: ../plugin/Yamp.py:740
+msgid "Switch to playlist, Screensaver: next slide"
+msgstr ""
+
+#: ../plugin/Yamp.py:2828
+msgid "T i t l e s"
+msgstr ""
+
+#: ../plugin/YampConfig.py:418
+msgid "Text horiz. alignment line(s) 1(..3)"
+msgstr ""
+
+#: ../plugin/YampConfig.py:417
+msgid "Text length line(s) 1(..3)"
+msgstr ""
+
+#: ../plugin/Yamp.py:2919
+msgid "There was an error when upgrading the Database to V3.3.1 (or database not existing). To get all advantages from the new DB options, think about deleting the database and rebuild it by re-inserting all files..."
+msgstr ""
+
+#: ../plugin/Yamp.py:1962 ../plugin/Yamp.py:1968
+#, python-format
+msgid "This Box can't decode %s streams!"
+msgstr ""
+
+#: ../plugin/Yamp.py:2884
+msgid ""
+"This custom skin most likely has been copied from an old version, and probably is not up-to-date.\n"
+"\n"
+"It is recommended to switch to a standard skin and check and revise the custom skin (compare it with the according standard skin)!"
+msgstr ""
+
+#: ../plugin/YampConfig.py:166
+msgid ""
+"This custom skin most likely has been copied from an old version, and probably is not up-to-date.\n"
+"\n"
+"It is recommended to switch to a standard skin and check and revise the custom skin (compare it with the accordingstandard skin)!"
+msgstr ""
+
+#: ../plugin/plugin.py:42
+msgid "This plugin needs a HD or FHD skin"
+msgstr ""
+
+#: ../plugin/Yamp.py:256 ../plugin/Yamp.py:269
+msgid "Title"
+msgstr ""
+
+#: ../plugin/Yamp.py:266
+msgid "Title - Album"
+msgstr ""
+
+#: ../plugin/Yamp.py:262
+msgid "Title - Album - Artist"
+msgstr ""
+
+#: ../plugin/Yamp.py:265
+msgid "Title - Artist"
+msgstr ""
+
+#: ../plugin/Yamp.py:261
+msgid "Title - Artist - Album"
+msgstr ""
+
+#: ../plugin/Yamp.py:223
+msgid "Title Only"
+msgstr ""
+
+#: ../plugin/Yamp.py:257
+msgid "Title and Artist"
+msgstr ""
+
+#: ../plugin/Yamp.py:225
+msgid "Title and Path"
+msgstr ""
+
+#: ../plugin/YampConfig.py:236
+msgid "Title only once in artist/genre selection"
+msgstr ""
+
+#: ../plugin/Yamp.py:2994
+#, python-format
+msgid "Titles (%d)"
+msgstr ""
+
+#: ../plugin/Yamp.py:747
+msgid "Toggle repeat"
+msgstr ""
+
+#: ../plugin/Yamp.py:748
+msgid "Toggle shuffle"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:106
+msgid "Track-No"
+msgstr ""
+
+#: ../plugin/Yamp.py:394
+msgid "Tv PL endless, TvLong shuffle"
+msgstr ""
+
+#: ../plugin/Yamp.py:393
+msgid "Tv shuffle, TvLong PL endless"
+msgstr ""
+
+#: ../plugin/YampConfig.py:308
+msgid "Type of screensaver"
+msgstr ""
+
+#: ../plugin/Yamp.py:4248
+msgid "Unsort Playlist"
+msgstr ""
+
+#: ../plugin/YampConfig.py:217
+msgid "Use single directory for lyrics"
+msgstr ""
+
+#: ../plugin/YampHelp.py:72
+msgid ""
+"Version News\n"
+"LONG: First Page"
+msgstr ""
+
+#: ../plugin/YampConfig.py:316
+msgid "Wait for screensaver (seconds, 0 = off)"
+msgstr ""
+
+#: ../plugin/YampConfig.py:318
+msgid "Wait-time for next screensaver slide (seconds)"
+msgstr ""
+
+#: ../plugin/Yamp.py:413
+msgid "With picture always"
+msgstr ""
+
+#: ../plugin/Yamp.py:411
+msgid "With picture on Start only"
+msgstr ""
+
+#: ../plugin/Yamp.py:5688
+msgid "YAMP - Jump to letter(s):"
+msgstr ""
+
+#: ../plugin/Yamp.py:3355
+msgid "YAMP - Please enter filename:"
+msgstr ""
+
+#: ../plugin/Yamp.py:3343 ../plugin/Yamp.py:5349 ../plugin/Yamp.py:5353
+#: ../plugin/Yamp.py:5576 ../plugin/Yamp.py:5591 ../plugin/Yamp.py:5605
+#: ../plugin/Yamp.py:5619 ../plugin/Yamp.py:5647
+msgid "YAMP - Please enter query:"
+msgstr ""
+
+#: ../plugin/YampHelp.py:153
+msgid "YAMP Help Page "
+msgstr ""
+
+#: ../plugin/plugin.py:35
+msgid "YAMP Music Player"
+msgstr ""
+
+#: ../plugin/Yamp.py:6475
+msgid "YAMP Music Player - Add directory incl. Subdirs to Database"
+msgstr ""
+
+#: ../plugin/Yamp.py:6477
+msgid "YAMP Music Player - Add directory to Database"
+msgstr ""
+
+#: ../plugin/Yamp.py:6479
+msgid "YAMP Music Player - Database Actions"
+msgstr ""
+
+#: ../plugin/YampConfig.py:1130
+#, python-format
+msgid "YAMP Music Player - Select Path for %s"
+msgstr ""
+
+#: ../plugin/YampConfig.py:72
+msgid "YAMP Music Player Configuration"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:90
+msgid "YAMP Music Player Lyrics"
+msgstr ""
+
+#: ../plugin/Yamp.py:5633
+msgid "YAMP album search - Please enter query:"
+msgstr ""
+
+#: ../plugin/YampConfig.py:209
+msgid "YAMP database directory"
+msgstr ""
+
+#: ../plugin/YampConfig.py:459
+msgid "YAMP in extended plugin list"
+msgstr ""
+
+#: ../plugin/YampConfig.py:461
+msgid "YAMP in main menu"
+msgstr ""
+
+#: ../plugin/YampConfig.py:207
+msgid "YAMP skin (restart required)"
+msgstr ""
+
+#: ../plugin/YampHelp.py:73
+msgid "Yamp First Steps"
+msgstr ""
+
+#: ../plugin/YampBoxDisplay.py:45
+#, python-format
+msgid "YampLCDRunningScreenV33: Failed to open/read %s"
+msgstr ""
+
+#: ../plugin/YampBoxDisplay.py:80
+#, python-format
+msgid "YampLCDScreenV33: Failed to open/read %s"
+msgstr ""
+
+#: ../plugin/Yamp.py:3005
+#, python-format
+msgid "Years (%d)"
+msgstr ""
+
+#: ../plugin/Yamp.py:3011
+msgid "[back]"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:956
+msgid "activate edit mode (empty lines also accessible)"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:958
+msgid "add line after current "
+msgstr ""
+
+#: ../plugin/Yamp.py:6445
+#, python-format
+msgid ""
+"added to database (%d)\n"
+"\n"
+"actualized in database (%d)\n"
+"\n"
+"already exists in database (%d)"
+msgstr ""
+
+#: ../plugin/Yamp.py:5640
+#, python-format
+msgid "album search: %s"
+msgstr ""
+
+#: ../plugin/Yamp.py:169 ../plugin/Yamp.py:507
+msgid "all"
+msgstr ""
+
+#: ../plugin/Yamp.py:482
+msgid "black & white"
+msgstr ""
+
+#: ../plugin/Yamp.py:483
+msgid "black & white transparent"
+msgstr ""
+
+#: ../plugin/Yamp.py:2107
+msgid "blacklist file could not be saved"
+msgstr ""
+
+#: ../plugin/Yamp.py:275
+msgid "blank - dot - blank: < . >"
+msgstr ""
+
+#: ../plugin/Yamp.py:274
+msgid "blank - minus - blank: < - >"
+msgstr ""
+
+#: ../plugin/Yamp.py:146
+msgid "blue"
+msgstr ""
+
+#: ../plugin/Yamp.py:495
+msgid "bottom"
+msgstr ""
+
+#: ../plugin/Yamp.py:472 ../plugin/Yamp.py:489 ../plugin/Yamp.py:494
+msgid "center"
+msgstr ""
+
+#: ../plugin/Yamp.py:370 ../plugin/Yamp.py:443
+msgid "clock and date"
+msgstr ""
+
+#: ../plugin/Yamp.py:371 ../plugin/Yamp.py:444
+msgid "clock and date with background"
+msgstr ""
+
+#: ../plugin/Yamp.py:366 ../plugin/Yamp.py:439
+msgid "clock only"
+msgstr ""
+
+#: ../plugin/Yamp.py:367 ../plugin/Yamp.py:440
+msgid "clock with background"
+msgstr ""
+
+#: ../plugin/Yamp.py:484
+msgid "color"
+msgstr ""
+
+#: ../plugin/Yamp.py:485
+msgid "color transparent"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:959
+msgid "copy line "
+msgstr ""
+
+#: ../plugin/Yamp.py:466
+msgid "custom"
+msgstr ""
+
+#: ../plugin/Yamp.py:153
+msgid "cyan"
+msgstr ""
+
+#: ../plugin/Yamp.py:5283 ../plugin/YampConfig.py:885
+msgid "database"
+msgstr ""
+
+#: ../plugin/Yamp.py:368 ../plugin/Yamp.py:441
+msgid "date only"
+msgstr ""
+
+#: ../plugin/Yamp.py:369 ../plugin/Yamp.py:442
+msgid "date with background"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:954
+msgid "deactivate edit mode (scroll over empty lines)"
+msgstr ""
+
+#: ../plugin/YampConfig.py:897
+msgid "debug files"
+msgstr ""
+
+#: ../plugin/YampConfig.py:540
+msgid "default: off"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:961
+msgid "delete selected line"
+msgstr ""
+
+#: ../plugin/Yamp.py:456
+msgid "display cover (graphical)"
+msgstr ""
+
+#: ../plugin/Yamp.py:457
+msgid "display cover (graphical) + 1 line text"
+msgstr ""
+
+#: ../plugin/Yamp.py:458
+msgid "display cover (graphical) + 3 lines text"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:957
+msgid "edit selected line "
+msgstr ""
+
+#: ../plugin/YampConfig.py:566
+msgid ""
+"enter key:\n"
+"\n"
+" Personal api key for fanart.tv is available for free at fanart.tv.\n"
+"\n"
+"Faster download if you have a personal api key.\n"
+"\n"
+"key may be also entered by providing it in the file\n"
+"<YampFanarttvPersonalApi.key>\n"
+"in the Yamp-Directory. The file is existing after installation with a (useless) dummy-key"
+msgstr ""
+
+#: ../plugin/YampConfig.py:570
+msgid ""
+"enter number:\n"
+"\n"
+" Searching for MbID for artists often leads to more than 1 result.\n"
+"\n"
+" With the min-score you define how exact the result should be. \n"
+"\n"
+"Lower numbers leads to more findings, higher numbers might not find the artist. Default: 90.\n"
+"\n"
+"See also on musicbrainz online page\n"
+"\n"
+"Range: 1 .. 100, default: 95"
+msgstr ""
+
+#: ../plugin/YampConfig.py:529
+msgid ""
+"enter number:\n"
+"\n"
+" Try to narrow the gap between songs, given in 1/10 seconds.\n"
+"\n"
+"Not being perfect, this may improve the playback of live albums.\n"
+"The next song is started the number of 1/10 seconds before the end of the current song\n"
+"\n"
+"Example: Value = 25: Next song will start 2.5 seconds before the end of the current song.\n"
+"\n"
+"Range: 0 .. 100 = 0 .. 10 Seconds\n"
+"default: 0"
+msgstr ""
+
+#: ../plugin/YampConfig.py:636
+msgid ""
+"enter number:\n"
+"\n"
+"'Karaoke Light': Lyrics line when screensaver is active.\n"
+"activate/deactivate with <Text (L)>, see manual.\n"
+"\n"
+"This is the maximum time, a karaoke line will be displayed on the screen.\n"
+"\n"
+"helpful, when there is a long instrumental passage with no text\n"
+"\n"
+"Range: 0 .. 600, default: 10"
+msgstr ""
+
+#: ../plugin/YampConfig.py:662
+msgid ""
+"enter number:\n"
+"\n"
+"Fontsize of the text line(s) 1(..3).\n"
+"\n"
+"Range: 10 .. 200, default: 32"
+msgstr ""
+
+#: ../plugin/YampConfig.py:664
+msgid ""
+"enter number:\n"
+"\n"
+"Text length for the text line(s) 1(..3).\n"
+"\n"
+"Specially helpful if you use a display mode with cover display - so you are able to choose if the text is only outside the cover or overlapping.\n"
+"\n"
+"Range: 10 .. 999, default: 160"
+msgstr ""
+
+#: ../plugin/YampConfig.py:583
+msgid ""
+"enter number:\n"
+"\n"
+"after starting a song from playlist, wait this number of seconds before starting screensaver.\n"
+"\n"
+"0: disable screensaver\n"
+"\n"
+"Range: 0 .. 600, default: 10"
+msgstr ""
+
+#: ../plugin/YampConfig.py:585
+msgid ""
+"enter number:\n"
+"\n"
+"change screensaver pictures all x seconds\n"
+"\n"
+"do not adjust a too short time, specially on slow machines\n"
+"\n"
+"Hint: additionally, you can switch to another picture anytime manually with the left/right-keys\n"
+"\n"
+"Range: 5 .. 99, default: 10"
+msgstr ""
+
+#: ../plugin/YampConfig.py:668
+msgid ""
+"enter number:\n"
+"\n"
+"font size of Running Text\n"
+"\n"
+"Range: 1 .. 500, default: 32"
+msgstr ""
+
+#: ../plugin/YampConfig.py:593
+#, python-format
+msgid ""
+"enter number:\n"
+"\n"
+"if screensaver has been deactivated by pressing <%s>-key, it will be reactivated after this time\n"
+"\n"
+"Range: 0 .. 1.200, default: 600"
+msgstr ""
+
+#: ../plugin/YampConfig.py:627
+msgid ""
+"enter number:\n"
+"\n"
+"if the line number in lyrics screen is less than this number, no scrolling will occur\n"
+"\n"
+"Range: 0 .. 100, default: 20"
+msgstr ""
+
+#: ../plugin/YampConfig.py:653
+msgid ""
+"enter number:\n"
+"\n"
+"length of the 'black' video from the setting above\n"
+"\n"
+"again: Just try.\n"
+"\n"
+"Range: 0 .. 6.000, default: 500"
+msgstr ""
+
+#: ../plugin/YampConfig.py:645
+msgid ""
+"enter number:\n"
+"\n"
+"show the Info-Bar in Fullscreen-Video for this time, then hide it\n"
+"\n"
+"0: Info-Bar off on Video\n"
+"10.000: On during complete clip\n"
+"\n"
+"Range: 0 .. 10.000, default: 10"
+msgstr ""
+
+#: ../plugin/YampConfig.py:679
+msgid ""
+"enter number:\n"
+"\n"
+"size of the cover in box-display\n"
+"\n"
+"Range: 10 .. 999, default: 60"
+msgstr ""
+
+#: ../plugin/YampConfig.py:631
+msgid ""
+"enter number:\n"
+"\n"
+"when editing the time stamp in lyrics screen, the stored time will be earlier this number of milliseconds than the time the ok key is pressed (correction of reaction time)\n"
+"\n"
+"Range: 0 .. 5.000, default: 1.000"
+msgstr ""
+
+#: ../plugin/YampConfig.py:633
+msgid ""
+"enter number:\n"
+"\n"
+"when playing, the display of the current line in lyrics screen or the karaoke-line will be offset by this time.\n"
+"\n"
+"specially helpful when using .lrc-files with a fixed offset\n"
+"\n"
+"Remark: as the remote does not have a Minus-key: Use yellow key to switch between + and -\n"
+"\n"
+"Range: -10.000 .. 10.000, default: 0"
+msgstr ""
+
+#: ../plugin/YampConfig.py:604
+msgid ""
+"enter number:\n"
+"\n"
+"when scrolling in the filelist, database or playlist, the cover (and the according information) of the selected song may be displayed. After this time it will display the actual cover and info again.\n"
+"\n"
+"May cause performance problems on slow machines\n"
+"\n"
+"0: 'Scroll Cover' display disabled\n"
+"\n"
+"Range: 0 .. 600, default: 10"
+msgstr ""
+
+#: ../plugin/YampConfig.py:629
+msgid ""
+"enter number:\n"
+"\n"
+"when scrolling through the text in lyrics screen, this line will stay selected (srolling occurs 'around' this line)\n"
+"\n"
+"Range: 1 .. 100, default: 7"
+msgstr ""
+
+#: ../plugin/YampConfig.py:602
+msgid ""
+"enter number:\n"
+"\n"
+"with red-long and green-long entries in playlist may be moved up/down by this number of lines\n"
+"\n"
+"Range: 2 .. 50, default: 10"
+msgstr ""
+
+#: ../plugin/Yamp.py:168 ../plugin/Yamp.py:506
+msgid "errors only"
+msgstr ""
+
+#: ../plugin/Yamp.py:6130
+msgid ""
+"fanart.tv\n"
+"no picture found"
+msgstr ""
+
+#: ../plugin/YampConfig.py:297
+msgid "fanart.tv personal api key"
+msgstr ""
+
+#: ../plugin/Yamp.py:4410
+#, python-format
+msgid "file %s not existing or not reachable"
+msgstr ""
+
+#: ../plugin/Yamp.py:5280
+msgid "filelist"
+msgstr ""
+
+#: ../plugin/Yamp.py:383
+msgid "filename only"
+msgstr ""
+
+#: ../plugin/Yamp.py:384
+msgid "filename with background"
+msgstr ""
+
+#: ../plugin/YampHelp.py:89
+msgid "first page"
+msgstr ""
+
+#: ../plugin/Yamp.py:145
+msgid "green"
+msgstr ""
+
+#: ../plugin/Yamp.py:432
+msgid "immediate"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:960
+msgid "insert copied line after current "
+msgstr ""
+
+#: ../plugin/YampLyrics.py:141
+msgid "jump back in title long"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:139
+msgid "jump back in title middle"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:137
+msgid "jump back in title short"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:142
+msgid "jump forward in title long"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:140
+msgid "jump forward in title middle"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:138
+msgid "jump forward in title short"
+msgstr ""
+
+#: ../plugin/Yamp.py:471 ../plugin/Yamp.py:488
+msgid "left"
+msgstr ""
+
+#: ../plugin/YampConfig.py:478
+msgid ""
+"left-right\n"
+"\n"
+"Options should be self-explaining.\n"
+"\n"
+"Allowed file extensions: .txt, .lrc (lrc with Karaoke time stamps).\n"
+"\n"
+"Lyrics-directory depends on the setting in General Adjustments: Song directory or Common Lyrics directory\n"
+"\n"
+"The options are processed in the priority order; when Lyrics are found, no further searching in lower priorities\n"
+"\n"
+msgstr ""
+
+#: ../plugin/YampConfig.py:564
+msgid ""
+"left-right:\n"
+"\n"
+" Artist-Art-Online search is only possible if the artist is in the database.\n"
+"\n"
+"'search always' can only be selected temporary and is not saved, as Yamp could be banned at fanart.tv if traffic is too high.\n"
+"\n"
+"The every xx days period is calculated for each artist seperately.\n"
+"\n"
+"Faster download if you get a personal api key (see manual)\n"
+"recommended = default:\n"
+"search every 60 days"
+msgstr ""
+
+#: ../plugin/YampConfig.py:519
+msgid ""
+"left-right:\n"
+"\n"
+" Different options for the display of unknown elements (n/a) in info-bar.\n"
+"\n"
+"default: No change: <n/a>"
+msgstr ""
+
+#: ../plugin/YampConfig.py:517
+msgid ""
+"left-right:\n"
+"\n"
+" Different options for the layout of the information 'next song'.\n"
+"\n"
+"default: Title - Artist - Album"
+msgstr ""
+
+#: ../plugin/YampConfig.py:515
+msgid ""
+"left-right:\n"
+"\n"
+" Different options for the layout of the playlist.\n"
+"\n"
+"Attention: this setting is only used for new entries, it will not change already existing entries.\n"
+" If you want the same layout for all entries, you should not change this setting on an existing playlist.\n"
+"\n"
+"default: Title and Artist"
+msgstr ""
+
+#: ../plugin/YampConfig.py:568
+msgid ""
+"left-right:\n"
+"\n"
+" Musicbrainz-ID (MbID) for artists is needed for fanart-download at fanart.tv.\n"
+"\n"
+"Just check which setting has the best results on your machine (see manual)\n"
+"\n"
+"default: standard..."
+msgstr ""
+
+#: ../plugin/YampConfig.py:595
+msgid ""
+"left-right:\n"
+"\n"
+" On: Black background for Info-Bar while screensaver is active (better readability)\n"
+"\n"
+" Off: no background, picture visibility better\n"
+"\n"
+"default: On"
+msgstr ""
+
+#: ../plugin/YampConfig.py:614
+msgid ""
+"left-right:\n"
+"\n"
+" On: Exit button jumps to upper directory in filelist/databaselist\n"
+"\n"
+" Off: Exit button only used for Exit\n"
+"\n"
+"default: On"
+msgstr ""
+
+#: ../plugin/YampConfig.py:577
+msgid ""
+"left-right:\n"
+"\n"
+" On: Info-Bar is visible while screensaver is active\n"
+"\n"
+" Off: Info-Bar is not visible (screensaver-pictures only)\n"
+"\n"
+"can be temporary changed with <Audio>-key while screensaver is active\n"
+"\n"
+"default: On"
+msgstr ""
+
+#: ../plugin/YampConfig.py:559
+msgid ""
+"left-right:\n"
+"\n"
+" On: Online found Lyrics are saved in Title-Directory or in Lyrics Directory, depending on setting under 'General Adjustments, Use single directory for lyrics'.\n"
+"\n"
+"default: Off"
+msgstr ""
+
+#: ../plugin/YampConfig.py:612
+msgid ""
+"left-right:\n"
+"\n"
+" On: The Yamp help is shown on each start of Yamp. Recommended for beginners, or, if your remote does not support INFO LONG. \n"
+"\n"
+"Off: The Yamp help is only shown only once after an update. Howewever, with INFO LONG it can be shown anytime\n"
+"\n"
+"default: On"
+msgstr ""
+
+#: ../plugin/YampConfig.py:513
+msgid ""
+"left-right:\n"
+"\n"
+" On: Titles and artists will be 'titlecased', i.e. start with an upper case letter and continuing with lower case letters. \n"
+"This is useful, when there are different spellings of the same title or artist in the ID3 tags. It works best with words in English language\n"
+"\n"
+"default: On"
+msgstr ""
+
+#: ../plugin/YampConfig.py:527
+msgid ""
+"left-right:\n"
+"\n"
+" On: Yamp begins playing immediately after start with the song last played in the playlist.\n"
+"\n"
+"default: Off"
+msgstr ""
+
+#: ../plugin/YampConfig.py:521
+msgid ""
+"left-right:\n"
+"\n"
+" On: actual playlist is temporary saved on exit and automatically reloaded on next start of Yamp. It is NOT saved as playlist file, so if you want to save it permanently, you have to save it manually (Options with key <Menu> in Playlist)\n"
+"\n"
+"Attention: Long playlists will delay the next start on slow machines.\n"
+"\n"
+"default: On"
+msgstr ""
+
+#: ../plugin/YampConfig.py:620
+msgid ""
+"left-right:\n"
+"\n"
+" On: closing Yamp has to be confirmed\n"
+"\n"
+" Off: Yamp will close without confirmation\n"
+"\n"
+"default: On"
+msgstr ""
+
+#: ../plugin/YampConfig.py:523
+msgid ""
+"left-right:\n"
+"\n"
+" On: endless playing, will start with 1st song at end of list.\n"
+" Off: playing ends at the end of the list\n"
+"\n"
+"\n"
+"Can be temporary changed anytime with <TV>-key\n"
+"\n"
+"default: On"
+msgstr ""
+
+#: ../plugin/YampConfig.py:511
+msgid ""
+"left-right:\n"
+"\n"
+" On: if there is  more than one song with the same title and artist name or title and genre name in the database, only one will be displayed in the appropriate database list\n"
+"\n"
+"default: On"
+msgstr ""
+
+#: ../plugin/YampConfig.py:525
+msgid ""
+"left-right:\n"
+"\n"
+" On: moving of titles in playlist is possible with wrap around'.\n"
+" Off: moving stops at 1st and last entry\n"
+"\n"
+"default: On"
+msgstr ""
+
+#: ../plugin/YampConfig.py:581
+msgid ""
+"left-right:\n"
+"\n"
+" On: pictures in subdirectories are also displayed, valid for custom (slideshow) and artwork\n"
+"\n"
+"default: On"
+msgstr ""
+
+#: ../plugin/YampConfig.py:591
+#, python-format
+msgid ""
+"left-right:\n"
+"\n"
+" On: screensaver may be manually activated / deactivated with <%s>-key\n"
+"\n"
+"basic condition: screensaver must not be deactivated (time = 0)\n"
+"\n"
+"default: On"
+msgstr ""
+
+#: ../plugin/YampConfig.py:579
+msgid ""
+"left-right:\n"
+"\n"
+" On: screensaver temporary switched on/off with <Audio>-key is set back to the above adjusted setting at song change\n"
+"\n"
+"default: On"
+msgstr ""
+
+#: ../plugin/YampConfig.py:589
+msgid ""
+"left-right:\n"
+"\n"
+" On: screensaver will start also when on left side (file list or database)\n"
+"\n"
+" Off: screensaver will only start when on right side (playlist)\n"
+"\n"
+"default: On"
+msgstr ""
+
+#: ../plugin/YampConfig.py:575
+msgid ""
+"left-right:\n"
+"\n"
+" Options:\n"
+"Blank screen: black screen\n"
+"\n"
+"Standard Screensaver: pictures in Yamp subdir 'saver' are displayed\n"
+"\n"
+"Custom Screensaver (Dia-Show): pictures in Screensaver slideshow directory (adjusted in General Adjustments) are displayed\n"
+"\n"
+"Artwork as Screensaver: Pictures in artwork directory, subdir <artist>, are displayed (or subdir 'Default', if no pictures exist)\n"
+"\n"
+"default: Artwork"
+msgstr ""
+
+#: ../plugin/YampConfig.py:506
+msgid ""
+"left-right:\n"
+"\n"
+" choose, if sub-directories should be excluded from scanninng into database\n"
+"\n"
+"available option entries can be changed in the file <ExcludeSubDirs.txt> in Yamp-directory\n"
+"\n"
+"sub-directories starting with selected letters will not be scanned into database\n"
+"\n"
+"a maximum of 2 sub-dirs can be excluded\n"
+"\n"
+"default: depending on your exclude file"
+msgstr ""
+
+#: ../plugin/YampConfig.py:508
+msgid ""
+"left-right:\n"
+"\n"
+" choose, if the number of artists in the DB overview should be reduced by removing all in the artist name starting with 'feat'\n"
+"\n"
+"Thus, the artist 'P!nk Feat. Scratch' (or featuring...) will be treated as 'P!nk' only\n"
+"\n"
+"in the details (and the info bar) still the full name will be visible\n"
+"\n"
+"the selection is NOT case sensitive, i.e. small or big letters are treated the same\n"
+"\n"
+"default: On"
+msgstr ""
+
+#: ../plugin/YampConfig.py:504
+msgid ""
+"left-right:\n"
+"\n"
+" choose, if the title of the filelist should include the path\n"
+"\n"
+"default: Title and Path"
+msgstr ""
+
+#: ../plugin/YampConfig.py:493
+msgid ""
+"left-right:\n"
+"\n"
+" if On, saved lyrics will be stored in the lyrics path.\n"
+"\n"
+"if Off, saved lyrics will be stored in the directory of the music file\n"
+"\n"
+"recommended: On\n"
+"\n"
+"default: On"
+msgstr ""
+
+#: ../plugin/YampConfig.py:489
+msgid ""
+"left-right:\n"
+"\n"
+" if On, start path will we overwritten with actual path on exit\n"
+"\n"
+"default: Off"
+msgstr ""
+
+#: ../plugin/YampConfig.py:546
+msgid ""
+"left-right:\n"
+"\n"
+" select option for saving online found covers in title directory, options should be self-explaining.\n"
+"\n"
+"default: Off"
+msgstr ""
+
+#: ../plugin/YampConfig.py:544
+msgid ""
+"left-right:\n"
+"\n"
+" this is adjustable, as Cover Search for Videos sometimes has strange results.\n"
+"\n"
+"default: Off"
+msgstr ""
+
+#: ../plugin/YampConfig.py:649
+msgid ""
+"left-right:\n"
+"\n"
+"Allow switching to lyrics screen while playing Video\n"
+"\n"
+"default: On"
+msgstr ""
+
+#: ../plugin/YampConfig.py:701
+msgid ""
+"left-right:\n"
+"\n"
+"Debug Mode: Standard: error only\n"
+"\n"
+"if everything is ok, you may switch to 'off'.\n"
+"\n"
+"Use 'all' or one of the 'specials' only if you are asked for it by the author\n"
+"\n"
+"default: errors only"
+msgstr ""
+
+#: ../plugin/YampConfig.py:643
+msgid ""
+"left-right:\n"
+"\n"
+"Options for starting Videoclips in FullScreen:\n"
+"\n"
+"immediate: start immediate in Fullscreen mode\n"
+"\n"
+"screensaver: start after screensaver-delay in Fullscreen mode\n"
+"\n"
+"manual: start only manually in Fullscreen mode (key ok)\n"
+"\n"
+"default: screensaver delay"
+msgstr ""
+
+#: ../plugin/YampConfig.py:660
+msgid ""
+"left-right:\n"
+"\n"
+"Options for the Box display\n"
+"\n"
+"off: no control of the display by Yamp. Useful if you use external software (LCD4linux or similar)\n"
+"\n"
+"1 line, 3 lines: 1 or 3 lines text display\n"
+"\n"
+"Running Text: Only selectable if Renderer RunningText is installed. See manual\n"
+"\n"
+"Cover with or without text.\n"
+"\n"
+"default: 3 lines display"
+msgstr ""
+
+#: ../plugin/YampConfig.py:477
+msgid ""
+"left-right:\n"
+"\n"
+"Options should be self-explaining.\n"
+"\n"
+"Allowed extensions: '.jpg', '.jpeg','.png', '.gif'\n"
+"The options are processed in the priority order; when a Cover is found, no further searching in lower priorities\n"
+"\n"
+" Google-Search does not always find pictures with good resolution, so other options are preferable.\n"
+"\n"
+msgstr ""
+
+#: ../plugin/YampConfig.py:638
+msgid ""
+"left-right:\n"
+"\n"
+"Options to select or deselect black background for karaoke-line(s).\n"
+"\n"
+"Off: picture is less 'disturbed'\n"
+"On: Karaoke-text better readable\n"
+"\n"
+"default: small and big..."
+msgstr ""
+
+#: ../plugin/YampConfig.py:658
+msgid ""
+"left-right:\n"
+"\n"
+"Resolution of the box display. Changing this setting will overwrite/limit some settings to reasonable values, you may adjust them after. It will also overwrite YampLCD.xml and YampLcdRunning.xml in the used Yamp-Skin-directory! You will be asked before.\n"
+"\n"
+"Custom: no changes are made to the xml-files, you have to edit and adjust these files manually.\n"
+"\n"
+"default: custom"
+msgstr ""
+
+#: ../plugin/YampConfig.py:622
+msgid ""
+"left-right:\n"
+"\n"
+"Select Option for TV in Yamp Video-Preview-Window\n"
+"\n"
+" on Start only means, TV stops when the first song is played \n"
+"\n"
+" always means: Tv starts on Yamp start, stops when a song is played, and resumes when no song is played\n"
+"\n"
+"default: depends on the used skin"
+msgstr ""
+
+#: ../plugin/YampConfig.py:618
+msgid ""
+"left-right:\n"
+"\n"
+"Select, if your remote has a common TV / Radio button, and how it should behave: may prevent the need to change the keymap.xml\n"
+"\n"
+"Basic: If your remote sends the TV signal with this button, use one of the TV adjustments, otherwise Radio. just try\n"
+"\n"
+"shuffle, Long PL endless: short keypess will toggle shuffle\n"
+"\n"
+"PL endless, Long shuffle: short keypress will toggle PL endless\n"
+"\n"
+"default: No"
+msgstr ""
+
+#: ../plugin/YampConfig.py:616
+msgid ""
+"left-right:\n"
+"\n"
+"Select, if your remote has a common play/pause button\n"
+"\n"
+"default: Off"
+msgstr ""
+
+#: ../plugin/YampConfig.py:705
+msgid ""
+"left-right:\n"
+"\n"
+"Switch debug mode for used memory on or off.\n"
+"\n"
+"Should never be necessary.\n"
+"\n"
+"default: Off"
+msgstr ""
+
+#: ../plugin/YampConfig.py:587
+msgid ""
+"left-right:\n"
+"\n"
+"options should be self-explaining, valid for custom (slideshow) and artwork\n"
+"\n"
+"default: shuffling"
+msgstr ""
+
+#: ../plugin/YampConfig.py:647
+msgid ""
+"left-right:\n"
+"\n"
+"options to show/hide clock and date while playing Video in Fullscreen mode\n"
+"\n"
+"default: No"
+msgstr ""
+
+#: ../plugin/YampConfig.py:597
+msgid ""
+"left-right:\n"
+"\n"
+"options to show/hide clock and date while screensaver is active\n"
+"\n"
+"default: No"
+msgstr ""
+
+#: ../plugin/YampConfig.py:670
+msgid ""
+"left-right:\n"
+"\n"
+"select color for text line 1 in box display\n"
+"\n"
+"default: white"
+msgstr ""
+
+#: ../plugin/YampConfig.py:672
+msgid ""
+"left-right:\n"
+"\n"
+"select color for text line 2 in box display\n"
+"\n"
+"default: white"
+msgstr ""
+
+#: ../plugin/YampConfig.py:674
+msgid ""
+"left-right:\n"
+"\n"
+"select color for text line 3 in box display\n"
+"\n"
+"default: white"
+msgstr ""
+
+#: ../plugin/YampConfig.py:682
+msgid ""
+"left-right:\n"
+"\n"
+"select cover color in box display.\n"
+"\n"
+"you have to try if transparent or non transparent is working, as this is different on different box-displays\n"
+"\n"
+"!!! Attention VTi: !!!\n"
+"On some Vu-Boxes with VTi only color-selctions\n"
+"black & white\n"
+"color transparent\n"
+"are working; with a different selection you will get a skin error\n"
+"<pixmap file /tmp/coverlcd.png not found>\n"
+"\n"
+"Reasan unknown. If you get this error on Yamp-start, change the color setting!\n"
+"\n"
+"default: black & white"
+msgstr ""
+
+#: ../plugin/YampConfig.py:684
+msgid ""
+"left-right:\n"
+"\n"
+"select horizontal alignment of the cover.\n"
+"\n"
+"x-position of the cover will be calculated out of display size and cover size\n"
+"\n"
+"default: right"
+msgstr ""
+
+#: ../plugin/YampConfig.py:666
+msgid ""
+"left-right:\n"
+"\n"
+"select horizontal alignment of the text line(s) 1(..3).\n"
+"\n"
+"x-position of line(s) 1 (..3) will be calculated out of display size and text length\n"
+"\n"
+"default: left"
+msgstr ""
+
+#: ../plugin/YampConfig.py:697
+msgid ""
+"left-right:\n"
+"\n"
+"select if you want to see Yamp in the extension menu\n"
+"\n"
+"default: On"
+msgstr ""
+
+#: ../plugin/YampConfig.py:699
+msgid ""
+"left-right:\n"
+"\n"
+"select if you want to see Yamp in the main menu\n"
+"\n"
+"default: Off"
+msgstr ""
+
+#: ../plugin/YampConfig.py:693
+#, python-format
+msgid ""
+"left-right:\n"
+"\n"
+"select if you want to see help-texts for buttons repeat (TV), shuffle (Radio) and Screensaver (%s) in main screen\n"
+"\n"
+"default: On"
+msgstr ""
+
+#: ../plugin/YampConfig.py:695
+msgid ""
+"left-right:\n"
+"\n"
+"select if you want to see the filename with or without path of the current picture in screensaver-mode individual - dia show\n"
+"\n"
+"for both options it is selectable if the text is shown with black background (better readability) or without background (picture is less 'disturbed')\n"
+"\n"
+"default: No"
+msgstr ""
+
+#: ../plugin/YampConfig.py:691
+msgid ""
+"left-right:\n"
+"\n"
+"select if you want to see the used Yamp-skin in the title line\n"
+"\n"
+"default: On"
+msgstr ""
+
+#: ../plugin/YampConfig.py:483
+msgid ""
+"left-right:\n"
+"\n"
+"select used skin\n"
+"\n"
+"if custom skin is selected and there is an error in the skin (Yamp starts with black screen, no reaction on keys), delete or rename any file in /usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/custom or .../fhdCustom, and it will automatically change back to the default screen on the next start\n"
+"\n"
+"FHD Special VTI is adjusted to Vu HD 1080P / Standard Font"
+msgstr ""
+
+#: ../plugin/YampConfig.py:686
+msgid ""
+"left-right:\n"
+"\n"
+"select vertical alignment of the cover.\n"
+"\n"
+"y-position of the cover will be calculated out of display size and cover size\n"
+"\n"
+"default: center"
+msgstr ""
+
+#: ../plugin/YampConfig.py:606
+msgid ""
+"left-right:\n"
+"\n"
+"show or hide file icons in filelist\n"
+"\n"
+"default: On (show)"
+msgstr ""
+
+#: ../plugin/YampConfig.py:608
+msgid ""
+"left-right:\n"
+"\n"
+"show or hide file icons in playlist\n"
+"\n"
+"default: On (show)"
+msgstr ""
+
+#: ../plugin/YampConfig.py:610
+msgid ""
+"left-right:\n"
+"\n"
+"show or hide playlist total runtime length and remaining time length.\n"
+"\n"
+"this display can only be calculated correct if all songs in the playlist are in the database.\n"
+"\n"
+"Also, calculation for long playlists may take some time specially on slow boxes. Therefore it can be disabled.\n"
+"\n"
+"default: On"
+msgstr ""
+
+#: ../plugin/YampConfig.py:651
+msgid ""
+"left-right:\n"
+"\n"
+"to prevent the last video picture as background, on some boxes it is necessary to insert a short 'black' video after the end of a video.\n"
+"\n"
+"Attention: This is experimental, try on your own risk. If the system hangs, try with EXIT several times.\n"
+"\n"
+"default: Off"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:108
+msgid "length"
+msgstr ""
+
+#: ../plugin/Yamp.py:154
+msgid "light blue"
+msgstr ""
+
+#: ../plugin/Yamp.py:149
+msgid "light green"
+msgstr ""
+
+#: ../plugin/Yamp.py:148
+msgid "lime green"
+msgstr ""
+
+#: ../plugin/YampConfig.py:889
+msgid "lyrics"
+msgstr ""
+
+#: ../plugin/Yamp.py:151
+msgid "magenta"
+msgstr ""
+
+#: ../plugin/YampConfig.py:887
+msgid "music files base dir"
+msgstr ""
+
+#: ../plugin/YampHelp.py:86
+msgid "next page"
+msgstr ""
+
+#: ../plugin/Yamp.py:365 ../plugin/Yamp.py:382 ../plugin/Yamp.py:392
+#: ../plugin/Yamp.py:423 ../plugin/Yamp.py:438
+msgid "no"
+msgstr ""
+
+#: ../plugin/Yamp.py:403 ../plugin/Yamp.py:409
+msgid "no TV at all"
+msgstr ""
+
+#: ../plugin/Yamp.py:272
+msgid "no change: <n/a>"
+msgstr ""
+
+#: ../plugin/Yamp.py:230
+msgid "no exclude"
+msgstr ""
+
+#: ../plugin/Yamp.py:1815
+msgid "no lyrics in file or ID3 found (or not activated in configuration)"
+msgstr ""
+
+#: ../plugin/Yamp.py:6088
+msgid ""
+"no pictures\n"
+"found"
+msgstr ""
+
+#: ../plugin/Yamp.py:1839
+msgid "no time data in lyrics file"
+msgstr ""
+
+#: ../plugin/Yamp.py:1841
+msgid "no time data in lyrics file (ID3)"
+msgstr ""
+
+#: ../plugin/Yamp.py:355
+msgid "not sorting"
+msgstr ""
+
+#: ../plugin/myFileList.py:272
+msgid "nothing connected"
+msgstr ""
+
+#: ../plugin/Yamp.py:167 ../plugin/Yamp.py:285 ../plugin/Yamp.py:299
+#: ../plugin/Yamp.py:309 ../plugin/Yamp.py:325 ../plugin/Yamp.py:505
+msgid "off"
+msgstr ""
+
+#: ../plugin/Yamp.py:453
+msgid "off - useful for LCD4linux or similar"
+msgstr ""
+
+#: ../plugin/YampConfig.py:485
+msgid ""
+"ok:\n"
+"\n"
+" opens filebrowser to select database path\n"
+"\n"
+"recommended: /media/usb/Yamp/DB\n"
+"\n"
+"default: /media/hdd"
+msgstr ""
+
+#: ../plugin/YampConfig.py:499
+msgid ""
+"ok:\n"
+"\n"
+" opens filebrowser to select path for base directory for screensaver artist-art pictures (if screensaver is set to artist-art).\n"
+"\n"
+"Base directory has to exist already, sub-directoryies for artists will be created automatically if selected.\n"
+"A subdirectory 'Default' should exist for artists without pictures\n"
+"\n"
+"recommended: /media/usb/Yamp/ArtistPics\n"
+"\n"
+"default: /media/hdd"
+msgstr ""
+
+#: ../plugin/YampConfig.py:495
+msgid ""
+"ok:\n"
+"\n"
+" opens filebrowser to select path for lyrics (if above option is set to On)\n"
+"\n"
+"recommended: /media/usb/Yamp/Lyrics\n"
+"\n"
+"default: /media/hdd"
+msgstr ""
+
+#: ../plugin/YampConfig.py:491
+msgid ""
+"ok:\n"
+"\n"
+" opens filebrowser to select path for saving playlists\n"
+"\n"
+"recommended: /media/usb/Yamp/Playlists\n"
+"\n"
+"default: /media/hdd"
+msgstr ""
+
+#: ../plugin/YampConfig.py:497
+msgid ""
+"ok:\n"
+"\n"
+" opens filebrowser to select path for screensaver pictures (if screensaver is set to Slideshow)\n"
+"\n"
+"recommended: /media/usb/Yamp/Slides\n"
+"\n"
+"default: /media/hdd"
+msgstr ""
+
+#: ../plugin/YampConfig.py:487
+msgid ""
+"ok:\n"
+"\n"
+" opens filebrowser to select start path for music files\n"
+"\n"
+"recommended: location of your music files\n"
+"\n"
+"default: /media/hdd"
+msgstr ""
+
+#: ../plugin/YampConfig.py:703
+msgid ""
+"ok:\n"
+"\n"
+" opens filebrowser to select the directory where to store the debug file\n"
+"\n"
+"recommended: /media/usb/Yamp/Debug\n"
+"\n"
+"default: /media/hdd"
+msgstr ""
+
+#: ../plugin/Yamp.py:425
+msgid "only big karaoke line (key Text long)"
+msgstr ""
+
+#: ../plugin/Yamp.py:434
+msgid "only manual (key ok)"
+msgstr ""
+
+#: ../plugin/Yamp.py:424
+msgid "only small karaoke line (key Text)"
+msgstr ""
+
+#: ../plugin/Yamp.py:155
+msgid "orange"
+msgstr ""
+
+#: ../plugin/Yamp.py:385
+msgid "path + filename"
+msgstr ""
+
+#: ../plugin/Yamp.py:386
+msgid "path + filename with background"
+msgstr ""
+
+#: ../plugin/Yamp.py:6134
+msgid ""
+"picture list\n"
+"download failed"
+msgstr ""
+
+#: ../plugin/Yamp.py:150
+msgid "pink"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:129
+msgid "play title"
+msgstr ""
+
+#: ../plugin/YampConfig.py:891
+msgid "playlists"
+msgstr ""
+
+#: ../plugin/YampHelp.py:87
+msgid "previous page"
+msgstr ""
+
+#: ../plugin/YampConfig.py:555
+msgid ""
+"recommended = default:\n"
+"search at azlyrics.com online"
+msgstr ""
+
+#: ../plugin/YampConfig.py:557
+msgid ""
+"recommended = default:\n"
+"search at chartlyrics.com online"
+msgstr ""
+
+#: ../plugin/YampConfig.py:542
+msgid ""
+"recommended = default:\n"
+"search at google online"
+msgstr ""
+
+#: ../plugin/YampConfig.py:536
+msgid ""
+"recommended = default:\n"
+"search for <title>.<ext>"
+msgstr ""
+
+#: ../plugin/YampConfig.py:538
+msgid ""
+"recommended = default:\n"
+"search for albumcover.<ext>"
+msgstr ""
+
+#: ../plugin/YampConfig.py:534 ../plugin/YampConfig.py:553
+msgid ""
+"recommended = default:\n"
+"search in ID3-tags"
+msgstr ""
+
+#: ../plugin/YampConfig.py:551
+msgid ""
+"recommended = default:\n"
+"search in lyrics-directory"
+msgstr ""
+
+#: ../plugin/Yamp.py:144
+msgid "red"
+msgstr ""
+
+#: ../plugin/Yamp.py:881
+msgid "remaining:"
+msgstr ""
+
+#: ../plugin/Yamp.py:473 ../plugin/Yamp.py:490
+msgid "right"
+msgstr ""
+
+#: ../plugin/Yamp.py:300
+msgid "save <title>.<ext> if no picture in song dir"
+msgstr ""
+
+#: ../plugin/Yamp.py:301
+msgid "save <title>.<ext> if not existing in song dir"
+msgstr ""
+
+#: ../plugin/Yamp.py:302
+msgid "save <title>.<ext>, overwrite existing"
+msgstr ""
+
+#: ../plugin/Yamp.py:303
+msgid "save albumcover.<ext> if not existing"
+msgstr ""
+
+#: ../plugin/Yamp.py:304
+msgid "save albumcover.<ext>, overwrite existing"
+msgstr ""
+
+#: ../plugin/YampConfig.py:895
+msgid "screensaver artwork base dir"
+msgstr ""
+
+#: ../plugin/Yamp.py:433
+msgid "screensaver delay"
+msgstr ""
+
+#: ../plugin/YampConfig.py:893
+msgid "screensaver individual (Dia-Show)"
+msgstr ""
+
+#: ../plugin/Yamp.py:332
+msgid "search always"
+msgstr ""
+
+#: ../plugin/Yamp.py:312
+msgid "search at azlyrics.com online"
+msgstr ""
+
+#: ../plugin/Yamp.py:313
+msgid "search at chartlyrics.com online"
+msgstr ""
+
+#: ../plugin/Yamp.py:290
+msgid "search at google online"
+msgstr ""
+
+#: ../plugin/Yamp.py:327
+msgid "search every 15 days"
+msgstr ""
+
+#: ../plugin/Yamp.py:331
+msgid "search every 180 days"
+msgstr ""
+
+#: ../plugin/Yamp.py:328
+msgid "search every 30 days"
+msgstr ""
+
+#: ../plugin/Yamp.py:329
+msgid "search every 60 days"
+msgstr ""
+
+#: ../plugin/Yamp.py:330
+msgid "search every 90 days"
+msgstr ""
+
+#: ../plugin/Yamp.py:287
+msgid "search for <title>.<ext> in title-directory"
+msgstr ""
+
+#: ../plugin/Yamp.py:288
+msgid "search for albumcover.<ext> in title-directory"
+msgstr ""
+
+#: ../plugin/Yamp.py:289
+msgid "search for any picture in title-directory"
+msgstr ""
+
+#: ../plugin/Yamp.py:286 ../plugin/Yamp.py:311
+msgid "search in ID3-tags (mp3, flac, m4a, mp4)"
+msgstr ""
+
+#: ../plugin/Yamp.py:310
+msgid "search in lyrics-directory"
+msgstr ""
+
+#: ../plugin/Yamp.py:326
+msgid "search only for new artists"
+msgstr ""
+
+#: ../plugin/Yamp.py:6389
+msgid "searching ... "
+msgstr ""
+
+#: ../plugin/Yamp.py:358
+msgid "shuffling"
+msgstr ""
+
+#: ../plugin/Yamp.py:426
+msgid "small and big karaoke line"
+msgstr ""
+
+#: ../plugin/YampLyrics.py:114
+msgid "songtext provided by:"
+msgstr ""
+
+#: ../plugin/Yamp.py:356
+msgid "sorting A->Z"
+msgstr ""
+
+#: ../plugin/Yamp.py:357
+msgid "sorting Z->A"
+msgstr ""
+
+#: ../plugin/Yamp.py:170 ../plugin/Yamp.py:508
+msgid "special"
+msgstr ""
+
+#: ../plugin/Yamp.py:338
+msgid "special, use if standard is not working"
+msgstr ""
+
+#: ../plugin/Yamp.py:171 ../plugin/Yamp.py:509
+msgid "special2"
+msgstr ""
+
+#: ../plugin/Yamp.py:172 ../plugin/Yamp.py:510
+msgid "special3"
+msgstr ""
+
+#: ../plugin/Yamp.py:173 ../plugin/Yamp.py:511
+msgid "special4"
+msgstr ""
+
+#: ../plugin/Yamp.py:337
+msgid "standard like on muscicbrainz website"
+msgstr ""
+
+#: ../plugin/Yamp.py:4497 ../plugin/Yamp.py:4500
+#, python-format
+msgid ""
+"the file\n"
+"\n"
+"%s"
+msgstr ""
+
+#: ../plugin/Yamp.py:4502
+#, python-format
+msgid ""
+"the files\n"
+"\n"
+"%s\n"
+"and\n"
+"%s"
+msgstr ""
+
+#: ../plugin/Yamp.py:1391
+#, python-format
+msgid ""
+"this picture will be blacklisted to %sblacklist.txt\n"
+"and will not be shown any more!\n"
+"\n"
+"do you really want to blacklist this picture?"
+msgstr ""
+
+#: ../plugin/Yamp.py:4493
+msgid "to activate the new configuration for the Box-Display, "
+msgstr ""
+
+#: ../plugin/Yamp.py:493
+msgid "top"
+msgstr ""
+
+#: ../plugin/Yamp.py:879
+msgid "total:"
+msgstr ""
+
+#: ../plugin/Yamp.py:6071
+msgid ""
+"trying to get\n"
+"picture list..."
+msgstr ""
+
+#: ../plugin/Yamp.py:5912
+msgid "trying to get "
+msgstr ""
+
+#: ../plugin/Yamp.py:152
+msgid "violett"
+msgstr ""
+
+#: ../plugin/Yamp.py:143
+msgid "white"
+msgstr ""
+
+#: ../plugin/Yamp.py:147
+msgid "yellow"
+msgstr ""
