@@ -1,0 +1,27 @@
+<!-- Yamp Skin V3.0.x Standard (HD) mit MiniTV  AlfredENeumann 15.03.2022 last change 21.06.2023-->
+<screen name="YampSelectPathScreenV33" position="0,0" size="1280,720" backgroundColor="#00040404" flags="wfNoBorder">
+	<eLabel position="0,0" size="1280,65" backgroundColor="#00242424" />
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTV/smallshadowline.png" position="0,65" size="1280,2" zPosition="2"/>
+
+	<widget name="title" position="50,0" size="1000,65" backgroundColor="#00242424" foregroundColor="#00E6E6E6" transparent="1" zPosition="1" font="Regular;20" valign="center" halign="left" />
+
+	<widget source="global.CurrentTime" render="Label" position="1120,9" size="150,23" backgroundColor="#18101214" foregroundColor="#00E6E6E6" transparent="1" zPosition="7" font="Regular;22" valign="center" halign="right">
+		<convert type="ClockToText">Format:%H:%M:%S</convert>
+	</widget>
+	<widget source="global.CurrentTime" render="Label" position="1020,36" size="250,24" backgroundColor="#18101214" foregroundColor="#00E6E6E6" transparent="1" zPosition="1" font="Regular;16" valign="center" halign="right">
+		<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
+	</widget>
+
+	<ePixmap pixmap="skin_default/buttons/red.png" position="70,75" size="30,30" alphatest="blend" />
+	<ePixmap pixmap="skin_default/buttons/green.png" position="360,75" size="30,30" alphatest="blend" />
+	<ePixmap pixmap="skin_default/buttons/yellow.png" position="650,75" size="30,30" alphatest="blend" />
+	<ePixmap pixmap="skin_default/buttons/blue.png" position="940,75" size="30,30" alphatest="blend" />
+	<eLabel text="Cancel" position="110,66" size="240,50" zPosition="1" font="Regular;18" valign="center" halign="left" foregroundColor="#007A7A7A" backgroundColor="#00000000" transparent="1" />
+	<eLabel text="OK" position="400,66" size="240,50" zPosition="1" font="Regular;18"  valign="center" halign="left" foregroundColor="#007A7A7A" backgroundColor="#00000000" transparent="1" />
+
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTV/smallshadowline.png" position="0,114" size="1280,2" />
+
+	<widget name="target" position="210,140" size="845,25" font="Regular;22" />
+	<widget name="filelist" position="210,190" size="845,480" backgroundColor="#00101214" foregroundColor="#00E6E6E6" scrollbarMode="showOnDemand" scrollbarWidth="3" scrollbarSliderBorderWidth="1" />
+
+</screen>

@@ -1,0 +1,39 @@
+<!-- Yamp Video Lyrics Skin V3.3.x Standard (HD)  AlfredENeumann    last change 20.06.2023 -->
+<screen name="YampVideoLyricsV33" position="0,0" size="1280,720" backgroundColor="#FF060606" flags="wfNoBorder">
+
+<!-- for test only
+	<eLabel text="L" position="395,490" zPosition="15" size="50,50" backgroundColor="#00101214" transparent="1" foregroundColor="#00999999" font="Regular;30" valign="top" />
+-->
+
+	<widget name="lyricsLineBackground" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/default/Bg_181517_trans.png" position="50,0" size="1180,35" zPosition="16" transparent="1" alphatest="blend" >
+	</widget>
+	<widget name="lyricsLine" position="50,0" zPosition="17" size="1180,35" backgroundColor="#00101214" foregroundColor="#00e5b243" transparent="1" font="Regular;24" halign="center" valign="center" />
+
+	<widget source="karaoke" render="Pixmap" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/default/Karaoke.png" position="2,2" size="32,32" zPosition="17" transparent="1" alphatest="blend">
+		<convert type="ConditionalShowHide" />
+	</widget>
+
+
+	<widget name="lyricsLineBackgroundBig" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/default/Bg_181517_trans.png" position="50,0" size="1180,140" zPosition="16" transparent="1" alphatest="blend" >
+	</widget>
+	<widget name="lyricsLineBig" position="50,0" zPosition="17" size="1180,140" backgroundColor="#00101214" foregroundColor="#00FF0000" transparent="1" font="Regular;60" halign="center" valign="top" />
+
+	<widget source="karaokeBig" render="Pixmap" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/default/Karaoke_Big.png" position="2,2" size="32,32" zPosition="17" transparent="1" alphatest="blend">
+		<convert type="ConditionalShowHide" />
+	</widget>
+
+<!-- clock /date (switchable on/off by configuration -->
+	<widget source="global.CurrentTime" render="Label" position="1175,666" size="100,23" font="Regular; 22" backgroundColor="#00101214" foregroundColor="#00E6E6E6" valign="center" halign="right" zPosition="16" transparent="1" text="clockHide">
+		<convert type="ClockToText">Format:%H:%M:%S</convert>
+	</widget>
+	
+	<widget name="clockBackground" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/default/Bg_181517_trans.png" position="1175,664" size="102,26" zPosition="15" transparent="1" alphatest="blend">
+	</widget>	
+
+	<widget source="global.CurrentTime" render="Label" position="1080,693" size="195,24" font="Regular; 16" backgroundColor="#00101214" foregroundColor="#00E6E6E6" valign="center" halign="right" zPosition="16" transparent="1" text="dateHide">
+		<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
+	</widget>
+	<widget name="dateBackground" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/default/Bg_181517_trans.png" position="1080,691" size="197,28" zPosition="15" transparent="1" alphatest="blend">
+	</widget>
+
+</screen>

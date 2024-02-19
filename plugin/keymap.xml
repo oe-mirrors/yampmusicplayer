@@ -1,0 +1,132 @@
+<keymap>
+    <!--
+    enigma2-plugin-extensions-yampmusicplayer - 2017 AlfredENeumann
+		with special key REC additional to TV for RC without TV-kex
+		adjusted 21.01.2024 AlfredENeumann
+		extended for Keyboard 13.05.2021 v.02 by pclin
+		
+    m = make -> Normal key press
+    b = break -> Key released
+    l = long -> Long key press
+    r = repeat -> Key locked (pressed continuously)
+
+    "m" arrives once, as soon as the key is pressed
+    "b" arrives as soon as the key is released.
+    "l" arrives after 5 repeats, but then only once (repeat still arrives)
+    "r" arrives after "m", when the key is pressed continuously until the key is released
+    Flags can be combined, eg. flags="mr"
+    -->
+	<map context="YampActions">
+		<device name="compatible: pcKeyboard">
+			<key id="KEY_F1" mapto="red" flags="m" />
+			<key id="KEY_F2" mapto="green" flags="m" />
+			<key id="KEY_F3" mapto="yellow" flags="m" />
+			<key id="KEY_F4" mapto="blue" flags="m" />
+			<key id="KEY_ENTER" mapto="ok" flags="m" />
+			<key id="KEY_ESC" mapto="exit" flags="m" />
+			<key id="KEY_F6" mapto="menu" flags="b" />
+			<key id="KEY_NEXT" mapto="nextTitle" flags="m" />
+			<key id="KEY_PREVIOUS" mapto="prevTitle" flags="m" />
+			<key id="KEY_N" mapto="nextTitle" flags="m" />
+			<key id="KEY_P" mapto="prevTitle" flags="m" />
+			<key id="KEY_F5" mapto="info" flags="b" />
+			<key id="KEY_0" mapto="togglesaver" flags="m" />
+			<key id="KEY_2" mapto="altMoveTop" flags="m" />
+			<key id="KEY_5" mapto="key5" flags="m" />
+			<key id="KEY_8" mapto="altMoveEnd" flags="m" />
+			<key id="KEY_F9" mapto="Tv" flags="b" />
+			<key id="KEY_F10" mapto="Radio" flags="b" />
+			<key id="KEY_F8" mapto="Pvr" flags="m" />
+			<key id="KEY_F7" mapto="Audio" flags="m" />
+			<key id="KEY_F11" mapto="Text" flags="b" />
+			<key id="KEY_F11" mapto="TextLong" flags="l" />
+			<key id="KEY_1" mapto="key1" flags="m" />
+			<key id="KEY_3" mapto="key3" flags="m" />
+			<key id="KEY_4" mapto="key4" flags="m" />
+			<key id="KEY_6" mapto="key6" flags="m" />
+			<key id="KEY_7" mapto="key7" flags="m" />
+			<key id="KEY_9" mapto="key9" flags="m" />
+			<key id="KEY_F1" mapto="redLong" flags="l" />
+		</device>
+		<key id="KEY_LEFT" mapto="left" flags="mr" />
+		<key id="KEY_RIGHT" mapto="right" flags="mr" />
+		<key id="KEY_CHANNELUP" mapto="prevBouquet" flags="mr" />
+		<key id="KEY_CHANNELDOWN" mapto="nextBouquet" flags="mr" />
+		<key id="KEY_OK" mapto="ok" flags="m" />
+		<key id="KEY_ENTER" mapto="ok" flags="m" />
+		<key id="KEY_EXIT" mapto="exit" flags="m" />
+		<key id="KEY_ESC" mapto="exit" flags="m" />
+		<key id="KEY_MENU" mapto="menu" flags="m" />
+		<key id="KEY_NEXT" mapto="nextTitle" flags="m" />
+		<key id="KEY_PREVIOUS" mapto="prevTitle" flags="m" />
+		<key id="KEY_PAUSE" mapto="pause" flags="m" />
+		<key id="KEY_PLAYPAUSE" mapto="pause" flags="m" />
+		<key id="KEY_PLAY" mapto="play" flags="m" />
+		<key id="KEY_STOP" mapto="stop" flags="m" />
+		<key id="KEY_INFO" mapto="info" flags="b" />
+		<key id="KEY_INFO" mapto="infoLong" flags="l" />
+		<key id="KEY_0" mapto="toggleSaver" flags="m" />
+		<key id="KEY_2" mapto="altMoveTop" flags="m" />
+		<key id="KEY_5" mapto="key5" flags="m" />
+		<key id="KEY_8" mapto="altMoveEnd" flags="m" />
+		<key id="KEY_TV" mapto="Tv" flags="b" />
+		<key id="KEY_RECORD" mapto="Radio" flags="b" />
+		<key id="KEY_RADIO" mapto="Radio" flags="b" />
+		<key id="KEY_VIDEO" mapto="Pvr" flags="m" />
+		<key id="KEY_AUDIO" mapto="Audio" flags="m" />
+		<key id="KEY_TEXT" mapto="Text" flags="b" />
+		<key id="KEY_TEXT" mapto="TextLong" flags="l" />
+		<key id="KEY_1" mapto="key1" flags="m" />
+		<key id="KEY_3" mapto="key3" flags="m" />
+		<key id="KEY_4" mapto="key4" flags="m" />
+		<key id="KEY_6" mapto="key6" flags="m" />
+		<key id="KEY_7" mapto="key7" flags="m" />
+		<key id="KEY_9" mapto="key9" flags="m" />
+		<key id="KEY_RED" mapto="redLong" flags="l" />
+		<key id="KEY_NEXTSONG" mapto="keyExtraJumpFw" flags="b" />
+		<key id="KEY_PREVIOUSSONG" mapto="keyExtraJumpBw" flags="b" />
+	</map>
+	<map context="YampOtherActions">
+		<device name="compatible: pcKeyboard">
+			<key id="KEY_F1" mapto="red" flags="b" />
+			<key id="KEY_F2" mapto="green" flags="b" />
+			<key id="KEY_F2" mapto="greenlong" flags="l" />
+			<key id="KEY_F3" mapto="yellow" flags="b" />
+			<key id="KEY_F3" mapto="yellowlong" flags="l" />
+			<key id="KEY_F4" mapto="blue" flags="b" />
+			<key id="KEY_F4" mapto="bluelong" flags="l" />
+			<key id="KEY_F9" mapto="TvLong" flags="l" />
+			<key id="KEY_F10" mapto="RadioLong" flags="l" />
+		</device>
+		<key id="KEY_UP" mapto="up" flags="mr" />
+		<key id="KEY_DOWN" mapto="down" flags="mr" />
+		<key id="KEY_HOME" mapto="moveTop" flags="m" />
+		<key id="KEY_END" mapto="moveEnd" flags="m" />
+		<key id="KEY_RED" mapto="red" flags="b" />
+		<key id="KEY_GREEN" mapto="green" flags="b" />
+		<key id="KEY_GREEN" mapto="greenLong" flags="l" />
+		<key id="KEY_YELLOW" mapto="yellow" flags="b" />
+		<key id="KEY_YELLOW" mapto="yellowLong" flags="l" />
+		<key id="KEY_BLUE" mapto="blue" flags="b" />
+		<key id="KEY_BLUE" mapto="blueLong" flags="l" />
+		<key id="KEY_TV" mapto="TvLong" flags="l" />
+		<key id="KEY_RECORD" mapto="RadioLong" flags="l" />
+		<key id="KEY_RADIO" mapto="RadioLong" flags="l" />
+	</map>
+	<map context="YampSeekActions">
+		<key id="KEY_1" mapto="seekdef:1" flags="m" />
+		<key id="KEY_3" mapto="seekdef:3" flags="m" />
+		<key id="KEY_4" mapto="seekdef:4" flags="m" />
+		<key id="KEY_6" mapto="seekdef:6" flags="m" />
+		<key id="KEY_7" mapto="seekdef:7" flags="m" />
+		<key id="KEY_9" mapto="seekdef:9" flags="m" />
+	</map>
+	<map context="YampHelpActions">
+		<device name="compatible: pcKeyboard">
+			<key id="KEY_F1" mapto="help" flags="l" />
+			<key id="KEY_H" mapto="help" flags="m" />
+		</device>
+		<key id="KEY_HELP" mapto="help" flags="m" />
+		<key id="KEY_OPTION" mapto="help" flags="m" />
+	</map>
+</keymap>

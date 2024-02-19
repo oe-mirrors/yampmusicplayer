@@ -1,0 +1,35 @@
+<!-- Yamp Config Skin V3.3.x Standard (HD) mit MiniTV  AlfredENeumann   last change 19.06.2023 -->
+<screen name="YampConfigScreenV33" position="0,0" size="1280,720" backgroundColor="#00060606" flags="wfNoBorder">
+	<eLabel position="0,0" size="1280,65" backgroundColor="#00242424" />
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTV/smallshadowline.png" position="0,65" size="1280,2" zPosition="2"/>
+
+	<widget name="title" position="50,0" size="500,65" backgroundColor="#00242424" foregroundColor="#00E6E6E6" transparent="1" zPosition="1" font="Regular;20" valign="center" halign="left" />
+
+	<widget name="textBouquet" text="" position="950,0" size="65,65" font="Regular;14" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" transparent="1" zPosition="1" />
+	<eLabel name="textExit" text="EXIT " position="1035,0" size="65,65" font="Regular;14" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="1" transparent="1" />
+
+	<widget source="global.CurrentTime" render="Label" position="1120,9" size="150,23" backgroundColor="#18101214" foregroundColor="#00E6E6E6" transparent="1" zPosition="1" font="Regular;22" valign="center" halign="right">
+		<convert type="ClockToText">Format:%H:%M:%S</convert>
+	</widget>
+	<widget source="global.CurrentTime" render="Label" position="1020,36" size="250,24" backgroundColor="#18101214" foregroundColor="#00E6E6E6" transparent="1" zPosition="1" font="Regular;16" valign="center" halign="right">
+		<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
+	</widget>
+
+	<ePixmap pixmap="skin_default/buttons/red.png" position="70,75" size="30,30" alphatest="blend" />
+	<ePixmap pixmap="skin_default/buttons/green.png" position="360,75" size="30,30" alphatest="blend" />
+	<ePixmap pixmap="skin_default/buttons/yellow.png" position="650,75" size="30,30" alphatest="blend" />
+	<ePixmap pixmap="skin_default/buttons/blue.png" position="940,75" size="30,30" alphatest="blend" />
+	<eLabel text="Cancel" position="110,66" size="240,50" zPosition="1" font="Regular;18" valign="center" halign="left" foregroundColor="#007A7A7A" backgroundColor="#00000000" transparent="1" />
+	<eLabel text="Save" position="400,66" size="240,50" zPosition="1" font="Regular;18" valign="center" halign="left" foregroundColor="#007A7A7A" backgroundColor="#00000000" transparent="1" />
+	<widget name="key_yellow" position="690,66" size="240,50" zPosition="1" font="Regular;18" valign="center" halign="left" foregroundColor="#007A7A7A" backgroundColor="#00000000" transparent="1" />
+
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTV/smallshadowline.png" position="0,114" size="1280,2" zPosition="2"/>
+
+	<widget name="config" position="10,140" size="945,579" backgroundColor="#00101214" foregroundColor="#00E6E6E6" enableWrapAround="1" scrollbarMode="showOnDemand" />
+	<widget name="help" position="960,140" size="320,439" backgroundColor="#00101214" foregroundColor="#00E6E6E6"  transparent="1" zPosition="1" font="Regular;16" valign="top" halign="center"   />
+
+
+	<widget source="session.CurrentService" render="Pig" position="995,579" size="250,140" backgroundColor="transparent" zPosition="4" transparent="0" >
+	</widget>
+
+</screen>
