@@ -1,0 +1,389 @@
+{
+	"en": {
+		"page1": {
+			"topText": "Attention! To help beginners, this help is automatically shown on each start of Yamp. This may be deactivated in the adjustments (section Operation/Display). When deactivate, it is shown only once after installation or update, but can be manually called anytime by LONG pressing <INFO/EPG>\nOn other boxes (not Dreambox / VU) please check the remarks on pages 16-19!!!",
+			"ttPosSize": [40, 70, 1200, 220],
+			"headLine": "It is highly recommended to invest a little time to read this help!!!",
+			"hlPosSize": [40, 290, 1200, 50],
+			"text": "Navigation in this help:\nArrow-keys left/right: Previous/Next page\nArrow-keys up/down: Scolling within long pages\nEXIT: Close this help\n\nThis help is specially made for new users of Yamp to give them a few basic ideas how to use it and have fun with it as fast as possible. It does NOT replace the manual which is available for download :-)\n\nBut, I highly recommend also experienced users to read at least some of the following pages, as there are quite a few hints for news in this version.\n\nRemark: When creating this help, the focus was more on the possibility to simple change and update it than nice looking.\n\nSpecially on long pages the display may be 'sub-optimal' with some skins.",
+			"textPosSize": [40, 340, 1200, 380],
+			"pic": "",
+			"picPosSize": [0, 0, 0, 0]
+		},
+		"page2": {
+			"topText": "Basic Hints",
+			"ttPosSize": [40, 70, 1200, 60],
+			"headLine": "",
+			"hlPosSize": [40, 130, 1200, 0],
+			"text": "Additional information and hints you will find in the forums\nvuplus-support.org   and   board.newnigma2.to\njust search for Yamp. Also, you will find a link to FAQ there, which you should have a look on also. Many beginners questions or problems probably will be answered there.\nIf, however, more questions remain: That is what a forum is made for. :-)\n\nBy the way: If you like and use Yamp, it is not forbidden and would be a good idea to leave a 'like' on the first page of the Yamp Thread :-)\nThis is not only nice for the author, but important also: This is the only way to get an idea if the many downloads just disappear in the trashcan, or if Yamp actually is used an if a further development is wished.\n\nHave fun!\n\nAlfredENeumann with special thanks to @ekremtt (a lot of skinning and testing) and @sven_h (much genius help on coding)",
+			"textPosSize": [40, 180, 1200, 540],
+			"pic": "",
+			"picPosSize": [0, 0, 0, 0]
+		},
+		"page3": {
+			"topText": "Important change beginning with V3.3.1",
+			"ttPosSize": [40, 80, 1200, 50],
+			"headLine": "Artist-Art example installed on HDD - if HDD present",
+			"hlPosSize": [40, 140, 1200, 40],
+			"text": "If a HDD is installed and was found during installation as /media/hdd, a sample directory for Artist-Art has been installed on the HDD: <ArtistPics_Example_Yamp_AlfredENeumann>.\n\nIf you want to use the Artist-Art-Background, you CAN AND SHOULD rename and probably move this directory to any name and place you prefer. After, you will select this renamed/moved directory in the Yamp-Adjustments as <Artist Art Base Directory>.\n\nOnce adjusted, Yamp will create Sub-Dirs for new artists automatically within the Base Directory.\n\nPlease do NOT remove the Sub-Dir <Default>, pictures from this Sub-Dir are shown if there are less than 2 pictures for a specific artist!\n\nIf /media/hdd was not found, you may manually copy the folder from /tmp. However, this is only possible if you executed a GUI restart only after installation. On a complete restart, /tmp will be cleared by the system.\n\nOther options in this case: Repeat the installation, also you will find it for download in the Yamp thread in the forums.\n\nIf you do not use Artist-Art or you do have an existing folder for Artist-Art (incl. Default), you may delete the folder.",
+			"textPosSize": [40, 180, 1200, 540],
+			"pic": "",
+			"picPosSize": [0, 0, 0, 0]
+		},
+		"page4": {
+			"topText": "Important change beginning with V3.3.1",
+			"ttPosSize": [40, 80, 1200, 50],
+			"headLine": "Yamp-Documentation installed on HDD - if HDD present",
+			"hlPosSize": [40, 140, 1200, 40],
+			"text": "If a HDD is installed and was found during installation as /media/hdd, a directory with the documentation (sorry, not actualized to V3.3.1) has been installed on the HDD: directory:<Yamp-Documentation>.\n\nSpecially when users downloaded Yamp from the feed and never had a look to the forum, they might have no idea that a documentation exists.\n\nAt this point agein my request: When Yamp has been downloaded from the feed, naturally I have no idea how often this happened. So, it would be nice if Yamp has not only be tested but is in use, to klick on the 'Like'-Button on the first page of the actual Yamp-Thread (3.1.x). This is not only nice for the author, but important also: This is the only way to get an idea how often Yamp actually is used an if a further development is wished.\n\nAnd, as on the page before: If /media/hdd was not found, you may manually copy the folder from /tmp. However, this is only possible if you executed a GUI restart only after installation. Alternatives also like 1 page before.",
+			"textPosSize": [40, 180, 1200, 540],
+			"pic": "",
+			"picPosSize": [0, 0, 0, 0]
+		},
+		"page5": {
+			"topText": "another important change beginning with V3.3.1",
+			"ttPosSize": [40, 80, 1200, 50],
+			"headLine": "New version of Database - check settings and actualize database by new reading of all titles",
+			"hlPosSize": [40, 130, 1200, 60],
+			"text": "V3.3.1 provides new options for the database.\n- the number of artists may be reduced by ignoring 'featuring' in the artist name. If activated, for example 'P!nk feat. Eminem' will be saved as 'P!nk' in the DB. In the info-bar however, still the complete name (incl. feat...) will be shown.\n- Albums 'Greatest Hits' are allowed now several times, they are distinguished by the artist name\n- special sub-directories (you may configure the names) may be excluded on scanning the files into the DB; this is helpful for example on some NAS which create their own sub-dirs for management\n\nTherefore, after an Upgrade to V3.3.1 first all settings should be checked and adjusted to your own requirements, and after that you should actualize the Database by reading all titles again.\n\nBesides that, checking all settings should be done anyway as there are quite a few new settings you should adjust to your needs.",
+			"textPosSize": [40, 200, 1200, 520],
+			"pic": "",
+			"picPosSize": [0, 0, 0, 0]
+		},
+		"page6": {
+			"topText": "many new features in V3.3.1",
+			"ttPosSize": [40, 80, 1200, 50],
+			"headLine": "please check for details in changelog",
+			"hlPosSize": [40, 130, 1200, 40],
+		"text": "As there are many changes since V3.2.2, it does not make sense to describe all of them here. Just a few examples:\n- the Yamp settings now deliver direct explanations for each setting, should make the setup much easier :-)\n- HD-Skins actualized (adjusted to FHD-layout)\n- in some Skins a Video-Preview-window has been added, which may be used for TV also\n- Skins (also custom) are checked for integrity/completeness and if necessary deactivated with warning\n- on a versions-update existing custom skins become backed up and copied back after the update\n- when scolling throug ghe list, covers an song-infos may be shown (optional, user request)\n- complete and remaining length of the playlist may be shown(optional, user request)\n- moving in the playlist is possible now for multiple lines (amount adjustable)\n- tags, lyrics und cover are read now from m4a, mp4 and ogg also, tags also from wma\n- lyrics search Genius replaced by AZLyrics\n- lyrics page may be shown now for any song in the playlist, even when it is not played actually\n- when saving lyrics, a long file name (with artist-album) now is used. For easier creating a manual lyrics-file, empty lyrics may be saved now to create the correct file name automatically.\n- new basic lyrics-editor including to adjust the karaoke-timestamps\n- when saving playlists, these are inserted automatically into the database\n-  screensaver pictures will added automatically to a minimum of 2 pictures to make sure that a picture change will occur\n- screensaver does try to detect corrupt pictures to prevent stopping the picture changge\n- also on videoclips the big karaoke-line is supportet now\n- the box-display may be configured in the Yamp-settings now\n- on reading folders into the database, certain sub-folders can be excluded (helpful on some )\n- on inserting into the database, it can be adjusted that 'featuring' on artists is ignored to reduce the number of artists\n- on inserting albums 'Greatest Hits' into the database, the artist also is included to allow more than one album with this name\n- extended keymap for keyboard-operation integrated (thanks @pclin)\n- misc. bugfixes and optimizations (hopefully, the sum of all improvements is >= 0)  :-)  ",
+			"textPosSize": [40, 180, 1200, 520],
+			"pic": "",
+			"picPosSize": [0, 0, 0, 0]
+		},
+		"page7": {
+			"topText": "First Steps - Getting Started with Yamp",
+			"ttPosSize": [40, 70, 1200, 50],
+			"headLine": "",
+			"hlPosSize": [40, 100, 1200, 0],
+		"text": "First, it makes sense to create a few folders for Yamp\nAfter installation, all folders are preset to /media/hdd. But, to get a better order and overview, I suggest to create the following folders (USB also is a suggestion only, and of course can bei HDD also):\n\n\n\n/media/usb/Yamp/DB   for the database\n/media/usb/Yamp/Playlisten   for own playlists\n/media/usb/Yamp/Lyrics   for Lyrics\n/media/usb/Yamp/Artistpics   für Artistpics screensaver, see also page 3\n/media/usb/Yamp/Debug   for Debug-Files (find at the end\n\nWhen these folders are created, please set these folders in the Yamp settings (you get there with MENU), please also set your base folder for your music files.\nCheck also all the other settings and adjust them to your preferences, when finished, save your settings with GREEN.\n\nCongratulations: You finished all necessary preparations to enjoy Yamp, at least the preparations for Yamp itself (see next page).\n\nIf you leave and restart Yamp now, in the left window your Music-base-folder should open.",
+			"textPosSize": [40, 120, 1200, 540],
+			"pic": "",
+			"picPosSize": [0, 0, 0, 0]
+		},
+		"page8": {
+			"topText": "First Steps - Getting Started with Yamp 2",
+			"ttPosSize": [40, 70, 1200, 50],
+			"headLine": "fill DB - good tagging is importand",
+			"hlPosSize": [40, 100, 1200, 0],
+		"text": "I suggest, transfer all music files immediately to the database. To do so, from your music base folder go to the 'Parent Directory', select your base folder again, and start the transfer to the DB with YELLOW LONG\n\nOf course, you may use Yamp without a DB also - but using the DB has a lot of advantages, see FAQ in the forums.\n\nChange the main windows left/right with arrow keys, see also 'Basic Operation' starting page 9.\n\nLeft window: change between file view and DB view with RED.\n\nThe HELP key on your remote always will show you useful information about the mapping of the keys.\n\nAnd, at least an important hint for ID3-tags: Yamp (as most music players) depends crucially on good ID3-Tags. Yamp reads and processes the tags out of the most common formats (mp3, flac, m4a, mp4, ogg, wma). If your music files are not good tagges, I highly recommend to do so. Besides the most famous taggers ((Mp3Tag, Tagscan) I recommend Musicbrainz Picard; is a little more complicated at the begin, but worth it.",
+			"textPosSize": [40, 120, 1200, 540],
+			"pic": "",
+			"picPosSize": [0, 0, 0, 0]
+		},
+		"page9": {
+			"topText": "Basic Operation - Color Keys and MENU-Key",
+			"ttPosSize": [40, 80, 1200, 40],
+			"headLine": "Many important operations are executed via the color keys",
+			"hlPosSize": [40, 120, 1200, 40],
+			"text": "The selectable actions depend and will change depending on state of the player and which window (File View, Database View, Playlist - see next pages) is active.\n\nVery important: The upper line shows the action for key SHORT pressed, the lower line for key LONG pressed\n\nMany (not so frequently used) functions are reachable via MENU-key. Also here the possible functions differ depending in which situation / window the MENU-key is pressed",
+			"textPosSize": [40, 280, 1200, 440],
+			"pic": "Farbtasten1254x104.png",
+			"picPosSize": [13, 170, 1254, 104]
+		},
+		"page10": {
+			"topText": "Basic Operation - other keys",
+			"ttPosSize": [40, 80, 1200, 40],
+			"headLine": "",
+			"hlPosSize": [0, 0, 0, 0],
+			"text": "other keys with functions only valid in certain pages will be shown on the pages (mostly at the headline, depends on the used skin). A (L) in brackets here indicates that there exists a function as well for a short as for a long keypress.\n\nLEFT-RIGHT will change between the 2 main windows (see next page).\n\nBOUQET/CHANNEL will jump in lists one page up or down (or sections in Yamp settings).\n\n2 or 8 will jump to list start and list end.\n\nstandard-keys for playing music are never shown: (nearly) always active are for example: Play, Stop, Pause, Next, Previous...\nWhen playing a song, jumping is possible with 1-4-7 backward and 3-6-9 forward; the length of the jump is defined in the system.\nIn the playlist, 5 will jump to the actualliy active title.\nWhen the screensaver is active, it can be paused / continued with 0 (if you want to see the acutal picture longer than the defined time)\n\nThe key HELP on the remote will show the assigned functions to the keys also!",
+			"textPosSize": [40, 230, 1200, 490],
+			"pic": "Bedienung-Tasten623x99.png",
+			"picPosSize": [328, 130, 623, 99]
+		},
+		"page11": {
+			"topText": "Basic Operation - Windows left - right",
+			"ttPosSize": [40, 80, 1200, 40],
+			"headLine": "The 2 windows left-right are the most used main windows of Yamp",
+			"hlPosSize": [40, 120, 1200, 40],
+			"text": "Remark: The real lists are much longer than on this help-picture! :-)\n\nThe left window may be switched with RED between Database-view and File-view, the right window ALWAYS shows the playlist. Titles or complete directories/database entries can be added to the end of the playlist with GREEN or GREEN LONG\n\nSongs or Music-Videoclips are played ALWAYS out of the playlist.\n\nHowver, it is possible to directly play a title: From the left window, with PLAY a title is inserted at the actual position in the playlist and played immediately. PLAY LONG also is possible (complete directory, complete album and so on)",
+			"textPosSize": [40, 390, 1200, 330],
+			"pic": "2Listen1200x218.png",
+			"picPosSize": [40, 170, 1200, 218]
+		},
+		"page12": {
+			"topText": "Basic Operation - spedial keys and status-displays",
+			"ttPosSize": [40, 80, 1200, 40],
+			"headLine": "keys and status-displays TV, Radio, PVR/VIDEO",
+			"hlPosSize": [40, 120, 1200, 40],
+			"text": "The red marked displays signal the status (active = green) of special functions. With the according keys these can be switched on or off.\nThe key description (e.g. TV) however is shown only if not deactivated in the settings.\n\nTV: Playlist endless\nPlaylist does play endless, after the last title it will jump to the first title.\n\nRadio: Shuffle\nthe Playlist becomes shuffled (random play), a second press on Radio restores the original sequence before shuffling\n\nPVR/VIDEO: Screensaver on/off\nRemark: The display becomes green only (if switched on), wenn a title is playing.\n\nRemark2: In HD-skins without Video-Preview these displays are located at a different position!",
+			"textPosSize": [40, 270, 1200, 450],
+			"pic": "Bedienung-Tasten623x99-2.png",
+			"picPosSize": [328, 170, 623, 99]
+		},
+		"page13": {
+			"topText": "Hints/Tips - Custom Skins",
+			"ttPosSize": [40, 80, 1200, 50],
+			"headLine": "create / adjust Custom Skins (...custom...)",
+			"hlPosSize": [40, 130, 1200, 60],
+			"text": "In the Yamp-directory you will find under 'skins' 4 sub-directories, where you may define your own custom skins (custom in the subdir name). After a fresh (new) installation, they just will contain the according original skin.\n\nOn an Update, beginning with V3.3.1 already existing customs skins should become copied back automatically. They become saved before the update to /tmp, and after copied back from /tmp. If this does not work for any reason, it is still possible to copy them back from /tmp manually, as long as the box has not issued a complete restart. However, it is as always also a good idea to manually backup your custom skins also before an update.\n\nIn either case after an update you should check (compare with the original skin) an maybe adjust your custom skins.\nYou will get this reminder also if you activate a custom skin. The file 'Vx.y.z.ver' helps to detect, if skin-relevant changes exist in the new version. Do NOT delete this file!",
+			"textPosSize": [40, 200, 1200, 520],
+			"pic": "",
+			"picPosSize": [0, 0, 0, 0]
+		},
+		"page14": {
+			"topText": "Hints/Tips - - Lyrics Edit - Karaoke Offset",
+			"ttPosSize": [40, 80, 1200, 50],
+			"headLine": "starting with V3.3.1, lyrics may be edited within the lyrics screen",
+			"hlPosSize": [40, 130, 1200, 60],
+		"text": "This editor is intended to make small corrections without the need of a PC.\nAdditionally, the timestamps for the karaoke-function can be corrected, if all lines in the file are shown about the same time too early or too late.\nAttention! If this is the case in ALL lyrics files (for example because they were copied from a slower or faster machine), this should be corrected for all files via the adjustments ('Offset for lyrics display while playing')\n\nThe edit functions are called with the MENU button.\nAvailable functions:\nedit actual line / insert line / delete line / copy line - insert copied line\nThe last option is helpful e.g., if a refrain is repeated, but does exist only once in the file.\n\nTimeStamp-Correction\nFirst, the offset time in milliseconds is entered. After that, you select if you want to add (text will be shown later) od subtract (text will be shown earlier) this offset to all times in this file.\nThe result can be tested and verified immediately (before saving the changes)",
+			"textPosSize": [40, 200, 1200, 520],
+			"pic": "",
+			"picPosSize": [0, 0, 0, 0]
+		},
+		"page15": {
+			"topText": "Hints/Tips - known issues",
+			"ttPosSize": [40, 80, 1200, 50],
+			"headLine": "avoid % in directory names",
+			"hlPosSize": [40, 130, 1200, 60],
+			"text": "If a % is used in a directory name, Yamp is unable to read the contents of this directory - reason still unknown\n\nSolution / Workaround: Rename the directory (for example '100 % Rock') to something like '100 percent Rock'\n\nONLY the directory has to be renamed, the tags may stay as they are, they are not affected by the %-problem, so the album name after renaming the directory still will be shown correctly.",
+			"textPosSize": [40, 200, 1200, 520],
+			"pic": "",
+			"picPosSize": [0, 0, 0, 0]
+		},
+		"page16": {
+			"topText": "Hints/Tips - other boxes than Dreambox / VU",
+			"ttPosSize": [40, 80, 1200, 50],
+			"headLine": "no HELP-key on remote",
+			"hlPosSize": [40, 130, 1200, 60],
+		"text": "A tester on a GigaBlue (thanks to et2011) it was realized, that the remote does not have a HELP-key. The associated enigma2-function (show the assigned functions for each key), however, is integrated in the system. To be able to use this very useful help within Yamp also, an adjustment of the keymap.xml in the Yamp-directory may be necessary. For the Gigablue it is integrated already\n\nProcedure:\nPoint 1: Find the key of the remote which is mapped to the help function on your system.\n\n- Either you just try (in the system, not in Yamp), which key will open the help page, and find the name of this key in the keymap.xml of the system\n\n- or: open the keymap.xml of the system, and search for something similar to\n<map context='HelpActions'>\n<key id='KEY_HELP' mapto='displayHelp' flags='b'>\n<key id='KEY_OPTION' mapto='displayHelp' flags='m'>\nThis example is from the Gigablue with HDF and tells us, that the key OPTION calls the help function and so is used to replace the missing HELP key.\n\nPoint 2: This in Point 1 found key now has to be integrated in the keymap.xml of Yamp (in the Yamp-Dir) as follows:\n\n<map context='YampHelpActions'>\n<key id='KEY_HELP' mapto='help' flags='m' />\n<key id='KEY_OPTION' mapto='help' flags='m' />\n\nHere, replace the KEY_OPTION by the found KEY.\n\nAttention: You have to use a Linux-compatible editor, for example notepad++\n\nIf you tell about this found key in one of the forums, it will be integrated in the next update",
+			"textPosSize": [40, 200, 1200, 520],
+			"pic": "",
+			"picPosSize": [0, 0, 0, 0]
+		},
+		"page17": {
+			"topText": "Hints/Tips - other boxes than Dreambox / VU",
+			"ttPosSize": [40, 80, 1200, 50],
+			"headLine": "key INFO LONG already used",
+			"hlPosSize": [40, 130, 1200, 60],
+		"text": "With INFO LONG this help for Yamp may be shown anytime. Also on testing on the GigaBlue, it was recognized that this key was used by the system already and therefore not useable by Yamp. In this case, I recommend to make access to this help screen possible in another way.\n\nPossibilities: Change the system to no longer use INFO LONG. How this is possible, depends on the system, maybe you ask in the forum of your used image\n\nAlternative. Change the setting in section 'Operation/Display: Show Yamp Help on Start' to ON",
+			"textPosSize": [40, 200, 1200, 520],
+			"pic": "",
+			"picPosSize": [0, 0, 0, 0]
+		},
+		"page18": {
+			"topText": "Hints/Tips - other boxes than Dreambox / VU",
+			"ttPosSize": [40, 80, 1200, 50],
+			"headLine": "Example for Helppage System (Box GigaBlue)",
+			"hlPosSize": [40, 130, 1200, 60],
+		"text": "",
+			"textPosSize": [40, 560, 1200, 200],
+			"pic": "HelpSystem1000.png",
+			"picPosSize": [100, 170, 1000, 562]
+		},
+		"page19": {
+			"topText": "Hints/Tips - other boxes than Dreambox / VU",
+			"ttPosSize": [40, 80, 1200, 50],
+			"headLine": "Example for Helppage Yamp (Box GigaBlue)",
+			"hlPosSize": [40, 130, 1200, 60],
+		"text": "",
+			"textPosSize": [40, 560, 1200, 200],
+			"pic": "HelpYamp1000.png",
+			"picPosSize": [100, 170, 1000, 562]
+		}
+		
+		
+	},
+	"de": {
+		"page1": {
+			"topText": "Achtung! Um Anfängern den Einstieg zu erleichtern, wird diese Hilfe bei jedem Start von Yamp angezeigt. Dies kann in den Einstellungen unter Bedienung/Anzeige abgeschaltet werden. Dann wird sie automatisch nur 1 mal nach Installation oder Update angezeigt.\nSie kann aber jederzeit manuell wieder durch LANGES Drücken der Taste <INFO/EPG> angezeigt werden.\nBei Fremdboxen (nicht Dreambox / VU) dazu unbedingt auch die Hinweise auf Seiten 16-19 beachten!!!",
+			"ttPosSize": [40, 70, 1200, 220],
+			"headLine": "Es wird dringend empfohlen, etwas Zeit zum Lesen dieser Hilfe zu investieren!!!",
+			"hlPosSize": [40, 290, 1200, 50],
+		"text": "Navigation in der Hilfe:\nPfeiltasten Links/Rechts: Vorige/Nächste Seite\nPfeiltasten Auf/Ab: Scrollen innerhalb von überlangen Seiten\nEXIT: diese Hilfe verlassen\n\nDiese Hilfe ist zwar speziell für neue Anwender erstellt, um einige grundsätzliche Funktionen zu erklären und damit so schnell wie möglich Spass mit Yamp zu bekommen. Sie kann aber ein Lesen der Anleitung nicht ersetzen :-)\n\nAllerdings empfehle ich auch den 'alten Hasen', zumindest die nächsten paar Seiten anzuschauen. Auch für die gibt es ein paar interessante Infos zu den Neuigkeiten in dieser Version.\n\nBeim Erstellen der Hilfe wurde mehr auf einfache Änderung/Erweiterung als auf Schönheit geachtet.\n\nSpeziell bei langen Seiten kann die Darstellung bei manchen Skins 'suboptimal' sein.",
+			"textPosSize": [40, 340, 1200, 380],
+			"pic": "",
+			"picPosSize": [0, 0, 0, 0]
+		},
+		"page2": {
+			"topText": "Grundsätzliche Anmerkungen",
+			"ttPosSize": [40, 70, 1200, 60],
+			"headLine": "",
+			"hlPosSize": [40, 130, 1200, 0],
+			"text": "Mehr Informationen und Hinweise sind zu finden in den Foren\nvuplus-support.org   und   board.newnigma2.to\nEinfach nach Yamp suchen - dort gibts auch einen Thread mit FAQ, den ich wärmstens empfehle. Der wird wahrscheinlich viele Anfänger-Fragen und -Probleme schon beantworten.\nWenn dann noch Fragen auftauchen: Dazu sind die Foren da. :-)\n\nÜbrigens: Wenn euch Yamp gefällt und ihr es nutzt, ist es auch nicht verboten, auf 'gefällt mir' auf der ersten Seite des aktuellen Yamp Thread zu klicken :-)\nDas ist für den Autor nicht nur nett, sondern auch wichtig: Denn nur so kann ich einen Eindruck gewinnen, ob die vielen Downloads anschliessend im Müll verschwinden, oder ob Yamp tatsächlich genutzt und eine Weiterentwicklung überhaupt gewünscht wird!\n\nViel Spass!\n\nAlfredENeumann mit speziellem Dank an @ekremtt (jede Menge 'skinning' und Tests) und @sven_h (häufige geniale Hilfe beim Kodieren)",
+			"textPosSize": [40, 180, 1200, 540],
+			"pic": "",
+			"picPosSize": [0, 0, 0, 0]
+		},
+		"page3": {
+			"topText": "Wichtige Neuigkeit ab V3.3.1",
+			"ttPosSize": [40, 80, 1200, 50],
+			"headLine": "Artist-Art Beispiel auf HDD installiert - wenn HDD vorhanden",
+			"hlPosSize": [40, 130, 1200, 40],
+			"text": "Wenn eine Festplatte installiert ist und während der Installation als /media/hdd gefunden wurde, wurde ein Beispiel-Verzeichnis für Artist-Art Hintergrundbilder auf der HDD installiert: <ArtistPics_Example_Yamp_AlfredENeumann>.\n\nWenn Artist-Art genutzt werden soll, KANN UND SOLLTE dieses Verzeichnis umbenannt und möglicherweise auch verschoben werden; Name und Ort sind beliebig. Dann muss dieses Verzeichnis in den Yamp-Einstellungen als  <Basis-Verzeichnis für Artwork-Bildschirmschoner> ausgewählt werden.\n\nEinmal so eingestellt, wird Yamp automatisch Unterverzeichnisse für jeden Interpreten erstellen, der abgespielt wird.\n\nBitte das Unterverzeichnis <Default> NICHT löschen; Bilder daraus werden angezeigt, wenn weniger als 2 Bilder für den jeweiligen Interpreten vorhanden sind!\n\nWurde /media/hdd nicht gefunden, kann das Beispielverzeichnis aus /tmp manuell kopiert werden. Dies funktioniert allerdings nur, falls nach der Installation nur ein GUI-Neustart ausgeführt wurde. Bei einem kompletten Neustart löscht das System /tmp.\n\nAlternativen dann: Nochmalige Installation, oder Download aus einem der Foren im Yamp-Thread.\n\nWenn Artist-Art nicht genutzt werden soll oder ein Verzeichnis dafür (incl. Default) bereits existiert, kann das Verzeichnis gelöscht werden.",
+			"textPosSize": [40, 180, 1200, 540],
+			"pic": "",
+			"picPosSize": [0, 0, 0, 0]
+		},
+		"page4": {
+			"topText": "Wichtige Neuigkeit ab V3.3.1",
+			"ttPosSize": [40, 80, 1200, 50],
+			"headLine": "Yamp-Kurzanleitung(en) auf HDD installiert - wenn HDD vorhanden",
+			"hlPosSize": [40, 130, 1200, 40],
+			"text": "Wenn eine Festplatte installiert ist und während der Installation als /media/hdd gefunden wurde, wurde ein Verzeichnis mit den Kurzanleitungen (im Moment nicht auf V3.1.1 aktualisiert) installiert: Verzeichnis: <Yamp-Documentation>.\n\nGerade für User, die den Yamp vom Feed installiert und möglicherweise noch gar nicht ins Forum geschaut haben, hat es mich immer gestört, dass die überhaupt keine Anleitung haben.\n\nAuch an dieser Stelle noch einmal die Bitte: Von Installationen vom Feed bekomme ich naturgemäss nichts mit. Somit wäre es schön - wenn denn Yamp nicht nur mal ausprobiert, sondern auch genutzt wird - im Forum mal auf den 'Gefällt mir'-Button auf der ersten Seite des aktuellen Yamp Thread zu klicken.\nDenn nur so kann ich einen Eindruck gewinnen, ob Yamp tatsächlich genutzt und eine Weiterentwicklung  gewünscht wird!\n\nWie vorher: Wurde /media/hdd nicht gefunden, kann das Verzeichnis aus /tmp manuell kopiert werden, falls nach der Installation nur ein GUI-Neustart ausgeführt wurde. \n\nAlternativen auch wie 1 Seite vorher.",
+			"textPosSize": [40, 180, 1200, 540],
+			"pic": "",
+			"picPosSize": [0, 0, 0, 0]
+		},
+		"page5": {
+			"topText": "Weitere wichtige Neuigkeit ab V3.3.1",
+			"ttPosSize": [40, 80, 1200, 50],
+			"headLine": "Neue Version der Datenbank - Einstellungen prüfen und Datenbank durch neues Einlesen aktualisieren",
+			"hlPosSize": [40, 130, 1200, 60],
+			"text": "Ab V3.3.1 gibt es einige Neuigkeiten in der Datenbank.\n- bei Interpreten können Zusätze wie 'featuring' beim Einlesen ignoriert werden, was die Anzahl der Interpreten in der DB reduziert. Wenn aktiviert, wird dann z.B. 'P!nk feat. Eminem' nur noch als 'P!nk' in der DB gespeichert. In der Info-Bar wird allerdings immer noch alles (incl. feat...) angezeigt\n- Alben 'Greatest Hits' können jetzt mehrfach vorkommen und werden zusammen mit dem Interpreten gespeichert\n- bestimmte Unterverzeichnisse (Namen sind einstellbar) können beim Einlesen ausgeschlossen werden; hilfreich z.B. bei manchen NAS, die eigene Unterverzeichnisse für ihre Verwaltung anlegen\n\nDeswegen sollten nach Upgrade erst einmal alle Einstellungen überprüft und auf die eigenen Vorlieben angepasst und anschliessend die Datenbank durch neues Einlesen aller Titel aktualisiert werden.\n\nAbgesehen davon ist das Überprüfen aller Einstellungen auch sinnvoll, weil es auch hier einige Neuigkeiten gibt.",
+			"textPosSize": [40, 200, 1200, 520],
+			"pic": "",
+			"picPosSize": [0, 0, 0, 0]
+		},
+		"page6": {
+			"topText": "Sehr viele Neuigkeiten in V3.3.1",
+			"ttPosSize": [40, 80, 1200, 50],
+			"headLine": "bitte im Einzelnen nachlesen im changelog",
+			"hlPosSize": [40, 130, 1200, 40],
+			"text": "In V3.3.1 hat sich sehr viel geändert seit V3.2.2, deshalb würde es hier den Rahmen sprengen alles aufzuführen. Deswegen nur ein paar Beispiele:\n- In den Einstellungen gibt es jetzt direkte Erklärungen zu jeder Einstellung, sollte das Einstellen leichter machen :-)\n- HD-Skins überarbeitet (an FHD-Layout angepasst)\n- in einigen Skins gibt es jetzt ein Video-Preview-Fenster, das auch für TV genutzt werden kann\n- Skins (auch benutzerdefiniert) werden auf Vollständigkeit überprüft und ggf. mit Warnung deaktiviert\n- bei Versions-Update werden jetzt vorhandene benutzerdefinierte Skins (..custom..) gesichert und zurückkopiert\n- Beim Scrollen durch die Listen können jetzt die Cover und Infos angezeigt werden (abschaltbar, Userwunsch)\n- Gesamt- und Restdauer der Wiedergabeliste können angezeigt werden (abschaltbar, Userwunsch)\n- Verschieben in der Wiedergabeliste jetzt auch über mehrere Zeilen möglich (Anzahl einstellbar)\n- Tags, Lyrics und Cover werden jetzt auch aus m4a, mp4 und ogg gelesen, Tags auch aus wma\n- Lyricssuche Genius ersetzt durch AZLyrics\n- Lyrics können jetzt auch direkt aus der Wiedergabeliste für einen nicht abgespielten Titel aufgerufen werden\n- beim Speichern von Lyrics wird jetzt ein langer Dateiname gebildet (mit Interpret-Album). Dafür kann jetzt auch eine leere Lyrics-Datei gespeichert werden, damit beim manuellen Erstellen automatisch der richtige Dateiname erstellt wird\n- neuer Mini-Editor für Lyrics integriert, incl. Änderung der Karaoke-Zeiten\n- beim Speichern von Wiedergabelisten werden die jetzt automatisch in die Datenbank eingetragen\n- beim Bildschirmschoner wird jetzt immer auf mindestens 2 Bilder 'aufgefüllt', damit immer ein Bildwechsel stattfindet\n- beim Bildschirmschoner wird jetzt versucht, korrupte Bilder zu erkennen, so dass der nicht mehr hängenbleibt\n- auch bei Videoclips wird jetzt die grosse Karaoke-Zeile unterstützt\n- das Boxdisplay kann jetzt weitgehend in den Einstellungen konfiguriert werden\n- beim Einlesen in die Datenbank können jetzt bestimmte Unterverzeichnisse ausgeschlossen werden (hilfreich bei manchen NAS)\n- bei Einlesen in die Datenbank kann festgelegt werden, dass bei Interpreten 'featuring' ignoriert wird (reduziert die Anzahl von Interpreten)\n- beim Einlesen in die Datenbank wird bei 'Greatest Hits' jetzt der Interpret mit berücksichtigt\n- erweiterte keymap für Tastatur-Bedienung integriert (thanks @pclin)\n- diverse Bugfixes und Optimierungen (Summe aller Verbesserungen  hoffentlich >= 0)  :-)",
+			"textPosSize": [40, 180, 1200, 520],
+			"pic": "",
+			"picPosSize": [0, 0, 0, 0]
+		},
+		"page7": {
+			"topText": "Erste Schritte - Einstieg in Yamp",
+			"ttPosSize": [40, 70, 1200, 50],
+			"headLine": "",
+			"hlPosSize": [40, 100, 1200, 0],
+		"text": "Sinnvoll ist es, als erstes ein paar Verzeichnisse für Yamp zu erstellen.\nNach Installation sind alle Verzeichnisse erst einmal auf /media/hdd eingestellt. Um aber die Übersicht nicht zu verlieren, empfehle ich, folgende Verzeichnisse zu erstellen (USB ist nur ein Vorschlag, kann natürlich auch HDD sein):\n\n/media/usb/Yamp/DB      für die Datenbank\n/media/usb/Yamp/Playlisten      für eigene Wiedergabelisten\n/media/usb/Yamp/Lyrics      für Lyrics / Liedtexte\n/media/usb/Yamp/Artistpics      für Artistpics Bildschirmschoner, sh. auch Seite 3\n/media/usb/Yamp/Debug      für Debug-Dateien\n\nWenn diese Verzeichnisse erstellt sind, in den Einstellungen von Yamp (aufrufbar über die Taste MENU) diese Verzeichnisse und auch das Grundverzeichnis für die Musikdateien auswählen. Hinweis: Debug ist am Ende der Liste\nEvtl. auch gleich noch andere Einstellungen je nach Vorlieben einstellen und mit GRÜN speichern.\n\nDamit sind die Vorbereitungen - was Yamp selbst angeht - abgeschlossen.\n\nWenn Yamp dann verlassen und neu gestartet wird, sollte sich im linken Fenster das eingestellte Musikverzeichnis öffnen.\n\nBitte aber unbedingt noch die Anmerkungen auf der nächsten Seite beachten!",
+			"textPosSize": [40, 120, 1200, 540],
+			"pic": "",
+			"picPosSize": [0, 0, 0, 0]
+		},
+		"page8": {
+			"topText": "Erste Schritte - Einstieg in Yamp 2",
+			"ttPosSize": [40, 70, 1200, 50],
+			"headLine": "DB füllen - vernünftige Tags sind wichtig",
+			"hlPosSize": [40, 100, 1200, 0],
+		"text": "Ich empfehle, dann sofort das gesamte Musik-Verzeichnis in die Datenbank einzulesen. Dazu auf  'übergeordnetes Verzeichnis' gehen, noch einmal das Verzeichnis wählen, und mit GELB LANG das Einlesen in die Datenbank (DB) zu starten.\n\nNatürlich ist ein Betrieb von Yamp auch ohne DB möglich - die DB hat aber viele Vorteile, sh. auch FAQ dazu in den Foren.\n\nWechsel zwischen den beiden Hauptfenstern mit den Pfeiltasten, bitte auch 'Grundlegende Bedienung' ab Seite 9 beachten.\n\nIm linken Fenster: Wechsel zwischen Datei- und Datenbankansicht mit ROT\n\nAuch die HILFE-Taste auf der Fernbedienung liefert immer Informationen zu der Belegung der Tasten.\n\nUnd noch eine wichtige Anmerkung zu ID3-Tags:\nYamp (wie die meisten Music-Player) steht und fällt mir vernünftigen ID3-Tags. Diese werden von Yamp aus den meisten üblichen Formaten (mp3, flac, m4a, mp4, ogg, wma) gelesen und ausgewertet.\n\nSollte die Musiksammlung nicht schon komplett mit guten Tags versehen sein, empfehle ich dringend, das nachzuholen. Ausser den üblichen Programmen (Mp3Tag, Tagscan) empfehle ich Musicbrainz Picard; ist im Einstieg etwas komplizierter, dann aber - wie ich finde - unschlagbar.",
+			"textPosSize": [40, 120, 1200, 540],
+			"pic": "",
+			"picPosSize": [0, 0, 0, 0]
+		},
+		"page9": {
+			"topText": "Grundlegende Bedienung - Farbtasten und MENÜ-Taste",
+			"ttPosSize": [40, 80, 1200, 40],
+			"headLine": "Viele wichtige Bedienungen werden über die Farbtasten ausgeführt",
+			"hlPosSize": [40, 120, 1200, 40],
+			"text": "Die auswählbaren Funktionen ändern sich und sind abhängig vom aktuellen Status und in welchem Fenster (Datei-Ansicht, Datenbank-Ansicht, Wiedergabeliste - sh. nächste Seiten) man sich befindet.\n\nSehr wichtig: Die obere Zeile zeigt die Aktion für KURZEN, die untere für LANGEN Tastendruck.\n\nViele (nicht so häufige) Funktionen sind über die MENÜ-Taste erreichbar. Auch hier sind die möglichen Funktionen je nach Ausgangspunkt verschieden.",
+			"textPosSize": [40, 280, 1200, 440],
+			"pic": "Farbtasten1254x104.png",
+			"picPosSize": [13, 170, 1254, 104]
+		},
+		"page10": {
+			"topText": "Grundlegende Bedienung - Sonstige Tasten",
+			"ttPosSize": [40, 80, 1200, 40],
+			"headLine": "",
+			"hlPosSize": [0, 0, 0, 0],
+			"text": "Nur auf bestimmten Seiten verfügbare Tasten werden auf den jeweiligen Seiten (meistens im Kopfbereich, hängt vom Skin ab) angezeigt, wobei ein (L) in Klammern anzeigt, dass sowohl eine Funktion für kurzen als auch eine für langen Tastendruck hinterlegt ist.\n\nMit LINKS-RECHTS wird zwischen den beiden Fenstern (sh. nächste Seite) gewechselt.\n\nMit BOUQET/CHANNEL kann in Listen Seitenweise (oder in den Einstellungen Abschnittsweise) geblättert werden.\n\nMit 2 bzw. 8 wird in Listen an den Start bzw. ans Ende der Liste gesprungen.\n\nNicht angezeigt werden die Standard-Tasten zum Abspielen von Musik: (Fast) immer aktiv sind z.B: die Tasten Play, Stop, Pause, Next, Previous usw.\nBeim Abspielen von Songs kann mit 1-4-7 rückwärts und mit 3-6-9 vorwärts gesprungen werden. Die Länge der Sprünge ist im System definiert.\nMit Taste 5 wird in der Wiedergabeliste zum aktuell aktiven Song gesprungen.\nMit Taste 0 wird der Bildschirmschoner pausiert/fortgesetzt (wenn ein Bild besonders gut gefällt).\n\nDie HILFE-Taste der Fernbedienung zeigt auch die den Tasten zugeordnete Funktion an.\n\n",
+			"textPosSize": [40, 230, 1200, 490],
+			"pic": "Bedienung-Tasten623x99.png",
+			"picPosSize": [328, 130, 623, 99]
+		},
+		"page11": {
+			"topText": "Grundlegende Bedienung - Fenster links-rechts",
+			"ttPosSize": [40, 80, 1200, 40],
+			"headLine": "Die beiden Fenster links-rechts sind die meist benutzten Hauptfenster von Yamp",
+			"hlPosSize": [40, 120, 1200, 40],
+			"text": "Hinweis: Die tatächlichen Listen sind länger als auf diesem Hilfe-Bild! :-)\n\nDas linke Fenster kann mit ROT zwischen Datenbank- und Dateiansicht umgeschaltet werden, das rechte Fenster zeigt IMMER die Wiedergabeliste. Aus dem linken Fenster können mit GRÜN oder GRÜN LANG einzelne Titel oder ganze Verzeichnisse/Datenbankeinträge ans Ende der Wiedergabeliste angefügt werden.\n\nSongs oder Musik-Videoclips werden IMMER aus der Wiedergabeliste abgespielt.\n\nEin Quasi-Direkt-Abspielen ist trotzdem möglich: Aus dem linken Fenster wird ein Titel mit PLAY direkt an der aktuellen Stelle der Wiedergabeliste eingefügt und sofort abgespielt. Auch PLAY LANG ist möglich (ganzes Verzeichnis, ganzes Album usw.)",
+			"textPosSize": [40, 390, 1200, 330],
+			"pic": "2Listen1200x218.png",
+			"picPosSize": [40, 170, 1200, 218]
+		},
+		"page12": {
+			"topText": "Grundlegende Bedienung - Spezial-Tasten und -Anzeigen",
+			"ttPosSize": [40, 80, 1200, 40],
+			"headLine": "Tasten und Anzeigen TV, Radio, PVR/VIDEO",
+			"hlPosSize": [40, 120, 1200, 40],
+			"text": "Die rot markierten Anzeigen melden verschiedene Zustände (aktiv = grün), mit den zugehörigen Tasten können diese auch umgeschaltet werden\nDie Tastenbeschreibung (z.B. TV) wird allerdings nur angezeigt, wenn die Anzeige in den Einstellungen nicht deaktiviert ist.\n\nTV: Wiedergabeliste endlos\nWiedergabeliste wird endlos abgespielt, nach dem letzten Titel wird wieder zum ersten gesprungen\n\nRadio: Mischen\ndie Wiedergabeliste wird gemischt (Zufallswiedergabe), nochmaliges Drücken von Radio stellt die ursprüngliche Reihenfolge wieder her\n\nPVR/VIDEO: Bildschirmschoner ein/aus\nzu beachten: Die Anzeige wird (auch wenn eingeschaltet) erst grün, wenn ein Titel abgespielt wird\n\nHinweis:  Diese Anzeigen sind bei den HD-Skins ohne Video-Preview an einer anderen Stelle!",
+			"textPosSize": [40, 270, 1200, 450],
+			"pic": "Bedienung-Tasten623x99-2.png",
+			"picPosSize": [328, 170, 623, 99]
+		},
+		"page13": {
+			"topText": "Hinweise/Tips - Eigene Skins",
+			"ttPosSize": [40, 80, 1200, 50],
+			"headLine": "Eigene Skins (...custom...) erstellen/anpassen",
+			"hlPosSize": [40, 130, 1200, 60],
+			"text": "Im Yamp-Verzeichnis unter 'skins' gibt es 4 Verzeichnisse, in denen eigene Skins abgelegt und angepasst werden können (custom im Verzeichnis-Namen). Nach einer Neuinstallation sind dort einfach die zugehörigen Hauptskins unverändert abgelegt.\n\nBei einem Update sollte es ab V3.3.1 auch (endlich) funktionieren, dass bereits vorhandene eigene Skins zurückkopiert werden. Diese werden hierfür vor dem Update nach /tmp gesichert und bei Abschluss wieder zurückkopiert. Sollte dabei etwas schiefgehen, können die eigenen Skins immer noch 'von Hand' aus /tmp kopiert werden, solange kein kompletter Neustart ausgeführt wurde. Trotzdem ist es auch wie immer kein Fehler, vor einem Update auch die eigenen Skins erstmal zu sichern.\n\nSo oder so sollten nach einem Update die schon vorher vorhandenen eigenen Skins überprüft (Vergleich mit dem Original) und ggf. angepasst werden.\nEine entsprechender Hinweis wird auch online eingeblendet, wenn ein eigener Skin aktiviert wird. Die Datei 'Vx.y.z.ver' dient dazu, festzustellen, ob Skin-relevante Änderungen in der neuen Version vorhanden sind. Diese Datei sollte also nicht gelöscht werden!",
+			"textPosSize": [40, 200, 1200, 520],
+			"pic": "",
+			"picPosSize": [0, 0, 0, 0]
+		},
+		"page14": {
+			"topText": "Hinweise/Tips - Lyrics Edit - Karaoke Offset",
+			"ttPosSize": [40, 80, 1200, 50],
+			"headLine": "Ab V3.3.1 kann eine Lyrics-Datei an der Box korrigiert werden",
+			"hlPosSize": [40, 130, 1200, 60],
+		"text": "Gedacht ist dieser Editor für kleinere Korrekturen, die dann ohne PC ausgeführt werden können.\nZusätzlich können die Zeitstempel für die Karaoke-Funktion korrigiert werden, wenn alle Texte einer Datei um etwa die gleiche Zeit zu früh oder zu spät kommen.\nAchtung! Ist das bei ALLEN Texten der Fall (weil sie z.B. von einer langsameren oder schnelleren Maschine kommen), kann und sollte das für alle Dateien in den Einstellungen ('Offset für Text-Zeile während Abspielen') eingestellt werden.\n\nAufgerufen werden die Editier-Funktionen über MENU.\nZur Verfügung stehen:\naktuelle Zeile bearbeiten / Zeile einfügen / Zeile löschen / Zeile kopieren - kopierte Zeile einfügen\nDie letzte Option ist hilfreich, wenn z.B ein Refrain mehrmals wiederholt wird, in der Datei aber nur einmal vorhanden ist\n\nZeitstempel-Korrektur:\nDazu wird erst die Offset-Zeit in Millisekunden eingegeben und anschliessend ausgewählt, ob dieser Offset positiv (Text wird später angezeigt) oder negativ (Text wird früher angezeigt) ausgeführt werden soll\nDas Ergebnis kann sofort (vor dem Speichern der Änderungen) getestet und überprüft werden.",
+			"textPosSize": [40, 200, 1200, 520],
+			"pic": "",
+			"picPosSize": [0, 0, 0, 0]
+		},
+		"page15": {
+			"topText": "Hinweise/Tips - bekannte Probleme",
+			"ttPosSize": [40, 80, 1200, 50],
+			"headLine": "% in Verzeichnis muss vermieden werden",
+			"hlPosSize": [40, 130, 1200, 60],
+		"text": "Ein %-Zeichen im Verzeichnis-Namen führt dazu, dass das Verzeichnis von Yamp nicht erkannt wird - Ursache immer noch unbekannt\n\nLösung bzw. Ausweg: Verzeichnis (z.B. 100 % Rock) umbenennen in 100ProzentRock.\n\nEs geht ausdrücklich NUR um das Verzeichnis, die Tags müssen NICHT geändert werden. In den Tags stört das % nicht und wird folglich auch in der Anzeige des Album-Namens richtig angezeigt.",
+			"textPosSize": [40, 200, 1200, 520],
+			"pic": "",
+			"picPosSize": [0, 0, 0, 0]
+		},
+		"page16": {
+			"topText": "Hinweise/Tips - 'Fremd-Boxen' (andere als Dreambox / VU)",
+			"ttPosSize": [40, 80, 1200, 50],
+			"headLine": "keine Hilfe-Taste auf der Fernbedienung",
+			"hlPosSize": [40, 130, 1200, 60],
+		"text": "Beim Testen auf Fremdboxen (hier: GigaBlue, danke an et2011) wurde festgestellt, dass die Fernbedienung keine Hilfe-Taste hat. Die zugehörige enigma2-Funktion (Anzeige der den Tasten zugeordneten Funktionen) ist aber trotzdem integriert. Um diese sehr sinnvolle Hilfe auch innerhalb Yamp aufrufen zu können, ist evtl. eine Anpassung der keymap.xml im Yamp-Verzeichnis notwendig. Für die Gigablue ist dies bereits integriert.\n\nVorgehen:\nPunkt 1: Die Taste finden, die im jeweiligen System der Hilfe zugeordnet ist.\n\n- Entweder einfach ausprobieren (im System, nicht in Yamp), welcher Taste die Hilfe-Funktion zugeordnet ist, und die Bezeichnung dieser Taste dann in der keymap.xml des Systems suchen.\n\n- oder: Die keymap.xml des Systems öffnen, und suchen nach ähnlichem wie\n<map context='HelpActions'>\n<key id='KEY_HELP' mapto='displayHelp' flags='b'>\n<key id='KEY_OPTION' mapto='displayHelp' flags='m'>\nDieses Beispiel ist von der Gigablue mit HDF und sagt, dass die Taste OPTION die Hilfe aufruft und damit die fehlende HELP-Taste ersetzt.\n\nPunkt 2: Die gefundene Taste in der keymap.xml von Yamp (im Yamp-Verzeichnis) eintragen wie folgt:\n\n<map context='YampHelpActions'>\n<key id='KEY_HELP' mapto='help' flags='m' />\n<key id='KEY_OPTION' mapto='help' flags='m' />\n\nHier KEY_OPTION durch die gefundene Taste ersetzen.\n\nAchtung: Für alle Änderungen an den Dateien muss ein Linux-kompatibler Editor genutzt werden (z.B. notepad++)\n\nWenn diese Taste dann in einem der Foren mir mitgeteilt wird, wird sie im nächsten Update mit drin sein. :-)",
+			"textPosSize": [40, 200, 1200, 520],
+			"pic": "",
+			"picPosSize": [0, 0, 0, 0]
+		},
+		"page17": {
+			"topText": "Hinweise/Tips - 'Fremd-Boxen' (andere als Dreambox / VU)",
+			"ttPosSize": [40, 80, 1200, 50],
+			"headLine": "Taste INFO LANG schon belegt",
+			"hlPosSize": [40, 130, 1200, 60],
+		"text": "Mit INFO LANG kann diese Hilfe für Yamp auch später wieder aufgerufen werden. Auch hier wurde beim Testen auf der GigaBlue festgestellt, dass diese Taste bereits vom System belegt und für Yamp nicht mehr verfügbar war. In dem Fall empfehle ich DRINGEND, diese Hilfe auf anderem Weg auch für später zugänglich zu machen.\n\nVorgehen: Die Taste INFO LONG im System für Yamp zugänglich machen - wie das geht, hängt vom System ab und ist im Zweifelsfall im Forum des jeweiligen Images zu klären.\n\nAlternative: In den Einstellungen unter Bedienung/Anzeige 'Yamp Hilfe beim Start anzeigen' auf EIN einstellen.",
+			"textPosSize": [40, 200, 1200, 520],
+			"pic": "",
+			"picPosSize": [0, 0, 0, 0]
+		},
+		"page18": {
+			"topText": "Hinweise/Tips - 'Fremd-Boxen' (andere als Dreambox / VU)",
+			"ttPosSize": [40, 80, 1200, 50],
+			"headLine": "Beispiel für Hilfeseite System (Box GigaBlue)",
+			"hlPosSize": [40, 130, 1200, 60],
+		"text": "",
+			"textPosSize": [40, 560, 1200, 200],
+			"pic": "HelpSystem1000.png",
+			"picPosSize": [100, 170, 1000, 562]
+		},
+		"page19": {
+			"topText": "Hinweise/Tips - 'Fremd-Boxen' (andere als Dreambox / VU)",
+			"ttPosSize": [40, 80, 1200, 50],
+			"headLine": "Beispiel für Hilfeseite Yamp (Box GigaBlue)",
+			"hlPosSize": [40, 130, 1200, 60],
+		"text": "",
+			"textPosSize": [40, 560, 1200, 200],
+			"pic": "HelpYamp1000.png",
+			"picPosSize": [100, 170, 1000, 562]
+		}
+		
+	}
+}

@@ -1,0 +1,83 @@
+#AlfredENeumann 2024-01-07
+YAMPDIR="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/"
+#------------------------
+#delete old pyo files if exist
+FILE=*.pyo
+if ls $YAMPDIR$FILE 1> /dev/null 2>&1; then rm $YAMPDIR$FILE; fi
+#------------------------
+#delete old pyc files if exist
+FILE=*.pyc
+if ls $YAMPDIR$FILE 1> /dev/null 2>&1; then rm $YAMPDIR$FILE; fi
+#------------------------
+#delete old scrambled files if exist
+FILE=l1*.*
+if ls $YAMPDIR$FILE 1> /dev/null 2>&1; then rm $YAMPDIR$FILE; fi
+#------------------------
+#copy personal key file back from /tmp/ if exists
+FILE="YampFanarttvPersonalApi.key"
+if [ -f /tmp/$FILE ]; then cp -f -p /tmp/$FILE $YAMPDIR; echo "$FILE copied from /tmp";fi;
+#------------------------
+#copy custom screens back from /tmp/ if exist
+#before: if at least /tmp/Yamp.xml exists, we assume that an old custom screen is existing
+#therefore we will delete the *.ver file in the install dir to be sure that the old version is recognized as old
+FILE_CHECK="/Yamp.xml"
+FILE_VERSION="/*.ver" 
+DIR_DEST_BASE=$YAMPDIR"skins"
+#------------- custom ------
+DIRCUSTOM="custom"
+DIR_SOURCE="/tmp/$DIRCUSTOM" 
+DIR_DEST=$DIR_DEST_BASE/$DIRCUSTOM
+FCHECK=/tmp/$DIRCUSTOM$FILE_CHECK
+F=$DIR_DEST$FILE_VERSION
+if ls $FCHECK 1> /dev/null 2>&1; then rm -f $F; echo "$F deleted"; else echo "$FCHECK not existing, $F not deleted"; fi
+if [ -d $DIR_SOURCE ]; then cp -f -R $DIR_SOURCE $DIR_DEST_BASE; echo "$DIR_SOURCE copied from /tmp to " $DIR_DEST_BASE; fi;
+#------------- fhdCustom ------
+DIRCUSTOM="fhdCustom"
+DIR_SOURCE="/tmp/$DIRCUSTOM" 
+DIR_DEST=$DIR_DEST_BASE/$DIRCUSTOM
+FCHECK=/tmp/$DIRCUSTOM$FILE_CHECK
+F=$DIR_DEST$FILE_VERSION
+if ls $FCHECK 1> /dev/null 2>&1; then rm -f $F; echo "$F deleted"; else echo "$FCHECK not existing, $F not deleted"; fi
+if [ -d $DIR_SOURCE ]; then cp -f -R $DIR_SOURCE $DIR_DEST_BASE; echo "$DIR_SOURCE copied from /tmp to " $DIR_DEST_BASE; fi;
+#------------- customDreaamOS ------
+DIRCUSTOM="customDreaamOS"
+DIR_SOURCE="/tmp/$DIRCUSTOM" 
+DIR_DEST=$DIR_DEST_BASE/$DIRCUSTOM
+FCHECK=/tmp/$DIRCUSTOM$FILE_CHECK
+F=$DIR_DEST$FILE_VERSION
+if ls $FCHECK 1> /dev/null 2>&1; then rm -f $F; echo "$F deleted"; else echo "$FCHECK not existing, $F not deleted"; fi
+if [ -d $DIR_SOURCE ]; then cp -f -R $DIR_SOURCE $DIR_DEST_BASE; echo "$DIR_SOURCE copied from /tmp to " $DIR_DEST_BASE; fi;
+#------------- fhdCustomDreamOS ------
+DIRCUSTOM="fhdCustomDreamOS"
+DIR_SOURCE="/tmp/$DIRCUSTOM" 
+DIR_DEST=$DIR_DEST_BASE/$DIRCUSTOM
+FCHECK=/tmp/$DIRCUSTOM$FILE_CHECK
+F=$DIR_DEST$FILE_VERSION
+if ls $FCHECK 1> /dev/null 2>&1; then rm -f $F; echo "$F deleted"; else echo "$FCHECK not existing, $F not deleted"; fi
+if [ -d $DIR_SOURCE ]; then cp -f -R $DIR_SOURCE $DIR_DEST_BASE; echo "$DIR_SOURCE copied from /tmp to " $DIR_DEST_BASE; fi;
+#
+#-----------copy ArtistPicsExample to HDD if HDD exists -----------
+DIR_SOURCE="/tmp/ArtistPics_Example_Yamp_AlfredENeumann" 
+DIR_DEST_BASE="/media/hdd"
+if [ -d $DIR_DEST_BASE ]; then cp -f -R $DIR_SOURCE $DIR_DEST_BASE; echo "$DIR_SOURCE copied to " $DIR_DEST_BASE; fi;
+#-----------copy Documentation to HDD if HDD exists -----------
+DIR_SOURCE="/tmp/Yamp-Documentation" 
+DIR_DEST_BASE="/media/hdd"
+if [ -d $DIR_DEST_BASE ]; then cp -f -R $DIR_SOURCE $DIR_DEST_BASE; echo "$DIR_SOURCE copied to " $DIR_DEST_BASE; fi;
+
+#following not necessary, done automatically by system
+#delete old screens which are no longer used
+#DIR=${YAMPDIR}skins/default265 
+#if [ -d "$DIR" ];then rm -r $DIR; fi
+#DIR=${YAMPDIR}skins/transparent 
+#if [ -d "$DIR" ];then rm -r $DIR; fi
+
+
+#
+echo -e "\n\n\nBitte Enigma2 (GUI) neu starten, um YampMusicPlayer Plugin zu aktivieren...\n\nPlease restart Enigma2 (GUI) to activate YampMusicPlayer Plugin..."
+#
+#init 4 -t 5
+#read -t 10 -p "Bitte Enigma2 (GUI) neu starten, um YampMusicPlayer Plugin zu aktivieren...\n\nPlease restart Enigma2 to load YampMusicPlayer Plugin ..."
+#killall -9 enigma2 
+#init 3
+exit 0

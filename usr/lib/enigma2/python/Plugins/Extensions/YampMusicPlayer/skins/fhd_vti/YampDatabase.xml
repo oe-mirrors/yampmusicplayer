@@ -1,0 +1,35 @@
+<!-- Yamp Database fhd Skin @ekremtt - 09.01.2023 adj. AlfredENeumann-->
+<screen name="YampDatabaseScreenV33" position="0,0" size="1920,1080" zPosition="10" backgroundColor="transparent" flags="wfNoBorder">
+	<eLabel position="0,0" size="1920,1080" backgroundColor="#0A0A0A" zPosition="-2" />
+	<eLabel position="0,0" size="1920,60" backgroundColor="#191618" zPosition="-1" />
+<!-- button background -->
+	<eLabel position="0,60" size="1920,70" backgroundColor="#282222" zPosition="-1" />
+<!-- window title background -->
+	<eLabel position="55,170" size="1370,50" backgroundColor="#383333" zPosition="-1" />
+<!-- window  background -->
+	<eLabel position="75,220" size="1330,750" backgroundColor="#191618" zPosition="-1" />	
+<!-- bottom  background -->
+	<eLabel position="0,1010" size="1920,70" backgroundColor="#1C1717" zPosition="-1" />
+
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhd_vti/smallshadowline_1920.png" position="0,60" size="1920,2" zPosition="2" />
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhd_vti/smallshadowline_1920.png" position="0,130" size="1920,2" zPosition="2" />
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhd_vti/smallshadowline_1920.png" position="0,1010" size="1920,2" zPosition="2" />
+
+	<widget name="title" position="40,0" size="700,60" font="Regular;30" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1"  transparent="1" />
+	<widget source="global.CurrentTime" render="Label" position="1770,0" size="150,60" font="Regular; 36" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1" transparent="1">
+		<convert type="ClockToText">Format:%H:%M:%S</convert>
+	</widget>
+	<widget source="global.CurrentTime" render="Label" position="1420,5" size="320,55" font="Regular; 28" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="right" valign="center" zPosition="1" transparent="1">
+		<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
+	</widget>
+
+	<widget name="message1" position="105,270" size="1270,150" font="Regular;32" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="top" zPosition="1" transparent="1" />
+	<widget name="message2" position="105,420" size="1270,500" font="Regular;32" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="top" zPosition="1" transparent="1" />
+
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhd_vti/red.png" position="30,79" size="31,31" alphatest="blend" />
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhd_vti/green.png" position="350,79" size="31,31" alphatest="blend" />
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhd_vti/yellow.png" position="670,79" size="31,31" alphatest="blend" />
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhd_vti/blue.png" position="990,79" size="31,31" alphatest="blend" />
+	<widget name="key_red" position="70,63" size="280,66" font="Regular;24" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1" transparent="1" />
+	<widget name="key_green" position="390,63" size="280,66" font="Regular;24" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1" transparent="1" />
+</screen>

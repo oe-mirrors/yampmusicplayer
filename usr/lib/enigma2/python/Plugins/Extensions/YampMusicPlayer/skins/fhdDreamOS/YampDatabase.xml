@@ -1,0 +1,33 @@
+<!-- Yamp Database fhd Skin V3.3.x 20.03.2021 @ekremtt 13.04.2021 DreamOS changes and some adjustments by AlfredENeumann last change 17.06.2023-->
+<screen name="YampDatabaseScreenV33" position="0,0" size="1920,1080" zPosition="10" backgroundColor="transparent" flags="wfNoBorder">
+<!-- backgrounds -->
+	<eLabel position="0,0" size="1920,1080" backgroundColor="#0A0A0A" zPosition="-2" /> <!-- screen background -->
+	<eLabel position="0,0" size="1920,60" backgroundColor="#191618" zPosition="-1" /> <!-- title line background-->
+	<eLabel position="0,60" size="1920,70" backgroundColor="#282222" zPosition="-1" /> <!-- buttons background -->
+	<eLabel position="275,170" size="1370,50" backgroundColor="#383333" zPosition="-1" /> <!-- window title background -->
+	<eLabel position="295,220" size="1330,750" backgroundColor="#191618" zPosition="-1" /> <!-- window  background -->	
+	<eLabel position="0,1010" size="1920,70" backgroundColor="#1C1717" zPosition="-1" /><!-- bottom  background -->
+
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdDreamOS/smallshadowline_small.png" position="0,60" size="1920,2" zPosition="2" scale="stretch"/>
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdDreamOS/smallshadowline_small.png" position="0,130" size="1920,2" zPosition="2" scale="stretch" />
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdDreamOS/smallshadowline_small.png" position="0,1010" size="1920,2" zPosition="2" scale="stretch"/>
+
+	<widget name="title" position="40,0" size="1000,60" font="Regular;26" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1"  transparent="1" />
+	<widget source="global.CurrentTime" render="Label" position="1730,0" size="180,60" font="Regular; 32" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="right" valign="center" zPosition="1" transparent="1">
+		<convert type="ClockToText">Format:%H:%M:%S</convert>
+	</widget>
+	<widget source="global.CurrentTime" render="Label" position="1380,1" size="380,60" font="Regular; 26" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="right" valign="center" zPosition="1" transparent="1">
+		<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
+	</widget>
+
+	<widget name="message1" position="325,320" size="1270,130" font="Regular;28" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="top" zPosition="1" transparent="1" />
+
+	<widget name="message2" position="325,450" size="1270,500" font="Regular;28" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="top" zPosition="1" transparent="1" />
+
+	<eLabel name="button_red" position="40,85" size="20,24" backgroundColor="#00FF0000" zPosition="1" />
+	<eLabel name="button_green" position="360,85" size="20,24" backgroundColor="#00267F00" zPosition="1" />
+	<eLabel name="button_yellow" position="680,85" size="20,24" backgroundColor="#00FFD800" zPosition="1" />
+	<eLabel name="button_blue" position="1000,85" size="20,24" backgroundColor="#000026FF" zPosition="1" />
+	<widget name="key_red" position="75,70" size="280,54" font="Regular;20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1" transparent="1" />
+	<widget name="key_green" position="395,70" size="280,54" font="Regular;20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1" transparent="1" />
+</screen>

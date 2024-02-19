@@ -1,0 +1,10 @@
+Package: enigma2-plugin-extensions-yampmusicplayer
+Version: 3.3.1_2024-01-08
+Description: Music Player with Artist-Art Background 
+Section: extra
+Priority: optional
+Maintainer: AlfredENeumann
+Homepage: www.vuplus-support.org, board.newnigma2.to
+License: GPL v2 or later
+Architecture: all
+Depends: python-mutagen, python-twisted-web, python-sqlite3, python-beautifulsoup4, python-imaging

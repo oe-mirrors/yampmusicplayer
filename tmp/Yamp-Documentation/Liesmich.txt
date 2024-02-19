@@ -1,0 +1,14 @@
+Ich habe mich entschlossen, diese Dokumentation mitzuliefern, damit auch die, die sich Yamp über den Feed laden, wenigstens ein paar Erklärungen dazu mitbekommen.
+
+Die Anmerkungen und Kurzanleitung zu Yamp Version 3.2.0 beinhalten nur die Änderungen zur Originalversion V2.6.5 von JohnHenry; deswegen ist die Original-Dokumentation, die die Grundfunktionen beschreibt, mitgeliefert.
+
+Es existiert noch keine aktualisierte Version für V3.3.1. Ziel war es ursprünglich, eine gemeinsame Anleitung aus der Anleitung von JohnHenry und meinen Änderungen nach 2.6.5 zu erstellen. Da das Interesse an Yamp aber offensichtlich nachgelassen hat, ist mir das im Moment zu viel Arbeit, zumal einiges an Erklärungen wie zum Beispiel die einzelnen Einstellungen ab V3.3.1 in Yamp selbst integriert sind.
+
+Je nachdem, wie die Resonanz ist, werde ich mir dann überlegen, ob ich mir vielleicht doch noch mal die Zeit für eine gemeinsame Anleitung nehme.
+
+Einstweilen viel Spass mit Yamp. Und wenn ihr den habt, bitte auch das "Gefällt mir" auf der ersten Seite des Yamp Thread V3.3.1 nicht vergessen. Davon kann ich mir zwar nichts kaufen, ist aber die einzige Möglichkeit, wie ich ein Gefühl dafür bekommen kann, wie viele Yamp überhaupt nutzen. Ich sehe zwar jede Menge Downloads, weiss aber natürlich nicht, wieviel davon nach dem Test im Müll landet und wieviele den Yamp tatsächlich nutzen. Und bei Installation über den Feed natürlich gar nicht! 
+
+Also bitte, lasst mich da nicht in Unwissenheit alt werden :-)
+
+Grüsse
+AlfredENeumann

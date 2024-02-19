@@ -1,0 +1,20 @@
+; Unter-Verzeichnisse zum Einlesen in die Datenbank ausschliessen  AlfredENeumann 11.01.2023
+; Zeilen in dieser Datei, die mit ; beginnen, sind Kommentare
+; Einträge müssen GENAU sein (Gross-/Keinschreibung wird berücksichtigt)
+; Unterverzeichnisse, die mit diesen Einträgen beginnen, können in den Einstellungen vom Einlesen ausgeschlossen werden.
+; Bei mehr als 2 Einträgen werden nur die ersten beiden berücksichtigt
+; Achtung! Es geht NUR um Unterverzeichnisse. Beispiel: Wenn Test eingetragen ist, kann ein Verzeichnis Test immer noch direkt eingelesen werden
+;Nachdem diese Datei geändert wurde, unbedingt die Einstellung in Yamp prüfen!!!!
+; -------------------------------
+; Exclude Sub-Directories from Scanning into Database    AlfredENeumann 10.01.2023
+; lines in this file starting with ; are comments
+; Entries must be exact (case sensitive) and will be shown in adjustments
+; Sub-Directories starting with these entries will be excluded, if selected in adjustments.
+; more than 2 entries: only the first 2 will be used
+; Attention: Only SUB-directories are excluded. Example: if Test is an entry, the directory Test still may be scanned directly.
+;After changing this file, you should check the adjustment in Yamp!!!
+;
+; ------gültige Einträge starten hier ----valid entries starting here ------	
+.@__thumb
+Test
+

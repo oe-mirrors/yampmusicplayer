@@ -1,0 +1,31 @@
+<!-- Yamp fhd Skin @ekremtt -->
+<screen name="YampSelectPathScreenV33" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder" >
+	<eLabel position="0,0" size="1920,1080" backgroundColor="#0A0A0A" zPosition="-2" />
+	<eLabel position="0,0" size="1920,60" backgroundColor="#191618" zPosition="-1" />
+	<eLabel position="0,60" size="1920,70" backgroundColor="#282222" zPosition="-1" />
+	<eLabel position="55,170" size="1370,50" backgroundColor="#383333" zPosition="-1" />
+	<eLabel position="75,220" size="1330,750" backgroundColor="#191618" zPosition="-1" />	
+	<eLabel position="0,1010" size="1920,70" backgroundColor="#1C1717" zPosition="-1" />
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhd_vti/smallshadowline_1920.png" position="0,60" size="1920,2" zPosition="2" />
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhd_vti/smallshadowline_1920.png" position="0,130" size="1920,2" zPosition="2" />
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhd_vti/smallshadowline_1920.png" position="0,1010" size="1920,2" zPosition="2" />
+
+	<widget name="title" position="40,0" size="700,60" font="Regular;30" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1"  transparent="1" />
+	<widget source="global.CurrentTime" render="Label" position="1770,0" size="150,60" font="Regular; 36" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1" transparent="1">
+		<convert type="ClockToText">Format:%H:%M:%S</convert>
+	</widget>
+	<widget source="global.CurrentTime" render="Label" position="1420,5" size="320,55" font="Regular; 28" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="right" valign="center" zPosition="1" transparent="1">
+		<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
+	</widget>
+	<eLabel position="105,317" size="1270,3" backgroundColor="#474444" zPosition="3" transparent="0" />
+	<widget name="target" position="105,225" size="1270,90" font="Regular;32" backgroundColor="#00101214" foregroundColor="#00E6E6E6" zPosition="2" transparent="1" />
+	<widget name="filelist" position="105,325" size="1270,616" itemHeight="44" itemFont="Regular;28" backgroundColor="#00101214" foregroundColor="#00E6E6E6" transparent="1" backgroundColorSelected="#565050" foregroundColorSelected="#00E6E6E6" scrollbarSliderBorderWidth="0" scrollbarGap="10" scrollbarKeepGapColor="1" scrollbarWidth="6" enableWrapAround="1" scrollbarMode="showOnDemand" />
+
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhd_vti/red.png" position="30,79" size="31,31" alphatest="blend" />
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhd_vti/green.png" position="350,79" size="31,31" alphatest="blend" />
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhd_vti/yellow.png" position="670,79" size="31,31" alphatest="blend" />
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhd_vti/blue.png" position="990,79" size="31,31" alphatest="blend" />
+	<eLabel name="button exit" text="EXIT " position="1800,63" size="100,66" font="Regular; 24" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="1" transparent="1" />
+	<eLabel text="Cancel" position="70,63" size="280,66" font="Regular;24" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1" transparent="1" />
+	<eLabel text="Save" position="390,63" size="280,66" font="Regular;24" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1" transparent="1" />	
+</screen>

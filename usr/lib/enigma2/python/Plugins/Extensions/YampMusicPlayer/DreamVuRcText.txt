@@ -1,0 +1,5 @@
+;Text Display RC Buttons Dreambox <-> VU    AlfredENeumann 29.12.2022
+;Widget Name <tab> TextDreambox <tab> TextVU
+textInfo	INFO(L)	EPG(L)
+textSaver	PVR	VIDEO
+textBouquet	BOUQET + -	CHANNEL + -

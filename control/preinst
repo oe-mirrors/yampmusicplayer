@@ -1,0 +1,30 @@
+#AlfredENeumann 2023-07-04
+YAMPDIR="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/"
+#------------------------
+#save personal key file to /tmp/ if exists
+FILE="YampFanarttvPersonalApi.key"
+F=$YAMPDIR$FILE
+if [ -f "$F" ]; then cp -f -R $F /tmp; echo "$F copied to /tmp"; else echo "$F no";fi;
+#------------------------
+#save custom screens to /tmp/ if exist; delete the readme files to prevent that a new version in install-dir will be overwritten
+FILE="/Liesmich-Readme.txt"
+#------------------------
+DIR=${YAMPDIR}skins/custom 
+F=$DIR$FILE
+rm -f "$F" 
+if [ -d "$DIR" ];then cp -f -R $DIR /tmp;echo "$DIR copied to /tmp"; fi;
+#------------------------
+DIR=${YAMPDIR}skins/fhdCustom 
+F=$DIR$FILE
+rm -f "$F" 
+if [ -d "$DIR" ];then cp -f -R $DIR /tmp;echo "$DIR copied to /tmp"; fi;
+#------------------------
+DIR=${YAMPDIR}skins/customDreamOS 
+F=$DIR$FILE
+rm -f "$F" 
+if [ -d "$DIR" ];then cp -f -R $DIR /tmp;echo "$DIR copied to /tmp"; fi;
+#------------------------
+DIR=${YAMPDIR}skins/fhdCustomDreamOS 
+F=$DIR$FILE
+rm -f "$F" 
+if [ -d "$DIR" ];then cp -f -R $DIR /tmp;echo "$DIR copied to /tmp"; fi;

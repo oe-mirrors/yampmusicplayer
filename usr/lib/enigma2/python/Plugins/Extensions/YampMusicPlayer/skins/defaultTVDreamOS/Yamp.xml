@@ -1,0 +1,171 @@
+<!-- Yamp Skin V3.3.x Standard DreamOS (HD) mit MiniTV  AlfredENeumann   last change: 21.06.2023 -->
+<screen name="YampScreenV33" position="0,0" size="1280,720" backgroundColor="#00060606" flags="wfNoBorder">
+	<eLabel position="0,0" size="1280,65" backgroundColor="#00242424" />
+
+	<widget name="title" position="35,0" size="430,65" backgroundColor="#00242424" foregroundColor="#00E6E6E6" transparent="1" zPosition="1" font="Regular;20" valign="center" halign="left" />
+
+	<widget name="actskin" position="480,0" size="180,65" backgroundColor="#00242424" foregroundColor="#00E6E6E6" transparent="1" zPosition="1" font="Regular;14" valign="center" halign="center" />
+
+	<!-- these lines must not be removed begin (api license reason) !!!! -->
+
+	<widget name="fanartdownload" position="670,5" size="140,55" backgroundColor="#00242424" foregroundColor="#00E6E6E6" transparent="1" zPosition="15" font="Regular;16" valign="center" halign="center" />
+	<widget source="musicbrainzlogo" render="Pixmap" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTVDreamOS/musicbrainz.png" position="815,11" size="91,12" zPosition="15" transparent="1" alphatest="blend">
+		<convert type="ConditionalShowHide" />
+	</widget>
+
+	<widget source="fanartlogo" render="Pixmap" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTVDreamOS/fanarttv.png" position="815,24" size="122,31" zPosition="15" transparent="1" alphatest="blend">
+		<convert type="ConditionalShowHide" />
+	</widget>
+
+	<widget name="downloadBackground" position="665,3" size="285,63" backgroundColor="#00242424" foregroundColor="#00E6E6E6"  transparent="0" zPosition="6" font="Regular;12" valign="center" halign="right" />
+
+	<!-- these lines must not be removed end !!!! -->
+
+	<widget name="repeat" pixmaps="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTVDreamOS/repeat_off.png,/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTVDreamOS/repeat_on.png" position="670,8" size="32,32" zPosition="3" transparent="0" alphatest="on"/>
+	<widget name="txtRepeat" text="TV" position="670,37" size="32,32" font="Regular;12" backgroundColor="#00101214" foregroundColor="#00FFFFFF" halign="center" valign="center" transparent="1" zPosition="3" />
+
+	<widget name="shuffle" pixmaps="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTVDreamOS/shuffle_off.png,/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTVDreamOS/shuffle_on.png" position="710,8" size="32,32" zPosition="3" transparent="0" alphatest="on"/>
+	<widget name="txtShuffle" text="Radio" position="705,37" size="42,32" font="Regular;12" backgroundColor="#00101214" foregroundColor="#00FFFFFF" halign="center" valign="center" transparent="1" zPosition="3" />
+
+	<widget name="saver" pixmaps="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTVDreamOS/saver_off.png,/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTVDreamOS/saver_on.png" position="752,11" size="32,32" zPosition="3" transparent="0" alphatest="on"/>
+	<widget name="textSaver" text="" position="747,37" size="42,32" font="Regular;12" backgroundColor="#00101214" foregroundColor="#00FFFFFF" halign="center" valign="center" transparent="1" zPosition="3" />
+
+	<eLabel name="textMenu" text="MENU" position="795,5" size="60,34" font="Regular; 12" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="1" transparent="1" />
+	<widget name="textInfo" text="" position="855,5" size="60,34" font="Regular;12" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" transparent="1" zPosition="1" />
+	<eLabel name="textText" text="TEXT (L)" position="910,5" size="60,34" font="Regular; 12" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="1" transparent="1" />
+	<eLabel name="textOK" text="OK" position="975,5" size="60,34" font="Regular; 12" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="1" transparent="1" />
+	<eLabel name="textExit" text="EXIT" position="1035,5" size="60,34" font="Regular; 12" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="1" transparent="1" />
+	<eLabel name="textHelp" text="HELP" position="795,31" size="60,34" font="Regular; 12" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="1" transparent="1" />
+	<eLabel name="textAudio" text="AUDIO" position="855,31" size="60,34" font="Regular; 12" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="1" transparent="1" />
+	<eLabel name="textJump" text="2 - 5 - 8" position="910,31" size="60,34" font="Regular; 12" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="1" transparent="1" />
+	<eLabel name="text0" text="0" position="975,31" size="60,31" font="Regular; 12" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="1" transparent="1" />
+
+
+	<widget source="global.CurrentTime" render="Label" position="1120,9" size="150,23" backgroundColor="#18101214" foregroundColor="#00E6E6E6" transparent="1" zPosition="1" font="Regular;22" valign="center" halign="right">
+		<convert type="ClockToText">Format:%H:%M:%S</convert>
+	</widget>
+	<widget source="global.CurrentTime" render="Label" position="1020,36" size="250,24" backgroundColor="#18101214" foregroundColor="#00E6E6E6" transparent="1" zPosition="1" font="Regular;16" valign="center" halign="right">
+		<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
+	</widget>
+
+
+	<widget name="topLine" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTVDreamOS/smallshadowline_small.png" position="0,65" size="1280,2" zPosition="2" scale="stretch" />
+ 	
+	<widget name="button_red" pixmap="skin_default/buttons/red.png" position=" 70,75" size="30,30" alphatest="blend" />
+	<widget name="button_green" pixmap="skin_default/buttons/green.png" position="360,75" size="30,30" alphatest="blend" />
+	<widget name="button_yellow" pixmap="skin_default/buttons/yellow.png" position="650,75" size="30,30" alphatest="blend" />
+	<widget name="button_blue" pixmap="skin_default/buttons/blue.png" position="940,75" size="30,30" alphatest="blend" />
+	<widget name="key_red" position="110,66" size="240,50" zPosition="1" font="Regular;18" valign="center" halign="left" foregroundColor="#007A7A7A" backgroundColor="#00000000" transparent="1" />
+	<widget name="key_green" position="400,66" size="240,50" zPosition="1" font="Regular;18" valign="center" halign="left" foregroundColor="#007A7A7A" backgroundColor="#00000000" transparent="1" />
+	<widget name="key_yellow" position="690,66" size="240,50" zPosition="1" font="Regular;18" valign="center" halign="left" foregroundColor="#007A7A7A" backgroundColor="#00000000" transparent="1" />
+	<widget name="key_blue" position="980,66" size="240,50" zPosition="1" font="Regular;18" valign="center" halign="left" foregroundColor="#007A7A7A" backgroundColor="#00000000" transparent="1" />
+
+
+	<widget name="botLine2" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTVDreamOS/smallshadowline_small.png" position="0,114" size="1280,2" scale="stretch" />
+	
+	<widget name="leftContentTitle" position="30,122" zPosition="3" size="600,26" backgroundColor="#00AAAAAA" foregroundColor="#00000000" font="Regular;22" halign="center" />
+	
+	<widget name="filelist" position="30,147" zPosition="3" size="600,349" itemFont="Regular;18"  itemHeight="25" backgroundColor="#00101214" foregroundColor="#00E6E6E6" transparent="0" scrollbarMode="showOnDemand" scrollbarWidth="3" scrollbarSliderBorderWidth="1" /> 
+
+	<widget name="dblist" position="30,147" zPosition="3" size="600,349" itemFont0="Regular;18" itemFont1="Regular;16" backgroundColor="#00101214" foregroundColor="#00E6E6E6" transparent="0" selectionDisabled="1" scrollbarMode="showOnDemand" scrollbarWidth="3" scrollbarSliderBorderWidth="1"  />
+
+	<widget name="rightContentTitle" position="650,122" zPosition="3" size="600,26" backgroundColor="#00AAAAAA" foregroundColor="#00000000" font="Regular;22" halign="center" />
+	<widget name="playlist" position="650,147" size="600,349" itemHeight="25" itemFont="Regular;18" itemPos="45,1" itemSize="550,22" iconPos="2,4" iconSize="16,16" iconFilePos="16,2" backgroundColor="#00101214" foregroundColor="#00E6E6E6" selectionDisabled="1" scrollbarMode="showOnDemand" />
+
+	<widget name="txtPlayLen" position="800,499" zPosition="3" size="100,25" backgroundColor="#00101214" transparent="1" foregroundColor="#00E6E6E6" font="Regular;14" valign="top" halign="right"/>
+	<widget name="playLen" position="920,499" size="100,25" font="Regular;14" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="top" zPosition="3" transparent="1" />	
+	<widget name="txtPlayLenRem" position="990,499" zPosition="3" size="100,25" backgroundColor="#00101214" transparent="1" foregroundColor="#00E6E6E6" font="Regular;14" valign="top" halign="right"/>
+	<widget name="playLenRem" position="1110,499" size="100,25" font="Regular;14" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="top" zPosition="3" transparent="1" />	
+	<widget name="actPlayNumber" position="950,499" zPosition="4" size="300,50" backgroundColor="#00101214" foregroundColor="#00E6E6E6" transparent="1" font="Regular;14" valign="top" halign="right" />
+
+
+	<widget name="botLine" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTVDreamOS/smallshadowline_small.png" position="0,514" size="1280,2" scale="stretch" />
+
+	<widget name="songtitle" position="225,525" zPosition="8" size="560,30" backgroundColor="#00101214" foregroundColor="#00e5b243" transparent="1" font="Regular;26" valign="top" />
+	
+	<widget source="session.CurrentService" render="Label" position="815,522" zPosition="8" size="120,40" backgroundColor="#00101214" foregroundColor="#00e5b243" font="Regular;26" valign="center" halign="right" transparent="1">
+		<convert type="ServicePosition">Length</convert>
+	</widget>
+
+	<!-- line between title and artist -->
+	<widget name="line1" position="214,560" zPosition="7" size="730,2" backgroundColor="#00555556" />
+
+	<eLabel text="Artist" position="225,570" zPosition="7" size="100,25" backgroundColor="#00101214" transparent="1" foregroundColor="#00999999" font="Regular;20" valign="top" />
+	<widget name="artist" position="325,570" zPosition="7" size="410,25" backgroundColor="#00101214" transparent="1" foregroundColor="#00E6E6E6" font="Regular;20" valign="top" />
+	<eLabel text="Album" position="225,600" zPosition="7" size="100,25" backgroundColor="#00101214" transparent="1" foregroundColor="#00999999" font="Regular;20" valign="top" />
+	<widget name="album" position="325,600" zPosition="7" size="505,25" backgroundColor="#00101214" transparent="1" foregroundColor="#00E6E6E6" font="Regular;20" valign="top" />
+	<eLabel text="Genre" position="735,570" zPosition="7" size="100,25" backgroundColor="#00101214" transparent="1" foregroundColor="#00999999" font="Regular;20" valign="top"/>
+	<widget name="genre" position="815,570" zPosition="7" size="120,25" backgroundColor="#00101214" transparent="1" foregroundColor="#00E6E6E6" font="Regular;20" valign="top" halign="right" />
+	<eLabel text="Year" position="835,600" zPosition="7" size="100,25" backgroundColor="#00101214" transparent="1" foregroundColor="#00999999" font="Regular;20" valign="top" />
+	<widget name="year" position="875,600" zPosition="7" size="60,25" backgroundColor="#00101214" transparent="1" foregroundColor="#00E6E6E6" font="Regular;20" valign="top" halign="right" />
+	<widget name="coverArt" position="5,519" zPosition="7" size="200,200" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTVDreamOS/no_coverArt.png" transparent="1" alphatest="blend" />
+
+	<widget source="session.CurrentService" render="Progress" position="325,640" zPosition="7" size="500,10" foregroundColor="#00E6E6E6" borderWidth="1" borderColor="#00999999" transparent="1">
+		<convert type="ServicePosition">Position</convert>
+	</widget>
+	<widget source="session.CurrentService" render="Label" position="215,633" zPosition="7" size="90,25" backgroundColor="#00101214" transparent="1" foregroundColor="#00E6E6E6" font="Regular;20" valign="center" halign="right">
+		<convert type="ServicePosition">Position</convert>
+	</widget>
+	<widget source="session.CurrentService" render="Label" position="845,633" zPosition="7" size="90,25" backgroundColor="#00101214" transparent="1" foregroundColor="#00E6E6E6" font="Regular;20" valign="center" halign="left">
+		<convert type="ServicePosition">Remaining</convert>
+	</widget>
+
+	<widget name="line2" position="214,670" zPosition="7" size="730,2" backgroundColor="#00555556" />
+	<widget name="nextsong" position="225,672" zPosition="7" size="100,50" backgroundColor="#00101214" transparent="2" foregroundColor="#00999999" font="Regular;20" valign="center" />
+	<widget name="nextsongtitle" position="325,672" zPosition="7" size="580,50" backgroundColor="#00101214" transparent="1" foregroundColor="#00E6E6E6" font="Regular;20" valign="center" />
+
+	
+	<widget source="songInfoBg" position="210,519" size="740,200" zPosition="6" render="Pixmap" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTVDreamOS/Bg_181517_trans_small.png" scale="stretch" transparent="1" alphatest="blend">
+		<convert type="ConditionalShowHide" />
+	</widget>
+
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTVDreamOS/yamp.png" position="1070,573" size="100,40" zPosition="3" transparent="1" alphatest="on" />
+
+
+
+	<!-- Do not change the zPosition of the following 2 widgets, as this is overwritten by the code -->
+
+	<widget name="screenSaverBackground" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTVDreamOS/black_small.png" position="0,0" size="1280,720" zPosition="5" scale="stretch" transparent="0" alphatest="on" />
+	<widget name="screenSaver" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTVDreamOS/black_small.png" position="0,0" size="1280,720" zPosition="9" scale="stretch" backgroundColor="#FF000000" transparent="0" alphatest="on" />
+
+
+	<widget name="lyricsLineBackground" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTVDreamOS/Bg_181517_trans_small.png" position="50,0" size="1180,35" zPosition="16" scale="stretch" transparent="1" alphatest="blend" >
+	</widget>
+	<widget name="lyricsLine" position="50,0" zPosition="17" size="1180,35" backgroundColor="#00101214" foregroundColor="#00e5b243" transparent="1" font="Regular;24" halign="center" valign="center" />
+
+	<widget source="karaoke" render="Pixmap" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTVDreamOS/Karaoke.png" position="2,2" size="32,32" zPosition="11" transparent="1" alphatest="blend">
+		<convert type="ConditionalShowHide" />
+	</widget>
+
+	<widget  name="lyricsLineBackgroundBig"  pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTVDreamOS/Bg_181517_trans_small.png" position="50,0" size="1180,140" zPosition="16" scale="stretch" transparent="1" alphatest="blend" >
+	</widget>
+	<widget name="lyricsLineBig" position="50,8" zPosition="17" size="1180,140" backgroundColor="#00101214" foregroundColor="#00FF0000" transparent="1" font="Regular;60" halign="center" valign="top" />
+	<widget source="karaokeBig" render="Pixmap" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTVDreamOS/Karaoke_Big.png" position="2,2" size="32,32" zPosition="11" transparent="1" alphatest="blend">
+		<convert type="ConditionalShowHide" />
+	</widget>
+
+
+	<widget source="session.CurrentService" render="Pig" position="985,519" size="300,169" backgroundColor="transparent" zPosition="4" transparent="0">
+	</widget>
+
+	<!-- Screensaver individual (Diashow) name of current picture -->
+	<widget name="pathNameSSDia" position="955,630" size="324,60" font="Regular;16" backgroundColor="#88101214" foregroundColor="#00EAEAEA" halign="center" valign="center" zPosition="17"  transparent="1" />
+	<widget name="pathNameSSDiaBackground" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTVDreamOS/Bg_181517_trans_small.png" position="955,630" size="324,60" zPosition="16" scale="stretch" transparent="1" alphatest="blend">
+	</widget>
+
+<!-- clock /date for Screensaver only (switchable on/off by configuration -->
+	<widget source="global.CurrentTime" render="Label" position="1165,694" size="105,25" font="Regular; 22" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="right" valign="center" zPosition="16" transparent="1" text="clockHide">
+		<convert type="ClockToText">Format:%H:%M:%S</convert>
+	</widget>
+	
+	<widget name="clockBackground" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTVDreamOS/Bg_181517_trans_small.png" position="1165,694" size="110,25" zPosition="15" scale="stretch" transparent="1" alphatest="blend">
+	</widget>	
+
+	<widget source="global.CurrentTime" render="Label" position="955,695" size="200,25" font="Regular; 16" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="right" valign="center" zPosition="16" transparent="1" text="dateHide">
+		<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
+	</widget>
+	<widget name="dateBackground" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTVDreamOS/Bg_181517_trans_small.png" position="955,694" size="205,25" zPosition="15" scale="stretch" transparent="1" alphatest="blend">
+	</widget>
+
+</screen>
+
