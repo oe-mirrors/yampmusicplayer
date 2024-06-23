@@ -1,0 +1,14 @@
+#Ausschluss-Liste für "Titlecase"  AlfredENeumann, Februar 2024
+#Exclude-list for "Titlecase"
+#
+# Texte in dieser Liste werden NICHT titlecased, das heisst, Texte, die damit beginnen, werden unverändert übernommen. Jeder Text in 1 Zeile
+# Zeilen mit # werden nicht berücksichtigt (Kommentar)
+#
+# Texts in this file will not be titlecased, which means: Texts beginning with a text in this list will not be changed by titlecase. Each text in 1 line 
+# Lines beginning with # are ignored (comment)
+#
+AC-DC
+BAP
+fun.
+INXS
+	

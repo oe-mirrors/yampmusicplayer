@@ -1,0 +1,4500 @@
+# Signed-off-by: Dario Croci <spaeleus@croci.org>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: YampMusicPlayer v3.3.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-22 14:07+0100\n"
+"PO-Revision-Date: 2024-03-22 14:19+0100\n"
+"Last-Translator: AlfredENeumann\n"
+"Language-Team: Dario Croci <spaeleus@croci.org>\n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
+"X-Poedit-Basepath: ../../..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: Yamp.py:138
+msgid "white"
+msgstr "Bianco"
+
+#: Yamp.py:139
+msgid "red"
+msgstr "Rosso"
+
+#: Yamp.py:140
+msgid "green"
+msgstr "Verde"
+
+#: Yamp.py:141
+msgid "blue"
+msgstr "Blu"
+
+#: Yamp.py:142
+msgid "yellow"
+msgstr "Giallo"
+
+#: Yamp.py:143
+msgid "lime green"
+msgstr "Verde limetta"
+
+#: Yamp.py:144
+msgid "light green"
+msgstr "Verde chiaro"
+
+#: Yamp.py:145
+msgid "pink"
+msgstr "Rosa"
+
+#: Yamp.py:146
+msgid "magenta"
+msgstr "Magenta"
+
+#: Yamp.py:147
+msgid "violett"
+msgstr "Violetto"
+
+#: Yamp.py:148
+msgid "cyan"
+msgstr "Ciano"
+
+#: Yamp.py:149
+msgid "light blue"
+msgstr "Blu chiaro"
+
+#: Yamp.py:150
+msgid "orange"
+msgstr "Arancio"
+
+#: Yamp.py:162 Yamp.py:324 Yamp.py:338 Yamp.py:348 Yamp.py:364 Yamp.py:555
+msgid "off"
+msgstr "Off"
+
+#: Yamp.py:163 Yamp.py:556
+msgid "errors only"
+msgstr "Solo errori"
+
+#: Yamp.py:164 Yamp.py:557
+msgid "all"
+msgstr "Tutto"
+
+#: Yamp.py:165 Yamp.py:558
+msgid "special"
+msgstr "Speciale"
+
+#: Yamp.py:166 Yamp.py:559
+msgid "special2"
+msgstr "Speciale2"
+
+#: Yamp.py:167 Yamp.py:560
+msgid "special3"
+msgstr "Speciale3"
+
+#: Yamp.py:168 Yamp.py:561
+msgid "special4"
+msgstr "Speciale4"
+
+#: Yamp.py:171
+msgid "Standard skin HD"
+msgstr "Skin standard HD"
+
+#: Yamp.py:171
+msgid "Standard skin HD with Video Preview"
+msgstr "Skin HD standard con anteprima video"
+
+#: Yamp.py:171
+msgid "Custom skin HD"
+msgstr "Skin personalizzata HD"
+
+#: Yamp.py:171 Yamp.py:209
+msgid "Full HD standard skin (special VTi)"
+msgstr "Skin standard Full HD (speciale VTi)"
+
+#: Yamp.py:171 Yamp.py:210 Yamp.py:219
+msgid "Custom Full HD skin"
+msgstr "Skin personalizzata Full HD"
+
+#: Yamp.py:171 Yamp.py:186 Yamp.py:225
+msgid "Standard skin (HD) DreamOS"
+msgstr "Skin standard (HD) DreamOS"
+
+#: Yamp.py:171 Yamp.py:187 Yamp.py:226
+msgid "Standard skin (HD) DreamOS with Video Preview"
+msgstr "Skin (HD) standard DreamOS con anteprima video"
+
+#: Yamp.py:171
+msgid "Custom Skin DreamOS HD"
+msgstr "Skin personalizzata HD DreamOS"
+
+#: Yamp.py:171
+msgid "Full HD Skin DreamOS"
+msgstr "Skin full HD DreamOS"
+
+#: Yamp.py:171
+msgid "Full HD Skin Coffee DreamOS"
+msgstr "Skin FullHD Coffee DreamOS"
+
+#: Yamp.py:171
+msgid "Custom FHD-Skin DreamOS"
+msgstr "Skin personalizzata Full HD DreamOS"
+
+#: Yamp.py:188 Yamp.py:227
+msgid "Custom skin (HD) DreamOS"
+msgstr "Skin personalizzata (HD) DreamOS"
+
+#: Yamp.py:189
+msgid "Full HD standard skin DreamOS"
+msgstr "Skin standard Full HD DreamOS"
+
+#: Yamp.py:190
+msgid "Full HD 'coffee' skin DreamOS"
+msgstr "Skin Full HD \"Coffee\" DreamOS"
+
+#: Yamp.py:191
+msgid "Custom Full HD skin DreamOS"
+msgstr "Skin personalizzata Full HD DreamOS"
+
+#: Yamp.py:204 Yamp.py:214 Yamp.py:235
+msgid "Standard skin (HD)"
+msgstr "Skin standard (HD)"
+
+#: Yamp.py:205 Yamp.py:215 Yamp.py:236
+msgid "Standard skin (HD) with Video Preview"
+msgstr "Skin (HD) standard con anteprima video"
+
+#: Yamp.py:206 Yamp.py:216 Yamp.py:237
+msgid "Custom skin (HD)"
+msgstr "Skin personalizzata (HD)"
+
+#: Yamp.py:207 Yamp.py:217
+msgid "Full HD standard skin"
+msgstr "Skin standard Full HD"
+
+#: Yamp.py:208 Yamp.py:218
+msgid "Full HD 'coffee' skin"
+msgstr "Skin Full HD \"Coffee\""
+
+#: Yamp.py:263
+msgid "Title Only"
+msgstr "Solo titolo"
+
+#: Yamp.py:264
+msgid "Path Only"
+msgstr "Solo percorso"
+
+#: Yamp.py:265
+msgid "Title and Path"
+msgstr "Titolo e percorso"
+
+#: Yamp.py:270
+msgid "no exclude"
+msgstr "Non escludere"
+
+#: Yamp.py:275
+#, python-format
+msgid "%s or %s"
+msgstr "%s o %s"
+
+#: Yamp.py:293
+msgid "Filename without Extension"
+msgstr "Nomi file senza estensione"
+
+#: Yamp.py:294
+msgid "Filename with Extension"
+msgstr "Nomi file con estensione"
+
+#: Yamp.py:295 Yamp.py:308
+msgid "Title"
+msgstr "Titolo"
+
+#: Yamp.py:296
+msgid "Title and Artist"
+msgstr "Titolo e artista"
+
+#: Yamp.py:297
+msgid "Artist and Title"
+msgstr "Artista e titolo"
+
+#: Yamp.py:300
+msgid "Title - Artist - Album"
+msgstr "Titolo - Artista - Album"
+
+#: Yamp.py:301
+msgid "Title - Album - Artist"
+msgstr "Titolo - Album - Artista"
+
+#: Yamp.py:302
+msgid "Artist - Title - Album"
+msgstr "Artista - Titolo - Album"
+
+#: Yamp.py:303
+msgid "Artist - Album - Title"
+msgstr "Artista - Album - Titolo"
+
+#: Yamp.py:304
+msgid "Title - Artist"
+msgstr "Titolo - Artista"
+
+#: Yamp.py:305
+msgid "Title - Album"
+msgstr "Titolo - Album"
+
+#: Yamp.py:306
+msgid "Artist - Title"
+msgstr "Artista - Titolo"
+
+#: Yamp.py:307
+msgid "Artist - Album"
+msgstr "Artista - Album"
+
+#: Yamp.py:311
+msgid "no change: <n/a>"
+msgstr "nessun cambiamento: <n/a>"
+
+#: Yamp.py:312
+msgid "3 x blank: <   >"
+msgstr "3 spazi: <   >"
+
+#: Yamp.py:313
+msgid "blank - minus - blank: < - >"
+msgstr "spazio - trattino - spazio: < - >"
+
+#: Yamp.py:314
+msgid "blank - dot - blank: < . >"
+msgstr "spazio - punto - spazio: < . >"
+
+#: Yamp.py:325 Yamp.py:350
+msgid "search in ID3-tags (mp3, flac, m4a, mp4)"
+msgstr "Cercare nei tag ID3 (mp3, flac, m4a, mp4)"
+
+#: Yamp.py:326
+msgid "search for <title>.<ext> in title-directory"
+msgstr "Cercare <title>.<ext> nella directory titoli"
+
+#: Yamp.py:327
+msgid "search for albumcover.<ext> in title-directory"
+msgstr "Cercare albumcover.<ext> nella directory titoli"
+
+#: Yamp.py:328
+msgid "search for any picture in title-directory"
+msgstr "Cercare immagini nella directory titoli"
+
+#: Yamp.py:329
+msgid "search at google online"
+msgstr "Cercare online con Google"
+
+#: Yamp.py:339
+msgid "save <title>.<ext> if no picture in song dir"
+msgstr "Salvare <title>.<ext> se nessuna immagine nella dir. brano"
+
+#: Yamp.py:340
+msgid "save <title>.<ext> if not existing in song dir"
+msgstr "Salvare <titolo>.<ext> se non presente in dir brano"
+
+#: Yamp.py:341
+msgid "save <title>.<ext>, overwrite existing"
+msgstr "Salvare <titolo>.<ext>, sovrascrivere se presente"
+
+#: Yamp.py:342
+msgid "save albumcover.<ext> if not existing"
+msgstr "Salvare albumcover.<ext> se assente"
+
+#: Yamp.py:343
+msgid "save albumcover.<ext>, overwrite existing"
+msgstr "Salvare albumcover.<ext>, sovrascivere"
+
+#: Yamp.py:349
+msgid "search in lyrics-directory"
+msgstr "Cercare in directory testi"
+
+#: Yamp.py:351
+msgid "search at azlyrics.com online"
+msgstr "Cercare online su azlyrics.com"
+
+#: Yamp.py:352
+msgid "search at chartlyrics.com online"
+msgstr "Cercare online su chartlyrics.com"
+
+#: Yamp.py:365
+msgid "search only for new artists"
+msgstr "Cercare solo per nuovi artisti"
+
+#: Yamp.py:366
+msgid "search every 15 days"
+msgstr "Cercare ogni 15 giorni"
+
+#: Yamp.py:367
+msgid "search every 30 days"
+msgstr "Cercare ogni 30 giorni"
+
+#: Yamp.py:368
+msgid "search every 60 days"
+msgstr "Cercare ogni 60 giorni"
+
+#: Yamp.py:369
+msgid "search every 90 days"
+msgstr "Cercare ogni 90 giorni"
+
+#: Yamp.py:370
+msgid "search every 180 days"
+msgstr "Cercare ogni 180 giorni"
+
+#: Yamp.py:371
+msgid "search always"
+msgstr "Cercare sempre"
+
+#: Yamp.py:376
+msgid "standard like on muscicbrainz website"
+msgstr "Like standard sul sito web del musicista"
+
+#: Yamp.py:377
+msgid "special, use if standard is not working"
+msgstr "Speciale, se standard non funziona"
+
+#: Yamp.py:383
+msgid "Blank screen"
+msgstr "Schermo vuoto"
+
+#: Yamp.py:384
+msgid "Standard Screensaver"
+msgstr "Screensaver standard"
+
+#: Yamp.py:385
+msgid "Custom Screensaver (Dia-Show)"
+msgstr "Screensaver personalizzato (Dia-Show)"
+
+#: Yamp.py:386
+msgid "Artwork as Screensaver"
+msgstr "Artwork come screensaver"
+
+#: Yamp.py:394
+msgid "not sorting"
+msgstr "Non ordinato"
+
+#: Yamp.py:395
+msgid "sorting A->Z"
+msgstr "Ordinamento A->Z"
+
+#: Yamp.py:396
+msgid "sorting Z->A"
+msgstr "Ordinamento Z->A"
+
+#: Yamp.py:397
+msgid "shuffling"
+msgstr "Casuale"
+
+#: Yamp.py:404 Yamp.py:421 Yamp.py:431 Yamp.py:462 Yamp.py:477
+msgid "no"
+msgstr "No"
+
+#: Yamp.py:405 Yamp.py:478
+msgid "clock only"
+msgstr "Solo orologio"
+
+#: Yamp.py:406 Yamp.py:479
+msgid "clock with background"
+msgstr "Orologio con sfondo"
+
+#: Yamp.py:407 Yamp.py:480
+msgid "date only"
+msgstr "Solo data"
+
+#: Yamp.py:408 Yamp.py:481
+msgid "date with background"
+msgstr "Data con sfondo"
+
+#: Yamp.py:409 Yamp.py:482
+msgid "clock and date"
+msgstr "Orologio e data"
+
+#: Yamp.py:410 Yamp.py:483
+msgid "clock and date with background"
+msgstr "Orologio e data con sfondo"
+
+#: Yamp.py:422
+msgid "filename only"
+msgstr "Solo nome file"
+
+#: Yamp.py:423
+msgid "filename with background"
+msgstr "Nomi file con sfondo"
+
+#: Yamp.py:424
+msgid "path + filename"
+msgstr "Percorso + nome file"
+
+#: Yamp.py:425
+msgid "path + filename with background"
+msgstr "Percorso + nome file con sfondo"
+
+#: Yamp.py:432
+msgid "Tv shuffle, TvLong PL endless"
+msgstr "TV casuale, TV Lungo play infinito"
+
+#: Yamp.py:433
+msgid "Tv PL endless, TvLong shuffle"
+msgstr "TV play infinito, TV Lungo casuale"
+
+#: Yamp.py:434
+msgid "Radio shuffle, RadioLong PL endless"
+msgstr "Radio casuale, Radio Lungo play infinito"
+
+#: Yamp.py:435
+msgid "Radio PL endless, RadioLong shuffle"
+msgstr "Radio Play infinito, Radio Lungo casuale"
+
+#: Yamp.py:442 Yamp.py:448 YampConfig.py:1049 YampConfig.py:1061
+msgid "no TV at all"
+msgstr "Nessuna TV"
+
+#: Yamp.py:443 Yamp.py:449 YampConfig.py:1050 YampConfig.py:1062
+msgid "Audio only on Start only"
+msgstr "Solo audio solo all'avvio"
+
+#: Yamp.py:444 Yamp.py:451 YampConfig.py:1052 YampConfig.py:1064
+msgid "Audio always"
+msgstr "Audio sempre"
+
+#: Yamp.py:450 YampConfig.py:1051 YampConfig.py:1063
+msgid "With picture on Start only"
+msgstr "Con immagine solo all'avvio"
+
+#: Yamp.py:452 YampConfig.py:1053 YampConfig.py:1065
+msgid "With picture always"
+msgstr "Con immagine sempre"
+
+#: Yamp.py:463
+msgid "only small karaoke line (key Text)"
+msgstr "Solo riga karaoke piccola (tasto Text)"
+
+#: Yamp.py:464
+msgid "only big karaoke line (key Text long)"
+msgstr "Solo riga karaoke grande (tasto Text lungo)"
+
+#: Yamp.py:465
+msgid "small and big karaoke line"
+msgstr "Riga karaoke grande e piccola"
+
+#: Yamp.py:471
+msgid "immediate"
+msgstr "Immediato"
+
+#: Yamp.py:472
+msgid "screensaver delay"
+msgstr "Ritardo screensaver"
+
+#: Yamp.py:473
+msgid "only manual (key ok)"
+msgstr "Solo manualmente (Ok)"
+
+#: Yamp.py:494 Yamp.py:504
+msgid "off - useful for LCD4linux or similar"
+msgstr "Off - Utile per LCD4linux o simili"
+
+#: Yamp.py:495 Yamp.py:505
+msgid "1 line display"
+msgstr "Display - 1 riga"
+
+#: Yamp.py:496 Yamp.py:506
+msgid "3 lines display"
+msgstr "Display - 3 righe"
+
+#: Yamp.py:497 Yamp.py:507
+msgid "display cover (graphical)"
+msgstr "Mostrare cover (grafica)"
+
+#: Yamp.py:498 Yamp.py:508
+msgid "display cover (graphical) + 1 line text"
+msgstr "Mostrare cover (grafica) - testo 1 linea"
+
+#: Yamp.py:499 Yamp.py:509
+msgid "display cover (graphical) + 3 lines text"
+msgstr "Mostrare cover (grafica) - testo 3 linea"
+
+#: Yamp.py:500
+msgid "Running Text (graphical)"
+msgstr "Testo scorrevole (grafico)"
+
+#: Yamp.py:512
+msgid "800 x 480"
+msgstr "800 x 480"
+
+#: Yamp.py:513
+msgid "480 x 320"
+msgstr "480 x 320"
+
+#: Yamp.py:514
+msgid "400 x 240"
+msgstr "400 x 240"
+
+#: Yamp.py:515
+msgid "132 x 64"
+msgstr "132 x 64"
+
+#: Yamp.py:516
+msgid "custom"
+msgstr "Personalizzata"
+
+#: Yamp.py:521 Yamp.py:538
+msgid "left"
+msgstr "Sinistra"
+
+#: Yamp.py:522 Yamp.py:539 Yamp.py:544
+msgid "center"
+msgstr "Centro"
+
+#: Yamp.py:523 Yamp.py:540
+msgid "right"
+msgstr "Destra"
+
+#: Yamp.py:532
+msgid "black & white"
+msgstr "bianco & nero"
+
+#: Yamp.py:533
+msgid "black & white transparent"
+msgstr "Bianco e nero trasparente"
+
+#: Yamp.py:534
+msgid "color"
+msgstr "Colore"
+
+#: Yamp.py:535
+msgid "color transparent"
+msgstr "Colore trasparente"
+
+#: Yamp.py:543
+msgid "top"
+msgstr "In alto"
+
+#: Yamp.py:545
+msgid "bottom"
+msgstr "In basso"
+
+#: Yamp.py:678
+msgid "P l a y l i s t"
+msgstr "P l a y l i s t"
+
+#: Yamp.py:686 YampVideoSpecial.py:87
+msgid "Next Song"
+msgstr "Brano successivo"
+
+#: Yamp.py:791
+msgid "Open dir, append to playlist | Play title, toggle screensaver"
+msgstr ""
+"Aprire directory, aggiungere alla playlist | Riprodurre il brano, "
+"screensaver on/off"
+
+#: Yamp.py:792
+msgid "Insert into playlist and play"
+msgstr "Inserire in playlist e riprodurre"
+
+#: Yamp.py:793
+msgid "Insert incl. subdirs into playlist and play"
+msgstr "Inserire nella playlist (sottodirectory comprese) e riprodurre"
+
+#: Yamp.py:794 YampLyrics.py:124
+msgid "Pause/resume title"
+msgstr "Pausa/Riprendere brano"
+
+#: Yamp.py:795 YampLyrics.py:125
+msgid "Stop title"
+msgstr "Stop brano"
+
+#: Yamp.py:796
+msgid "Exit screensaver, subscreens or YAMP"
+msgstr "Uscire da screensaver, sotto-schermi o YAMP"
+
+#: Yamp.py:797
+msgid "Show context menu"
+msgstr "Mostrare menu contestuale"
+
+#: Yamp.py:798 YampLyrics.py:126
+msgid "Play previous title"
+msgstr "Riprodurre brano precedente"
+
+#: Yamp.py:799 YampLyrics.py:127
+msgid "Play next title"
+msgstr "Riprodurre brano successivo"
+
+#: Yamp.py:800
+msgid "Previous page"
+msgstr "Pagina precedente"
+
+#: Yamp.py:801
+msgid "Next page"
+msgstr "Pagina successiva"
+
+#: Yamp.py:802
+msgid "Switch to playlist, Screensaver: next slide"
+msgstr "Passare alla playlist, screensaver: slide successiva"
+
+#: Yamp.py:803
+msgid "Switch to filelist/database, Screensaver: previous slide"
+msgstr "Passare all'elenco di file/database, screensaver: slide precedente"
+
+#: Yamp.py:804
+msgid "Show lyrics"
+msgstr "Mostrare testi"
+
+#: Yamp.py:805
+msgid "Show Yamp Help Screen"
+msgstr "Mostrare help di Yamp"
+
+#: Yamp.py:806
+msgid "Pause/resume screensaver slideshow"
+msgstr "Pausa/Riprendere slide show screensaver"
+
+#: Yamp.py:807
+msgid "Move to start of list"
+msgstr "Andare a inizio elenco"
+
+#: Yamp.py:808
+msgid "Move to end of list"
+msgstr "Andare a fine elenco"
+
+#: Yamp.py:809
+msgid "Toggle repeat"
+msgstr "Ripetizione On/Off"
+
+#: Yamp.py:810
+msgid "Toggle shuffle"
+msgstr "Riproduzione casuale On/Off"
+
+#: Yamp.py:811
+msgid "Display/Hide Infobar"
+msgstr "Mostrare/Nascondere Infobar"
+
+#: Yamp.py:812
+msgid "Activate/deactivate screensaver slideshow"
+msgstr "Attivare/Disattivare screensaver slide show"
+
+#: Yamp.py:813
+msgid "Show/hide Lyrics Line "
+msgstr "Mostrare/Nascondere riga testi "
+
+#: Yamp.py:814
+msgid "Show/hide Big Lyrics Line (Karaoke)"
+msgstr "Mostrare/Nascondere riga testi grande (Karaoke)"
+
+#: Yamp.py:815
+msgid "Jump back to current playing song"
+msgstr "Tornare al brano corrente"
+
+#: Yamp.py:816
+msgid "Screensaver: Blacklist current picture (don't show again)"
+msgstr "Screensaver: immagine corrente in blacklist(non mostrare più)"
+
+#: Yamp.py:817 YampLyrics.py:137
+msgid "Jump Forward 10%"
+msgstr "Salto avanti 10%"
+
+#: Yamp.py:818 YampLyrics.py:138
+msgid "Jump Backward 10%"
+msgstr "Salto indietro 10%"
+
+#: Yamp.py:819 YampLyrics.py:139
+msgid "Jump Forward 20%"
+msgstr "Salto avanti 20%"
+
+#: Yamp.py:820 YampLyrics.py:140
+msgid "Jump Backward 20%"
+msgstr "Salto indietro 20%"
+
+#: Yamp.py:949
+msgid "total:"
+msgstr "Totale: "
+
+#: Yamp.py:951
+msgid "remaining:"
+msgstr "Rimanente:"
+
+#: Yamp.py:1177
+msgid "M u s i c  D a t a b a s e"
+msgstr "M u s i c  D a t a b a s e"
+
+#: Yamp.py:1445
+msgid "Cover saved"
+msgstr "Cover salvata"
+
+#: Yamp.py:1447
+msgid "Saving cover failed"
+msgstr "Salvataggio cover fallito"
+
+#: Yamp.py:1463
+msgid "Slide is the last slide and can not be removed"
+msgstr "La slide è l'ultima e non può essere rimossa"
+
+#: Yamp.py:1475
+#, python-format
+msgid ""
+"this picture will be blacklisted to %sblacklist.txt\n"
+"and will not be shown any more!\n"
+"\n"
+"do you really want to blacklist this picture?"
+msgstr ""
+"Questa immagine sarà posta in blacklist in %sblacklist.txt\n"
+"e non sarà più mostrata.\n"
+"\n"
+"Porre in blacklist l'immagine?"
+
+#: Yamp.py:1546
+msgid "Albumcover saved"
+msgstr "Cover album salvata"
+
+#: Yamp.py:1548
+msgid "Saving albumcover failed"
+msgstr "Salvataggio cover album fallito"
+
+#: Yamp.py:1558
+msgid "Do you really want to delete the current playlist?"
+msgstr "Rimuovere la playlist corrente?"
+
+#: Yamp.py:1699
+msgid "Do you really want to exit?"
+msgstr "Uscire?"
+
+#: Yamp.py:1905
+msgid "no lyrics in file or ID3 found (or not activated in configuration)"
+msgstr ""
+"Testo non trovato in file/ID3 (o funzione non attivata in impostazioni)"
+
+#: Yamp.py:1927
+msgid "no time data in lyrics file"
+msgstr "Nessun dato temporale nel file testi"
+
+#: Yamp.py:1929
+msgid "no time data in lyrics file (ID3)"
+msgstr "Nessun dato temporale nel file testi (ID3)"
+
+#: Yamp.py:2044 Yamp.py:2050
+#, python-format
+msgid "This Box can't decode %s streams!"
+msgstr "Impossibile decodificare flussi %s!"
+
+#: Yamp.py:2207
+msgid "blacklist file could not be saved"
+msgstr "Impossibile salvare file in blacklist"
+
+#: Yamp.py:2417
+msgid ""
+"Delete Playlist Entry\n"
+"Clear Playlist"
+msgstr ""
+"Rimuovere voce playlist\n"
+"Ripulire playlist"
+
+#: Yamp.py:2420
+msgid "Database Mode"
+msgstr "Modalità database"
+
+#: Yamp.py:2421
+msgid ""
+"Add to Playlist\n"
+"Add to PL incl.Subdirs"
+msgstr ""
+"Aggiungere a playlist\n"
+"Includere sottodirectory"
+
+#: Yamp.py:2422
+msgid ""
+"Add to Database\n"
+"Add to DB incl.Subdirs"
+msgstr ""
+"Aggiungere al database\n"
+"Includere sottodirectory"
+
+#: Yamp.py:2425
+msgid "Filelist Mode"
+msgstr "Modalità elenco file"
+
+#: Yamp.py:2429
+msgid ""
+"Add to Playlist\n"
+"Add all to Playlist"
+msgstr ""
+"Aggiungere a playlist\n"
+"Tutto in playlist"
+
+#: Yamp.py:2431
+msgid "Add to Playlist"
+msgstr "Aggiungere a playlist"
+
+#: Yamp.py:2434
+msgid ""
+"Show Album\n"
+"Show Artist"
+msgstr ""
+"Mostrare album\n"
+"Mostrare artista"
+
+#: Yamp.py:2436
+msgid "Show Albums"
+msgstr "Mostrare album"
+
+#: Yamp.py:2438
+msgid "Show Album"
+msgstr "Mostrare album"
+
+#: Yamp.py:2440
+msgid "Show Artist"
+msgstr "Mostrare artista"
+
+#: Yamp.py:2444
+#, python-format
+msgid ""
+"Move Entry Up\n"
+"Move Entry Up by %d"
+msgstr ""
+"Spostare voce su\n"
+"Spostare su di %d"
+
+#: Yamp.py:2447
+#, python-format
+msgid ""
+"Move Entry Down\n"
+"Move Entry Down by %d"
+msgstr ""
+"Spostare voce giù\n"
+"Spostare giù di %d"
+
+#: Yamp.py:2448
+msgid ""
+"Save Cover\n"
+"Save Album Cover"
+msgstr ""
+"Salvare cover\n"
+"Salvare cover album"
+
+#: Yamp.py:2470
+msgid "M u s i c  F i l e s"
+msgstr "F i l e  M u s i c a l i"
+
+#: Yamp.py:2474
+msgid "Music Files"
+msgstr "File musicali"
+
+#: Yamp.py:2913
+msgid "E x t .  P l a y l i s t s"
+msgstr "P l a y l i s t  E x t ."
+
+#: Yamp.py:2915
+msgid "A r t i s t s"
+msgstr "A r t i s t i"
+
+#: Yamp.py:2917
+msgid "A l b u m s"
+msgstr "A l b u m"
+
+#: Yamp.py:2919
+msgid "T i t l e s"
+msgstr "T i t o l i"
+
+#: Yamp.py:2921
+msgid "G e n r e s"
+msgstr "G e n e r i"
+
+#: Yamp.py:2923
+msgid "D a t e s"
+msgstr "A n n i"
+
+#: Yamp.py:2927
+msgid "Artist"
+msgstr "Artista"
+
+#: Yamp.py:2931
+msgid "Album"
+msgstr "Album"
+
+#: Yamp.py:2935
+msgid "Genre"
+msgstr "Genere"
+
+#: Yamp.py:2939
+msgid "Year"
+msgstr "Anno"
+
+#: Yamp.py:2967
+#, python-format
+msgid ""
+"Attention! Crash possible!\n"
+"\n"
+"In actual skin <%s> the file %s\n"
+"is missing\n"
+"\n"
+"Please check and repair!"
+msgstr ""
+"Attenzione, possibile crash.\n"
+"\n"
+"Nella skin attuale <%s> il file %s\n"
+"non è presente.\n"
+"\n"
+"Verificare e correggere!"
+
+#: Yamp.py:2971
+#, python-format
+msgid ""
+"Skin changed to\n"
+"\n"
+"<%s>,  as\n"
+"\n"
+"%s\n"
+"\n"
+"(and maybe more) not existing"
+msgstr ""
+"Skin modificata in\n"
+"\n"
+"%s, perché\n"
+"\n"
+"%s\n"
+"\n"
+"non è presente (e forse manca altro)"
+
+#: Yamp.py:2979
+msgid ""
+"This custom skin most likely has been copied from an old version, and "
+"probably is not up-to-date.\n"
+"\n"
+"It is recommended to switch to a standard skin and check and revise the "
+"custom skin (compare it with the according standard skin)!"
+msgstr ""
+"Questa skin personalizzata molto probabilmente è stata copiata da una "
+"vecchia versione e verosimilmente non è aggiornata.\n"
+"\n"
+"Si consiglia di passare a una skin standard e di controllare/rivedere la "
+"skin personalizzata (confrontandola con quella standard)!"
+
+#: Yamp.py:3010
+msgid ""
+"Database has been upgraded to V3.3.2. ID3-tag AlbumArtist is recognized now. "
+"You should rescan at least your Sampler-Albums (various artists) into the "
+"database..."
+msgstr ""
+"Database aggiornato alla V3.3.2. Il tag ID3 AlbumArtist è ora riconosciuto. "
+"Ripetere la scansione perlomeno degli album antologici (artisti vari) nel "
+"database..."
+
+#: Yamp.py:3012
+msgid ""
+"There was an error when upgrading the Database to V3.3.2 (or database not "
+"existing). To get all advantages from the new DB options, think about "
+"deleting the database and rebuild it by re-inserting all files..."
+msgstr ""
+"Errore nell'aggiornamento del database alla V3.3.2 (o database non "
+"presente). Per ottenere tutti i vantaggi dalle nuove opzioni del DB, "
+"provvedere a rimuovere il database e a ricostruirlo inserendo di nuovo tutti "
+"i file..."
+
+#: Yamp.py:3015
+msgid ""
+"Database has been upgraded to V3.3.2, but the database is empty. Online-"
+"search for fanart-pictures has been deactivated. To get all advantages from "
+"the new DB options, think about adding files to the database... As long as "
+"the online search is deactivated, you will not see this message again!"
+msgstr ""
+"Il database è stato aggiornato alla V3.3.2, ma è vuoto. Per ottenere tutti i "
+"vantaggi dalle nuove opzioni del DB, provvedere ad aggiungere file al "
+"database... Finché la ricerca online è disattivata, questo messaggio non "
+"sarà più visualizzato!"
+
+#: Yamp.py:3025
+#, python-format
+msgid ""
+"DB-Upgrade to V3.3.1:\n"
+"%d titles have been actualized to the new feature <Several Albums Greatest "
+"Hits separated by Artist possible>.\n"
+"Please check ..."
+msgstr ""
+"Aggiornamento DB alla V3.3.1:\n"
+"%d titoli sono stati aggiornati alla nuova funzione <Possibilità di avere "
+"diversi album Greatest Hits separati per artista>.\n"
+"Controllare ..."
+
+#: Yamp.py:3030
+msgid ""
+"Database has been upgraded to V3.3.1. To get all advantages from the new DB "
+"options, you should actualize the database. Just insert all your files again "
+"to the database..."
+msgstr ""
+"Il database è stato aggiornato alla versione V3.3.1. Per ottenere tutti i "
+"vantaggi delle nuove opzioni del DB, è necessario aggiornare il DB facendo "
+"rileggere tutti i file."
+
+#: Yamp.py:3032
+msgid ""
+"There was an error when upgrading the Database to V3.3.1 (or database not "
+"existing). To get all advantages from the new DB options, think about "
+"deleting the database and rebuild it by re-inserting all files..."
+msgstr ""
+"Si è verificato un errore durante l'aggiornamento del database alla versione "
+"V3.3.1 (oppure il database non esiste/è vuoto). \n"
+"Per ottenere tutti i vantaggi delle nuove opzioni del DB, il DB deve essere "
+"cancellato e poi tutti i file devono essere riletti per inserirli nel DB."
+
+#: Yamp.py:3035
+msgid ""
+"Database has been upgraded to V3.3.1, but the database is empty. Online-"
+"search for fanart-pictures has been deactivated. To get all advantages from "
+"the new DB options, think about adding files to the database... As long as "
+"the online search is deactivated, you will not see this message again!"
+msgstr ""
+"Il database è stato aggiornato alla versione V3.3.1, ma è vuoto. La ricerca "
+"online di immagini fanart su fanart.tv è stata disattivata. Per sfruttare le "
+"nuove opzioni del database, i titoli devono essere trasferiti nel "
+"database... Questo messaggio non verrà più visualizzato finché la ricerca "
+"online di fanart sarà disattivata!"
+
+#: Yamp.py:3060
+#, python-format
+msgid "Cannot open database file %s."
+msgstr "Impossibile aprire il file database %s."
+
+#: Yamp.py:3061
+#, python-format
+msgid "Cannot write to database %s. Maybe Read-Only?"
+msgstr "Impossibile scrivere nel database %s. Forse in sola lettura?"
+
+#: Yamp.py:3082
+#, python-format
+msgid "Playlists (%d)"
+msgstr "Playlists (%d)"
+
+#: Yamp.py:3095
+#, python-format
+msgid "Artists (%d)"
+msgstr "Artisti (%d)"
+
+#: Yamp.py:3100
+#, python-format
+msgid "Albums (%d)"
+msgstr "Album (%d)"
+
+#: Yamp.py:3106
+#, python-format
+msgid "Titles (%d)"
+msgstr "Titoli (%d)"
+
+#: Yamp.py:3110
+#, python-format
+msgid "Genres (%d)"
+msgstr "Generi (%d)"
+
+#: Yamp.py:3117
+#, python-format
+msgid "Years (%d)"
+msgstr "Anni (%d)"
+
+#: Yamp.py:3123
+msgid "[back]"
+msgstr "[Indietro]"
+
+#: Yamp.py:3187
+msgid "No Year in Database, see Documentation"
+msgstr "Nessun anno nel database, vedere documentazione"
+
+#: Yamp.py:3453 Yamp.py:5319 Yamp.py:5323 Yamp.py:5543 Yamp.py:5558
+#: Yamp.py:5572 Yamp.py:5586 Yamp.py:5614
+msgid "YAMP - Please enter query:"
+msgstr "YAMP - Inserire la query:"
+
+#: Yamp.py:3465
+msgid "YAMP - Please enter filename:"
+msgstr "YAMP - Inserire il nome file:"
+
+#: Yamp.py:3486 Yamp.py:3513
+#, python-format
+msgid "Playlist saving as %s failed"
+msgstr "Salvataggio playlist %s fallito"
+
+#: Yamp.py:3488 Yamp.py:3515
+#, python-format
+msgid "Playlist saved as %s"
+msgstr "Playlist %s salvata"
+
+#: Yamp.py:4315
+msgid "Search in Playlist"
+msgstr "Ricercare nella playlist"
+
+#: Yamp.py:4317
+msgid "Search current title"
+msgstr "Ricerca del titolo corrente"
+
+#: Yamp.py:4319
+msgid "Search current artist"
+msgstr "Ricerca dell'artista corrente"
+
+#: Yamp.py:4321
+msgid "Search current album"
+msgstr "Ricerca dell'album corrente"
+
+#: Yamp.py:4323
+msgid "Unsort Playlist"
+msgstr "Playlist non ordinata"
+
+#: Yamp.py:4324
+msgid "Sort Playlist A-Z"
+msgstr "Ordinamento playlist A-Z"
+
+#: Yamp.py:4325
+msgid "Sort Playlist Z-A"
+msgstr "Ordinamento playlist Z-A"
+
+#: Yamp.py:4326
+msgid "Save Playlist e2pls"
+msgstr "Salvare playlist e2pls"
+
+#: Yamp.py:4327
+msgid "Save Playlist m3u"
+msgstr "Salvare playlist m3u"
+
+#: Yamp.py:4328
+msgid "Save Playlist e2pls + m3u"
+msgstr "Salvare playlist e2pls + m3u"
+
+#: Yamp.py:4329
+msgid "Search path/filename of current title"
+msgstr "Cercare percorso/nome file titolo corrente"
+
+#: Yamp.py:4331
+msgid "Search path"
+msgstr "Cercare percorso"
+
+#: Yamp.py:4332
+msgid "Search filename"
+msgstr "Cercare nome file"
+
+#: Yamp.py:4335
+msgid "Delete playlist"
+msgstr "Rimuovere playlist"
+
+#: Yamp.py:4339 Yamp.py:4370
+msgid "Search playlists"
+msgstr "Cercare playlist"
+
+#: Yamp.py:4341 Yamp.py:4353
+msgid "Search artists"
+msgstr "Cercare artista"
+
+#: Yamp.py:4342
+msgid "Delete ALL artist's musicbrainz-ID entries"
+msgstr "Rimuovere tutti gli ID MusicBrainz dell'artista"
+
+#: Yamp.py:4344 Yamp.py:4358
+msgid "Search albums"
+msgstr "Ricerca per album"
+
+#: Yamp.py:4346 Yamp.py:4375
+msgid "Search titles"
+msgstr "Ricerca per titoli"
+
+#: Yamp.py:4347 Yamp.py:4376
+msgid "Search files"
+msgstr "Ricerca per file"
+
+#: Yamp.py:4349 Yamp.py:4362
+msgid "Search genres"
+msgstr "Ricerca per generi"
+
+#: Yamp.py:4351 Yamp.py:4366
+msgid "Search dates"
+msgstr "Ricerca per anno"
+
+#: Yamp.py:4354 Yamp.py:4359 Yamp.py:4363 Yamp.py:4367 Yamp.py:4371
+#: Yamp.py:4377
+msgid "Jump to entry"
+msgstr "Passare alla voce"
+
+#: Yamp.py:4355
+msgid "Delete artist's title entries"
+msgstr "Rimuovere voci titoli artista"
+
+#: Yamp.py:4356
+msgid "Delete artist's musicbrainz-ID entries"
+msgstr "Rimuovere ID MusicBrainz artista"
+
+#: Yamp.py:4360
+msgid "Delete album entries"
+msgstr "Rimuovere le voci album"
+
+#: Yamp.py:4364
+msgid "Delete genre's title entries"
+msgstr "Rimuovere le voci titoli del genere"
+
+#: Yamp.py:4368
+msgid "Delete date's title entries"
+msgstr "Rimuovere le voci titoli per anno"
+
+#: Yamp.py:4372
+msgid "Delete ext. playlist entry"
+msgstr "Rimuovere le voci playlist ext."
+
+#: Yamp.py:4374
+msgid "Show similar titles"
+msgstr "Mostrare titoli simili"
+
+#: Yamp.py:4378
+msgid "Delete title entry"
+msgstr "Rimuovere la voce titolo"
+
+#: Yamp.py:4379
+msgid "Compact music database"
+msgstr "Compattare il database YAMP"
+
+#: Yamp.py:4380
+msgid "Clear music database"
+msgstr "Rimuovere il database YAMP"
+
+#: Yamp.py:4382
+msgid "Edit Configuration"
+msgstr "Modificare impostazioni"
+
+#: Yamp.py:4386
+msgid "Playlist actions"
+msgstr "Azioni playlist"
+
+#: Yamp.py:4388
+msgid "Filelist actions"
+msgstr "Azioni file"
+
+#: Yamp.py:4390
+msgid "Database actions"
+msgstr "Azioni database"
+
+#: Yamp.py:4481
+#, python-format
+msgid "file %s not existing or not reachable"
+msgstr "Il file %s non esiste o non è accessibile"
+
+#: Yamp.py:4543
+msgid "Skin"
+msgstr "Skin"
+
+#: Yamp.py:4545
+msgid "Box-Display"
+msgstr "Display del box"
+
+#: Yamp.py:4547
+msgid ""
+" changed, Yamp restart required to apply new selection\n"
+"\n"
+"Do you want to close Yamp now?"
+msgstr ""
+" modificato, è necessario riavviare Yamp per applicare le modifiche.\n"
+"\n"
+"Chiudere Yamp ora?"
+
+#: Yamp.py:4551
+msgid "to activate the new configuration for the Box-Display, "
+msgstr "Per attivare la nuova configurazione del display, "
+
+#: Yamp.py:4552
+msgid ""
+"\n"
+"\n"
+"will be overwitten.\n"
+"\n"
+"Do you agree?"
+msgstr ""
+"\n"
+"\n"
+"dovranno essere  sovrascritti.\n"
+"\n"
+"Confermare?"
+
+#: Yamp.py:4555 Yamp.py:4558
+#, python-format
+msgid ""
+"the file\n"
+"\n"
+"%s"
+msgstr ""
+"l file\n"
+"\n"
+"%s"
+
+#: Yamp.py:4560
+#, python-format
+msgid ""
+"the files\n"
+"\n"
+"%s\n"
+"and\n"
+"%s"
+msgstr ""
+"i file\n"
+"\n"
+"%s\n"
+"e\n"
+"%s"
+
+#: Yamp.py:4635 YampConfig.py:164
+#, python-format
+msgid ""
+"Box display configuration file\n"
+"\n"
+"%s\n"
+"\n"
+"could not be written!\n"
+"\n"
+"Write protected? Wrong format?\n"
+"\n"
+"If not corrected, changes will be lost..."
+msgstr ""
+"Impossibile sovrascrivere\n"
+"\n"
+"Il file di configurazione display\n"
+"\n"
+"%s\n"
+"\n"
+"Sola lettura? Formato errato?\n"
+"\n"
+"Se non risolto, le modifiche saranno perdute..."
+
+#: Yamp.py:5259
+msgid "filelist"
+msgstr "Elenco file"
+
+#: Yamp.py:5262 YampConfig.py:900
+msgid "database"
+msgstr "Database"
+
+#: Yamp.py:5279
+msgid "PL: "
+msgstr "PL: "
+
+#: Yamp.py:5424
+msgid ""
+"Do you really want to delete the musicbrainz-IDs for all artists from "
+"database?"
+msgstr "Rimuovere ID MusicBrainz di tutti gli artisti dal database?"
+
+#: Yamp.py:5437
+#, python-format
+msgid "Do you really want to delete all titles of artist %s from database?"
+msgstr "Rimuovere tutti i titoli dell'artista %s dal database?"
+
+#: Yamp.py:5461
+#, python-format
+msgid "Do you really want to delete all titles of album %s from database?"
+msgstr "Rimuovere tutti i titoli dell'album %s dal database?"
+
+#: Yamp.py:5485
+#, python-format
+msgid "Do you really want to delete all titles of genre %s from database?"
+msgstr "Rimuovere tutti i titoli di genere %s dal database?"
+
+#: Yamp.py:5509
+#, python-format
+msgid "Do you really want to delete all titles of date %s from database?"
+msgstr "Rimuovere tutti i titoli dell'anno %s dal database?"
+
+#: Yamp.py:5537
+msgid "Search"
+msgstr "Cercare:"
+
+#: Yamp.py:5551 Yamp.py:5565 Yamp.py:5579 Yamp.py:5593 Yamp.py:5621
+#, python-format
+msgid "Search: %s"
+msgstr "Ricerca: %s"
+
+#: Yamp.py:5600
+msgid "YAMP album search - Please enter query:"
+msgstr "Ricerca album YAMP - Inserire la query:"
+
+#: Yamp.py:5607
+#, python-format
+msgid "album search: %s"
+msgstr "Ricerca album: %s"
+
+#: Yamp.py:5655
+msgid "YAMP - Jump to letter(s):"
+msgstr "YAMP - Saltare alla lettera:"
+
+#: Yamp.py:5674
+msgid ""
+"Do you really want to compact the database?\n"
+"This may take a while..."
+msgstr ""
+"Compattare il database?\n"
+"Potrebbe impiegare un po' di tempo..."
+
+#: Yamp.py:5695
+msgid "Do you really want to clear the whole database?"
+msgstr "Svuotare l'intero database?"
+
+#: Yamp.py:5774
+msgid ""
+"Artist-Art-Pictures\n"
+"downloading: "
+msgstr ""
+"Download\n"
+"immagini d'artista: "
+
+#: Yamp.py:5818
+#, python-format
+msgid ""
+"Artist %s not in database,\n"
+"online search for artist-art at fanart.tv not possible"
+msgstr ""
+"Artista %s non presente nel database.\n"
+"Ricerca online per tipo di artista su fanart.tv impossibile"
+
+#: Yamp.py:5856
+msgid "trying to get "
+msgstr "Tentativo in corso di ottenere "
+
+#: Yamp.py:5880 Yamp.py:5889
+#, python-format
+msgid ""
+"Music-Brainz ID for Artist %s not found,\n"
+"online search for artist-art at fanart.tv not possible"
+msgstr ""
+"ID Music-Brainz per l'artista %s non trovato.\n"
+"Ricerca online per artista-art su fanart.tv impossibile"
+
+#: Yamp.py:5883
+msgid ""
+"MbID\n"
+" not found"
+msgstr ""
+"MbID\n"
+" non trovato"
+
+#: Yamp.py:5888 Yamp.py:5961
+msgid ""
+"MbID\n"
+" download failed"
+msgstr ""
+"MbID\n"
+" download fallito"
+
+#: Yamp.py:6003
+msgid ""
+"trying to get\n"
+"picture list..."
+msgstr ""
+"Tentativo di ottenere\n"
+"elenco immagini..."
+
+#: Yamp.py:6019
+msgid ""
+"no pictures\n"
+"found"
+msgstr ""
+"Nessuna immagine\n"
+"trovata"
+
+#: Yamp.py:6062
+msgid ""
+"fanart.tv\n"
+"no picture found"
+msgstr ""
+"fanart.tv\n"
+"nessuna immagine trovata"
+
+#: Yamp.py:6066
+msgid ""
+"picture list\n"
+"download failed"
+msgstr ""
+"Download elenco\n"
+"immagini fallito"
+
+#: Yamp.py:6206
+#, python-format
+msgid "Several Artists %s found at musicbrainz.org, please select Artist"
+msgstr "Trovati numerosi artisti %s su musicbrainz.org, selezionare artista"
+
+#: Yamp.py:6307
+msgid "searching ... "
+msgstr "Ricerca in corso..."
+
+#: Yamp.py:6314
+#, python-format
+msgid ""
+"%d files added to database\n"
+"\n"
+msgstr ""
+"%d file aggiunti al database\n"
+"\n"
+
+#: Yamp.py:6315
+#, python-format
+msgid ""
+"%d files actualized\n"
+"\n"
+msgstr ""
+"%d file aggiornati\n"
+"\n"
+
+#: Yamp.py:6316
+#, python-format
+msgid ""
+"%d files skipped\n"
+"\n"
+"\n"
+msgstr ""
+"%d file ignorati\n"
+"\n"
+"\n"
+
+#: Yamp.py:6317
+msgid "Press OK to close."
+msgstr "Premere OK per chiudere."
+
+#: Yamp.py:6320
+msgid "Process aborted."
+msgstr "Processo interrotto."
+
+#: Yamp.py:6322
+msgid "Process finished."
+msgstr "Processo terminato."
+
+#: Yamp.py:6325
+msgid ""
+"Error!\n"
+"Can not open database!\n"
+"Check if database path is correct and writeable!\n"
+"\n"
+"Press OK to close."
+msgstr ""
+"Errore.\n"
+"Impossibile aprire il database.\n"
+"Verificare che il percorso sia corretto/accessibile in scrittura\n"
+"\n"
+"Premere OK per chiudere."
+
+#: Yamp.py:6361
+#, python-format
+msgid ""
+"added to database (%d)\n"
+"\n"
+"actualized in database (%d)\n"
+"\n"
+"already exists in database (%d)"
+msgstr ""
+"Aggiunti al database (%d)\n"
+"\n"
+"Aggiornati nel database (%d)\n"
+"\n"
+"Già presenti nel database (%d)"
+
+#: Yamp.py:6389
+msgid "YAMP Music Player - Add directory incl. Subdirs to Database"
+msgstr ""
+"YAMP Music Player - Aggiungere directory con sottodirectory al database"
+
+#: Yamp.py:6391
+msgid "YAMP Music Player - Add directory to Database"
+msgstr "YAMP Music Player - Aggiungere directory al database"
+
+#: Yamp.py:6393
+msgid "YAMP Music Player - Database Actions"
+msgstr "YAMP Music Player - Azioni database"
+
+#: Yamp.py:6394
+msgid "Cancel"
+msgstr "Annullare"
+
+#: Yamp.py:6457
+msgid " inserted"
+msgstr " inserito"
+
+#: Yamp.py:6458
+msgid " actualized"
+msgstr " aggiornato"
+
+#: Yamp.py:6459
+msgid " skipped"
+msgstr " ignorato"
+
+#: Yamp.py:6468
+msgid "DB Insert:"
+msgstr "Inserimento DB:"
+
+#: Yamp.py:6477
+msgid "DB insert finished"
+msgstr "Inserimento DB terminato"
+
+#: Yamp.py:6479
+msgid "OK"
+msgstr "Ok"
+
+#: YampBoxDisplay.py:38
+#, python-format
+msgid "YampLCDRunningScreenV33: Failed to open/read %s"
+msgstr "YampLCDRunningScreenV33: fallita apertura/lettura di %s"
+
+#: YampBoxDisplay.py:75
+#, python-format
+msgid "YampLCDScreenV33: Failed to open/read %s"
+msgstr "YampLCDScreenV33: apertura/lettura di %s fallita"
+
+#: YampConfig.py:41
+msgid "Configuration"
+msgstr "Impostazioni"
+
+#: YampConfig.py:72
+msgid "YAMP Music Player Configuration"
+msgstr "YAMP Music Player - Impostazioni"
+
+#: YampConfig.py:175
+#, python-format
+msgid ""
+"Skin <%s> not possible, as\n"
+"\n"
+"%s\n"
+"\n"
+"(and maybe more) is missing\n"
+"\n"
+"Skin is disabled now! To enable it again, Yamp has to be restarted"
+msgstr ""
+"Impossibile utilizzare la skin <%s>\n"
+"\n"
+"perché %s\n"
+"\n"
+"non è presente (e forse manca altro).\n"
+"\n"
+"La skin è stata disabilitata. per riabilitarla, è necessario riavviare Yamp"
+
+#: YampConfig.py:181
+msgid ""
+"This custom skin most likely has been copied from an old version, and "
+"probably is not up-to-date.\n"
+"\n"
+"It is recommended to switch to a standard skin and check and revise the "
+"custom skin (compare it with the accordingstandard skin)!"
+msgstr ""
+"Questa skin personalizzata molto probabilmente è stata copiata da una "
+"vecchia versione e verosimilmente non è aggiornata.\n"
+"\n"
+"Si consiglia di passare a una skin standard e di controllare/rivedere la "
+"skin personalizzata (confrontandola con la skin standard)!"
+
+#: YampConfig.py:218
+msgid "  General Adjustments  "
+msgstr "  Impostazioni generali  "
+
+#: YampConfig.py:221
+msgid "YAMP skin (restart required)"
+msgstr "Skin YAMP (riavvio necessario)"
+
+#: YampConfig.py:223
+msgid "YAMP database directory"
+msgstr "Directory database YAMP"
+
+#: YampConfig.py:225
+msgid "Filebrowser startup directory"
+msgstr "Directory di avvio browser file"
+
+#: YampConfig.py:227
+msgid "Save filebrowser directory on exit"
+msgstr "Salvare directory browser file in uscita"
+
+#: YampConfig.py:229
+msgid "Directory for saved playlists"
+msgstr "Directory playlist salvate"
+
+#: YampConfig.py:231
+msgid "Use single directory for lyrics"
+msgstr "Utilizzare directory unica per i testi"
+
+#: YampConfig.py:233
+msgid "Directory for saved lyrics"
+msgstr "Directory per testi salvati"
+
+#: YampConfig.py:235
+msgid "Screensaver slideshow directory"
+msgstr "Directory slide show screensaver"
+
+#: YampConfig.py:237
+msgid "Artwork slideshow base directory"
+msgstr "Directory base slide show artwork"
+
+#: YampConfig.py:241
+msgid "  Filelist / Databaselist / Playlist  "
+msgstr "  Elenchi File / Database / Playlist  "
+
+#: YampConfig.py:244
+msgid "Layout of Title of Filelist"
+msgstr "Layout titolo elenco file"
+
+#: YampConfig.py:246
+msgid "Exclude directories in DB-Search starting with"
+msgstr "Escludere nella ricerca DB le directory che iniziano con"
+
+#: YampConfig.py:248
+msgid "Reduce number of artists by ignoring everything beginning with 'feat'"
+msgstr ""
+"Ridurre il numero di artisti ignorando tutto ciò che inizia con \"feat\"."
+
+#: YampConfig.py:250
+msgid "Title only once in artist/genre selection"
+msgstr "Mostra il titolo solo una volta nella ricerca di artista/genere"
+
+#: YampConfig.py:252
+msgid "Standardize title and artist names"
+msgstr "Standardizzare titoli e nomi artisti"
+
+#: YampConfig.py:254
+msgid "Playlist layout"
+msgstr "Layout playlist"
+
+#: YampConfig.py:256
+msgid "Layout for display of >next song<"
+msgstr "Layout visualizzazione >brano successivo<"
+
+#: YampConfig.py:258
+msgid "Display unknown element (n/a) in info-bar as"
+msgstr "Mostrare gli elementi sconosciuti (n/a) nella infobar come"
+
+#: YampConfig.py:260
+msgid "Remember playlist on exit"
+msgstr "Ricordare playlist all'uscita"
+
+#: YampConfig.py:262
+msgid "Repeat playlist at end"
+msgstr "Ripetere playlist al termine"
+
+#: YampConfig.py:264
+msgid "Enable wrap around on move titles in playlist"
+msgstr "Abilitare wrap-around spostando titoli nella playlist"
+
+#: YampConfig.py:266
+msgid "Start playing immediate (if playlist exists)"
+msgstr "Avviare play immediatamente (se playlist esiste)"
+
+#: YampConfig.py:268
+msgid "Gap reduction (1/10 seconds, 0 = off)"
+msgstr "Riduzione del gap (1-10 secondi, 0 = Off)"
+
+#: YampConfig.py:272
+msgid "  Cover Search / Auto Save  "
+msgstr "  Ricerca cover / Salvataggio automatico  "
+
+#: YampConfig.py:275
+msgid "Cover search priority 1 (highest)"
+msgstr "Priorità ricerca cover 1 (massima)"
+
+#: YampConfig.py:277
+msgid "Cover search priority 2"
+msgstr "Priorità ricerca cover 2"
+
+#: YampConfig.py:279
+msgid "Cover search priority 3"
+msgstr "Priorità ricerca cover 3"
+
+#: YampConfig.py:281
+msgid "Cover search priority 4"
+msgstr "Priorità ricerca cover 4"
+
+#: YampConfig.py:283
+msgid "Cover search priority 5 (lowest)"
+msgstr "Priorità ricerca cover 5 (minima)"
+
+#: YampConfig.py:285
+msgid "Google cover search for videos"
+msgstr "Ricercare anche le cover video su Google"
+
+#: YampConfig.py:287
+msgid "Google cover auto save in title directory"
+msgstr "Salvataggio automatico cover Google in directory brano"
+
+#: YampConfig.py:291
+msgid "  Lyrics Search / Auto Save  "
+msgstr "  Ricerca testi / Salvataggio automatico  "
+
+#: YampConfig.py:294
+msgid "Lyrics Search priority 1 (highest)"
+msgstr "Priorità ricerca testi 1 (massima)"
+
+#: YampConfig.py:296
+msgid "Lyrics Search priority 2"
+msgstr "Priorità ricerca testi 2"
+
+#: YampConfig.py:298
+msgid "Lyrics Search priority 3"
+msgstr "Priorità ricerca testi 3"
+
+#: YampConfig.py:300
+msgid "Lyrics Search priority 4 (lowest)"
+msgstr "Priorità ricerca testi 4 (minima)"
+
+#: YampConfig.py:302
+msgid "Auto-save lyrics found online"
+msgstr "Salvataggio automatico testi trovati online"
+
+#: YampConfig.py:306
+msgid "  Artist-Art / MbId Search  "
+msgstr "  Artwork / Ricerca MbId  "
+
+#: YampConfig.py:309
+msgid "Artist-Art-Pictures online search at fanart.tv"
+msgstr "Ricerca immagini online artwork su fanart.tv"
+
+#: YampConfig.py:311
+msgid "fanart.tv personal api key"
+msgstr "Api key personale fanart.tv"
+
+#: YampConfig.py:313
+msgid "Musicbrainz-Artist-ID (MbId) search mode"
+msgstr "Modalità di ricerca MusicBrainz-Artist-ID (MbId)"
+
+#: YampConfig.py:315
+msgid "Musicbrainz Artist identification min score"
+msgstr "Rilevanza minima identificazione artista in MusicBrainz"
+
+#: YampConfig.py:319
+msgid "  Screensaver / Dia-Show / Artist-Art  "
+msgstr "  Screensaver / Slide show / Artwork  "
+
+#: YampConfig.py:322
+msgid "Type of screensaver"
+msgstr "Tipo screensaver"
+
+#: YampConfig.py:324
+msgid "Screensaver pictures in background (Info-Bar visible)"
+msgstr "Immagini screensaver sullo sfondo (infobar visibile)"
+
+#: YampConfig.py:326
+msgid "Key <Audio> adjustment is reset at end of song"
+msgstr "Impostazione tasto <Audio> ripristinata su cambio brano"
+
+#: YampConfig.py:328
+msgid "Include subdirs in slideshow (custom or artwork) directory"
+msgstr ""
+"Includere sottodirectory alla directory slide show (personalizzate o artwork)"
+
+#: YampConfig.py:330
+msgid "Wait for screensaver (seconds, 0 = off)"
+msgstr "Attesa screensaver (secondi. 0 = Off)"
+
+#: YampConfig.py:332
+msgid "Wait-time for next screensaver slide (seconds)"
+msgstr "Intervallo slide screensaver (secondi)"
+
+#: YampConfig.py:334
+msgid "Sorting of screensaver pictures"
+msgstr "Ordinamento immagini screensaver"
+
+#: YampConfig.py:336
+msgid "Screensaver in dblist/filelist"
+msgstr "Screensaver anche in elenco file/database"
+
+#: YampConfig.py:338
+#, python-format
+msgid "Manual activate/deactivate Screensaver by <%s> Button"
+msgstr "Attivare/Disattivare manualmente screensaver con tasto <%s>"
+
+#: YampConfig.py:340
+msgid "Max. Screensaver Off-Time manual (seconds, 0=unlimited)"
+msgstr ""
+"Spegnimento manuale screen saver: tempo massimo spegnimento (secondi, 0 = "
+"illimitato)"
+
+#: YampConfig.py:342
+msgid "Show background in Info-Bar (visibility)"
+msgstr "Mostrare sfondo in infobar (visibilità)"
+
+#: YampConfig.py:344
+msgid "Show clock while screensaver active"
+msgstr "Mostrare orologio se screensaver attivo"
+
+#: YampConfig.py:348
+msgid "  Operation / Display  "
+msgstr "  Funzionamento / Display  "
+
+#: YampConfig.py:351
+msgid "Playlist entry move multiple lines"
+msgstr "Ampiezza spostamento righe delle voci in playlist"
+
+#: YampConfig.py:353
+msgid "Max. display time \"Cover Scroll\" seconds, 0=off)"
+msgstr "Tempo massimo visualizzazione \"Cover Scroll\" in secondi, 0=Off)"
+
+#: YampConfig.py:355
+msgid "Show file icons in filelist"
+msgstr "Mostrare icone file in elenco"
+
+#: YampConfig.py:357
+msgid "Show file icons in playlist"
+msgstr "Mostrare icone file in playlist"
+
+#: YampConfig.py:360
+msgid "Display used skin name in Main Screen"
+msgstr "Mostrare la skin in uso nella schermata principale"
+
+#: YampConfig.py:362
+#, python-format
+msgid "Display button description in Display (TV, Radio, %s)"
+msgstr "Mostrare descrizione tasti su display (TV, Radio, %s)"
+
+#: YampConfig.py:364
+msgid "Display filename of current picture in Dia-Show"
+msgstr "Mostrare nome file immagine corrente in slide show"
+
+#: YampConfig.py:367
+msgid "Calculate and display playlist run time"
+msgstr "Calcolare e mostrare runtime playlist"
+
+#: YampConfig.py:369
+msgid "Show Yamp Help on Start (always with INFO LONG)"
+msgstr ""
+"Mostrare la guida di Yamp all'avvio (sempre raggiungibile con INFO LUNGO)"
+
+#: YampConfig.py:371
+msgid "Exit button jumps to upper directory in filelist/databaselist"
+msgstr "Exit passa alla directory superiore dell'elenco di file/dati."
+
+#: YampConfig.py:373
+msgid "Common button for play / pause"
+msgstr "Tasto comune per Play/Pausa"
+
+#: YampConfig.py:375
+msgid "Common button for Tv / Radio"
+msgstr "Tasto comune per TV/Radio"
+
+#: YampConfig.py:377
+msgid "Confirm exit"
+msgstr "Confermare l'uscita"
+
+#: YampConfig.py:379
+msgid "Show TV during Yamp"
+msgstr "TV nell'anteprima video di Yamp"
+
+#: YampConfig.py:383
+msgid "  Lyrics - Scroll / Time Edit - Karaoke  "
+msgstr "  Testi - Scorrimento / Modifica tempo - Karaoke  "
+
+#: YampConfig.py:386
+msgid "Min. number of lines for scrolling text"
+msgstr "Numero minimo righe per attivazione scorrimento"
+
+#: YampConfig.py:388
+msgid "Line number for scrolling (this line stays selected)"
+msgstr ""
+"Numero della riga di scorrimento (questa riga rimane fissa durante lo "
+"scorrimento)"
+
+#: YampConfig.py:390
+msgid "Offset for time stamp in lyrics edit (milliseconds)"
+msgstr "Offset per time stamp in modifica testi (millisecondi)"
+
+#: YampConfig.py:392
+msgid "Offset for lyrics display while playing (milliseconds)"
+msgstr "Offset per le righe di testo durante riproduzione (millisecondi)"
+
+#: YampConfig.py:394
+msgid "Lyrics line max display time (seconds, 0 = no limit)"
+msgstr "Tempo massimo persistenza riga (secondi, 0 = illimitato)"
+
+#: YampConfig.py:396
+msgid "Black background on Lyrics Line (Karaoke)"
+msgstr "Sfondo nero righe testi (Karaoke)"
+
+#: YampConfig.py:400
+msgid "  Videoclip settings  "
+msgstr "  Impostazioni videoclip  "
+
+#: YampConfig.py:403
+msgid "Automatic Full Screen Start Mode for Videos"
+msgstr "Modalità di avvio automatico FullScreen per i video"
+
+#: YampConfig.py:405
+msgid "Display time of Title for Videos (seconds, 0=off)"
+msgstr "Durata visualizzazione titoli video (secondi, 0 = Off)"
+
+#: YampConfig.py:407
+msgid "Show clock while Video is running"
+msgstr "Orologio visibile durante i video"
+
+#: YampConfig.py:409
+msgid "Allow Lyrics screen on videos"
+msgstr "Consentire schermata testi sui video"
+
+#: YampConfig.py:411
+msgid "Insert Blank Video after Video"
+msgstr "Inserire video nero dopo il video (sfondo nitido per messaggi)"
+
+#: YampConfig.py:413
+msgid "Blank Video runtime (ms)"
+msgstr "Tempo esecuzione video vuoto (ms)"
+
+#: YampConfig.py:417
+msgid "  Box Display  "
+msgstr "  Display del box  "
+
+#: YampConfig.py:427
+msgid "Size of box display used"
+msgstr "Dimensioni display box in uso"
+
+#: YampConfig.py:428
+msgid "Mode of box display used"
+msgstr "Modalità display box in uso"
+
+#: YampConfig.py:430
+msgid "Fontsize line(s) 1(..3)"
+msgstr "Dimensioni caratteri righe 1(...3)"
+
+#: YampConfig.py:431
+msgid "Text length line(s) 1(..3)"
+msgstr "Lunghezza testo righe 1(...3)"
+
+#: YampConfig.py:432
+msgid "Text horiz. alignment line(s) 1(..3)"
+msgstr "Allineamento orizzontale testo righe 1(...3)"
+
+#: YampConfig.py:433
+msgid "Color textline 1"
+msgstr "Colore Riga di testo 1"
+
+#: YampConfig.py:434
+msgid "Color text line 2"
+msgstr "Colore Riga di testo 2"
+
+#: YampConfig.py:435
+msgid "Color text line 3"
+msgstr "Colore Riga di testo 3"
+
+#: YampConfig.py:437
+msgid "Cover size"
+msgstr "Dimensioni cover"
+
+#: YampConfig.py:438
+msgid "Cover color"
+msgstr "Colore cover"
+
+#: YampConfig.py:439
+msgid "Cover horiz. alignment"
+msgstr "Allineamento orizzontale cover"
+
+#: YampConfig.py:440
+msgid "Cover vertical alignment"
+msgstr "Allineamento verticale cover"
+
+#: YampConfig.py:442
+msgid "Font size for Graphical running text"
+msgstr "Dimensioni caratteri testo grafico a scorrimento"
+
+#: YampConfig.py:469
+msgid "  Miscellaneous / Debug  "
+msgstr "  Miscellanea  / Debug  "
+
+#: YampConfig.py:473
+msgid "YAMP in extended plugin list"
+msgstr "YAMP nell'elenco estensioni"
+
+#: YampConfig.py:475
+msgid "YAMP in main menu"
+msgstr "YAMP nel menu principale"
+
+#: YampConfig.py:477
+msgid "Debug Mode"
+msgstr "Modalità debug"
+
+#: YampConfig.py:479
+msgid "Debug directory"
+msgstr "Directory di debug"
+
+#: YampConfig.py:481
+msgid "Debug memory usage"
+msgstr "Debug utilizzo memoria"
+
+#: YampConfig.py:491
+msgid ""
+"left-right:\n"
+"\n"
+"Options should be self-explaining.\n"
+"\n"
+"Allowed extensions: '.jpg', '.jpeg','.png', '.gif'\n"
+"The options are processed in the priority order; when a Cover is found, no "
+"further searching in lower priorities\n"
+"\n"
+" Google-Search does not always find pictures with good resolution, so other "
+"options are preferable.\n"
+"\n"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Le opzioni dovrebbero essere autoesplicative.\n"
+"\n"
+"Estensioni consentite: \".jpg\", \".jpeg\", \".png\", \".gif\".\n"
+"Le opzioni sono elaborate in ordine di priorità; se viene trovata una cover "
+"non è possibile effettuare ulteriori ricerche con priorità inferiori.\n"
+"\n"
+" Google-Search non sempre trova immagini con una buona risoluzione, quindi "
+"sono preferibili altre opzioni.\n"
+"\n"
+
+#: YampConfig.py:492
+msgid ""
+"left-right\n"
+"\n"
+"Options should be self-explaining.\n"
+"\n"
+"Allowed file extensions: .txt, .lrc (lrc with Karaoke time stamps).\n"
+"\n"
+"Lyrics-directory depends on the setting in General Adjustments: Song "
+"directory or Common Lyrics directory\n"
+"\n"
+"The options are processed in the priority order; when Lyrics are found, no "
+"further searching in lower priorities\n"
+"\n"
+msgstr ""
+"Sinistra-Destra\n"
+"\n"
+"Le opzioni dovrebbero essere autoesplicative.\n"
+"\n"
+"Estensioni file consentite: \".txt\", \".lrc\" (lrc con timbri Karaoke).\n"
+"\n"
+"La directory dei testi dipende dalle impostazione generali: directory delle "
+"canzoni o directory comune dei testi\n"
+"\n"
+"Le opzioni sono elaborate in ordine di priorità; se vengono trovati i testi "
+"non è possibile effettuare ulteriori ricerche con priorità inferiori.\n"
+"\n"
+
+#: YampConfig.py:495
+msgid ""
+"More help is available at\n"
+"\n"
+"www.vuplus-support.org/wbb4\n"
+" and\n"
+"board.newnigma2.to/wbb4/\n"
+"\n"
+"just search for Yamp.\n"
+"\n"
+"A manual is available there for download also, and Frequently Asked "
+"Questions (FAQ).\n"
+"Please use it. :-)\n"
+"\n"
+"Have fun!\n"
+"\n"
+"@AlfredENeumann & @ekremtt"
+msgstr ""
+"Ulteriori informazioni sono disponibili su\n"
+"\n"
+"www.vuplus-support.org/wbb4\n"
+" e\n"
+"board.newnigma2.to/wbb4/\n"
+"\n"
+"basta cercare Yamp.\n"
+"\n"
+"Sono disponibili anche un manuale da scaricare e le FAQ (Frequently Asked "
+"Questions).\n"
+"Utilizzateli. :-)\n"
+"\n"
+"Buon divertimento!\n"
+"\n"
+"@AlfredENeumann & @ekremtt"
+
+#: YampConfig.py:497
+msgid ""
+"left-right:\n"
+"\n"
+"select used skin\n"
+"\n"
+"if custom skin is selected and there is an error in the skin (Yamp starts "
+"with black screen, no reaction on keys), delete or rename any file in /usr/"
+"lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/custom or .../"
+"fhdCustom, and it will automatically change back to the default screen on "
+"the next start\n"
+"\n"
+"FHD Special VTI is adjusted to Vu HD 1080P / Standard Font"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Selezionare la skin utilizzata\n"
+"\n"
+"Se è stata selezionata una skin personalizzata e si verifica un errore nella "
+"skin (Yamp si avvia con schermo nero, nessuna reazione ai tasti), cancellare "
+"o rinominare qualsiasi file in /usr/lib/enigma2/python/Plugins/Extensions/"
+"YampMusicPlayer/skins/custom o .../fhdCustom, per tornare automaticamente "
+"alla schermata predefinita al prossimo avvio.\n"
+"\n"
+"FHD Special VTI è regolato su Vu HD 1080P / Standard Font"
+
+#: YampConfig.py:499
+msgid ""
+"ok:\n"
+"\n"
+" opens filebrowser to select database path\n"
+"\n"
+"recommended: /media/usb/Yamp/DB\n"
+"\n"
+"default: /media/hdd"
+msgstr ""
+"OK:\n"
+"\n"
+" Apre il browser file per selezionare il percorso del database.\n"
+"\n"
+"Consigliato: /media/usb/Yamp/DB.\n"
+"\n"
+"Default: /media/hdd"
+
+#: YampConfig.py:501
+msgid ""
+"ok:\n"
+"\n"
+" opens filebrowser to select start path for music files\n"
+"\n"
+"recommended: location of your music files\n"
+"\n"
+"default: /media/hdd"
+msgstr ""
+"OK:\n"
+"\n"
+" Aprire browser file per selezionare il percorso iniziale file musicali.\n"
+"\n"
+"Consigliato: percorso file musicali.\n"
+"\n"
+"Default: /media/hdd"
+
+#: YampConfig.py:503
+msgid ""
+"left-right:\n"
+"\n"
+" if On, start path will we overwritten with actual path on exit\n"
+"\n"
+"default: Off"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+" Se On, il percorso iniziale sarà sovrascritto con il percorso effettivo "
+"all'uscita.\n"
+"\n"
+"Default: Off"
+
+#: YampConfig.py:505
+msgid ""
+"ok:\n"
+"\n"
+" opens filebrowser to select path for saving playlists\n"
+"\n"
+"recommended: /media/usb/Yamp/Playlists\n"
+"\n"
+"default: /media/hdd"
+msgstr ""
+"OK:\n"
+"\n"
+" Aprire il browser file per selezionare il percorso di salvataggio "
+"playlist.\n"
+"\n"
+"Consigliato: /media/usb/Yamp/Playlists.\n"
+"\n"
+"Default: /media/hdd"
+
+#: YampConfig.py:507
+msgid ""
+"left-right:\n"
+"\n"
+" if On, saved lyrics will be stored in the lyrics path.\n"
+"\n"
+"if Off, saved lyrics will be stored in the directory of the music file\n"
+"\n"
+"recommended: On\n"
+"\n"
+"default: On"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+" Se On, i testi salvati saranno memorizzati nel percorso testi.\n"
+"\n"
+"Se Off, i testi salvati saranno memorizzati nella directory del file "
+"musicale.\n"
+"\n"
+"Consigliato: On\n"
+"\n"
+"Default: On"
+
+#: YampConfig.py:509
+msgid ""
+"ok:\n"
+"\n"
+" opens filebrowser to select path for lyrics (if above option is set to On)\n"
+"\n"
+"recommended: /media/usb/Yamp/Lyrics\n"
+"\n"
+"default: /media/hdd"
+msgstr ""
+"OK:\n"
+"\n"
+" Aprire il browser file per selezionare il percorso dei testi (se l'opzione "
+"precedente è impostata su On).\n"
+"\n"
+"Consigliato: /media/usb/Yamp/Lyrics.\n"
+"\n"
+"Default: /media/hdd"
+
+#: YampConfig.py:511
+msgid ""
+"ok:\n"
+"\n"
+" opens filebrowser to select path for screensaver pictures (if screensaver "
+"is set to Slideshow)\n"
+"\n"
+"recommended: /media/usb/Yamp/Slides\n"
+"\n"
+"default: /media/hdd"
+msgstr ""
+"OK:\n"
+"\n"
+" Aprire il browser file per selezionare il percorso delle immagini dello "
+"screensaver (se lo screensaver è impostato su slide show).\n"
+"\n"
+"Consigliato: /media/usb/Yamp/Slides.\n"
+"\n"
+"Default: /media/hdd"
+
+#: YampConfig.py:513
+msgid ""
+"ok:\n"
+"\n"
+" opens filebrowser to select path for base directory for screensaver artist-"
+"art pictures (if screensaver is set to artist-art).\n"
+"\n"
+"Base directory has to exist already, sub-directoryies for artists will be "
+"created automatically if selected.\n"
+"A subdirectory 'Default' should exist for artists without pictures\n"
+"\n"
+"recommended: /media/usb/Yamp/ArtistPics\n"
+"\n"
+"default: /media/hdd"
+msgstr ""
+"OK:\n"
+"\n"
+" Aprire il browser file per selezionare il percorso della directory di base "
+"per le immagini artistiche dello screensaver (se lo screensaver è impostato "
+"su artwork).\n"
+"\n"
+"La directory di base deve già esistere, le sottodirectory per gli artisti "
+"verranno create automaticamente se selezionate.\n"
+"Per gli artisti senza immagini deve esistere una sottodirectory "
+"\"Default\".\n"
+"\n"
+"Raccomandato: /media/usb/Yamp/ArtistPics.\n"
+"\n"
+"Predefinita: /media/hdd"
+
+#: YampConfig.py:516
+msgid ""
+"Options for the display and behaviour of Filelist/Database list / Playlist"
+msgstr ""
+"Opzioni per la visualizzazione e il comportamento degli elenchi file/"
+"database/playlist"
+
+#: YampConfig.py:518
+msgid ""
+"left-right:\n"
+"\n"
+" choose, if the title of the filelist should include the path\n"
+"\n"
+"default: Title and Path"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Determinare se il percorso corrente deve essere visualizzato "
+"nell'intestazione della directory dei file.\n"
+"\n"
+"Default: Titolo e percorso"
+
+#: YampConfig.py:520
+msgid ""
+"left-right:\n"
+"\n"
+" choose, if sub-directories should be excluded from scanninng into database\n"
+"\n"
+"available option entries can be changed in the file <ExcludeSubDirs.txt> in "
+"Yamp-directory\n"
+"\n"
+"sub-directories starting with selected letters will not be scanned into "
+"database\n"
+"\n"
+"a maximum of 2 sub-dirs can be excluded\n"
+"\n"
+"default: depending on your exclude file"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+" Determinare se le sottodirectory devono essere escluse dalla scansione nel "
+"database.\n"
+"\n"
+"Le opzioni disponibili possono essere modificate nel file <ExcludeSubDirs."
+"txt> nella directory Yamp.\n"
+"\n"
+"Le sottodirectory che iniziano con le lettere selezionate non vengono "
+"scansionate nel database\n"
+"\n"
+"È possibile escludere un massimo di 2 sottodirectory\n"
+"\n"
+"default: in base a quanto presente ne file di esclusione"
+
+#: YampConfig.py:522
+msgid ""
+"left-right:\n"
+"\n"
+" choose, if the number of artists in the DB overview should be reduced by "
+"removing all in the artist name starting with 'feat'\n"
+"\n"
+"Thus, the artist 'P!nk Feat. Scratch' (or featuring...) will be treated as "
+"'P!nk' only\n"
+"\n"
+"in the details (and the info bar) still the full name will be visible\n"
+"\n"
+"the selection is NOT case sensitive, i.e. small or big letters are treated "
+"the same\n"
+"\n"
+"default: On"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+" Determinare se il numero di artisti nella panoramica del DB deve essere "
+"ridotto rimuovendo tutti i nomi di artisti che iniziano con 'feat'.\n"
+"\n"
+"In questo modo, l'artista \"P!nk feat. Scratch\" (o featuring...) sarà "
+"trattato solo come \"P!nk\".\n"
+"\n"
+"Nei dettagli (e nella infobar) sarà ancora visibile il nome completo.\n"
+"\n"
+"La selezione NON è sensibile a maiuscole/minuscole.\n"
+"\n"
+"predefinito: On"
+
+#: YampConfig.py:525
+msgid ""
+"left-right:\n"
+"\n"
+" On: if there is  more than one song with the same title and artist name or "
+"title and genre name in the database, only one will be displayed in the "
+"appropriate database list\n"
+"\n"
+"default: On"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+" On: se nel database sono presenti più brani con lo stesso titolo/nome "
+"artista o lo stesso titolo/genere, solo uno verrà visualizzato nell'elenco "
+"del database appropriato.\n"
+"\n"
+"Default: On"
+
+#: YampConfig.py:527
+msgid ""
+"left-right:\n"
+"\n"
+" On: Titles and artists will be 'titlecased', i.e. start with an upper case "
+"letter and continuing with lower case letters. \n"
+"This is useful, when there are different spellings of the same title or "
+"artist in the ID3 tags. It works best with words in English language\n"
+"\n"
+"Remark: In <YampDir> there is a file 'NoTitlecase.txt' where excludes can be "
+"defined. Entries in this file will remain unchanged. Default entries: AC-DC, "
+"BAP, fun., INXS\n"
+"\n"
+"default: On"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+" On: I titoli e gli artisti saranno \"normalizzati\", cioè inizieranno con "
+"una lettera maiuscola e continueranno con lettere minuscole. \n"
+"Ciò risulta utile quando sono presenti diverse grafie per lo stesso titolo/"
+"artista nei tag ID3. Funziona meglio con parole in lingua inglese\n"
+"\n"
+"NOTA: In <YampDir> è disponibileun file \"NoTitlecase.txt\" in cui è "
+"possibile definire esclusioni. Le voci inserite in questo file rimarranno "
+"invariate. Voci predefinite: AC-DC, BAP, fun., INXS\n"
+"\n"
+"Default: On"
+
+#: YampConfig.py:529
+msgid ""
+"left-right:\n"
+"\n"
+" Different options for the layout of the playlist.\n"
+"\n"
+"Attention: this setting is only used for new entries, it will not change "
+"already existing entries.\n"
+" If you want the same layout for all entries, you should not change this "
+"setting on an existing playlist.\n"
+"\n"
+"default: Title and Artist"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+" Opzioni diverse per la struttura delle playlist.\n"
+"\n"
+"Attenzione: questa impostazione viene applicata solo alle nuove voci, non "
+"modifica le voci già esistenti.\n"
+" Se si desidera lo stesso layout per tutte le voci, non si deve modificare "
+"questa impostazione in una playlist esistente.\n"
+"\n"
+"Default: Titolo e artista"
+
+#: YampConfig.py:531
+msgid ""
+"left-right:\n"
+"\n"
+" Different options for the layout of the information 'next song'.\n"
+"\n"
+"default: Title - Artist - Album"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+" Opzioni varie per la struttura delle informazioni \"brano successivo\".\n"
+"\n"
+"Default: Titolo - Artista - Album"
+
+#: YampConfig.py:533
+msgid ""
+"left-right:\n"
+"\n"
+" Different options for the display of unknown elements (n/a) in info-bar.\n"
+"\n"
+"default: No change: <n/a>"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+" Opzioni varie per la visualizzazione di elementi sconosciuti (n/a) nella "
+"infobar.\n"
+"\n"
+"Default: Nessuna modifica: <n/a>."
+
+#: YampConfig.py:535
+msgid ""
+"left-right:\n"
+"\n"
+" On: actual playlist is temporary saved on exit and automatically reloaded "
+"on next start of Yamp. It is NOT saved as playlist file, so if you want to "
+"save it permanently, you have to save it manually (Options with key <Menu> "
+"in Playlist)\n"
+"\n"
+"Attention: Long playlists will delay the next start on slow machines.\n"
+"\n"
+"default: On"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+" On: la playlist attuale viene salvata temporaneamente all'uscita e "
+"ricaricata automaticamente al successivo avvio di Yamp. NON viene salvata "
+"come file di playlist, quindi se si desidera salvarla in modo permanente, è "
+"necessario salvarla manualmente (opzioni con il tasto <Menu> in Playlist).\n"
+"\n"
+"Attenzione: lunghe playlist ritardano l'avvio successivo su macchine lente.\n"
+"\n"
+"Default: On"
+
+#: YampConfig.py:537
+msgid ""
+"left-right:\n"
+"\n"
+" On: endless playing, will start with 1st song at end of list.\n"
+" Off: playing ends at the end of the list\n"
+"\n"
+"\n"
+"Can be temporary changed anytime with <TV>-key\n"
+"\n"
+"default: On"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+" On: riproduzione infinita, ripartirà dal il 1° brano al termine "
+"dell'elenco.\n"
+" Off: la riproduzione si arresta al termine dell'elenco.\n"
+"\n"
+"\n"
+"Può essere modificato temporaneamente in qualsiasi momento con il tasto "
+"<TV>.\n"
+"\n"
+"Default: On"
+
+#: YampConfig.py:539
+msgid ""
+"left-right:\n"
+"\n"
+" On: moving of titles in playlist is possible with wrap around'.\n"
+" Off: moving stops at 1st and last entry\n"
+"\n"
+"default: On"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+" On: nello spostamento dei titoli nella playlist è possibile utilizzare il "
+"\"wrap around\".\n"
+" Off: lo spostamento si arresta sulla prima/ultima voce\n"
+"\n"
+"Default: On"
+
+#: YampConfig.py:541
+msgid ""
+"left-right:\n"
+"\n"
+" On: Yamp begins playing immediately after start with the song last played "
+"in the playlist.\n"
+"\n"
+"default: Off"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"On: Yamp inizia immediatamente a riprodurre l'ultimo brano ascoltato nella "
+"playlist.\n"
+"\n"
+"Default: Off"
+
+#: YampConfig.py:543
+msgid ""
+"enter number:\n"
+"\n"
+" Try to narrow the gap between songs, given in 1/10 seconds.\n"
+"\n"
+"Not being perfect, this may improve the playback of live albums.\n"
+"The next song is started the number of 1/10 seconds before the end of the "
+"current song\n"
+"\n"
+"Example: Value = 25: Next song will start 2.5 seconds before the end of the "
+"current song.\n"
+"\n"
+"Range: 0 .. 100 = 0 .. 10 Seconds\n"
+"default: 0"
+msgstr ""
+"Immettere un valore (0 - 100):\n"
+"\n"
+"per tentare di ridurre la pausa tra 2 brani (in decimi di secondo).\n"
+"\n"
+"Non funziona perfettamente, ma può migliorare la riproduzione degli album "
+"dal vivo.\n"
+"Il brano successivo inizierà x decimi di secondo prima del termine del brano "
+"corrente.\n"
+"\n"
+"Esempio: Valore = 25: il brano successivo inizierà 2,5 secondi prima del "
+"termine di quello corrente.\n"
+"\n"
+"Intervallo: 0 ... 100 = 0 ... 10 secondi\n"
+"Default: 0"
+
+#: YampConfig.py:546
+msgid "Options for the Cover Search and Cover Saving"
+msgstr "Opzioni per ricerca e salvataggio cover"
+
+#: YampConfig.py:548 YampConfig.py:567
+msgid ""
+"recommended = default:\n"
+"search in ID3-tags"
+msgstr ""
+"Raccomandato = predefinito:\n"
+"Ricercare nei tag ID3"
+
+#: YampConfig.py:550
+msgid ""
+"recommended = default:\n"
+"search for <title>.<ext>"
+msgstr ""
+"Raccomandato = default:\n"
+"Ricercare per <title>.<ext>"
+
+#: YampConfig.py:552
+msgid ""
+"recommended = default:\n"
+"search for albumcover.<ext>"
+msgstr ""
+"Raccomandato = default:\n"
+"Ricercare per albumcover.<ext>"
+
+#: YampConfig.py:554
+msgid "default: off"
+msgstr "Default: Off"
+
+#: YampConfig.py:556
+msgid ""
+"recommended = default:\n"
+"search at google online"
+msgstr ""
+"consigliato = predefinito:\n"
+"ricercare su google online"
+
+#: YampConfig.py:558
+msgid ""
+"left-right:\n"
+"\n"
+" this is adjustable, as Cover Search for Videos sometimes has strange "
+"results.\n"
+"\n"
+"default: Off"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Poiché la ricerca di cover per i video a volte produce risultati strani, è "
+"possibile attivare la funzione.\n"
+"\n"
+"Default: Off"
+
+#: YampConfig.py:560
+msgid ""
+"left-right:\n"
+"\n"
+" select option for saving online found covers in title directory, options "
+"should be self-explaining.\n"
+"\n"
+"default: Off"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+" Selezionare per salvare le copertine trovate online nella directory dei "
+"titoli; le opzioni dovrebbero essere autoesplicative.\n"
+"\n"
+"predefinito: Off"
+
+#: YampConfig.py:563
+msgid "Options for the Lyrics Search and Lyrics Saving"
+msgstr "Opzioni per ricerca e salvataggio testi"
+
+#: YampConfig.py:565
+msgid ""
+"recommended = default:\n"
+"search in lyrics-directory"
+msgstr ""
+"consigliato = predefinito:\n"
+"ricercare in directory testi"
+
+#: YampConfig.py:569
+msgid ""
+"recommended = default:\n"
+"search at azlyrics.com online"
+msgstr ""
+"consigliato = predefinito:\n"
+"ricercare online su azlyrics.com"
+
+#: YampConfig.py:571
+msgid ""
+"recommended = default:\n"
+"search at chartlyrics.com online"
+msgstr ""
+"consigliato = predefinito:\n"
+"ricercare online su chartlyrics.com"
+
+#: YampConfig.py:573
+msgid ""
+"left-right:\n"
+"\n"
+" On: Online found Lyrics are saved in Title-Directory or in Lyrics "
+"Directory, depending on setting under 'General Adjustments, Use single "
+"directory for lyrics'.\n"
+"\n"
+"default: Off"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+" On: i testi trovati online vengono salvati nella directory titolo/directory "
+"testi, a seconda dell'impostazione in \"Impostazioni generali - Directory "
+"comune per tutti i testi\".\n"
+"\n"
+"Default: Off"
+
+#: YampConfig.py:576
+msgid ""
+"Options for the Artist-Art and MusicBrainz-ID (MbID) - Search. Only active "
+"when Database is used\n"
+"\n"
+"\n"
+"Hint: Whenever <Yamp-Directory> is mentioned, this means\n"
+"\n"
+"/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer"
+msgstr ""
+"Opzioni per l'artwork e il MusicBrainz-ID (MbID) - Ricerca. Attive solo se "
+"si utilizza il database\n"
+"\n"
+"\n"
+"Suggerimento: ogni volta che si parla di <Yamp-Directory>, si intende\n"
+"\n"
+"/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer"
+
+#: YampConfig.py:578
+msgid ""
+"left-right:\n"
+"\n"
+" Artist-Art-Online search is only possible if the artist is in the "
+"database.\n"
+"\n"
+"'search always' can only be selected temporary and is not saved, as Yamp "
+"could be banned at fanart.tv if traffic is too high.\n"
+"\n"
+"The every xx days period is calculated for each artist seperately.\n"
+"\n"
+"Faster download if you get a personal api key (see manual)\n"
+"recommended = default:\n"
+"search every 60 days"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+" La ricerca online di immagini dell'artista è possibile solo se l'artista è "
+"inserito nel database.\n"
+"\n"
+"L'opzione \"Cercare sempre\" funziona solo temporaneamente e non viene "
+"salvata, poiché Yamp potrebbe essere bandito da fanart.tv se il traffico è "
+"troppo elevato.\n"
+"Il periodo ogni xx giorni viene calcolato per ogni artista separatamente.\n"
+"\n"
+"Il download sarà più veloce se si ottiene una chiave api personale (vedere "
+"il manuale).\n"
+"Consigliato = Default:\n"
+"ricerca ogni 60 giorni"
+
+#: YampConfig.py:580
+msgid ""
+"enter key:\n"
+"\n"
+" Personal api key for fanart.tv is available for free at fanart.tv.\n"
+"\n"
+"Faster download if you have a personal api key.\n"
+"\n"
+"key may be also entered by providing it in the file\n"
+"<YampFanarttvPersonalApi.key>\n"
+"in the Yamp-Directory. The file is existing after installation with a "
+"(useless) dummy-key"
+msgstr ""
+"Inserire la chiave api:\n"
+"\n"
+" La chiave api personale per fanart.tv è disponibile gratuitamente su fanart."
+"tv.\n"
+"\n"
+"Oò download sarà più veloce se si dispone di una chiave api personale.\n"
+"\n"
+"La chiave può essere inserita anche fornendola nel file\n"
+"<YampFanarttvPersonalApi.key>\n"
+"nella directory Yamp. Il file è creato dopo l'installazione con una chiave "
+"fittizia (inutile)."
+
+#: YampConfig.py:582
+msgid ""
+"left-right:\n"
+"\n"
+" Musicbrainz-ID (MbID) for artists is needed for fanart-download at fanart."
+"tv.\n"
+"\n"
+"Just check which setting has the best results on your machine (see manual)\n"
+"\n"
+"default: standard..."
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"L'ID MusicBrainz (MbID) degli artisti è necessario per il download delle "
+"fanart su fanart.tv, viene acquisito online su musicbrainz.org e salvato nel "
+"database.\n"
+"\n"
+"Provare le impostazioni che funzionano meglio sul proprio computer (vedere "
+"anche la guida rapida).\n"
+"\n"
+"Default: Standard..."
+
+#: YampConfig.py:584
+msgid ""
+"enter number:\n"
+"\n"
+" Searching for MbID for artists often leads to more than 1 result.\n"
+"\n"
+" With the min-score you define how exact the result should be. \n"
+"\n"
+"Lower numbers leads to more findings, higher numbers might not find the "
+"artist. Default: 90.\n"
+"\n"
+"See also on musicbrainz online page\n"
+"\n"
+"Range: 1 .. 100, default: 95"
+msgstr ""
+"Inserire un valore (0-100:\n"
+"\n"
+" La ricerca di MbID per gli artisti porta spesso a più di un risultato.\n"
+"\n"
+" Il min-relevance (min-score) può essere utilizzato per definire la "
+"precisione del risultato.\n"
+"\n"
+"Numeri più piccoli forniscono risultati più numerosi (e meno precisi), "
+"mentre numeri più grandi possono far sì che l'artista non venga trovato.\n"
+"\n"
+"Il modo più semplice per verificarlo è sul sito web di MusicBrainz.\n"
+"\n"
+"Intervallo: 1 ... 100, valore predefinito: 95"
+
+#: YampConfig.py:587
+msgid "Options for the Screensaver"
+msgstr "Opzioni screensaver"
+
+#: YampConfig.py:589
+msgid ""
+"left-right:\n"
+"\n"
+" Options:\n"
+"Blank screen: black screen\n"
+"\n"
+"Standard Screensaver: pictures in Yamp subdir 'saver' are displayed\n"
+"\n"
+"Custom Screensaver (Dia-Show): pictures in Screensaver slideshow directory "
+"(adjusted in General Adjustments) are displayed\n"
+"\n"
+"Artwork as Screensaver: Pictures in artwork directory, subdir <artist>, are "
+"displayed (or subdir 'Default', if no pictures exist)\n"
+"\n"
+"default: Artwork"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Opzioni:\n"
+"Vuoto: schermo nero\n"
+"\n"
+"Standard: vengono visualizzate le immagini della sottodirectory Yamp "
+"\"saver\".\n"
+"\n"
+"Personalizzato (dia show): Vengono visualizzate le immagini presenti nella "
+"directory per le diapositive dello screen saver (impostata in \"Impostazioni "
+"generali\"). \n"
+"\n"
+"Artwork: Vengono visualizzate le immagini presenti nella directory "
+"dell'artwork, sottodirectory <Interpret> (o nella sottodirectory \"Default\" "
+"se non ci sono immagini disponibili).\n"
+"\n"
+"Default: Artwork"
+
+#: YampConfig.py:591
+msgid ""
+"left-right:\n"
+"\n"
+" On: Info-Bar is visible while screensaver is active\n"
+"\n"
+" Off: Info-Bar is not visible (screensaver-pictures only)\n"
+"\n"
+"can be temporary changed with <Audio>-key while screensaver is active\n"
+"\n"
+"default: On"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+" On: l'infobar è visibile quando lo screensaver è attivo.\n"
+"\n"
+" Off: l'nfobar non è visibile (solo immagini dello screensaver).\n"
+"\n"
+"Può essere modificata temporaneamente con il tasto <Audio> mentre lo "
+"screensaver è attivo\n"
+"\n"
+"Default: On"
+
+#: YampConfig.py:593
+msgid ""
+"left-right:\n"
+"\n"
+" On: screensaver temporary switched on/off with <Audio>-key is set back to "
+"the above adjusted setting at song change\n"
+"\n"
+"default: On"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"On: l'infobar temporaneamente nascosta/mostrata con il pulsante <Audio> "
+"viene ripristinata all'impostazione predefinita quando si cambia brano.\n"
+"\n"
+"Default: On"
+
+#: YampConfig.py:595
+msgid ""
+"left-right:\n"
+"\n"
+" On: pictures in subdirectories are also displayed, valid for custom "
+"(slideshow) and artwork\n"
+"\n"
+"default: On"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"On: vengono visualizzate anche le immagini nelle sottodirectory - valido per "
+"screensaver personalizzati (slide show) e artwork.\n"
+"\n"
+"Default: On"
+
+#: YampConfig.py:597
+msgid ""
+"enter number:\n"
+"\n"
+"after starting a song from playlist, wait this number of seconds before "
+"starting screensaver.\n"
+"\n"
+"0: disable screensaver\n"
+"\n"
+"Range: 0 .. 600, default: 10"
+msgstr ""
+"Immettere un valore (0-600) :\n"
+"\n"
+"Dopo l'avvio di un brano dalla playlist, attendere x secondi prima di "
+"attivare lo screensaver.\n"
+"\n"
+"0 = screensaver disattivato\n"
+"\n"
+"Intervallo: 0 ... 600, valore predefinito: 10"
+
+#: YampConfig.py:599
+msgid ""
+"enter number:\n"
+"\n"
+"change screensaver pictures all x seconds\n"
+"\n"
+"do not adjust a too short time, specially on slow machines\n"
+"\n"
+"Hint: additionally, you can switch to another picture anytime manually with "
+"the left/right-keys\n"
+"\n"
+"Range: 5 .. 99, default: 10"
+msgstr ""
+"Inserire un valore (5-99):\n"
+"\n"
+"Cambiare l'immagine dello screensaver ogni x secondi\n"
+"\n"
+"Non impostare un tempo troppo breve, soprattutto con macchine lente.\n"
+"\n"
+"Suggerimento: l'immagine può essere modificata manualmente in qualsiasi "
+"momento utilizzando i tasti freccia destra-sinistra.\n"
+"\n"
+"Intervallo: 5 ... 99, valore predefinito: 10"
+
+#: YampConfig.py:601
+msgid ""
+"left-right:\n"
+"\n"
+"options should be self-explaining, valid for custom (slideshow) and artwork\n"
+"\n"
+"default: shuffling"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Le opzioni dovrebbero essere autoesplicative, valide per singoli screensaver "
+"(slide show) e artwork.\n"
+"\n"
+"Default: Casuale"
+
+#: YampConfig.py:603
+msgid ""
+"left-right:\n"
+"\n"
+" On: screensaver will start also when on left side (file list or database)\n"
+"\n"
+" Off: screensaver will only start when on right side (playlist)\n"
+"\n"
+"default: On"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+" On: lo screensaver è attivo anche se è selezionato il lato sinistro (elenco "
+"file/database)\n"
+"\n"
+" Off: lo screensaver è attivo solo se è selezionato il lato destro "
+"(playlist)\n"
+"\n"
+"Predefinito: On"
+
+#: YampConfig.py:605
+#, python-format
+msgid ""
+"left-right:\n"
+"\n"
+" On: screensaver may be manually activated / deactivated with <%s>-key\n"
+"\n"
+"basic condition: screensaver must not be deactivated (time = 0)\n"
+"\n"
+"default: On"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"On: lo screensaver può essere attivato/disattivato manualmente con il tasto "
+"<%s>.\n"
+"\n"
+"Prerequisito: lo screensaver non deve essere completamente disattivato "
+"(tempo di attesa = 0).\n"
+"\n"
+"Predefinito: On"
+
+#: YampConfig.py:607
+#, python-format
+msgid ""
+"enter number:\n"
+"\n"
+"if screensaver has been deactivated by pressing <%s>-key, it will be "
+"reactivated after this time\n"
+"\n"
+"Range: 0 .. 1.200, default: 600"
+msgstr ""
+"Inserire un valore (0-1200):\n"
+"\n"
+"Se lo screensaver è stato disattivato premendo il tasto <%s>, sarà "
+"riattivato dopo questo tempo.\n"
+"\n"
+"Intervallo: 0 ... 1.200, valore predefinito: 600"
+
+#: YampConfig.py:609
+msgid ""
+"left-right:\n"
+"\n"
+" On: Black background for Info-Bar while screensaver is active (better "
+"readability)\n"
+"\n"
+" Off: no background, picture visibility better\n"
+"\n"
+"default: On"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"On: sfondo scuro per la infobar durante lo screen saver (migliore "
+"leggibilità)\n"
+"\n"
+"Off: nessuno sfondo per la barra informativa (migliore visibilità "
+"immagine).\n"
+"\n"
+"Default: On"
+
+#: YampConfig.py:611
+msgid ""
+"left-right:\n"
+"\n"
+"options to show/hide clock and date while screensaver is active\n"
+"\n"
+"default: No"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Opzioni per mostrare/nascondere orologio e data quando lo screensaver è "
+"attivo\n"
+"\n"
+"Default: No"
+
+#: YampConfig.py:614
+msgid "Common Options for Display and Operation"
+msgstr "Opzioni generali per la visualizzazione e il funzionamento"
+
+#: YampConfig.py:616
+msgid ""
+"enter number:\n"
+"\n"
+"with red-long and green-long entries in playlist may be moved up/down by "
+"this number of lines\n"
+"\n"
+"Range: 2 .. 50, default: 10"
+msgstr ""
+"Inserire un valore (2-50):\n"
+"\n"
+"Le voci della playlist possono essere spostate di questo numero di righe "
+"utilizzando i tasti <Rosso-Lungo> e <Verde-Lungo>.\n"
+"\n"
+"Intervallo: 2 ... 50, valore predefinito: 10"
+
+#: YampConfig.py:618
+msgid ""
+"enter number:\n"
+"\n"
+"when scrolling in the filelist, database or playlist, the cover (and the "
+"according information) of the selected song may be displayed. After this "
+"time it will display the actual cover and info again.\n"
+"\n"
+"May cause performance problems on slow machines\n"
+"\n"
+"0: 'Scroll Cover' display disabled\n"
+"\n"
+"Range: 0 .. 600, default: 10"
+msgstr ""
+"Inserire un valore (0-600):\n"
+"\n"
+"Quando si scorre l'elenco di file/database/playlist, è possibile "
+"visualizzare la copertina (e le informazioni associate) del brano "
+"selezionato (scroll cover). Dopo il tempo impostato qui verrà visualizzata "
+"nuovamente la copertina corrente.\n"
+"\n"
+"Può dare problemi su macchine lente.\n"
+"\n"
+"0: \"Scroll cover\" disattivato\n"
+"\n"
+"Intervallo: 0 ... 600, valore predefinito: 10"
+
+#: YampConfig.py:620
+msgid ""
+"left-right:\n"
+"\n"
+"show or hide file icons in filelist\n"
+"\n"
+"default: On (show)"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Mostrare/Nascondere le icone file nell'elenco dei file.\n"
+"\n"
+"Default: On (mostrare)"
+
+#: YampConfig.py:622
+msgid ""
+"left-right:\n"
+"\n"
+"show or hide file icons in playlist\n"
+"\n"
+"default: On (show)"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Mostrare/Nascondere le icone file nella playlist.\n"
+"\n"
+"Default: On (mostrare)"
+
+#: YampConfig.py:624
+msgid ""
+"left-right:\n"
+"\n"
+"show or hide playlist total runtime length and remaining time length.\n"
+"\n"
+"this display can only be calculated correct if all songs in the playlist are "
+"in the database.\n"
+"\n"
+"Also, calculation for long playlists may take some time specially on slow "
+"boxes. Therefore it can be disabled.\n"
+"\n"
+"default: On"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Mostrare/Nascondere la durata totale della playlist e il tempo residuo.\n"
+"\n"
+"Questi dati possono essere calcolati correttamente solo se tutti i brani "
+"della playlist sono presenti nel database.\n"
+"\n"
+"Inoltre, il calcolo per le playlist lunghe può richiedere un po' di tempo, "
+"in particolare sui box lenti. Per questo motivo la funzione può essere "
+"disabilitata.\n"
+"\n"
+"Default: On"
+
+#: YampConfig.py:626
+msgid ""
+"left-right:\n"
+"\n"
+" On: The Yamp help is shown on each start of Yamp. Recommended for "
+"beginners, or, if your remote does not support INFO LONG. \n"
+"\n"
+"Off: The Yamp help is only shown only once after an update. Howewever, with "
+"INFO LONG it can be shown anytime\n"
+"\n"
+"default: On"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+" On: La guida di Yamp viene visualizzata a ogni avvio di Yamp. Consigliato "
+"per i principianti o se il vostro telecomando non supporta INFO LUNGO. \n"
+"\n"
+"Off: la guida di Yamp viene mostrata solo una volta dopo un aggiornamento. "
+"Tuttavia, con INFO LUNGO può essere visualizzata in qualsiasi momento.\n"
+"\n"
+"Default: On"
+
+#: YampConfig.py:628
+msgid ""
+"left-right:\n"
+"\n"
+" On: Exit button jumps to upper directory in filelist/databaselist\n"
+"\n"
+" Off: Exit button only used for Exit\n"
+"\n"
+"default: On"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+" On: Il tasto EXIT fa passare alla directory superiore dell'elenco di file/"
+"dati.\n"
+"\n"
+" Off: il tasto EXIT viene usato solo per uscire da Yamp.\n"
+"\n"
+"Default: On"
+
+#: YampConfig.py:630
+msgid ""
+"left-right:\n"
+"\n"
+"Select, if your remote has a common play/pause button\n"
+"\n"
+"default: Off"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Selezionare se il telecomando è dotato di un tasto comune per le funzioni di "
+"riproduzione/pausa.\n"
+"\n"
+"Default: Off"
+
+#: YampConfig.py:632
+msgid ""
+"left-right:\n"
+"\n"
+"Select, if your remote has a common TV / Radio button, and how it should "
+"behave: may prevent the need to change the keymap.xml\n"
+"\n"
+"Basic: If your remote sends the TV signal with this button, use one of the "
+"TV adjustments, otherwise Radio. just try\n"
+"\n"
+"shuffle, Long PL endless: short keypess will toggle shuffle\n"
+"\n"
+"PL endless, Long shuffle: short keypress will toggle PL endless\n"
+"\n"
+"default: No"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Selezionare in funzione della presenza nel telecomando di un pulsante TV/"
+"Radio comune: l'impostazione potrebbe evitare la necessità di modificare il "
+"file keymap.xml\n"
+"\n"
+"In pratica: se il telecomando invia il segnale TV quando viene premuto il "
+"pulsante, deve essere impostata una delle opzioni TV, altrimenti una delle "
+"opzioni radio. Provare.\n"
+"\n"
+"Shuffle WL, Long WL endless: premendo brevemente il tasto si attiva la "
+"funzione playlist casuale.\n"
+"\n"
+"WL infinita, lunga WL shuffle: premendo brevemente il pulsante si attiva la "
+"riproduzione infinita.\n"
+"\n"
+"Default: No"
+
+#: YampConfig.py:634
+msgid ""
+"left-right:\n"
+"\n"
+" On: closing Yamp has to be confirmed\n"
+"\n"
+" Off: Yamp will close without confirmation\n"
+"\n"
+"default: On"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+" On: la chiusura di Yamp deve essere confermata.\n"
+"\n"
+" Off: Yamp si chiude senza conferma.\n"
+"\n"
+"Default: On"
+
+#: YampConfig.py:636
+msgid ""
+"left-right:\n"
+"\n"
+"Select Option for TV in Yamp Video-Preview-Window\n"
+"\n"
+" on Start only means, TV stops when the first song is played \n"
+"\n"
+" always means: Tv starts on Yamp start, stops when a song is played, and "
+"resumes when no song is played\n"
+"\n"
+"default: depends on the used skin"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Selezione dell'opzione per la TV nella finestra di anteprima video di Yamp.\n"
+"\n"
+" \"Solo all'avvio\" significa che la TV si ferma quando viene riprodotto il "
+"primo brano.\n"
+"\n"
+" \"Sempre\" significa che la TV si avvia all'avvio di Yamp, si ferma quando "
+"viene riprodotto un brano e riprende quando non viene riprodotto alcun "
+"brano.\n"
+"\n"
+"Default: dipende dalla skin in uso"
+
+#: YampConfig.py:639
+msgid ""
+"Options for Lyrics Display in Lyrics screen and Karaoke-Line in Screensaver "
+"screen"
+msgstr ""
+"Opzioni per la visualizzazione dei testi nella schermata dei testi e del "
+"karaoke durante lo screensaver"
+
+#: YampConfig.py:641
+msgid ""
+"enter number:\n"
+"\n"
+"if the line number in lyrics screen is less than this number, no scrolling "
+"will occur\n"
+"\n"
+"Range: 0 .. 100, default: 20"
+msgstr ""
+"Inserire un valore (0-100):\n"
+"\n"
+"Pagina di testo: se il numero di righe di testo è inferiore a questo numero, "
+"non viene effettuato alcuno scorrimento.\n"
+"\n"
+"Intervallo: 0 .. 100, valore predefinito: 20"
+
+#: YampConfig.py:643
+msgid ""
+"enter number:\n"
+"\n"
+"when scrolling through the text in lyrics screen, this line will stay "
+"selected (srolling occurs 'around' this line)\n"
+"\n"
+"Range: 1 .. 100, default: 7"
+msgstr ""
+"Inserire un valore (1-100):\n"
+"\n"
+"Pagina dei testi: quando si scorre un testo, questa riga rimane selezionata "
+"(scorrimento \"intorno a questa riga\").\n"
+"\n"
+"Intervallo: 1 ... 100, valore predefinito: 7"
+
+#: YampConfig.py:645
+msgid ""
+"enter number:\n"
+"\n"
+"when editing the time stamp in lyrics screen, the stored time will be "
+"earlier this number of milliseconds than the time the ok key is pressed "
+"(correction of reaction time)\n"
+"\n"
+"Range: 0 .. 5.000, default: 1.000"
+msgstr ""
+"Inserire un valore (0-5000):\n"
+"\n"
+"Quando si modifica il timestamp (per il \"Karaoke\" o lo scorrimento "
+"automatico), l'ora viene salvata con un certo numero di millisecondi di "
+"anticipo rispetto al momento in cui è stato premuto il pulsante <OK> "
+"(adattamento al tempo di risposta).\n"
+"\n"
+"Intervallo: 0 .. 5.000 = da 0 a 5 secondi, valore predefinito: 1.000"
+
+#: YampConfig.py:647
+msgid ""
+"enter number:\n"
+"\n"
+"when playing, the display of the current line in lyrics screen or the "
+"karaoke-line will be offset by this time.\n"
+"\n"
+"specially helpful when using .lrc-files with a fixed offset\n"
+"\n"
+"Remark: as the remote does not have a Minus-key: Use yellow key to switch "
+"between + and -\n"
+"\n"
+"Range: -10.000 .. 10.000, default: 0"
+msgstr ""
+"Inserire un valore (-10000 - 10000):\n"
+"\n"
+"Durante la riproduzione e la visualizzazione della riga di testo corrente "
+"(pagina del testo o riga del Karaoke nello screen saver), questo offset "
+"viene aggiunto al tempo salvato.\n"
+"\n"
+"Particolarmente utile se i file .lrc utilizzati richiedono un offset fisso o "
+"se i file di testo sono stati creati su una macchina diversa (più veloce o "
+"più lenta).\n"
+"\n"
+"Nota: poiché il telecomando non dispone di un tasto <meno>: Il pulsante "
+"<Giallo> può essere utilizzato per alternare tra + e - - in modo che sia "
+"possibile anche un offset negativo.\n"
+"\n"
+"Gamma: -10.000 ... 10.000 = da -10 a +10 secondi, valore predefinito: 0"
+
+#: YampConfig.py:650
+msgid ""
+"enter number:\n"
+"\n"
+"'Karaoke Light': Lyrics line when screensaver is active.\n"
+"activate/deactivate with <Text (L)>, see manual.\n"
+"\n"
+"This is the maximum time, a karaoke line will be displayed on the screen.\n"
+"\n"
+"helpful, when there is a long instrumental passage with no text\n"
+"\n"
+"Range: 0 .. 600, default: 10"
+msgstr ""
+"Inserire un valore (0-600):\n"
+"\n"
+"\"Karaoke Light:\" La riga dei testi può essere visualizzata mentre il "
+"salvaschermo è attivo.\n"
+"Attivare/Disattivare con il pulsante <TXT LUNGO> (vedere la guida rapida).\n"
+"\n"
+"È il tempo massimo di visualizzazione di una riga Karaoke.\n"
+"\n"
+"È utile per i passaggi strumentali lunghi, in modo che la battuta non "
+"rimanga all'infinito.\n"
+"\n"
+"Intervallo: 0 ... 600, valore predefinito: 10"
+
+#: YampConfig.py:652
+msgid ""
+"left-right:\n"
+"\n"
+"Options to select or deselect black background for karaoke-line(s).\n"
+"\n"
+"Off: picture is less 'disturbed'\n"
+"On: Karaoke-text better readable\n"
+"\n"
+"default: small and big..."
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Opzioni per mostrare/nascondere lo sfondo scuro nelle battute del Karaoke.\n"
+"\n"
+"Off (no): L'immagine è meno \"disturbata\".\n"
+"On: la battuta del karaoke è più leggibile.\n"
+"\n"
+"Default: Riga karaoke piccola e grande"
+
+#: YampConfig.py:655
+msgid "Options for the Playback of Music-Videoclips"
+msgstr "Opzioni per la riproduzione di musica-videoclip"
+
+#: YampConfig.py:657
+msgid ""
+"left-right:\n"
+"\n"
+"Options for starting Videoclips in FullScreen:\n"
+"\n"
+"immediate: start immediate in Fullscreen mode\n"
+"\n"
+"screensaver: start after screensaver-delay in Fullscreen mode\n"
+"\n"
+"manual: start only manually in Fullscreen mode (key ok)\n"
+"\n"
+"default: screensaver delay"
+msgstr ""
+"Sinistra-Destra\n"
+"\n"
+"Opzioni per l'avvio dei videoclip in modalità FullScreen:\n"
+"\n"
+"Immediato: il video viene avviato immediatamente in modalità FullScreen.\n"
+"\n"
+"Ritardato come screen saver: il video si avvia in modalità FullScreen dopo "
+"il ritardo impostato per lo screen saver.\n"
+" \n"
+"Solo manualmente (tasto OK): il video passa in modalità FullScreen solo dopo "
+"aver premuto il tasto <OK>.\n"
+"\n"
+"Drefault: ritardato come screensaver"
+
+#: YampConfig.py:659
+msgid ""
+"enter number:\n"
+"\n"
+"show the Info-Bar in Fullscreen-Video for this time, then hide it\n"
+"\n"
+"0: Info-Bar off on Video\n"
+"10.000: On during complete clip\n"
+"\n"
+"Range: 0 .. 10.000, default: 10"
+msgstr ""
+"Onserire un valore (0-10000):\n"
+"\n"
+"In modalità FullScreen, visualizzare l'infobar per il tempo impostato, per "
+"poi nasconderla.\n"
+"\n"
+"0: linfobar non viene mai visualizzata durante il video\n"
+"10.000: l'infobar rimane attiva per l'intero filmato\n"
+"\n"
+"Intervallo: 0 ... 10.000, valore predefinito: 10"
+
+#: YampConfig.py:661
+msgid ""
+"left-right:\n"
+"\n"
+"options to show/hide clock and date while playing Video in Fullscreen mode\n"
+"\n"
+"default: No"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Opzioni per mostrare/nascondere orologio/data durante la riproduzione di un "
+"video in modalità FullScreen.\n"
+"\n"
+"Default: No"
+
+#: YampConfig.py:663
+msgid ""
+"left-right:\n"
+"\n"
+"Allow switching to lyrics screen while playing Video\n"
+"\n"
+"default: On"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Consentire di passare alla schermata testi durante la riproduzione di un "
+"video.\n"
+"\n"
+"Default: On"
+
+#: YampConfig.py:665
+msgid ""
+"left-right:\n"
+"\n"
+"to prevent the last video picture as background, on some boxes it is "
+"necessary to insert a short 'black' video after the end of a video.\n"
+"\n"
+"Attention: This is experimental, try on your own risk. If the system hangs, "
+"try with EXIT several times.\n"
+"\n"
+"default: Off"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Per evitare che l'ultima immagine del video precedente \"traspaia\" sullo "
+"sfondo, in alcuni box è necessario aggiungere un breve video \"nero\" al "
+"termine di un video:\n"
+"\n"
+"Attenzione: questa funzione è \"sperimentale\", da usare a proprio rischio e "
+"pericolo. Se il sistema si blocca, può essere utile premere più volte EXIT.\n"
+"\n"
+"Default: Off"
+
+#: YampConfig.py:667
+msgid ""
+"enter number:\n"
+"\n"
+"length of the 'black' video from the setting above\n"
+"\n"
+"again: Just try.\n"
+"\n"
+"Range: 0 .. 6.000, default: 500"
+msgstr ""
+"Inserire un valore:\n"
+"\n"
+"Durata del \"video nero\" relativo all'impostazione precedente.\n"
+"\n"
+"Di nuovo: provare.\n"
+"\n"
+"Intervallo: 0 ... 6.000, valore predefinito: 500"
+
+#: YampConfig.py:670
+msgid ""
+"Options for the Box-Display.\n"
+"\n"
+"The display should NOT be skinned in the used box-skin; otherwise the "
+"settings here will NOT have any effect!\n"
+"\n"
+"Many settings here will change the files YampLCD.xml and/or YampLcdRunning."
+"xml in the used Yamp-Skin-directory!\n"
+"\n"
+"If you do not want this, you have to use <custom size> for the display.\n"
+"\n"
+"Otherwise (you do not want to edit the xml-files manualy): Please select "
+"first the size of the display, this will activate many other options"
+msgstr ""
+"Opzioni per la visualizzazione nel display.\n"
+"\n"
+"Il display NON deve essere associato alla skin corrente del box, altrimenti "
+"le impostazioni inserite qui non avranno alcun effetto.\n"
+"\n"
+"Attenzione: molte delle impostazioni inserite qui influenzeranno i file\n"
+"YampLCD.xml e/o YampLcdRunning.xml\n"
+"nella directory della skin Yamp utilizzata.\n"
+"\n"
+"Se non si desidera ciò, è necessario impostare <definito dall'utente> nelle "
+"dimensioni del display.\n"
+"\n"
+"Se non si desidera effettuare una modifica manuale dei file xml, impostare "
+"prima la dimensione corretta del display (risoluzione in pixel). In questo "
+"modo si attivano molte altre opzioni di configurazione"
+
+#: YampConfig.py:672
+msgid ""
+"left-right:\n"
+"\n"
+"Resolution of the box display. Changing this setting will overwrite/limit "
+"some settings to reasonable values, you may adjust them after. It will also "
+"overwrite YampLCD.xml and YampLcdRunning.xml in the used Yamp-Skin-"
+"directory! You will be asked before.\n"
+"\n"
+"Custom: no changes are made to the xml-files, you have to edit and adjust "
+"these files manually.\n"
+"\n"
+"default: custom"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Risoluzione del display. Eventuali modifiche sovrascriveranno alcune "
+"configurazioni delle impostazioni predefinite personalizzate. Tuttavia, "
+"queste potranno ancora essere modificate. I file YampLCD.xml e "
+"YampLcdRunning.xml nella directory della skin Yamp corrispondente verranno "
+"sovrascritti. In proposito verrà richiesta conferma.\n"
+"\n"
+"Definito dall'utente: non vengono apportate modifiche ai file xml, che "
+"devono essere modificati e adattati manualmente.\n"
+"\n"
+"Default: definito dall'utente"
+
+#: YampConfig.py:674
+msgid ""
+"left-right:\n"
+"\n"
+"Options for the Box display\n"
+"\n"
+"off: no control of the display by Yamp. Useful if you use external software "
+"(LCD4linux or similar)\n"
+"\n"
+"1 line, 3 lines: 1 or 3 lines text display\n"
+"\n"
+"Running Text: Only selectable if Renderer RunningText is installed. See "
+"manual\n"
+"\n"
+"Cover with or without text.\n"
+"\n"
+"default: 3 lines display"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Opzioni per la visualizzazione nel display:\n"
+"\n"
+"Off: nessuna output da Yamp al display. Utile se si utilizza un plugin "
+"esterno (LCD4linux o simili).\n"
+"\n"
+"1 riga, 3 righe: 1 o 3 righe di testo in uscita.\n"
+"\n"
+"Testo in esecuzione: può essere selezionato solo se è stato installato il "
+"renderer 'RunningText'. Vedere la guida rapida"
+
+#: YampConfig.py:676
+msgid ""
+"enter number:\n"
+"\n"
+"Fontsize of the text line(s) 1(..3).\n"
+"\n"
+"Range: 10 .. 200, default: 32"
+msgstr ""
+"Inserire un valore (10-200):\n"
+"\n"
+"Dimensioni caratteri delle righe di testo 1(..3).\n"
+"\n"
+"Intervallo: 10 ... 200, valore predefinito: 32"
+
+#: YampConfig.py:678
+msgid ""
+"enter number:\n"
+"\n"
+"Text length for the text line(s) 1(..3).\n"
+"\n"
+"Specially helpful if you use a display mode with cover display - so you are "
+"able to choose if the text is only outside the cover or overlapping.\n"
+"\n"
+"Range: 10 .. 999, default: 160"
+msgstr ""
+"Inserire un valore (10-999):\n"
+"\n"
+"Lunghezza testo per le righe di testo 1(...3).\n"
+"\n"
+"Particolarmente utile se si utilizza una modalità di visualizzazione con "
+"cover, in modo da poter scegliere se il testo è solo all'esterno della cover "
+"o se si sovrappone.\n"
+"\n"
+"Intervallo: 10 ... 999, valore predefinito: 160"
+
+#: YampConfig.py:680
+msgid ""
+"left-right:\n"
+"\n"
+"select horizontal alignment of the text line(s) 1(..3).\n"
+"\n"
+"x-position of line(s) 1 (..3) will be calculated out of display size and "
+"text length\n"
+"\n"
+"default: left"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Selezionare l'allineamento orizzontale delle righe di testo 1(...3).\n"
+"\n"
+"La posizione x della riga 1 (...3) viene calcolata in base alle dimensioni "
+"del display e alla lunghezza del testo.\n"
+"\n"
+"Default: sinistra"
+
+#: YampConfig.py:682
+msgid ""
+"enter number:\n"
+"\n"
+"font size of Running Text\n"
+"\n"
+"Range: 1 .. 500, default: 32"
+msgstr ""
+"Inserire un valore (1-500):\n"
+"\n"
+"Dimensioni caratteri del testo scorrevole.\n"
+"\n"
+"Intervallo: 1 ... 500, valore predefinito: 32"
+
+#: YampConfig.py:684
+msgid ""
+"left-right:\n"
+"\n"
+"select color for text line 1 in box display\n"
+"\n"
+"default: white"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Selezionare il colore per la riga di testo 1 nel display.\n"
+"\n"
+"Default: bianco"
+
+#: YampConfig.py:686
+msgid ""
+"left-right:\n"
+"\n"
+"select color for text line 2 in box display\n"
+"\n"
+"default: white"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Selezionare il colore per la riga di testo 2 nel display.\n"
+"\n"
+"Default: bianco"
+
+#: YampConfig.py:688
+msgid ""
+"left-right:\n"
+"\n"
+"select color for text line 3 in box display\n"
+"\n"
+"default: white"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Selezionare il colore per la riga di testo 3 nel display.\n"
+"\n"
+"Default: bianco"
+
+#: YampConfig.py:691
+msgid ""
+"\n"
+"\n"
+"custom size of Display selected.\n"
+"\n"
+"Yamp is trying to read the size from YampLCD.xml!!\n"
+"\n"
+"No adjustment possible"
+msgstr ""
+"\n"
+"\n"
+"Dimensioni personalizzate del display selezionato.\n"
+"\n"
+"Yamp sta cercando di leggere le dimensioni da YampLCD.xml.\n"
+"\n"
+"Nessuna correzione possibile"
+
+#: YampConfig.py:693
+msgid ""
+"enter number:\n"
+"\n"
+"size of the cover in box-display\n"
+"\n"
+"Range: 10 .. 999, default: 60"
+msgstr ""
+"Inserire un valore (10-999):\n"
+"\n"
+"Dimensioni delle cover nel display.\n"
+"\n"
+"Intervallo: 10 ... 999, valore predefinito: 60"
+
+#: YampConfig.py:696
+msgid ""
+"left-right:\n"
+"\n"
+"select cover color in box display.\n"
+"\n"
+"you have to try if transparent or non transparent is working, as this is "
+"different on different box-displays\n"
+"\n"
+"!!! Attention VTi: !!!\n"
+"On some Vu-Boxes with VTi only color-selctions\n"
+"black & white\n"
+"color transparent\n"
+"are working; with a different selection you will get a skin error\n"
+"<pixmap file /tmp/coverlcd.png not found>\n"
+"\n"
+"Reasan unknown. If you get this error on Yamp-start, change the color "
+"setting!\n"
+"\n"
+"default: black & white"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Selezionare il colore della cover nel display.\n"
+"\n"
+"Il funzionamento di trasparenza sì/no dipende dal display: provare.\n"
+"\n"
+"!!! Attenzione VTi: !!!\n"
+"Su alcuni box Vu con VTi sono disponibili solo le opzioni di colore\n"
+"bianco e nero (grigio)\n"
+"colore trasparente:\n"
+"una selezione diversa porta a un errore della skin\n"
+"<File immagine /tmp/coverlcd.png non trovato>.\n"
+"Causa sconosciuta. Se appare questo messaggio all'avvio di Yamp, selezionare "
+"un'impostazione differente.\n"
+"\n"
+"Default: bianco e nero (grigio)"
+
+#: YampConfig.py:698
+msgid ""
+"left-right:\n"
+"\n"
+"select horizontal alignment of the cover.\n"
+"\n"
+"x-position of the cover will be calculated out of display size and cover "
+"size\n"
+"\n"
+"default: right"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Selezionare l'allineamento orizzontale della cover.\n"
+"\n"
+"La posizione x della cover sarà calcolata in base alle sue dimensioni e a "
+"quelle del display.\n"
+"\n"
+"Default: destra"
+
+#: YampConfig.py:700
+msgid ""
+"left-right:\n"
+"\n"
+"select vertical alignment of the cover.\n"
+"\n"
+"y-position of the cover will be calculated out of display size and cover "
+"size\n"
+"\n"
+"default: center"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Selezionare l'allineamento verticale della copertina.\n"
+"\n"
+"La posizione y della cover sarà calcolata in base alle sue dimensioni e a "
+"quelle del display.\n"
+"\n"
+"Default: centro"
+
+#: YampConfig.py:705
+msgid "Misc. basic and debug settings"
+msgstr "Varie impostazioni di base e di debug"
+
+#: YampConfig.py:707
+msgid ""
+"left-right:\n"
+"\n"
+"select if you want to see the used Yamp-skin in the title line\n"
+"\n"
+"default: On"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Selezionare se si desidera visualizzare la skin utilizzata da Yamp nella "
+"riga del titolo\n"
+"\n"
+"Default: On"
+
+#: YampConfig.py:709
+#, python-format
+msgid ""
+"left-right:\n"
+"\n"
+"select if you want to see help-texts for buttons repeat (TV), shuffle "
+"(Radio) and Screensaver (%s) in main screen\n"
+"\n"
+"default: On"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Selezionare se si desidera visualizzare il testo di aiuto per i tasti "
+"Ripetere (TV), Riprodurre (Radio) e Screensaver (%s) nella schermata "
+"principale.\n"
+"\n"
+"Default: On"
+
+#: YampConfig.py:711
+msgid ""
+"left-right:\n"
+"\n"
+"select if you want to see the filename with or without path of the current "
+"picture in screensaver-mode individual - dia show\n"
+"\n"
+"for both options it is selectable if the text is shown with black background "
+"(better readability) or without background (picture is less 'disturbed')\n"
+"\n"
+"default: No"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Selezionare se si desidera visualizzare il nome del file dell'immagine "
+"corrente nello screensaver (modalità Personalizzata - Slide show), con o "
+"senza il percorso.\n"
+"\n"
+"È inoltre possibile per entrambe le opzioni definire se il testo debba "
+"essere visualizzato con uno sfondo nero (lettura più facile) o senza sfondo "
+"(immagine meno disturbata).\n"
+"\n"
+"Default: No"
+
+#: YampConfig.py:713
+msgid ""
+"left-right:\n"
+"\n"
+"select if you want to see Yamp in the extension menu\n"
+"\n"
+"default: On"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Determinare se si desidera visualizzare la voce Yamp nel menu estensioni.\n"
+"\n"
+"Default: On"
+
+#: YampConfig.py:715
+msgid ""
+"left-right:\n"
+"\n"
+"select if you want to see Yamp in the main menu\n"
+"\n"
+"default: Off"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Determinare se si desidera visualizzare la voce Yamp nel menu principale.\n"
+"\n"
+"Default: On"
+
+#: YampConfig.py:717
+msgid ""
+"left-right:\n"
+"\n"
+"Debug Mode: Standard: error only\n"
+"\n"
+"if everything is ok, you may switch to 'off'.\n"
+"\n"
+"Use 'all' or one of the 'specials' only if you are asked for it by the "
+"author\n"
+"\n"
+"default: errors only"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Modalità debug: Standard = solo errori\n"
+"\n"
+"Se tutto funziona correttamente, si può impostare a \"Off\".\n"
+"\n"
+"Usare \"Tutto\" o una voce \"speciale\" solo se richiesto dall'autore.\n"
+"\n"
+"Default: solo errori"
+
+#: YampConfig.py:719
+msgid ""
+"ok:\n"
+"\n"
+" opens filebrowser to select the directory where to store the debug file\n"
+"\n"
+"recommended: /media/usb/Yamp/Debug\n"
+"\n"
+"default: /media/hdd"
+msgstr ""
+"OK:\n"
+"\n"
+" Aprire il browser file per selezionare la directory in cui memorizzare il "
+"file di debug.\n"
+"\n"
+"Consigliato: /media/usb/Yamp/Debug.\n"
+"\n"
+"Default: /media/hdd"
+
+#: YampConfig.py:721
+msgid ""
+"left-right:\n"
+"\n"
+"Switch debug mode for used memory on or off.\n"
+"\n"
+"Should never be necessary.\n"
+"\n"
+"default: Off"
+msgstr ""
+"Sinistra-Destra:\n"
+"\n"
+"Attivare/Disattivare la modalità di debug della memoria utilizzata.\n"
+"\n"
+"Non dovrebbe mai essere necessario.\n"
+"\n"
+"Default: Off"
+
+#: YampConfig.py:902
+msgid "music files base dir"
+msgstr "Dir. base file musicali"
+
+#: YampConfig.py:904
+msgid "lyrics"
+msgstr "Testi"
+
+#: YampConfig.py:906
+msgid "playlists"
+msgstr "Playlist"
+
+#: YampConfig.py:908
+msgid "screensaver individual (Dia-Show)"
+msgstr "Screensaver personalizzato (Dia-Show)"
+
+#: YampConfig.py:910
+msgid "screensaver artwork base dir"
+msgstr "Dir. base artwork screensaver"
+
+#: YampConfig.py:912
+msgid "debug files"
+msgstr "File di debug"
+
+#: YampConfig.py:1055
+msgid ""
+"you selected a skin with video-preview\n"
+"Please select if you want to switch on TV in preview window now:"
+msgstr ""
+"È stato selezionata una skin con anteprima video.\n"
+"Attivare la TV nella finestra anteprima:"
+
+#: YampConfig.py:1143
+#, python-format
+msgid ""
+"Could not read cover size from\n"
+"\n"
+"%s\n"
+"\n"
+"Wrong formatted?\n"
+"\n"
+"Selection of box-display size <custom> disabled."
+msgstr ""
+"Impossibile leggere dimensioni cover da\n"
+"\n"
+"%s\n"
+"\n"
+"Formattazione errata?\n"
+"\n"
+"Selezione dimensioni display <custom> disabilitata."
+
+#: YampConfig.py:1154
+#, python-format
+msgid "YAMP Music Player - Select Path for %s"
+msgstr "YAMP Music Player - Selezionare percorso per %s"
+
+#: YampConfig.py:1218
+msgid "Invalid Location"
+msgstr "Posizione non valida"
+
+#: YampFileList.py:287 YampFileList.py:552
+msgid "List of Storage Devices"
+msgstr "Elenco dispositivi di archiviazione"
+
+#: YampFileList.py:289 YampFileList.py:395 YampFileList.py:554
+msgid "Parent Directory"
+msgstr "Directory padre"
+
+#: YampFileList.py:310
+msgid "nothing connected"
+msgstr "Nulla è connesso"
+
+#: YampHelp.py:65
+msgid ""
+"Version News\n"
+"LONG: First Page"
+msgstr ""
+"Novità sulla versione\n"
+"LUNGO: prima pagina"
+
+#: YampHelp.py:66
+msgid "Yamp First Steps"
+msgstr "Yamp: primi passi"
+
+#: YampHelp.py:67
+msgid "Basic Operation"
+msgstr "Operazioni base"
+
+#: YampHelp.py:68
+msgid "Hints"
+msgstr "Suggerimenti"
+
+#: YampHelp.py:88
+msgid "next page"
+msgstr "Pagina successiva"
+
+#: YampHelp.py:89
+msgid "previous page"
+msgstr "Pagina precedente"
+
+#: YampHelp.py:90
+msgid "Close"
+msgstr "Chiudere"
+
+#: YampHelp.py:91
+msgid "first page"
+msgstr "Prima pagina"
+
+#: YampHelp.py:142
+msgid "YAMP Help Page "
+msgstr "Pagina help YAMP "
+
+#: YampLyrics.py:84
+msgid "YAMP Music Player Lyrics"
+msgstr "YAMP Music Player - Testi"
+
+#: YampLyrics.py:100
+msgid "Track-No"
+msgstr "Traccia n°"
+
+#: YampLyrics.py:102
+msgid "length"
+msgstr "Durata"
+
+#: YampLyrics.py:104
+msgid "Date"
+msgstr "Data"
+
+#: YampLyrics.py:108
+msgid "songtext provided by:"
+msgstr "Testi forniti da:"
+
+#: YampLyrics.py:111
+msgid "Cover provided by:"
+msgstr "Cover fornita da:"
+
+#: YampLyrics.py:114
+msgid "Exit"
+msgstr "Uscire"
+
+#: YampLyrics.py:122
+msgid "Lyrics / Karaoke timestamp edit options"
+msgstr "Opzioni modifica timestamp testi/Karaoke"
+
+#: YampLyrics.py:123
+msgid "play title"
+msgstr "Riprodurre brano"
+
+#: YampLyrics.py:128
+msgid "Close lyrics screen"
+msgstr "Chiudere schermata testi"
+
+#: YampLyrics.py:129
+msgid "Move to first line"
+msgstr "Andare a inizio elenco"
+
+#: YampLyrics.py:130
+msgid "Move to last line"
+msgstr "Andare a fine elenco"
+
+#: YampLyrics.py:131
+msgid "jump back in title short"
+msgstr "Salto indietro breve"
+
+#: YampLyrics.py:132
+msgid "jump forward in title short"
+msgstr "Salto avanti breve"
+
+#: YampLyrics.py:133
+msgid "jump back in title middle"
+msgstr "Salto indietro medio"
+
+#: YampLyrics.py:134
+msgid "jump forward in title middle"
+msgstr "Salto avanti medio"
+
+#: YampLyrics.py:135
+msgid "jump back in title long"
+msgstr "Salto indietro lungo"
+
+#: YampLyrics.py:136
+msgid "jump forward in title long"
+msgstr "Salto avanti lungo"
+
+#: YampLyrics.py:241
+msgid "Sorry, (still) no lyrics found"
+msgstr "Nessun testo trovato"
+
+#: YampLyrics.py:347
+msgid "Not found on azlyrics. Answer from Server: "
+msgstr "Non trovato su azlyrics. Risposta server: "
+
+#: YampLyrics.py:415
+msgid "Lyrics for this title not found on chartlyrics.com"
+msgstr "Testo del titolo non trovato su chartlyrisc.com"
+
+#: YampLyrics.py:422
+msgid "Access to chartlyrics.com failed."
+msgstr "Accesso a chartlyrics.com fallito."
+
+#: YampLyrics.py:607
+#, python-format
+msgid "Lyrics saved to %s"
+msgstr "Testi salvati in %s"
+
+#: YampLyrics.py:610
+#, python-format
+msgid "Saving lyrics %s failed"
+msgstr "Salvataggio testi in %s fallito"
+
+#: YampLyrics.py:712
+msgid ""
+"Lyrics have been changed\n"
+"Do yo want to save the lyrics file?"
+msgstr ""
+"Testo modificato.\n"
+"Salvare il file testo?"
+
+#: YampLyrics.py:787
+#, python-format
+msgid ""
+"Do yo want to delete the lyrics file\n"
+"%s ?"
+msgstr ""
+"Rimuovere il file testi\n"
+"%s?"
+
+#: YampLyrics.py:790
+#, python-format
+msgid ""
+"Lyrics-file\n"
+"\n"
+"%s\n"
+"\n"
+"existing already.\n"
+"\n"
+"Do you really want to overwrite ?"
+msgstr ""
+"File testi\n"
+"\n"
+"%s\n"
+"\n"
+"già presente.\n"
+"\n"
+"Sovrascriverlo?"
+
+#: YampLyrics.py:902
+msgid ""
+"Lyrics  have been changed\n"
+"Do yo want to save before exit?"
+msgstr ""
+"Testo modificato.\n"
+"Salvare prima di uscire?"
+
+#: YampLyrics.py:919
+msgid "deactivate edit mode (scroll over empty lines)"
+msgstr "Disattivare modalità modifica (scorrere su righe vuote)"
+
+#: YampLyrics.py:920
+msgid "activate edit mode (empty lines also accessible)"
+msgstr "Attivare modalità modifica (accessibili anche righe vuote)"
+
+#: YampLyrics.py:921
+msgid "edit selected line "
+msgstr "Modificare riga"
+
+#: YampLyrics.py:922
+msgid "add line after current "
+msgstr "Aggiungere riga dopo la riga corrente"
+
+#: YampLyrics.py:923
+msgid "copy line "
+msgstr "Copiare riga"
+
+#: YampLyrics.py:924
+msgid "insert copied line after current "
+msgstr "Inserire la riga copiata dopo la riga corrente "
+
+#: YampLyrics.py:925
+msgid "delete selected line"
+msgstr "Rimuovere riga"
+
+#: YampLyrics.py:927
+msgid "No time data in lyrics, no time offset option"
+msgstr "Nessun dato temporale nei testi, opzione offset non disponibile"
+
+#: YampLyrics.py:930
+msgid "Set time stamp offset value for all times in file"
+msgstr "Inserire il valore di offset per tutti i timestamp di questo file"
+
+#: YampLyrics.py:931
+msgid "Offset for timestamp (text later)     :   "
+msgstr "Offset timestamp  (testo ritardato)     :   "
+
+#: YampLyrics.py:932
+msgid "Offset for timestamp  (text earlier) :  -"
+msgstr "Offset timestamp  (testo anticipato) :  -"
+
+#: YampLyrics.py:942
+msgid ""
+"Lyrics Edit / Karaoke Timestamp Offset\n"
+"\n"
+"Hint: You may try and test as much as you want, changes will be active 'on "
+"the fly' immediately, including offset in Karaoke Timestamp.\n"
+"\n"
+"You will be asked before the file with any changes will be saved.\n"
+"\n"
+"The different edit options also are described in the Help screen, Page 15. "
+"Reminder: Help Screen: INFO/EPG LONG\n"
+"\n"
+"Do you want to deactivate this message for the current session?"
+msgstr ""
+"Modifica testi / Offset timestamp Karaoke\n"
+"\n"
+"Nota: è possibile provare e testare a piacere, le modifiche saranno "
+"immediatamente attivate \"al volo\", compreso l'offset del timestamp "
+"Karaoke.\n"
+"\n"
+"Prima di salvare il file con le modifiche, verrà chiesta conferma.\n"
+"\n"
+"Le diverse opzioni di modifica sono descritte anche nella schermata della "
+"Guida, a pagina 15. Promemoria: Schermata di help: INFO/EPG LUNGO\n"
+"\n"
+"Disattivare questo messaggio per la sessione corrente?"
+
+#: YampLyrics.py:946 YampLyrics.py:951
+msgid "Lyrics Editor / Karaoke Timestamp Offset"
+msgstr "Editor testi / Offset timestamp Karaoke"
+
+#: YampLyrics.py:958
+msgid "Please enter timestamp offset value in milliseconds"
+msgstr "Inserire valore offset timestamp in millisecondi"
+
+#: YampLyrics.py:991
+msgid "Edit lyrics line "
+msgstr "Modificare riga testo "
+
+#: YampLyrics.py:997
+msgid "Add lyrics line "
+msgstr "Aggiungere riga testo "
+
+#: YampLyrics.py:1058
+msgid "Delete"
+msgstr "Rimuovere"
+
+#: YampLyrics.py:1059
+msgid "Save"
+msgstr "Salvare"
+
+#: YampLyrics.py:1062
+msgid "Auto move Off"
+msgstr "Spostamento automatico Off"
+
+#: YampLyrics.py:1063
+msgid "Auto move On"
+msgstr "Spostamento automatico On"
+
+#: YampLyrics.py:1066
+msgid "Disallow time edit"
+msgstr "Non consentire modifica tempo"
+
+#: YampLyrics.py:1067
+msgid "Allow time edit"
+msgstr "Consentire modifica tempo"
+
+#: plugin.py:35
+msgid "YAMP Music Player"
+msgstr "YAMP Music Player"
+
+#: plugin.py:36
+msgid "Music Player with Artist-Art Background"
+msgstr "Lettore musicale con sfondi artistici"
+
+#: plugin.py:42
+msgid "This plugin needs a HD or FHD skin"
+msgstr "Questo plugin necessita una skin HD o FHD"
+
+#: plugin.py:48
+#, python-format
+msgid "Cannot open mountpoint %s"
+msgstr "Impossibile aprire mountpoint %s"

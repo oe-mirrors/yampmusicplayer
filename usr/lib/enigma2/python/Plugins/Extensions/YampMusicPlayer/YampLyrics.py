@@ -3,8 +3,8 @@
 #######################################################################
 #
 #	YAMP - Yet Another Music Player - Lyrics
-#	Version 3.3.1 2023-12-24
-#	Coded by  by AlfredENeumann (c)2016-2023
+#	Version 3.3.2 2024-03-08
+#	Coded by  by AlfredENeumann (c)2016-2024
 #	Support: www.vuplus-support.org, board.newnigma2.to
 #
 #	This program is free software; you can redistribute it and/or
@@ -22,7 +22,7 @@
 from YampGlobals import *
 
 from Components.ConfigList import ConfigListScreen
-#from Components.FileList import FileList
+from Components.FileList import FileList
 
 from Components.Pixmap import Pixmap, MultiPixmap
 from Components.ScrollLabel import ScrollLabel
@@ -45,7 +45,7 @@ from Components.MultiContent import MultiContentEntryText
 from Components.Input import Input
 from Screens.InputBox import InputBox
 
-from enigma import eListboxPythonMultiContent, eListbox, gFont, RT_VALIGN_CENTER, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER
+from enigma import eListboxPythonMultiContent, eListbox, gFont, RT_VALIGN_TOP, RT_VALIGN_CENTER, RT_VALIGN_BOTTOM, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER
 
 from skin import parseFont, parsePosition, parseSize
 from enigma import fontRenderClass
@@ -69,7 +69,6 @@ from YampPixmaps import YampCoverArtPixmap
 
 GETLYRICSTIMEOUT = 10
 
-#class YampLyricsScreenV33Screen, InfoBarSeek):
 class YampLyricsScreenV33(Screen,HelpableScreen):
 	def __init__(self, session, parent, videoPreviewOnPar):
 
@@ -135,6 +134,11 @@ class YampLyricsScreenV33(Screen,HelpableScreen):
 			"key6": (self.key6, _("jump forward in title middle")),
 			"key7": (self.key7, _("jump back in title long")),
 			"key9": (self.key9, _("jump forward in title long")),
+			"keyPercentJumpFw" : (self.keyPercentJumpFwActions, _("Jump Forward 10%")),
+			"keyPercentJumpBw" : (self.keyPercentJumpBwActions, _("Jump Backward 10%")),
+			"keyPercentJumpFwLong" : (self.keyPercentJumpFwLActions, _("Jump Forward 20%")),
+			"keyPercentJumpBwLong" : (self.keyPercentJumpBwLActions, _("Jump Backward 20%")),
+
 		}, -2)
 
 		self["actions"] = ActionMap(["YampActions", "YampOtherActions"], 
@@ -184,6 +188,10 @@ class YampLyricsScreenV33(Screen,HelpableScreen):
 
 		self.replaceText = self.parent.infoBarNaReplace
 		self.waitForSaveAnswer = False
+
+		self.jumpFwLongActive=False
+		self.jumpBwLongActive=False
+
 
 	def layoutFinished(self):
 		try:
@@ -629,7 +637,7 @@ class YampLyricsScreenV33(Screen,HelpableScreen):
 				date = self.parent.currDate
 			else:									   #selected title in playlist
 				songFilename = self.parent.playlist.getServiceRefList()[self.parent.playlist.getSelectionIndex()].getPath()
-				self.songtitle, self.album, genre, self.artist, date, self.length, self.tracknr, self.bitrate = readID3Infos(songFilename)
+				self.songtitle, self.album, genre, self.artist, albumartist,date, self.length, self.tracknr, self.bitrate = readID3Infos(songFilename)
 
 			self["songtitle"].setText(self.songtitle.replace('n/a',self.replaceText))
 			self["artist"].setText(self.artist.replace('n/a',self.replaceText))
@@ -658,7 +666,7 @@ class YampLyricsScreenV33(Screen,HelpableScreen):
 					path = self.parent.playlist.getServiceRefList()[self.parent.playlist.getSelectionIndex()].getPath()
 					if path == None: path = '' 
 					else:	
-						title, album, genre, artist,date, length, tracknr, strBitrate = readID3Infos(path)
+						title, album, genre, artist, albumartist, date, length, tracknr, strBitrate = readID3Infos(path)
 						self.parent.updateCover(artist, album, title, path)				
 				except Exception as e:
 					LOG('\nYampLyricsScreen: setCover: from playlistselection: EXCEPT: ' + str(e), 'err')
@@ -862,6 +870,25 @@ class YampLyricsScreenV33(Screen,HelpableScreen):
 	def keyNext(self):
 		self.parent.seekOwn(12)
 
+	def keyPercentJumpFwActions(self):
+		if self.jumpFwLongActive:
+			self.jumpFwLongActive = False
+		else: self.parent.seekOwn(21)
+
+	def keyPercentJumpBwActions(self):
+		if self.jumpBwLongActive:
+			self.jumpBwLongActive = False
+		else: self.parent.seekOwn(22)
+
+	def keyPercentJumpFwLActions(self):
+		self.jumpFwLongActive = True
+		self.parent.seekOwn(23)
+
+	def keyPercentJumpBwLActions(self):
+		self.jumpBwLongActive = True
+		self.parent.seekOwn(24)
+
+
 	def skipToListbegin(self):
 		try: self.lyricslist.moveToIndex(0)
 		except: pass	
@@ -912,7 +939,7 @@ class YampLyricsScreenV33(Screen,HelpableScreen):
 
 		if len(menu) >= 1:
 			if self.parent.lyricsKarMsgboxShow:
-				message = _("Lyrics Edit / Karaoke Timestamp Offset\n\nHint: You may try and test as much as you want, changes will be active 'on the fly' immediately, including offset in Karaoke Timestamp.\n\nYou will be asked before the file with any changes will be saved.\n\nThe different edit options also are described in the Help screen, Page 11. Reminder: Help Screen: INFO/EPG LONG\n\nDo you want to deactivate this message for the current session?")
+				message = _("Lyrics Edit / Karaoke Timestamp Offset\n\nHint: You may try and test as much as you want, changes will be active 'on the fly' immediately, including offset in Karaoke Timestamp.\n\nYou will be asked before the file with any changes will be saved.\n\nThe different edit options also are described in the Help screen, Page 15. Reminder: Help Screen: INFO/EPG LONG\n\nDo you want to deactivate this message for the current session?")
 				self.par1 = menu
 				self.session.openWithCallback(self.karMsgboxShowCB, MessageBox, message, default = True, timeout = 20)
 			else:

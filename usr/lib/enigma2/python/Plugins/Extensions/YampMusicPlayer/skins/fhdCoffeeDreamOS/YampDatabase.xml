@@ -1,0 +1,23 @@
+<!-- Yamp V3.3.1 Full HD Skin for fhdDreamOS by @ekremtt 13.01.2024 -->
+
+<screen name="YampDatabaseScreenV33" position="0,0" size="1920,1080" zPosition="10" backgroundColor="transparent" flags="wfNoBorder">
+<!-- Hintergründe  -->
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffeeDreamOS/bg_yamp_2.png" position="0,0" size="1920,1080" zPosition="-4" alphatest="off" />
+	<eLabel position="55,168" size="1370,50" backgroundColor="#4C453F" zPosition="-1" />
+	<eLabel position="75,220" size="1330,830" backgroundColor="#59514A" zPosition="-1" />
+
+	<widget name="title" position="30,0" size="1000,70" font="Regular;26" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="left" valign="center" zPosition="1" transparent="1" noWrap="1" />
+
+	<widget source="global.CurrentTime" render="Label" position="1595,0" zPosition="1" size="295,36" font="Regular; 32" valign="center" halign="right" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" transparent="1">
+		<convert type="ClockToText">Format:%H:%M:%S</convert>
+	</widget>
+	<widget source="global.CurrentTime" render="Label" position="1595,34" zPosition="1" size="295,36" font="Regular; 26" valign="center" halign="right" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" transparent="1">
+		<convert type="ClockToText">Format:%A %e %b. %Y</convert>
+	</widget>
+
+	<widget name="message1" position="105,270" size="1270,150" font="Regular;28" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="center" valign="top" zPosition="1" transparent="1" />
+	<widget name="message2" position="105,420" size="1270,500" font="Regular;28" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="center" valign="top" zPosition="1" transparent="1" />
+
+	<widget name="key_red" position="40,75" zPosition="1" size="300, 70" font="Regular;23" halign="left" valign="center" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" transparent="1" />
+	<widget name="key_green" position="364,75" zPosition="1" size="300, 70" font="Regular;23" halign="left" valign="center" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" transparent="1" />
+</screen>

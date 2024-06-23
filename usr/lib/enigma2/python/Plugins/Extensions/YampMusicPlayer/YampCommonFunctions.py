@@ -2,7 +2,7 @@
 #######################################################################
 #
 #  Yamp Common Functions  
-#  Version 3.3.1 2024-01-01
+#  Version 3.3.2 2024-02-27
 #  Coded by AlfredENeumann (c) 2021-2024
 #  Support: www.vuplus-support.org, board.newnigma2.to
 #
@@ -40,9 +40,10 @@ from myLogger import LOG
 
 
 def readID3Infos(path):
+
 	audio = None
 	title = ""
-	genre = artist = album = date = length = strBitrate = "n/a"
+	genre = artist = album = date = albumartist = length = strBitrate = "n/a"
 	tracknr = -1
 	discNr = 0
 	bitrate = 0.0
@@ -96,6 +97,11 @@ def readID3Infos(path):
 		except: LOG('readID3Infos: title: %s: get album: EXCEPT' %(title), 'err')
 		try: artist = getEncodedString(audio.get('artist', ['n/a'])[0])
 		except: LOG('readID3Infos: title: %s album: %s: get artist: EXCEPT' %(title, album), 'err')
+		try: albumartist = getEncodedString(audio.get('albumartist', [''])[0])
+		except Exception as e:
+			albumartist = ''
+			LOG('readID3Infos: title: %s album: %s: get albumartist: EXCEPT:' + str(e) %(title, album), 'err')
+		if albumartist == '': albumartist = artist
 		try: genre = getEncodedString(audio.get('genre', ['n/a'])[0])
 		except: LOG('readID3Infos: title: %s artist: %s: get genre: EXCEPT' %(title, artist), 'err')
 		try: date = getEncodedString(audio.get('date', ['n/a'])[0])
@@ -118,7 +124,7 @@ def readID3Infos(path):
 		title = filename
 	if bitrate > 0.0: strBitrate = str(round(bitrate,1)) + ' kBit/s' 	
 	
-	return title, album, genre, artist, date, length, tracknr, strBitrate
+	return title, album, genre, artist, albumartist, date, length, tracknr, strBitrate
 
 def searchTrackAndDiscNumber(audio):
 	tracknr = -1
@@ -138,4 +144,3 @@ def searchTrackAndDiscNumber(audio):
 
 	if discTotal > 1: tracknr = discNr * 1000 + tracknr	
 	return tracknr
-

@@ -2,8 +2,8 @@
 #######################################################################
 #
 #    YAMP - Yet Another Music Player - Video Special
-#    Version 3.3.1 2023-12-27
-#    Coded by AlfredENeumann (c)2016-2023
+#    Version 3.3.1.2 2024-02-14
+#    Coded by AlfredENeumann (c)2016-2024
 #    Support: www.vuplus-support.org, board.newnigma2.to
 #
 #    This program is free software; you can redistribute it and/or
@@ -63,6 +63,8 @@ class YampVideoTitleV33(Screen):
 		self.parent = parent
 		self.autoStartTime = autoStartTime
 		self.textLongActive = False		
+		self.jumpFwLongActive=False
+		self.jumpBwLongActive=False
 		self.elementClock = self.elementDate = None	
 		LOG('YampVideoTitle: START', 'all')
 		
@@ -116,7 +118,10 @@ class YampVideoTitleV33(Screen):
 			"play": self.keyPlay,
 			"pause": self.keyPause,
 			"stop": self.keyStop,
-
+			"keyPercentJumpFw" : self.keyPercentJumpFwActions, 
+			"keyPercentJumpBw" : self.keyPercentJumpBwActions,
+			"keyPercentJumpFwLong" : self.keyPercentJumpFwLActions,
+			"keyPercentJumpBwLong" : self.keyPercentJumpBwLActions,
 		}, -2)
 
 		self["seekactions"] = ActionMap(["YampActions"], 
@@ -286,6 +291,24 @@ class YampVideoTitleV33(Screen):
 		self.parent.lyricsLineShowBig = not self.parent.lyricsLineShowBig
 		self.parent.lyricsLineShow = False
 		self.displayKaraoke()
+
+	def keyPercentJumpFwActions(self):
+		if self.jumpFwLongActive:
+			self.jumpFwLongActive = False
+		else: self.parent.seekOwn(21)
+
+	def keyPercentJumpBwActions(self):
+		if self.jumpBwLongActive:
+			self.jumpBwLongActive = False
+		else: self.parent.seekOwn(22)
+
+	def keyPercentJumpFwLActions(self):
+		self.jumpFwLongActive = True
+		self.parent.seekOwn(23)
+
+	def keyPercentJumpBwLActions(self):
+		self.jumpBwLongActive = True
+		self.parent.seekOwn(24)
 		
 	def keyClose(self):
 		self.close('keyClose')
@@ -460,6 +483,8 @@ class YampVideoLyricsV33(Screen):
 
 		self.parent = parent
 		self.textLongActive = False		
+		self.jumpFwLongActive=False
+		self.jumpBwLongActive=False
 		self.isDreamOS = os.path.exists("/var/lib/dpkg/status")
 		self.updateTimer = eTimer()
 		self.elementClock = self.elementDate = None	
@@ -496,6 +521,10 @@ class YampVideoLyricsV33(Screen):
 			"play": self.keyPlay,
 			"pause": self.keyPause,
 			"stop": self.keyStop,
+			"keyPercentJumpFw" : self.keyPercentJumpFwActions, 
+			"keyPercentJumpBw" : self.keyPercentJumpBwActions,
+			"keyPercentJumpFwLong" : self.keyPercentJumpFwLActions,
+			"keyPercentJumpBwLong" : self.keyPercentJumpBwLActions,
 		}, -2)
 
 		self["seekactions"] = ActionMap(["YampActions"], 
@@ -623,6 +652,24 @@ class YampVideoLyricsV33(Screen):
 		self.parent.lyricsLineShowBig = not self.parent.lyricsLineShowBig
 		self.parent.lyricsLineShow = False
 		self.displayKaraoke()
+
+	def keyPercentJumpFwActions(self):
+		if self.jumpFwLongActive:
+			self.jumpFwLongActive = False
+		else: self.parent.seekOwn(21)
+
+	def keyPercentJumpBwActions(self):
+		if self.jumpBwLongActive:
+			self.jumpBwLongActive = False
+		else: self.parent.seekOwn(22)
+
+	def keyPercentJumpFwLActions(self):
+		self.jumpFwLongActive = True
+		self.parent.seekOwn(23)
+
+	def keyPercentJumpBwLActions(self):
+		self.jumpBwLongActive = True
+		self.parent.seekOwn(24)
 
 	def keyClose(self):
 		self.close('keyClose')

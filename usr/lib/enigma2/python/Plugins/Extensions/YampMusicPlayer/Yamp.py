@@ -2,7 +2,7 @@
 #######################################################################
 #
 #	YAMP - Yet Another Music Player
-#	Version 3.3.1 2024-01-08
+#	Version 3.3.2 2024-03-22
 #	Coded by JohnHenry (c)2013 (up to V2.6.5)
 #	Extended by AlfredENeumann (c)2016-2024
 #	Support: www.vuplus-support.org, board.newnigma2.to
@@ -26,9 +26,9 @@
 #spe3:	
 #spe4:	
 
-VERSIONNUMBER = "3.3.1"
-YAMPVERSION = 'V ' +  VERSIONNUMBER + ' 2024-01-08'
-VERSIONDATE = 20240108
+VERSIONNUMBER = "3.3.2"
+YAMPVERSION = 'V ' +  VERSIONNUMBER + '  2024-03-22'
+VERSIONDATE = 20240322
 
 from myLogger import LOG
 from YampGlobals import *
@@ -36,14 +36,13 @@ from YampGlobals import *
 from Components.GUIComponent import GUIComponent
 from Components.MultiContent import MultiContentEntryText
 
-
 from enigma import eVideoWidget
 
-from enigma import eListboxPythonMultiContent, eListbox, gFont, RT_VALIGN_CENTER, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER
+from enigma import eListboxPythonMultiContent, eListbox, gFont, RT_VALIGN_TOP, RT_VALIGN_CENTER, RT_VALIGN_BOTTOM, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER
 from enigma import eServiceCenter, eServiceReference, getDesktop, iServiceInformation, iPlayableService
 from enigma import ePythonMessagePump
 
-#from Components.FileList import FileList
+from Components.FileList import FileList
 from Components.Label import Label
 from Components.Pixmap import Pixmap, MultiPixmap
 from Components.ScrollLabel import ScrollLabel
@@ -101,9 +100,7 @@ from Components.VideoWindow import VideoWindow
 
 # our own modules
 from __init__ import _
-from Titlecase import titlecase
 from YampConfig import YampConfigScreenV33
-from myFileList import *
 from YampDatabaseList import YampDatabaseList, DblistStackEntry, DblistEntryComponent
 from YampFileList import YampFileList
 from YampLyrics import YampLyricsScreenV33
@@ -171,7 +168,7 @@ config.plugins.yampmusicplayer.yampDebugMode = ConfigSelection(default = "error"
 			("special4", _("special4")),
 			])
 
-skinTexts = [_("Standard skin HD"),_("Standard skin HD with Video Preview"),_("Custom skin HD"),("Full HD standard skin"),_("Full HD standard skin (special VTi)"),_("Custom Full HD skin"),_("Standard skin (HD) DreamOS"),_("Standard skin (HD) DreamOS with Video Preview"),_("Custom Skin DreamOS HD"),_("Full HD Skin DreamOS"),_("Custom FHD-Skin DreamOS")]
+skinTexts = [_("Standard skin HD"),_("Standard skin HD with Video Preview"),_("Custom skin HD"),("Full HD standard skin"),("Full HD coffee skin"),_("Full HD standard skin (special VTi)"),_("Custom Full HD skin"),_("Standard skin (HD) DreamOS"),_("Standard skin (HD) DreamOS with Video Preview"),_("Custom Skin DreamOS HD"),_("Full HD Skin DreamOS"),_("Full HD Skin Coffee DreamOS"),_("Custom FHD-Skin DreamOS")]
 
 #checkVTi
 isVTi = True
@@ -190,12 +187,14 @@ if getDesktop(0).size().width() > 1280:	#FHD
 			("defaultTVDreamOS", _("Standard skin (HD) DreamOS with Video Preview")),
 			("customDreamOS", _("Custom skin (HD) DreamOS")),
 			("fhdDreamOS", _("Full HD standard skin DreamOS")),
+			("fhdCoffeeDreamOS", _("Full HD 'coffee' skin DreamOS")),
 			("fhdCustomDreamOS", _("Custom Full HD skin DreamOS")),
 # for test only
 #			("default", _("Standard skin (HD)")),
 #			("defaultTV", _("Standard skin (HD) with Video Preview")),
 #			("custom", _("Custom skin (HD)")),
 #			("fhd", _("Full HD standard skin")),
+#			("fhdCoffee", _("Full HD 'coffee' skin")),
 #			("fhdCustom", _("Custom Full HD skin")),
 #			("fhd_vti", _("Full HD standard skin (special VTi)")),
 			])
@@ -206,6 +205,7 @@ if getDesktop(0).size().width() > 1280:	#FHD
 				("defaultTV", _("Standard skin (HD) with Video Preview")),
 				("custom", _("Custom skin (HD)")),
 				("fhd", _("Full HD standard skin")),
+				("fhdCoffee", _("Full HD 'coffee' skin")),
 				("fhd_vti", _("Full HD standard skin (special VTi)")),
 				("fhdCustom", _("Custom Full HD skin")),
 				])
@@ -215,6 +215,7 @@ if getDesktop(0).size().width() > 1280:	#FHD
 				("defaultTV", _("Standard skin (HD) with Video Preview")),
 				("custom", _("Custom skin (HD)")),
 				("fhd", _("Full HD standard skin")),
+				("fhdCoffee", _("Full HD 'coffee' skin")),
 				("fhdCustom", _("Custom Full HD skin")),
 				])
 		
@@ -227,6 +228,7 @@ else:				#HD
 # for test only
 #			("default", _("Standard skin (HD)")),
 #			("defaultTV", _("Standard skin (HD) with Video Preview")),
+#			("custom", _("Custom skin (HD)")),
 			])
 	else:												#HD Standard
 		config.plugins.yampmusicplayer.yampSkin = ConfigSelection(default = "default", choices = [
@@ -602,6 +604,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 #	@classmethod
 	def __init__(self, session):
 		global selectedDirExcludeValue
+		global yampTitlecaseNochange
 
 		self.logpath = config.plugins.yampmusicplayer.debugPath.value
 		self.timestamp = datetime_datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
@@ -657,9 +660,9 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 		
 		startingDir = config.plugins.yampmusicplayer.musicFilePath.value
 		self.filelist = YampFileList(startingDir, matchingPattern = "(?i)^.*\.(mp2|mp3|ogg|ts|wav|m3u|pls|e2pls|mpg|vob|avi|divx|m4v|mkv|mp4|m4a|dat|flac|mov|m2ts)", showDirectories = True, showFiles = True, useServiceRef = True, enableWrapAround = True, additionalExtensions = "4098:m3u 4098:e2pls 4098:pls")
-		try:
+		try: #for blank video only
 			startingDir2 = '/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/common/'
-			self.filelistint = YampFileList(startingDir2, matchingPattern = "(?i)^.*\.(mp4)", showDirectories = False, showFiles = True, useServiceRef = True, enableWrapAround = False, additionalExtensions = "4098:m3u 4098:e2pls 4098:pls")
+			self.filelistint = FileList(startingDir2, matchingPattern = "(?i)^.*\.(mp4)", showDirectories = False, showFiles = True, useServiceRef = True, enableWrapAround = False, additionalExtensions = "4098:m3u 4098:e2pls 4098:pls")
 		except Exception as e:
 			LOG('YampScreen: Init: filelistint: EXCEPT: %s' %(str(e)), 'err')
 	
@@ -779,18 +782,20 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 		self.AlbumPath = ""
 		self.AlbumArtist = ""
 		self.AlbumTitle = ""
-		self.dbUpgradeInfo = 0		
+		self.dbUpgradeInfo331 = 0		
+		self.dbUpgradeInfo332 = 0		
 
 		# Action maps		
 		self["Actions"] = HelpableActionMap(self,"YampActions",
 		{
 			"ok": (self.ok, _("Open dir, append to playlist | Play title, toggle screensaver")),				
 			"play": (self.play, _("Insert into playlist and play")),
+			"playLong": (self.playLong, _("Insert incl. subdirs into playlist and play")),
 			"pause": (self.pause, _("Pause/resume title")),
 			"stop": (self.stopEntry, _("Stop title")),
 			"exit": (self.exit, _("Exit screensaver, subscreens or YAMP")),
 			"menu": (self.showMenu, _("Show context menu")),				
-			"prevTitle": (self.previousEntry, _("Play previous title")),
+			"prevTitle": (self.previousKey, _("Play previous title")),
 			"nextTitle": (self.nextEntry, _("Play next title")),
 			"prevBouquet": (self.pageup, _("Previous page")),
 			"nextBouquet" : (self.pagedown, _("Next page")),
@@ -809,6 +814,10 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 			"TextLong" : (self.keyTextLongActions, _("Show/hide Big Lyrics Line (Karaoke)")),
 			"key5" : (self.key5Actions, _("Jump back to current playing song")),
 			"redLong" : (self.redLongActions, _("Screensaver: Blacklist current picture (don't show again)")),
+			"keyPercentJumpFw" : (self.keyPercentJumpFwActions, _("Jump Forward 10%")),
+			"keyPercentJumpBw" : (self.keyPercentJumpBwActions, _("Jump Backward 10%")),
+			"keyPercentJumpFwLong" : (self.keyPercentJumpFwLActions, _("Jump Forward 20%")),
+			"keyPercentJumpBwLong" : (self.keyPercentJumpBwLActions, _("Jump Backward 20%")),
 
 		}, -2)
 
@@ -847,14 +856,18 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 		self.extPlaylistName = "" # no external playlist loaded
 		self.repeat = config.plugins.yampmusicplayer.repeatPlaylistAtEnd.value
 		self.ssBackground = config.plugins.yampmusicplayer.screenSaverBg.value
-		self.greenLongActive=False
+		self.playLongActive=False
 		self.redLongActive=False
+		self.greenLongActive=False
 		self.yellowLongActive=False
 		self.blueLongActive=False
 		self.infoLongActive=False
 		self.textLongActive=False
 		self.tvLongActive=False
 		self.radioLongActive=False
+		self.jumpFwLongActive=False
+		self.jumpBwLongActive=False
+		self.previousPressed=False
 		self.dbStack = []  # for navigation in the database list
 		self.dbTitleList = []
 		self.dbArtistList = []
@@ -874,7 +887,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 		self.oldAlbum = ""
 		self.nextsongtitle = ""
 		self.nextSongDisplay = ""
-		self.oldIsVideo = False
+		self.previousIsVideo = False
 		self.blankVideoInserted = -1
 		self.slidePath = ""
 		self.screenSaverOn = True
@@ -959,6 +972,13 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 				sys.path.append(yampDirAbs)
 		except:
 			LOG('YampScreen: init: pathappend: EXCEPT', 'err')
+
+		f=open(os.path.join(yampDir, 'NoTitlecase.txt'), 'r')
+		yampTitlecaseNochange = f.read().splitlines()
+		f.close()
+		for idx in reversed(range(len(yampTitlecaseNochange))):
+			if yampTitlecaseNochange[idx].startswith('#') or yampTitlecaseNochange[idx].startswith('\t'):
+				yampTitlecaseNochange.pop(idx)
 
 	def	setTVOptions(self):
 		showTvConfig = config.plugins.yampmusicplayer.yampShowTV.value
@@ -1047,7 +1067,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 		except Exception as e:
 			LOG('\nYampScreen: checkSkinFiles: EXCEPT skinReqPngHD: %s' %(str(e)), 'err')
 		try:
-			if failed == '' and (skin == 'fhd' or skin == 'fhd_vti' or skin == 'fhdCustom' ):
+			if failed == '' and (skin == 'fhd' or skin == 'fhdCoffee' or skin == 'fhd_vti' or skin == 'fhdCustom' ):
 #				LOG('\nYampScreen: checkSkinFiles: check  skinReqPngFHD', 'err')
 				for req in skinReqPngFHD:
 					if not req in flist:
@@ -1057,7 +1077,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 			LOG('\nYampScreen: checkSkinFiles: EXCEPT skinReqPngFHD: %s' %(str(e)), 'err')
 
 		try:
-			if failed == '' and (skin == 'defaultDreamOS' or skin == 'defaultTVDreamOS' or skin == 'customDreamOS' or skin == 'fhdDreamOS 'or skin == 'fhdCustomDreamOS'):
+			if failed == '' and (skin == 'defaultDreamOS' or skin == 'defaultTVDreamOS' or skin == 'customDreamOS' or skin == 'fhdDreamOS' or skin == 'fhdCoffeeDreamOS' or skin == 'fhdCustomDreamOS'):
 #				LOG('\nYampScreen: checkSkinFiles: check  skinReqPngFHD', 'err')
 				for req in skinReqPngDreamOS:
 					if not req in flist:
@@ -1097,13 +1117,15 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 			elif skin == 'defaultTV': return skinTexts[1]
 			elif skin == 'custom': return skinTexts[2]
 			elif skin == 'fhd': return skinTexts[3]
-			elif skin == 'fhd_vti': return skinTexts[4]
-			elif skin == 'fhdCustom': return skinTexts[5]
-			elif skin == 'defaultDreamOS': return skinTexts[6]
-			elif skin == 'defaultTVDreamOS': return skinTexts[7]
-			elif skin == 'customDreamOS': return skinTexts[8]
-			elif skin == 'fhdDreamOS': return skinTexts[9]
-			elif skin == 'fhdCustomDreamOS': return skinTexts[10]
+			elif skin == 'fhdCoffee': return skinTexts[4]
+			elif skin == 'fhd_vti': return skinTexts[5]
+			elif skin == 'fhdCustom': return skinTexts[6]
+			elif skin == 'defaultDreamOS': return skinTexts[7]
+			elif skin == 'defaultTVDreamOS': return skinTexts[8]
+			elif skin == 'customDreamOS': return skinTexts[9]
+			elif skin == 'fhdDreamOS': return skinTexts[10]
+			elif skin == 'fhdCoffeeDreamOS': return skinTexts[11]
+			elif skin == 'fhdCustomDreamOS': return skinTexts[12]
 		except Exception as e:
 			LOG('\nYampScreen: getSkinName: EXCEPT: %s' %(str(e)), 'err')
 
@@ -1146,7 +1168,8 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 			LOG('\nYampScreen: layoutFinished: showHideVideoPreview: EXCEPT: %s' %(str(e)), 'err')
 
 		if dbUpgradeV33() > 0: clearDatabase() #empty or problem on upgrade -> delete and create new
-		self.dbUpgradeInfo = dbUpgradeV331()
+		self.dbUpgradeInfo331 = dbUpgradeV331()
+		self.dbUpgradeInfo332 = dbUpgradeV332()
 		self["fanartdownload"].hide()
 		self["downloadBackground"].hide()
 
@@ -1218,7 +1241,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 		try:
 			self.filelistint.selectionEnabled(1)
 		except Exception as e:
-			LOG('YampScreen: layoutFinished: len(filelistint): EXCEPT: %s' %(str(e)), 'err')
+			LOG('YampScreen: layoutFinished: filelistint: EXCEPT: %s' %(str(e)), 'err')
 
 		try:
 			self.findClockElement()
@@ -1541,6 +1564,24 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 		except Exception as e:
  			LOG('\nYampScreen: infoLongActions: openHelpScreen: EXCEPT: %s' %(str(e)), 'err')
 
+	def keyPercentJumpFwActions(self):
+		if self.jumpFwLongActive:
+			self.jumpFwLongActive = False
+		else: self.seekOwn(21)
+
+	def keyPercentJumpBwActions(self):
+		if self.jumpBwLongActive:
+			self.jumpBwLongActive = False
+		else: self.seekOwn(22)
+
+	def keyPercentJumpFwLActions(self):
+		self.jumpFwLongActive = True
+		self.seekOwn(23)
+
+	def keyPercentJumpBwLActions(self):
+		self.jumpBwLongActive = True
+		self.seekOwn(24)
+
 	def helpScreenCB(self):
 		config.plugins.yampmusicplayer.lastVersionDate.value = VERSIONDATE
 		config.plugins.yampmusicplayer.lastVersionDate.save()
@@ -1707,6 +1748,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 				config.plugins.yampmusicplayer.lastSlide.value = ""
 			config.plugins.yampmusicplayer.lastSlide.value = ""  #!!!! Test
 			config.plugins.yampmusicplayer.lastSlide.save()
+
 			self.currentIsVideo = False
 			configfile.save()
 
@@ -1744,16 +1786,18 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 		elif selection == 8: self.nextSongDisplay = self.nextsongtitle
 		
 	def updateNextSong(self):
+##		LOG('updateNextSong: Start', 'spe3')
+
 		if self.memlog: self.memoryLog()
 		try:	
 			if len(self.playlist) == 0:
 				self.nextsongtitle=self.nextsongalbum=self.nextsongartist=''
 			elif self.playlist.getCurrentIndex() < len(self.playlist) - 1:
 				path = self.playlist.getServiceRefList()[self.playlist.getCurrentIndex()+1].getPath()
-				self.nextsongtitle, self.nextsongalbum, self.nextsonggenre, self.nextsongartist, self.nextsongdate, self.nextsonglength, self.nextsongtracknr, strBitrate = readID3Infos(path)
+				self.nextsongtitle, self.nextsongalbum, self.nextsonggenre, self.nextsongartist, albumartist, self.nextsongdate, self.nextsonglength, self.nextsongtracknr, strBitrate = readID3Infos(path)
 			elif self.repeat:
 				path = self.playlist.getServiceRefList()[0].getPath()
-				self.nextsongtitle, self.nextsongalbum, self.nextsonggenre, self.nextsongartist, self.nextsongdate, self.nextsonglength, self.nextsongtracknr, strBitrate = readID3Infos(path)
+				self.nextsongtitle, self.nextsongalbum, self.nextsonggenre, self.nextsongartist, albumartist, self.nextsongdate, self.nextsonglength, self.nextsongtracknr, strBitrate = readID3Infos(path)
 			else:
 				self.nextsongtitle=self.nextsongalbum=self.nextsongartist=''
 		except Exception as e:
@@ -2063,16 +2107,22 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 								self.hideYampScreenShowVideo()
 			
 	def play(self):
+		if self.playLongActive:	
+			self.playLongActive = False
+			return
 		if self.currList == "filelist":
 			if self.screenSaverActive or self.specialScreenActive():
 				self.switchPlayPause()	
-			else:											
+			else:
+				lenPlayList = len(self.playlist)
 				if self.filelist.canDescent():
 					self.insertDir(self.filelist.getSelection()[0])
 				else:
 					self.insertFile()
-				self.nextEntry()
-				self.movedown()
+				if len(self.playlist) > lenPlayList:	
+					self.movedown()
+					self.nextEntry()
+
 		elif self.currList == "dblist":
 			try:
 				navx = self.dblist.getSelection().nav
@@ -2097,6 +2147,20 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 				self.movedown()
 		elif self.currList == "playlist":
 			self.switchPlayPause() 
+
+	def playLong(self):
+		self.playLongActive = True
+		if self.currList == "filelist":
+			if self.screenSaverActive or self.specialScreenActive(): return
+			lenPlayList = len(self.playlist)
+			if self.filelist.canDescent():
+				self.insertDir(self.filelist.getSelection()[0], recursive = True)
+			else:
+				self.insertFile()
+			if len(self.playlist) > lenPlayList:	
+				self.nextEntry()
+				self.movedown()
+
 
 	def switchPlayPause(self):
 		if config.plugins.yampmusicplayer.commonPlayPause.value:
@@ -2126,7 +2190,6 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 		else:
 			if self.currList == "playlist":			
 				self.showScreenSaver()
-				LOG('\nYampScreen: pause: STATE_PLAY','err') 
 			self.playerState = STATE_PLAY
 	
 
@@ -2163,6 +2226,8 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 		return seek
 		
 	def seekOwn(self, key):
+		len, pos = self.getSeekData()
+		jumplong = len / 900000		#10%
 		try:
 			if key ==1 : secs =  config.seek.selfdefined_13.value * (-1)
 			elif key ==3 : secs =  config.seek.selfdefined_13.value
@@ -2172,12 +2237,22 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 			elif key ==9 : secs = config.seek.selfdefined_79.value
 			elif key ==11 : 
 				self.previousEntry()
+				self.previousPressed = True
 				return
 			elif key ==12 : 
 				self.nextEntry()
 				return
-				
+			elif key ==21 : 	#10% FW
+				secs = jumplong
+			elif key ==22 : 	#10% BW
+				secs = jumplong * (-1)
+			elif key ==23 : 	#20% FW
+				secs = jumplong * 2
+			elif key ==24 : 	#20% BW
+				secs = jumplong * (-2)
 			pts = secs * 90000
+			if pos + pts > len:		#jump over end
+				pts = len - 5 * 90000 - pos	#5 seconds before end
 			seekable = self.getSeek()
 			if seekable is None:
 				LOG('YampScreen: seekOwn: seekable NONE', 'err') 
@@ -2424,6 +2499,10 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 			self.changeEntry(0)
 		elif ( len(self.playlist) == actual + 1 ) and not self.repeat:	#last song, no repeat
 			self.stopEntry()
+
+	def previousKey(self): 
+		self.previousPressed = True
+		self.previousEntry()
 		
 	def previousEntry(self):
 		LOG('\nYampScreen: previousEntry: Start: specialScreenActive(): %d' %(self.specialScreenActive()), 'all')
@@ -2473,8 +2552,12 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 				LOG('YampScreen: getSongLength: cursor.execute: EXCEPT: %s' %(str(e)), 'err')
 			try:
 				for row in cursor:
-					try:	
-						t=datetime_datetime.strptime(row[0],'%M:%S')
+					try:
+						lenData = row[0]
+						if lenData == 'n/a': lenData = '0:00'
+						if len(lenData) > 5: strFormat = '%H:%M:%S'
+						else: strFormat = '%M:%S'
+						t=datetime_datetime.strptime(lenData,strFormat)
 					except Exception as e:
 						t=datetime_datetime.strptime("00:00",'%M:%S') 
 						LOG('YampScreen: getSongLength: for row: row %s path: %s EXCEPT2: %s' %(row, path, str(e)), 'err')
@@ -2483,7 +2566,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 			cursor.close()
 			con.close()
 			try:
-				return(t.minute, t.second)
+				return(t.minute + t.hour*60, t.second)
 			except:
 				return(0,0)
 
@@ -2528,8 +2611,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 			artist=title=album=path=''
 			if not self.screenSaverActive and not self.isVideoFullScreen:
 				if self.currList == "playlist":		#playlist
-
-					try:	
+					try:
 						path = self.playlist.getServiceRefList()[self.playlist.getSelectionIndex()].getPath()
 						if path == None: path = '' 
 						self.updateMusicInformation(path, current=False)
@@ -2537,6 +2619,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 						LOG('YampScreen: checkCoverScroll: playlist: EXCEPT: %s' %(str(e)), 'err')
 
 				elif self.currList == "filelist":
+					if self.filelist.getSelection() is None: return
 					try:
 						if not self.filelist.getSelection()[1]:		#is directory
 							try:
@@ -2551,7 +2634,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 					except Exception as e:
 						LOG('YampScreen: checkCoverScroll: filelist: EXCEPT3: %s' %(str(e)), 'err')
 
-				else: 				#dblist
+				else:				#dblist
 					try:
 						nav = self.dblist.getSelection().nav
 					except Exception as e:
@@ -2567,7 +2650,6 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 							try:
 								if mode == ALBUMLIST: self.updateMusicInformation(path, current=False, isAlbum = True)
 								else: self.updateMusicInformation(path, current=False)
-								self.updateMusicInformation(path, current=False)
 							except Exception as e:
 								LOG('YampScreen: checkCoverScroll: dblist: updateMusicInformation: EXCEPT: %s' %(str(e)), 'err')
 					else: #no selection of files, overview
@@ -2650,7 +2732,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 		self.updateNextSong()
 
 	def addDir(self, dir, recursive = True):
-		filelist = YampFileList(dir, matchingPattern = "(?i)^.*\.(mp2|mp3|ogg|ts|wav|m3u|pls|e2pls|mpg|vob|avi|divx|m4v|mkv|mp4|m4a|dat|flac|mov|m2ts)", useServiceRef = True, showMountpoints = False, isTop = True)
+		filelist = FileList(dir, matchingPattern = "(?i)^.*\.(mp2|mp3|ogg|ts|wav|m3u|pls|e2pls|mpg|vob|avi|divx|m4v|mkv|mp4|m4a|dat|flac|mov|m2ts)", useServiceRef = True, showMountpoints = False, isTop = True)
 		for x in filelist.getFileList():
 			if x[0][1] == True: #isDir
 				if recursive:
@@ -2687,6 +2769,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 		ext = os.path.splitext(f)[1]
 		if ext in (".m3u", ".pls", ".e2pls"):
 			self.insertExtPlaylist(f)
+			return False
 		else:
 			ref=self.filelist.getServiceRef()
 			newIdx=self.playlist.getCurrentIndex()+1
@@ -2695,12 +2778,15 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 			self.calcLenPlaylist()
 			self.playlist.updateList()
 			self.updateNextSong()
+			return True
 
-	def insertDir(self, dir):
-		filelist = YampFileList(dir, matchingPattern = "(?i)^.*\.(mp2|mp3|ogg|ts|wav|m3u|pls|e2pls|mpg|vob|avi|divx|m4v|mkv|mp4|m4a|dat|flac|mov|m2ts)", useServiceRef = True, showMountpoints = False, isTop = True)
+	def insertDir(self, dir, recursive = False):
+		filelist = FileList(dir, matchingPattern = "(?i)^.*\.(mp2|mp3|ogg|ts|wav|m3u|pls|e2pls|mpg|vob|avi|divx|m4v|mkv|mp4|m4a|dat|flac|mov|m2ts)", useServiceRef = True, showMountpoints = False, isTop = True)
 		for x in reversed(filelist.getFileList()):
 			if x[0][1] == True: #isDir
-				pass # not recursive
+				if recursive:
+					if x[0][0] != dir:
+						self.insertDir(x[0][0])
 			else:
 				self.insertService(self.playlist.getCurrentIndex()+1, x[0][0])
 		self.recalcLenListsComplete()
@@ -2789,7 +2875,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 			sref.setName(path)
 		elif config.plugins.yampmusicplayer.playlistLayout.value.startswith("tit"):
 			if title == "" or artist == "":
-				title, album, genre, artist, date, length, tracknr, strBitrate = readID3Infos(path)
+				title, album, genre, artist, albumartist, date, length, tracknr, strBitrate = readID3Infos(path)
 			if config.plugins.yampmusicplayer.playlistLayout.value == "tit":
 				name = title
 			elif config.plugins.yampmusicplayer.playlistLayout.value == "titart":
@@ -2838,31 +2924,35 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 			elif mode in (ARTISTLIST, SEARCHARTISTLIST):
 				self.pushDblistStack (numChoice)
 				choice = self.dblist.getSelection()
-				self.buildDbMenuList (mode = ARTISTTITLELIST, query = choice.artistID, menutitle = choice.artist)
+				self.buildDbMenuList (mode = ARTISTTITLELIST, query = choice.artistID, menutitle = _('Artist') + ':  ' + choice.artist)
 			elif mode in (ALBUMLIST, ARTISTALBUMLIST, GENREALBUMLIST, SEARCHALBUMLIST):
 				self.pushDblistStack (numChoice)
 				choice = self.dblist.getSelection()
-				self.buildDbMenuList (mode = ALBUMTITLELIST, query = choice.albumID, menutitle = choice.album)
+				self.buildDbMenuList (mode = ALBUMTITLELIST, query = choice.albumID, menutitle = _('Album') + ':  ' + choice.album + ' - ' +  choice.artist)
 			elif mode in (GENRELIST, SEARCHGENRELIST):
 				self.pushDblistStack (numChoice)
 				choice = self.dblist.getSelection()
-				self.buildDbMenuList (mode = GENRETITLELIST, query = choice.genreID, menutitle = choice.genre)
+				self.buildDbMenuList (mode = GENRETITLELIST, query = choice.genreID, menutitle = _('Genre') + ':  ' + choice.genre)
 			elif mode in (DATELIST, SEARCHDATELIST):
 				self.pushDblistStack (numChoice)
 				choice = self.dblist.getSelection()
-				self.buildDbMenuList (mode = DATETITLELIST, query = choice.dateID, menutitle = choice.date)
+				self.buildDbMenuList (mode = DATETITLELIST, query = choice.dateID, menutitle =  _('Year') + ':  ' + choice.date)
 			elif mode in (PLAYLISTLIST, SEARCHPLAYLISTLIST):
 				self.addExtPlaylist(self.dblist.getSelection().filename)
 			elif mode >= TITLELIST:
 				sref = ServiceReference(self.dblist.getSelection().ref)
 				self.addService(sref.ref, self.dblist.getSelection().title, self.dblist.getSelection().artist)
 				try:
-					try:	
-						t=datetime_datetime.strptime(self.dblist.getSelection().length,'%M:%S')
+					try:
+						songLen = self.dblist.getSelection().length
+						if len(songLen) > 5: strFormat = '%H:%M:%S'
+						else: strFormat = '%M:%S'
+						t=datetime_datetime.strptime(songLen,strFormat)
 					except:
 						t=datetime_datetime.strptime("00:00",'%M:%S') 
 					secList.append(t.second)
-					minList.append(t.minute)
+					minList.append(t.minute + t.hour*60)
+
 				except Exception as e:
 					LOG('YampScreen: dbListAction: adddservice: EXCEPT: %s' %(str(e)), 'err')
 				self.playlist.updateList()
@@ -2912,17 +3002,35 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 		except Exception as e:
 			LOG('YampScreen: startupChecks: checkplaylist: EXCEPT: %s' %(str(e)), 'err') 
 
+
+		#info DB Upgrade V332
 		msg = ''
-		if self.dbUpgradeInfo > 1000:
-			msg = _("DB-Upgrade to V3.3.1:\n%d titles have been actualized to the new feature 'Several Albums Greatest Hits separated by Artist possible'.\nPlease check ..." %(self.dbUpgradeInfo-1000))
+
+		if self.dbUpgradeInfo332 == 1 or self.dbUpgradeInfo332 > 999:
+			msg = _('Database has been upgraded to V3.3.2. ID3-tag AlbumArtist is recognized now. You should rescan at least your Sampler-Albums (various artists) into the database...')
+		elif self.dbUpgradeInfo332 < 0:	
+			msg = _('There was an error when upgrading the Database to V3.3.2 (or database not existing). To get all advantages from the new DB options, think about deleting the database and rebuild it by re-inserting all files...')
+		elif self.dbUpgradeInfo332 == 999:
+			if config.plugins.yampmusicplayer.searchFanart.value != 'off':
+				msg = _('Database has been upgraded to V3.3.2, but the database is empty. Online-search for fanart-pictures has been deactivated. To get all advantages from the new DB options, think about adding files to the database... As long as the online search is deactivated, you will not see this message again!')
+				config.plugins.yampmusicplayer.searchFanart.value = 'off'
+				config.plugins.yampmusicplayer.searchFanart.save()
+				self.searchFanartConfig = config.plugins.yampmusicplayer.searchFanart.value
+		if msg != '':
+			self.session.open(MessageBox, msg, type = MessageBox.TYPE_INFO,timeout = 20 )
+
+		#info DB Upgrade V331
+		msg = ''
+		if self.dbUpgradeInfo331 > 1000:
+			msg = _('DB-Upgrade to V3.3.1:\n%d titles have been actualized to the new feature <Several Albums Greatest Hits separated by Artist possible>.\nPlease check ...') %(self.dbUpgradeInfo331-1000)
 		if msg != '':
 			self.session.open(MessageBox, msg, type = MessageBox.TYPE_INFO,timeout = 30 )
 
-		if self.dbUpgradeInfo == 1 or self.dbUpgradeInfo > 999:
+		if self.dbUpgradeInfo331 == 1 or self.dbUpgradeInfo331 > 999:
 			msg = _('Database has been upgraded to V3.3.1. To get all advantages from the new DB options, you should actualize the database. Just insert all your files again to the database...')
-		elif self.dbUpgradeInfo < 0:	
+		elif self.dbUpgradeInfo331 < 0:	
 			msg = _('There was an error when upgrading the Database to V3.3.1 (or database not existing). To get all advantages from the new DB options, think about deleting the database and rebuild it by re-inserting all files...')
-		elif self.dbUpgradeInfo == 999:
+		elif self.dbUpgradeInfo331 == 999:
 			if config.plugins.yampmusicplayer.searchFanart.value != 'off':
 				msg = _('Database has been upgraded to V3.3.1, but the database is empty. Online-search for fanart-pictures has been deactivated. To get all advantages from the new DB options, think about adding files to the database... As long as the online search is deactivated, you will not see this message again!')
 				config.plugins.yampmusicplayer.searchFanart.value = 'off'
@@ -2991,6 +3099,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 				row = cursor.fetchone()
 				self.dblist.append(DblistEntryComponent(text = _("Albums (%d)") % row[0]))
 
+
 				# Titles
 				cursor.execute("SELECT COUNT (*) FROM Titles;")
 				row = cursor.fetchone()
@@ -3038,7 +3147,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 
 				elif self.dblist.mode == ALBUMLIST:
 					if len(self.dbAlbumList) == 0:
-						cursor.execute("SELECT Albums.album_id, Albums.album, Artists.artist, Titles.filename, COUNT (*) FROM Titles INNER JOIN Albums ON Titles.album_id = Albums.album_id INNER JOIN Artists ON Titles.artist_id = Artists.artist_id GROUP By Albums.album_id ORDER BY upper(Albums.album);")
+						cursor.execute("SELECT Albums.album_id, Albums.album, Artists.artist, Titles.filename, COUNT (*) FROM Titles INNER JOIN Albums ON Titles.album_id = Albums.album_id INNER JOIN Artists ON Titles.albumartist_id = Artists.artist_id GROUP By Albums.album_id ORDER BY upper(Albums.album);")
 						for row in cursor:
 							try:
 								self.dblist.append(DblistEntryComponent(text = "%s - %s (%d)" % (row[1], row[2], row[4]), albumID = row[0], album = row[1], artist = row[2], filename=row[3]))
@@ -3157,7 +3266,9 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 					self.dblist.moveToIndex(1)
 			cursor.close()  
 			con.close()
+
 			self.currDblist = DblistStackEntry(self.dblist.mode, query, self.dblist.getSelectionIndex(), menutitle, queryString) # for refresh after DB changes
+
 
 	def getSqlArtistShort(self,cursor,artistID):
 		sql='SELECT Artists.artistShort from Artists WHERE artist_id = %d;' %(artistID)
@@ -3439,8 +3550,10 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 				index = self.playlist.getSelectionIndex()
 			else:
 				index = self.playlist.getCurrentIndex()
+	
 			if index == self.playlist.getCurrentIndex():
 				deletedCurrentEntry = True
+
 			self.playlist.deleteService(index)
 			self.playlist.updateList()
 			try:
@@ -3474,10 +3587,6 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 			self.blankVideoInserted = self.playlist.getCurrentIndex()+1
 		except Exception as e:
 			LOG('YampScreen: insertblankvideo: EXCEPT2: %s' %(str(e)), 'err')
-		try:	
-			self.blankVideoInserted = self.playlist.getCurrentIndex()+1
-		except Exception as e:
-			LOG('YampScreen: insertblankvideo: EXCEPT3: %s' %(str(e)), 'err')
 		try:
 			self.insertService(self.blankVideoInserted, self.filelistint.getServiceRef())
 		except Exception as e:
@@ -3491,17 +3600,31 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 			LOG('YampScreen: insertblankvideo: EXCEPT5: %s' %(str(e)), 'err')
 
 		try:
-			self.oldIsVideo = False
+			self.previousIsVideo = False
 		except Exception as e:
 			LOG('YampScreen: insertblankvideo: EXCEPT6: %s' %(str(e)), 'err')
 
-	def stopBlankVideo(self):	
+	def stopBlankVideo(self):
 		try:
-			self.playlist.deleteService(self.blankVideoInserted)
-		except Exception as e:
+			lx = self.filelistint.getFileList()
+			blankRef = lx[0][0][0]
+			refList = self.playlist.getServiceRefList()
+			foundIdx = -1
+			if refList[self.blankVideoInserted] == blankRef:
+				foundIdx = self.blankVideoInserted
+			else:
+				for x in range(len(refList)):
+					if refList[x] == blankRef:
+						foundIdx = x
+						break
+			if foundIdx > -1:
+				self.playlist.deleteService(foundIdx)
+
+		except Exception as e:		
 			LOG('YampScreen: stopBlankVideo: EXCEPT1: %s' %(str(e)), 'err')
 		try:
-			self.nextEntry()
+			if self.previousPressed: self.previousEntry()
+			else: self.nextEntry()
 		except Exception as e:
 			LOG('YampScreen: stopBlankVideo: EXCEPT2: %s' %(str(e)), 'err')
 
@@ -3513,7 +3636,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 			newIsVideo = self.checkIsVideo(newRef.getPath())
 		except Exception as e:
 			LOG('YampScreen: changeEntry: newIsVideo: EXCEPT: %s' %(str(e)), 'err') 
-		if config.plugins.yampmusicplayer.insertBlankVideo.value and not newIsVideo and self.oldIsVideo and (self.blankVideoInserted == -1):
+		if config.plugins.yampmusicplayer.insertBlankVideo.value and not newIsVideo and self.previousIsVideo and (self.blankVideoInserted == -1) and not self.previousPressed:
 			self.insertBlankVideo()
 		else:
 			if newIsVideo: 	
@@ -3543,6 +3666,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 					self.showYampScreenHideVideo()
 					if not self.screenSaverActive: self.resetScreenSaverTimer()
 				self.resetSlideTimer()
+			self.previousPressed = False
 			self.changeEntryNormal(index)
 
 	def changeEntryNormal(self, index):
@@ -3684,7 +3808,8 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 			elif param == 'keyInfo' : self.showLyrics()
 			elif param == 'keyStop' : pass
 		except Exception as e:		
-			LOG('YampScreen: videoTitleClosedCB: EXCEPT: %s' %(str(e)), 'err')
+			pass
+#			LOG('YampScreen: videoTitleClosedCB: EXCEPT: %s' %(str(e)), 'err')
 		
 	def videoLyricsClosedCB(self, param):
 		try:	#because sometimes "modal open are allowed only from a screen which is modal!" is created, reason unknown
@@ -3704,7 +3829,8 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 			elif param == 'keyInfo' : self.showLyrics()
 			elif param == 'keyStop' : pass
 		except Exception as e:		
-			LOG('YampScreen: videoLyricsClosedCB: EXCEPT: %s' %(str(e)), 'err')
+			pass
+#			LOG('YampScreen: videoLyricsClosedCB: EXCEPT: %s' %(str(e)), 'err')
 		
 	def showTVservice(self):
 		if self.myOldService is not None:
@@ -3773,8 +3899,8 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 			
 	def getSeekData(self):
 		service = self.session.nav.getCurrentService()
-##		seek = service and service.seek()
-		seek = service.seek()
+		seek = service and service.seek()
+##		seek = service.seek()
 		if seek is None:
 			return (0, 0)
 		len = seek.getLength()
@@ -4508,13 +4634,13 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 		filename = os.path.join(yampDir, "skins", config.plugins.yampmusicplayer.yampSkin.value, which)
 		msg = _('Box display configuration file\n\n%s\n\ncould not be written!\n\nWrite protected? Wrong format?\n\nIf not corrected, changes will be lost...') %(filename) 
 		self.session.open(MessageBox, msg , type = MessageBox.TYPE_ERROR,timeout = 30 )
-				
+
 #		
 #
 #-------------------- Update methods for title info and cover
 #
 	def updateMusicInformation(self, path = "", clear = False, current = True, isAlbum = False):
-		title, album, genre, artist,date, length, tracknr, strBitrate = readID3Infos(path)
+		title, album, genre, artist, albumartist, date, length, tracknr, strBitrate = readID3Infos(path)
 
 		try:
 			newYear = date[:4]
@@ -4562,8 +4688,8 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 		self.oldTitle = title
 		self.oldArtist = artist
 		self.oldAlbum = album
-		if self.oldIsVideo == self.currentIsVideo: newArtist = True
-		self.oldIsVideo = self.currentIsVideo
+		if self.previousIsVideo == self.currentIsVideo: newArtist = True
+		self.previousIsVideo = self.currentIsVideo
 		
 		if clear:	self["coverArt"].showDefaultCover()
 		else:
@@ -4828,7 +4954,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 				LOG('YampScreen: searchCoverID3 : audio = NONE', 'spe')
 				audio = None
 			try:
-				title, album, genre, artist, date, length, tracknr, strBitrate = readID3Infos(path)
+				title, album, genre, artist, albumartist, date, length, tracknr, strBitrate = readID3Infos(path)
 			except Exception as e:
 				LOG('YampScreen: searchCoverID3 : date, length, tracknr: EXCEPT: %s' %(str(e)), 'err')
 
@@ -5408,7 +5534,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 		self.pushDblistStack (numChoice)
 		choice = self.dblist.getSelection()
 		qs = "%" + choice.title.replace("'","''") + "%"
-		self.buildDbMenuList (mode = SEARCHTITLELIST, queryString = qs, menutitle = choice.title)
+		self.buildDbMenuList (mode = SEARCHTITLELIST, queryString = qs, menutitle = _('Search') + ':  ' + choice.title)
 		self.setLeftContentTitle()
 		self.setColorButtons()
 
@@ -6204,7 +6330,7 @@ class YampDbActions(Thread):
 	def addDirToDatabase(self, con, cursor, dir, recursive = True):
 		global selectedDirExcludeValue, dirExcludeOptions
 
-		filelist = YampFileList(dir, matchingPattern = "(?i)^.*\.(mp2|mp3|wav|flac|ogg|m4a|m3u|pls|e2pls|mp4|avi|mpg|flv|m2ts|m4v|mkv|mov|mpeg|ts|wmv|divx)", useServiceRef = True, showMountpoints = False, isTop = True, additionalExtensions = "4098:m3u 4098:e2pls 4098:pls")
+		filelist = FileList(dir, matchingPattern = "(?i)^.*\.(mp2|mp3|wav|flac|ogg|m4a|m3u|pls|e2pls|mp4|avi|mpg|flv|m2ts|m4v|mkv|mov|mpeg|ts|wmv|divx)", useServiceRef = True, showMountpoints = False, isTop = True, additionalExtensions = "4098:m3u 4098:e2pls 4098:pls")
 		for x in filelist.getFileList():
 			if self.__cancel:	break
 			if x[0][1] == True: #isDir
@@ -6452,7 +6578,7 @@ def createDatabase():
 		return None, 1
 	cur = con.cursor()	#!!!
 	cur.execute('CREATE TABLE IF NOT EXISTS Playlists (playlist_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, playlist_filename TEXT NOT NULL UNIQUE, playlist_title TEXT);')
-	cur.execute('CREATE TABLE IF NOT EXISTS Titles (title_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, filename TEXT NOT NULL UNIQUE, title TEXT, artist_id INTEGER, album_id INTEGER, genre_id INTEGER, date_id INTEGER, date TEXT, length TEXT, tracknr INTEGER, sref TEXT);')
+	cur.execute('CREATE TABLE IF NOT EXISTS Titles (title_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, filename TEXT NOT NULL UNIQUE, title TEXT, artist_id INTEGER, album_id INTEGER, genre_id INTEGER, date_id INTEGER, date TEXT, length TEXT, tracknr INTEGER, sref TEXT, albumartist_id INTEGER DEFAULT 0);')
 	cur.execute('CREATE TABLE IF NOT EXISTS Artists (artist_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, artist TEXT NOT NULL UNIQUE, mbid TEXT, picsLoadedDate TEXT DEFAULT "2000-01-01", artistShort TEXT);')
 	cur.execute('CREATE TABLE IF NOT EXISTS Albums (album_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, album TEXT NOT NULL );')
 	cur.execute('CREATE TABLE IF NOT EXISTS Genres (genre_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, genre TEXT NOT NULL UNIQUE);')
@@ -6590,6 +6716,80 @@ def dbUpgradeV331():
 
 		return upgradeInfo		
 
+def dbUpgradeV332():
+	if not checkIfDbexists(): return
+	if checkDatabaseHasData() == 0:	return 999		#empty database
+	con, result = ConnectDatabase()
+	upgradeInfo = 0
+	if con is not None:
+		try: con.row_factory = sqlite3.Row
+		except:	LOG('dbUpgradeV332: row_factory: EXCEPT', 'err')
+		try: cursor = con.cursor()
+		except:	LOG('dbUpgradeV332: cursor: EXCEPT', 'err')
+		try: cursor.execute("SELECT * FROM Titles")
+		except:	LOG('dbUpgradeV332: SELECT: EXCEPT', 'err')
+		try: rows = cursor.fetchone()
+		except:	LOG('dbUpgradeV332: fetchone: EXCEPT', 'err')
+		try: a=rows['title_id']
+		except:
+			LOG('dbUpgradeV332: a=rows[title_id]: EXCEPT: most likely empty database', 'err')
+			upgradeInfo = -1
+		try: b=rows['filename']
+		except:
+			LOG('dbUpgradeV332: b=rows[filename]: EXCEPT: most likely empty database', 'err')
+			upgradeInfo -= 1
+		try:
+			c=rows['albumartist_id']
+			LOG('dbUpgradeV332: c=rows[albumartist_id] exists: already upgraded to V332', 'all')
+			return 0
+		except Exception as e:		
+			LOG('dbUpgradeV332: c=rows[albumartist_id]: Database will be upgraded to V332', 'all')
+
+		try: cursor.execute("ALTER TABLE Titles ADD COLUMN 'albumartist_id' INTEGER DEFAULT 0")
+		except Exception as e:		
+			LOG('dbUpgradeV332: ALTER TABLE: albumartist_id: EXCEPT: ' + str(e), 'err')
+			upgradeInfo = -1
+
+		try:	
+			if upgradeInfo == 0: 
+				updated = updateAlbumArtists(con, cursor)
+		except Exception as e:	
+			LOG('Yamp.py: dbUpgradeV332: updateAlbumArtists: EXCEPT: ' + str(e), 'err')
+			
+		try: con.commit()
+		except Exception as e:		
+			LOG('dbUpgradeV33: commit: EXCEPT: ' + str(e), 'err')
+			upgradeInfo = -1
+
+
+		try:
+			cursor.close()  
+			con.close()
+		except Exception as e:
+			LOG('dbUpgradeV332: close: EXCEPT: ' + str(e), 'err')
+		if upgradeInfo == 0: upgradeInfo = 1	#upgrade succesful
+
+		return upgradeInfo		
+
+def updateAlbumArtists(con, cursor):
+	retVal = 0
+	try:
+		cursor.execute("SELECT title_id, artist_id, albumartist_id FROM Titles")
+		rows = cursor.fetchall()
+		if len(rows) == 0: return 0	
+		for title in rows: 
+			if title[2] == 0:
+				try:
+					cursor.execute("UPDATE Titles SET albumartist_id = %d WHERE title_id = %d" %(title[1],title[0]))
+					retVal +=1
+				except Exception as e:		
+					LOG('dbUpgradeV332: updateAlbumArtists: write albumartist: EXCEPT: ' + str(e), 'err')
+		con.commit()
+	except Exception as e:		
+		LOG('dbUpgradeV332: updateAlbumArtists: EXCEPT: ' + str(e))	
+	return retVal
+
+
 def updateSpecialAlbums(con, cursor):
 	try:
 		#AlbumID 0, Artist 1, ArtistID 2, Album 3 , TitleID 4
@@ -6662,20 +6862,21 @@ def dbInsert(con, cursor, ref, table="titles", update=False): #Return: 0: skippe
 			LOG('YampDbActions: dbInsert: SELECT title_id: EXCEPT: ' + str(e), 'err')
 		rowFile = cursor.fetchone()
 
-		try: title, album, genre, artist, date, length, tracknr, strBitrate = readID3Infos(f)
+		try: title, album, genre, artist, albumartist, date, length, tracknr, strBitrate = readID3Infos(f)
 		except Exception as e:		
 			LOG('YampDbActions: dbInsert: readID3Infos: EXCEPT: ' + str(e), 'err')
+		artistShort = re.sub('(?i)( +feat)(.*)','',artist).strip() 	#remove Featuring
 		if config.plugins.yampmusicplayer.capitalizeTitleAndArtist.value:
 			title = titlecase(title)
 			artist = titlecase(artist).replace('"','""')
+			albumartist = titlecase(albumartist).replace('"','""')
 		try: 	
-			LOG('YampDbActions: dbInsert: title: %s album: %s genre: %s artist: %s date: %s length: %s tracknr: %d' %(title, album, genre, artist, date, length, tracknr), 'all')
+			LOG('YampDbActions: dbInsert: title: %s album: %s genre: %s artist: %s albumartist: %s date: %s length: %s tracknr: %d' %(title, album, genre, artist, albumartist, date, length, tracknr), 'all')
 		except Exception as e:		
 			LOG('YampDbActions: dbInsert: Log Id3Infos: EXCEPT: ' + str(e), 'err')
 
 		#get New Values of title, add or get artist, album, genre, date
-		# 1. Artist
-		artistShort = re.sub('(?i)( +feat)(.*)','',artist).strip() 	#remove Featuring
+		# 1a. Artist
 		cursor.execute('SELECT artist_id FROM Artists WHERE artist = "%s";' % (artist))
 		row = cursor.fetchone()
 		if row is None:
@@ -6683,6 +6884,15 @@ def dbInsert(con, cursor, ref, table="titles", update=False): #Return: 0: skippe
 			artistID = cursor.lastrowid
 		else:
 			artistID = row[0]
+		# 1b. Albumartist
+		albumartistShort = re.sub('(?i)( +feat)(.*)','',albumartist).strip() 	#remove Featuring
+		cursor.execute('SELECT artist_id FROM Artists WHERE artist = "%s";' % (albumartist))
+		row = cursor.fetchone()
+		if row is None:
+			cursor.execute('INSERT INTO Artists (artist, artistShort) VALUES("%s","%s");' % (albumartist,albumartistShort))
+			albumartistID = cursor.lastrowid
+		else:
+			albumartistID = row[0]
 
 		# 2. Album
 		#albumSpecial: check artist also to get multiple entries for example "Greatest Hits"
@@ -6725,18 +6935,17 @@ def dbInsert(con, cursor, ref, table="titles", update=False): #Return: 0: skippe
 		else:
 			dateID = row[0]
 
-
 		if rowFile is None:  #new title: insert
 			# 5. Titles
 			try:
-				cursor.execute("INSERT INTO Titles (filename,title,artist_id,album_id,genre_id,date_id, length,date,tracknr, sref) VALUES(?,?,?,?,?,?,?,?,?,?);" , (f,title,artistID,albumID,genreID,dateID,length,date,tracknr,sref))
+				cursor.execute("INSERT INTO Titles (filename,title,artist_id,album_id,genre_id,date_id, length,date,tracknr,sref,albumartist_id ) VALUES(?,?,?,?,?,?,?,?,?,?,?);" , (f,title,artistID,albumID,genreID,dateID,length,date,tracknr,sref,albumartistID))
 				res = 1
 			except Exception as e:
 				LOG('YampDbActions: dbInsert: 5.Titles: EXCEPT: ' + str(e), 'err')
 
 		else:	#existing title: update, if necessary
 			isActualized = False
-			cursor.execute('SELECT  title_id, title, artist_id, album_id, genre_id, date_id, length, date, tracknr FROM Titles WHERE filename = "%s";' % f)
+			cursor.execute('SELECT  title_id, title, artist_id, album_id, genre_id, date_id, length, date, tracknr, albumartist_id FROM Titles WHERE filename = "%s";' % f)
 			row = cursor.fetchone()
 			try:
 				if row[1] != title:	#new Title 
@@ -6779,6 +6988,11 @@ def dbInsert(con, cursor, ref, table="titles", update=False): #Return: 0: skippe
 					cursor.execute("UPDATE Titles SET tracknr = '%d' WHERE title_id = %d" %(tracknr,row[0]))
 					isActualized = True
 
+				if row[9] != albumartistID:	#new AlbumArtist 
+					LOG('YampDbActions: dbInsert: actualize albumartist for title %s:  new: %d old: %d ' %(title, albumartistID, row[9]), 'all')
+					cursor.execute("UPDATE Titles SET albumartist_id = '%d' WHERE title_id = %d" %(albumartistID,row[0]))
+					isActualized = True
+
 			except Exception as e:
 				LOG('YampDbActions: dbInsert: Actualize: EXCEPT: ' + str(title) + ': ' + str(e) ,'err')
 			if isActualized: res = 2
@@ -6798,4 +7012,137 @@ def dbInsert(con, cursor, ref, table="titles", update=False): #Return: 0: skippe
 				pass
 	return res
 
+
+
+
+
+#######################################################################
+# -*- coding: utf-8 -*-
+#	titlecase()
+#
+#	Original Perl version by: John Gruber http://daringfireball.net/ 10 May 2008
+#	Python version by Stuart Colville http://muffinresearch.co.uk
+#	License: http://www.opensource.org/licenses/mit-license.php
+# Adapted by AlfredENeumann, Jan. 2016, Jan 2023, Feb. 2024
+#
+#######################################################################
+
+import re
+from YampGlobals import *
+
+SMALL = 'a|an|and|as|at|but|by|en|for|if|in|of|on|or|the|to|v\.?|via|vs|der|die|das|dem|des|ein|eine|ist|mit|und|von\.?'
+PUNCT = r"""!"#$%&'‘()*+,\-./:;?@[\\\]_`{|}~"""
+SMALL_WORDS = re.compile(r'^(%s)$' % SMALL, re.I)
+INLINE_PERIOD = re.compile(r'[a-z][.][a-z]', re.I)
+UC_ELSEWHERE = re.compile(r'[%s]*?[a-zA-Z]+[A-Z]+?' % PUNCT)
+CAPFIRST = re.compile(r"^[%s]*?([A-Za-z])" % PUNCT)
+SMALL_FIRST = re.compile(r'^([%s]*)(%s)\b' % (PUNCT, SMALL), re.I)
+SMALL_LAST = re.compile(r'\b(%s)[%s]?$' % (SMALL, PUNCT), re.I)
+SUBPHRASE = re.compile(r'([:.;?!][ ])(%s)' % SMALL)
+APOS_SECOND = re.compile(r"^[dol]{1}['‘]{1}[a-z]+$", re.I)
+ALL_CAPS = re.compile(r'^[A-Z\s\d%s]+$' % PUNCT)
+UC_INITIALS = re.compile(r"^(?:[A-Z]{1}\.{1}|[A-Z]{1}\.{1}[A-Z]{1})+$")
+MAC_MC = re.compile(r"^([Mm]c)(\w.+)")
+
+def set_small_word_list(small=SMALL):
+	global SMALL_WORDS
+	global SMALL_FIRST
+	global SMALL_LAST
+	global SUBPHRASE
+	SMALL_WORDS = re.compile(r'^(%s)$' % small, re.I)
+	SMALL_FIRST = re.compile(r'^([%s]*)(%s)\b' % (PUNCT, small), re.I)
+	SMALL_LAST = re.compile(r'\b(%s)[%s]?$' % (small, PUNCT), re.I)
+	SUBPHRASE = re.compile(r'([:.;?!][ ])(%s)' % small)
+
+def titlecase(text, callback=None):
+	"""
+	Titlecases input text
+
+	This filter changes all words to Title Caps, and attempts to be clever
+	about *un*capitalizing SMALL words like a/an/the in the input.
+
+	The list of "SMALL words" which are not capped comes from
+	the New York Times Manual of Style, plus 'vs' and 'v'.
+
+	AlfredENeumann: in <yampDir>\NoTitlecase,txt excludes may be defined
+
+	"""
+	global yampTitlecaseNochange
+	for excl in yampTitlecaseNochange:
+		if text.startswith(excl): 
+			return(text)
+			
+	lines = re.split('[\r\n]+', text)
+	processed = []
+	for line in lines:
+		all_caps = ALL_CAPS.match(line)
+		words = re.split('[\t ]', line)
+		tc_line = []
+		for word in words:
+			if callback:
+				new_word = callback(word, all_caps=all_caps)
+				if new_word:
+					tc_line.append(new_word)
+					continue
+
+			if all_caps:
+				if UC_INITIALS.match(word):
+					tc_line.append(word)
+					continue
+
+			if APOS_SECOND.match(word):
+				if len(word[0]) == 1 and word[0] not in 'aeiouAEIOU':
+					word = word[0].lower() + word[1] + word[2].upper() + word[3:]
+				else:
+					word = word[0].upper() + word[1] + word[2].upper() + word[3:]
+				tc_line.append(word)
+				continue
+			if INLINE_PERIOD.search(word) or (not all_caps and UC_ELSEWHERE.match(word)):
+				tc_line.append(word)
+				continue
+			if SMALL_WORDS.match(word):
+				tc_line.append(word.lower())
+				continue
+
+			match = MAC_MC.match(word)
+			if match:
+#				if word.lower() != 'machine' and word.lower() != 'machine,' and word.lower() != 'macy':
+				tc_line.append("%s%s" % (match.group(1).capitalize(),
+															match.group(2).capitalize()))
+				continue
+								
+			if "/" in word and "//" not in word:
+				slashed = map(lambda t: titlecase(t,callback), word.split('/'))
+				tc_line.append("/".join(slashed))
+				continue
+
+			if '-' in word:
+				hyphenated = map(lambda t: titlecase(t,callback), word.split('-'))
+				tc_line.append("-".join(hyphenated))
+				continue
+
+			if all_caps:
+				word = word.lower()
+
+			# Just a normal word that needs to be capitalized
+			tc_line.append(CAPFIRST.sub(lambda m: m.group(0).upper(), word))
+
+
+		result = " ".join(tc_line)
+
+		result = SMALL_FIRST.sub(lambda m: '%s%s' % (
+			m.group(1),
+			m.group(2).capitalize()
+		), result)
+
+		result = SMALL_LAST.sub(lambda m: m.group(0).capitalize(), result)
+
+		result = SUBPHRASE.sub(lambda m: '%s%s' % (
+			m.group(1),
+			m.group(2).capitalize()
+		), result)
+
+		processed.append(result)
+
+	return "\n".join(processed)
 

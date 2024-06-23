@@ -2,7 +2,7 @@
 #######################################################################
 #
 #  Yamp Lyrics Functions  
-#  Version 3.3.1 2023-12-06
+#  Version 3.3.2 2024-02-27
 #  Coded by AlfredENeumann (c) 2021-2023
 #  Support: www.vuplus-support.org, board.newnigma2.to
 #
@@ -202,7 +202,7 @@ def textToList(text):
 
 def getLyricsFileNames(songFilepathExt):
 
-	title, album, genre, artist, date, length, tracknr, strBitrate = readID3Infos(songFilepathExt)
+	title, album, genre, artist, albumartist, date, length, tracknr, strBitrate = readID3Infos(songFilepathExt)
 
 	songFilepath=os.path.splitext(songFilepathExt)[0]
 	songFilepathSplit = songFilepath.split('/')

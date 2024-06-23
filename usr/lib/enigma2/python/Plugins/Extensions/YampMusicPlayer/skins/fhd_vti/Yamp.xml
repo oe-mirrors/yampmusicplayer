@@ -1,4 +1,4 @@
-<!-- Yamp Skin V3.3.x FHD @ekremtt - 02.09.2021  adj. AlfredENeumann 30.12.2022-->
+<!-- Yamp Skin V3.3.x FHD VTi @ekremtt - 02.09.2021  adj. AlfredENeumann 30.12.2022 last change 03.03.024 V3.3.2 ekremtt -->
 <!--
 <screen name="YampScreenV33" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
 -->
@@ -76,12 +76,13 @@
 	<eLabel position="10,170" size="940,50" backgroundColor="#383333" zPosition="-1" />
 	<widget name="leftContentTitle" position="10,170" zPosition="3" size="940,50" font="Regular;33" backgroundColor="#4C4449" foregroundColor="#00A4A4A5" halign="center" valign="center" transparent="0" />
 
-	<widget name="filelist" position="35,225" size="890,520" itemFont="Regular;28" itemHeight="40" backgroundColorSelected="#565050" foregroundColorSelected="#00E6E6E6" transparent="1" scrollbarSliderBorderWidth="0" scrollbarWidth="6" scrollbarMode="showOnDemand" />
-
-	<widget name="dblist" position="35,225" size="890,532" itemFont0="Regular;27" itemFont1="Regular;27" backgroundColorSelected="#565050" foregroundColorSelected="#00E6E6E6" zPosition="3" transparent="1" scrollbarSliderBorderWidth="0" scrollbarWidth="6" scrollbarKeepGapColor="1" scrollbarGap="10" selectionDisabled="1" scrollbarMode="showOnDemand" />
-
+	<widget name="filelist" position="35,225" size="890,520" itemFont="Regular;28" itemPos="47,0" itemSize="822,40" itemPosXNoIcon="15" itemWidthNoIcon="854" iconPos="10,10" iconSize="20,20" itemVAlign="center" backgroundColor="#00101214" foregroundColor="#00E6E6E6" backgroundColorSelected="#565050" foregroundColorSelected="#00E6E6E6" transparent="1" scrollbarSliderBorderWidth="0" scrollbarWidth="6" scrollbarMode="showOnDemand" />
+	
+	<widget name="dblist" position="35,225" size="890,520" itemFont0="Regular;28" itemFont1="Regular;26" itemSizeLine1="859,40" itemHeightLine2="30" itemPosLine1="10,6" itemPosLine2="10,40" itemWidthLine1R="65" itemWidthLine2R="180" itemColorLine1="#E1E1E1" itemColorSelLine1="#FFFFFF" itemColorLine2="#ffff00" itemColorSelLine2="#ffff00" backgroundColor="#00101214" foregroundColor="#00E6E6E6" backgroundColorSelected="#565050" foregroundColorSelected="#00E6E6E6" zPosition="3" transparent="1" scrollbarSliderBorderWidth="0" scrollbarWidth="6" scrollbarKeepGapColor="1" scrollbarGap="10" selectionDisabled="1" scrollbarMode="showOnDemand" />
+	
 	<widget name="rightContentTitle" position="970,170" size="940,50" font="Regular;33" backgroundColor="#4C4449" foregroundColor="#00A4A4A5" halign="center" valign="center" zPosition="3" transparent="0" />        
-    <widget name="playlist" position="995,225" size="890,520" itemHeight="40" itemFont="Regular;28" itemPos="62,0" itemSize="855,40" iconPos="4,10" iconSize="24,24" iconFilePos="28,8" backgroundColorSelected="#565050" foregroundColorSelected="#00E6E6E6" zPosition="2" transparent="1" scrollbarSliderBorderWidth="0" scrollbarWidth="6" scrollbarKeepGapColor="1" scrollbarGap="10" selectionDisabled="1" scrollbarMode="showAlways" />
+
+    <widget name="playlist" position="995,225" size="890,520" itemFont="Regular;28" itemPos="62,0" itemSize="807,40"  itemPosXNoIcon="30" itemWidthNoIcon="829" itemVAlign="center" iconPos="30,10" iconSize="20,20" iconPlayPos="0,8" iconPlaySize="22,22" backgroundColor="#00101214" foregroundColor="#00E6E6E6" backgroundColorSelected="#565050" foregroundColorSelected="#00E6E6E6" zPosition="2" transparent="1" scrollbarSliderBorderWidth="0" scrollbarWidth="6" scrollbarKeepGapColor="1" scrollbarGap="10" selectionDisabled="1" scrollbarMode="showAlways" />
 
 	<widget name="txtPlayLen" position="1145,758" zPosition="3" size="100,30" backgroundColor="#00101214" transparent="1" foregroundColor="#00555556" font="Regular;24" valign="top" halign="right"/>
 	<widget name="playLen" position="1265,758" size="140,30" font="Regular;24" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="top" zPosition="3" transparent="1" />

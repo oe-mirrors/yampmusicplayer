@@ -1,17 +1,17 @@
-<!-- Yamp SelectPath fhd Skin V3.3.x 20.03.2021 @ekremtt 13.04.2021 DreamOS changes and some adjustments by AlfredENeumann 21.06.2023-->
+<!-- Yamp SelectPath fhd Skin V3.3.x 20.03.2021 @ekremtt 13.04.2021 DreamOS changes and some adjustments by AlfredENeumann 07.03.2024-->
 <screen name="YampSelectPathScreenV33" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder" >
 	<eLabel position="0,0" size="1920,1080" backgroundColor="#000A0A0A" zPosition="-2" /> <!-- complete window background -->
 	<eLabel position="0,0" size="1920,60" backgroundColor="#00191618" zPosition="-1" /> <!-- title line background -->
-	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdDreamOS/smallshadowline_small.png" position="0,60" size="1920,2" zPosition="2" scale="stretch" />
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins//fhdDreamOS//smallshadowline_small.png" position="0,60" size="1920,2" zPosition="2" scale="stretch" />
 
 	<eLabel position="0,60" size="1920,70" backgroundColor="#00282222" zPosition="-1" /> <!-- button line background -->
-	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdDreamOS/smallshadowline_small.png" position="0,130" size="1920,2" zPosition="2" scale="stretch" />
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins//fhdDreamOS//smallshadowline_small.png" position="0,130" size="1920,2" zPosition="2" scale="stretch" />
 
 	<eLabel position="275,170" size="1370,50" backgroundColor="#00383333" zPosition="-1" /> <!-- window subtitle line background -->
 	<eLabel position="295,220" size="1330,750" backgroundColor="#00191618" zPosition="-1" /> <!-- filelist window background -->	
 
 	<eLabel position="0,1010" size="1920,70" backgroundColor="#001C1717" zPosition="-1" /> <!-- bottom line background -->
-	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdDreamOS/smallshadowline_small.png" position="0,1010" size="1920,2" zPosition="2" scale="stretch" />
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins//fhdDreamOS//smallshadowline_small.png" position="0,1010" size="1920,2" zPosition="2" scale="stretch" />
 
 	<widget name="title" position="40,0" size="900,60" font="Regular;26" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1"  transparent="1" />
 
@@ -21,12 +21,12 @@
 	<widget source="global.CurrentTime" render="Label" position="1380,1" size="380,60" font="Regular; 26" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="right" valign="center" zPosition="1" transparent="1">
 		<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
 	</widget>
-	
+
 	<eLabel position="310,295" size="1300,3" backgroundColor="#00474444" zPosition="3" transparent="0" /><!-- separator line target / filelist  00474444-->
 	
 	<widget name="target" position="325,225" size="1270,90" font="Regular;28" backgroundColor="#00101214" foregroundColor="#00E6E6E6" zPosition="2" transparent="1" />
 
-	<widget name="filelist" position="325,325" size="1270,616" itemHeight="44" itemFont="Regular;20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" transparent="1" backgroundColorSelected="#00565050" foregroundColorSelected="#00E6E6E6" scrollbarSliderBorderWidth="0" scrollbarWidth="6" enableWrapAround="1" scrollbarMode="showOnDemand" />	
+	<widget name="filelist" position="325,325" size="1270,616" itemHeight="44" backgroundColor="#00101214" foregroundColor="#00E6E6E6" transparent="1" backgroundColorSelected="#00565050" foregroundColorSelected="#00E6E6E6" scrollbarSliderBorderWidth="0" scrollbarWidth="6" enableWrapAround="1" scrollbarMode="showOnDemand" />	
 
 	<eLabel name="button_red" position="40,85" size="20,24" backgroundColor="#00FF0000" zPosition="1" />
 	<eLabel name="button_green" position="360,85" size="20,24" backgroundColor="#00267F00" zPosition="1" />

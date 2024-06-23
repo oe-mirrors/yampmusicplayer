@@ -19,9 +19,9 @@ If you need additional parameters, please add them add the end! They will NOT be
 If you do not like this, you are free to use Box-Display-configuration "custom". With this configuration nothing will be overwritten, and you are free what and how you want to adjust.
 -->
 
-<screen name="YampLCDScreenV33" position="0,0" size="400,240"> 
-	<widget name="text1" position="0,0" size="400,80" font="Regular;56" halign="left" foregroundColor="#FF0000" zPosition="3"  transparent="1" />
-	<widget name="text2" position="0,80" size="400,80" font="Regular;56" halign="left" foregroundColor="#FF0000" zPosition="3" transparent="1" />
-	<widget name="text3" position="0,160" size="400,80" font="Regular;56" halign="left" foregroundColor="#FF0000" zPosition="3" transparent="1" />
-	<widget name="coverArt" pixmap="/tmp/coverlcd.png" position="200,20" zPosition="1" size="200,200" transparent="1" alphatest="blend" />
+<screen name="YampLCDScreenV33" position="0,0" size="132,64"> 
+	<widget name="text1" position="0,0" size="132,21" font="Regular;14" halign="left" foregroundColor="#FFFFFF" zPosition="3"  transparent="1" />
+	<widget name="text2" position="0,21" size="132,21" font="Regular;14" halign="left" foregroundColor="#FFFFFF" zPosition="3" transparent="1" />
+	<widget name="text3" position="0,42" size="132,21" font="Regular;14" halign="left" foregroundColor="#FFFFFF" zPosition="3" transparent="1" />
+	<widget name="coverArt" pixmap="/tmp/coverlcd.png" position="72,2" zPosition="1" size="60,60" transparent="1" alphatest="blend" />
 </screen>

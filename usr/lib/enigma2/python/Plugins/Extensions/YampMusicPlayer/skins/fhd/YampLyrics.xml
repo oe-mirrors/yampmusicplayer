@@ -1,4 +1,4 @@
-<!-- Yamp fhd Skin @ekremtt - 01.06.2021 adj. AlfredENeumann 01.03.2023   last change 14.12.2023  -->
+<!-- Yamp fhd Skin @ekremtt - 01.06.2021 adj. AlfredENeumann 01.03.2023   last change 15.03.2024  -->
 <screen name="YampLyricsScreenV33" position="0,0" size="1920,1080" backgroundColor="#00000000" flags="wfNoBorder">
 <!-- backgrounds  -->
 	<eLabel position="0,0" size="1920,1080" backgroundColor="#000A0A0A" zPosition="-2" />	<!-- background screen -->
@@ -19,7 +19,7 @@
 		<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
 	</widget>
 
-	<widget name="lyrics" position="80,225" size="1140,840" itemHeight="44" itemFont="Regular;29" zPosition="2" transparent="1" backgroundColorSelected="#565050" foregroundColorSelected="#00E6E6E6" scrollbarWidth="6" scrollbarSliderBorderWidth="0" selectionDisabled="1" scrollbarMode="showAlways" />
+	<widget name="lyrics" position="80,225" size="1140,840" itemHeight="42" itemFont="Regular;26" zPosition="2" transparent="1" backgroundColorSelected="#565050" foregroundColorSelected="#00E6E6E6" scrollbarWidth="6" scrollbarSliderBorderWidth="0" selectionDisabled="1" scrollbarMode="showAlways" />
 <!--grid for lyrics lines -->
 	<eLabel position="80,269" size="1129,44" backgroundColor="#001E1A1D" zPosition="1" />
 	<eLabel position="80,357" size="1129,44" backgroundColor="#001E1A1D" zPosition="1" />
@@ -36,20 +36,20 @@
 	<widget name="album" position="1283,300" size="600,60" font="Regular;26" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="5" transparent="1" noWrap="1" />
 	
 	<widget name="Tracknr" position="1283,366" size="110,40" font="Regular;20" backgroundColor="#00101214" foregroundColor="#00555556" halign="left" valign="center" zPosition="5" transparent="1" />
-	<widget name="tracknr" position="1380,366" size="80,40" font="Regular;20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="5" transparent="1" />
-	<widget name="Length" position="1477,366" size="90,40" font="Regular;20" backgroundColor="#00101214" foregroundColor="#00555556" halign="left" valign="center" zPosition="5" transparent="1" />
-	<widget name="length" position="1560,366" size="80,40" font="Regular;20" backgroundColor="#00101214" foregroundColor="#00FF0000" halign="center" valign="center" zPosition="5" transparent="1" />
-	<widget name="Date" position="1667,366" size="70,40" font="Regular;20" backgroundColor="#00101214" foregroundColor="#00555556" halign="left" valign="center" zPosition="5" transparent="1" />
-	<widget name="date" position="1745,366" size="140,40" font="Regular;20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="5" transparent="1" />
+	<widget name="tracknr" position="1395,366" size="80,40" font="Regular;20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="5" transparent="1" />
+	<widget name="Length" position="1478,366" size="90,40" font="Regular;20" backgroundColor="#00101214" foregroundColor="#00555556" halign="left" valign="center" zPosition="5" transparent="1" />
+	<widget name="length" position="1560,366" size="100,40" font="Regular;20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="5" transparent="1" />
+	<widget name="Date" position="1673,366" size="70,40" font="Regular;20" backgroundColor="#00101214" foregroundColor="#00555556" halign="left" valign="center" zPosition="5" transparent="1" />
+	<widget name="date" position="1754,366" size="140,40" font="Regular;20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="5" transparent="1" />
 
 	<!-- separator lines title, artist, album tracknr, length , lyrics found, cover found -->
 	<eLabel position="1283,240" size="600,1" backgroundColor="#00404040" />
 	<eLabel position="1283,300" size="600,1" backgroundColor="#00404040" />
 	<eLabel position="1283,360" size="600,1" backgroundColor="#00404040" />
 	<!--tracknr -->
-	<eLabel position="1283,406" size="180,1" backgroundColor="#00404040" />
-	<eLabel position="1483,406" size="190,1" backgroundColor="#00404040" />
-	<eLabel position="1693,406" size="190,1" backgroundColor="#00404040" />
+	<eLabel position="1283,406" size="170,1" backgroundColor="#00404040" />
+	<eLabel position="1478,406" size="170,1" backgroundColor="#00404040" />
+	<eLabel position="1673,406" size="220,1" backgroundColor="#00404040" />
 	<eLabel position="1283,558" size="300,1" backgroundColor="#00404040" />
 	<eLabel position="1283,688" size="300,1" backgroundColor="#00404040" />
 
@@ -86,8 +86,8 @@
 	<widget name="key_red" position="75,70" size="280,54" font="Regular;20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1" transparent="1" />
 	<widget name="key_green" position="395,70" size="280,54" font="Regular;20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1" transparent="1" />
 	<widget name="key_yellow" position="715,70" size="280,54" font="Regular;20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1" transparent="1" />
-	<widget name="key_blue" position="1035,70" size="280,54" font="Regular;20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1" transparent="1" />
-	<eLabel name="textHelp" text="HELP " position="1640,77" size="70,34" font="Regular; 20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="1" transparent="1" />
-	<eLabel name="textMenu" text="MENU " position="1730,77" size="70,34" font="Regular; 20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="1" transparent="1" />
-	<eLabel name="textExit" text="EXIT " position="1820,77" size="70,34" font="Regular; 20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="1" transparent="1" />
+	<widget name="key_blue" position="1035,70" size="350,54" font="Regular;20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1" transparent="1" />
+	<eLabel name="textHelp" text="HELP " position="1640,77" size="70,34" font="Regular;17" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="1" transparent="1" />
+	<eLabel name="textMenu" text="MENU " position="1730,77" size="70,34" font="Regular;17" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="1" transparent="1" />
+	<eLabel name="textExit" text="EXIT " position="1820,77" size="70,34" font="Regular;17" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="1" transparent="1" />
 </screen>

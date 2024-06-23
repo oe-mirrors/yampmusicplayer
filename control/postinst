@@ -18,10 +18,11 @@ FILE="YampFanarttvPersonalApi.key"
 if [ -f /tmp/$FILE ]; then cp -f -p /tmp/$FILE $YAMPDIR; echo "$FILE copied from /tmp";fi;
 #------------------------
 #copy custom screens back from /tmp/ if exist
-#before: if at least /tmp/Yamp.xml exists, we assume that an old custom screen is existing
-#therefore we will delete the *.ver file in the install dir to be sure that the old version is recognized as old
-FILE_CHECK="/Yamp.xml"
+#if at least /tmp/Yamp.xml exists, we assume that an old custom screen is existing, and we will copy
+#if not, no copy, instead we will copy the new *.ver-file to the custom skin 
+
 FILE_VERSION="/*.ver" 
+FILE_CHECK="/Yamp.xml"
 DIR_DEST_BASE=$YAMPDIR"skins"
 #------------- custom ------
 DIRCUSTOM="custom"
@@ -29,32 +30,28 @@ DIR_SOURCE="/tmp/$DIRCUSTOM"
 DIR_DEST=$DIR_DEST_BASE/$DIRCUSTOM
 FCHECK=/tmp/$DIRCUSTOM$FILE_CHECK
 F=$DIR_DEST$FILE_VERSION
-if ls $FCHECK 1> /dev/null 2>&1; then rm -f $F; echo "$F deleted"; else echo "$FCHECK not existing, $F not deleted"; fi
-if [ -d $DIR_SOURCE ]; then cp -f -R $DIR_SOURCE $DIR_DEST_BASE; echo "$DIR_SOURCE copied from /tmp to " $DIR_DEST_BASE; fi;
+if ls $FCHECK 1> /dev/null 2>&1; then echo "$FCHECK existing, old custom"; cp -f -R $DIR_SOURCE $DIR_DEST_BASE; echo "$DIR_SOURCE copied from /tmp to " $DIR_DEST_BASE; else cp -f /tmp$FILE_VERSION $DIR_DEST; echo "$FCHECK not existing, new *.ver copied to $DIR_DEST"; fi
 #------------- fhdCustom ------
 DIRCUSTOM="fhdCustom"
 DIR_SOURCE="/tmp/$DIRCUSTOM" 
 DIR_DEST=$DIR_DEST_BASE/$DIRCUSTOM
 FCHECK=/tmp/$DIRCUSTOM$FILE_CHECK
 F=$DIR_DEST$FILE_VERSION
-if ls $FCHECK 1> /dev/null 2>&1; then rm -f $F; echo "$F deleted"; else echo "$FCHECK not existing, $F not deleted"; fi
-if [ -d $DIR_SOURCE ]; then cp -f -R $DIR_SOURCE $DIR_DEST_BASE; echo "$DIR_SOURCE copied from /tmp to " $DIR_DEST_BASE; fi;
+if ls $FCHECK 1> /dev/null 2>&1; then echo "$FCHECK existing, old custom"; cp -f -R $DIR_SOURCE $DIR_DEST_BASE; echo "$DIR_SOURCE copied from /tmp to " $DIR_DEST_BASE; else cp -f /tmp$FILE_VERSION $DIR_DEST; echo "$FCHECK not existing, new *.ver copied to $DIR_DEST"; fi
 #------------- customDreaamOS ------
-DIRCUSTOM="customDreaamOS"
+DIRCUSTOM="customDreamOS"
 DIR_SOURCE="/tmp/$DIRCUSTOM" 
 DIR_DEST=$DIR_DEST_BASE/$DIRCUSTOM
 FCHECK=/tmp/$DIRCUSTOM$FILE_CHECK
 F=$DIR_DEST$FILE_VERSION
-if ls $FCHECK 1> /dev/null 2>&1; then rm -f $F; echo "$F deleted"; else echo "$FCHECK not existing, $F not deleted"; fi
-if [ -d $DIR_SOURCE ]; then cp -f -R $DIR_SOURCE $DIR_DEST_BASE; echo "$DIR_SOURCE copied from /tmp to " $DIR_DEST_BASE; fi;
+if ls $FCHECK 1> /dev/null 2>&1; then echo "$FCHECK existing, old custom"; cp -f -R $DIR_SOURCE $DIR_DEST_BASE; echo "$DIR_SOURCE copied from /tmp to " $DIR_DEST_BASE; else cp -f /tmp$FILE_VERSION $DIR_DEST; echo "$FCHECK not existing, new *.ver copied to $DIR_DEST"; fi
 #------------- fhdCustomDreamOS ------
 DIRCUSTOM="fhdCustomDreamOS"
 DIR_SOURCE="/tmp/$DIRCUSTOM" 
 DIR_DEST=$DIR_DEST_BASE/$DIRCUSTOM
 FCHECK=/tmp/$DIRCUSTOM$FILE_CHECK
 F=$DIR_DEST$FILE_VERSION
-if ls $FCHECK 1> /dev/null 2>&1; then rm -f $F; echo "$F deleted"; else echo "$FCHECK not existing, $F not deleted"; fi
-if [ -d $DIR_SOURCE ]; then cp -f -R $DIR_SOURCE $DIR_DEST_BASE; echo "$DIR_SOURCE copied from /tmp to " $DIR_DEST_BASE; fi;
+if ls $FCHECK 1> /dev/null 2>&1; then echo "$FCHECK existing, old custom"; cp -f -R $DIR_SOURCE $DIR_DEST_BASE; echo "$DIR_SOURCE copied from /tmp to " $DIR_DEST_BASE; else cp -f /tmp$FILE_VERSION $DIR_DEST; echo "$FCHECK not existing, new *.ver copied to $DIR_DEST"; fi
 #
 #-----------copy ArtistPicsExample to HDD if HDD exists -----------
 DIR_SOURCE="/tmp/ArtistPics_Example_Yamp_AlfredENeumann" 

@@ -1,4 +1,4 @@
-<!-- Yamp Skin V3.3.x Full HD  -  Thanks to and provided by @ekremtt  DreamOS changes and some adjustments by AlfredENeumann last change 17.06.2023 -->
+<!-- Yamp Skin V3.3.x Full HD  -  Thanks to and provided by @ekremtt  DreamOS changes and some adjustments by AlfredENeumann last change 17.03.2024 -->
 
 <screen name="YampScreenV33" position="0,0" size="1920,1080" backgroundColor="#00000000" flags="wfNoBorder">
 
@@ -9,8 +9,8 @@
 
 <!-- Hintergründe  -->
 	<eLabel position="0,824" size="1920,256" backgroundColor="#001C1717" zPosition="-1" />
-	<eLabel position="25,220" size="910,570" backgroundColor="#00191618" zPosition="-1" />
-	<eLabel position="985,220" size="910,570" backgroundColor="#00191618" zPosition="-1" />
+	<eLabel position="25,220" size="910,580" backgroundColor="#00191618" zPosition="-1" />
+	<eLabel position="985,220" size="910,580" backgroundColor="#00191618" zPosition="-1" />
 
 <!-- Trennlinien oben und unten -->
 	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdDreamOS/smallshadowline_small.png" position="0,60" size="1920,2" zPosition="2" scale="stretch" />
@@ -19,7 +19,7 @@
 
 	<widget name="title" position="40,0" size="700,60" font="Regular;26" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1"  transparent="1" />
 
-	<widget name="actskin" position="710,0" size="240,60" backgroundColor="#18101214" foregroundColor="#00E6E6E6" transparent="1" zPosition="1" font="Regular;20" valign="center" halign="left" />
+	<widget name="actskin" position="710,0" size="240,60" backgroundColor="#18101214" foregroundColor="#00E6E6E6" transparent="1" zPosition="1" font="Regular;23" valign="center" halign="left" />
 
 	<widget source="global.CurrentTime" render="Label" position="1730,0" size="180,60" font="Regular; 32" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="right" valign="center" zPosition="1" transparent="1">
 		<convert type="ClockToText">Format:%H:%M:%S</convert>
@@ -30,7 +30,7 @@
 
 
 	<!-- these lines must not be removed begin !!!! (license reasons) -->
-	<widget name="fanartdownload" position="955,0" size="220,60" font="Regular;20" backgroundColor="#00191618" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="8" transparent="0" />
+	<widget name="fanartdownload" position="955,0" size="220,60" font="Regular;23" backgroundColor="#00191618" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="8" transparent="0" />
 	<widget source="musicbrainzlogo" render="Pixmap" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdDreamOS/musicbrainz.png" position="1195,8" size="91,14" zPosition="8" transparent="0" alphatest="blend">
 		<convert type="ConditionalShowHide" />
 	</widget>
@@ -42,27 +42,29 @@
 
 	<widget name="leftContentTitle" position="10,170" zPosition="3" size="940,50" font="Regular;28" backgroundColor="#004C4449" foregroundColor="#00A4A4A5" halign="center" valign="center" transparent="0" />
 
-	<widget name="filelist" position="35,225" size="890,520" itemFont="Regular;25" itemHeight="40" backgroundColorSelected="#00565050" foregroundColorSelected="#00E6E6E6" transparent="0" scrollbarSliderBorderWidth="0" scrollbarWidth="6" scrollbarMode="showOnDemand" />
+	<widget name="filelist" position="35,225" size="890,540" itemFont="Regular;28" itemPos="70,0" itemSize="810,45" itemPosXNoIcon="20" itemWidthNoIcon="860" itemVAlign="center" iconSize="30,30" iconPos="15,7" backgroundColor="#00191618" foregroundColor="#00E6E6E6" backgroundColorSelected="#00565050" foregroundColorSelected="#00E6E6E6"  scrollbarSliderForegroundColor="#00FF1618" transparent="0" scrollbarSliderBorderWidth="5" scrollbarWidth="10" scrollbarMode="showOnDemand" />
 
-	<widget name="dblist" position="35,225" size="890,540" itemFont0="Regular;26" itemFont1="Regular;24" backgroundColorSelected="#00565050" foregroundColorSelected="#00E6E6E6" zPosition="3" transparent="0" scrollbarSliderBorderWidth="0" scrollbarWidth="6" selectionDisabled="1" scrollbarMode="showOnDemand" />
+	<widget name="dblist" position="35,225" size="890,540" itemFont0="Regular;28" itemFont1="Regular;21" itemSizeLine1="850,45" itemHeightLine2="22" itemPosLine1="10,3" itemPosLine2="50,40" itemWidthLine1R="90" itemWidthLine2R="180" itemVAlignLine1="top" itemVAlignLine2="bottom" itemColorLine1="#E1E1E1" itemColorSelLine1="#FFFFFF" itemColorLine2="#00777777" itemColorSelLine2="#00AAAAAA" backgroundColor="#00101214" foregroundColor="#00E6E6E6" backgroundColorSelected="#00565050" foregroundColorSelected="#00E6E6E6" zPosition="3" transparent="1" scrollbarSliderBorderWidth="0" scrollbarWidth="6" selectionDisabled="1" scrollbarMode="showOnDemand" />
 
 	<widget name="rightContentTitle" position="970,170" size="940,50" font="Regular;28" backgroundColor="#004C4449" foregroundColor="#00A4A4A5" halign="center" valign="center" zPosition="3" transparent="0" />        
-    <widget name="playlist" position="995,225" size="890,520" itemHeight="40" itemFont="Regular;26" itemPos="60,0" itemSize="855,40" iconPos="2,8" iconSize="24,24" iconFilePos="25,8" backgroundColorSelected="#00565050" foregroundColorSelected="#00E6E6E6" zPosition="2" transparent="1" scrollbarSliderBorderWidth="0" scrollbarWidth="6" scrollbarMode="showAlways" selectionDisabled="1" />
+    
+	<widget name="playlist" position="995,225" size="890,540"  itemFont="Regular;28" itemPos="85,0" itemSize="795,45"  itemPosXNoIcon="45" itemWidthNoIcon="835" itemVAlign="center" iconPos="40,7" iconSize="30,30" iconPlayPos="6,10" iconPlaySize="25,25" backgroundColor="#00101214" foregroundColor="#00E6E6E6" backgroundColorSelected="#00565050" foregroundColorSelected="#00E6E6E6" zPosition="2" transparent="1" scrollbarSliderBorderWidth="5" scrollbarSliderForegroundColor="#000000FF" crollbarSliderBorderColor="00FF0000" scrollbarWidth="10" scrollbarMode="showAlways" selectionDisabled="1" />
 
-	<widget name="txtPlayLen" position="1280,758" zPosition="3" size="100,30" backgroundColor="#00101214" transparent="1" foregroundColor="#00E6E6E6" font="Regular;20" valign="top" halign="right"/>
-	<widget name="playLen" position="1400,758" size="140,30" font="Regular;20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="top" zPosition="3" transparent="1" />
+	<widget name="txtPlayLen" position="1280,770" zPosition="3" size="100,30" backgroundColor="#00101214" transparent="1" foregroundColor="#00E6E6E6" font="Regular;23" valign="top" halign="right"/>
+	<widget name="playLen" position="1400,770" size="140,30" font="Regular;23" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="top" zPosition="3" transparent="1" />
 
-	<widget name="txtPlayLenRem" position="1540,758" size="100,30" font="Regular;20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="right" valign="top" transparent="1" zPosition="3" />
+	<widget name="txtPlayLenRem" position="1540,770" size="100,30" font="Regular;23" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="right" valign="top" transparent="1" zPosition="3" />
 
-	<widget name="playLenRem" position="1660,758" size="140,30" font="Regular;20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="top" zPosition="3" transparent="1" />	
+	<widget name="playLenRem" position="1660,770" size="140,30" font="Regular;23" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="top" zPosition="3" transparent="1" />	
 
-	<widget name="actPlayNumber" position="1650,758" size="200,30" font="Regular;20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="right" valign="top" zPosition="3" transparent="1" />	
-	<eLabel position="995,265" size="879,40" backgroundColor="#1E1A1D" zPosition="1" />
-	<eLabel position="995,345" size="879,40" backgroundColor="#1E1A1D" zPosition="1" />
-	<eLabel position="995,425" size="879,40" backgroundColor="#1E1A1D" zPosition="1" />
-	<eLabel position="995,505" size="879,40" backgroundColor="#1E1A1D" zPosition="1" />
-	<eLabel position="995,585" size="879,40" backgroundColor="#1E1A1D" zPosition="1" />
-	<eLabel position="995,665" size="879,40" backgroundColor="#1E1A1D" zPosition="1" />
+	<widget name="actPlayNumber" position="1650,770" size="200,30" font="Regular;23" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="right" valign="top" zPosition="3" transparent="1" />	
+
+	<eLabel position="995,270" size="876,45" backgroundColor="#1E1A1D" zPosition="1" />
+	<eLabel position="995,360" size="876,45" backgroundColor="#1E1A1D" zPosition="1" />
+	<eLabel position="995,450" size="876,45" backgroundColor="#1E1A1D" zPosition="1" />
+	<eLabel position="995,540" size="876,45" backgroundColor="#1E1A1D" zPosition="1" />
+	<eLabel position="995,630" size="876,45" backgroundColor="#1E1A1D" zPosition="1" />
+	<eLabel position="995,720" size="876,45" backgroundColor="#1E1A1D" zPosition="1" />
 
 	<widget name="songtitle" position="342,872" size="1054,40" font="Regular;30" backgroundColor="#0000253F" foregroundColor="#000085E5" halign="left" valign="center" zPosition="7" transparent="1" noWrap="1" />
 	<widget source="session.CurrentService" render="Label" position="1312,834" size="100,32" font="Regular;26" backgroundColor="#00101214" foregroundColor="#00FF0000" valign="center" halign="center" zPosition="7" transparent="1">
@@ -132,13 +134,13 @@
 	<eLabel name="button_yellow" position="680,85" size="20,24" backgroundColor="#00FFD800" zPosition="1" />
 	<eLabel name="button_blue" position="1000,85" size="20,24" backgroundColor="#000026FF" zPosition="1" />
 
-	<widget name="key_red" position="75,70" size="280,54" font="Regular;20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1" transparent="1" />
-	<widget name="key_green" position="395,70" size="280,54" font="Regular;20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1" transparent="1" />
-	<widget name="key_yellow" position="715,70" size="280,54" font="Regular;20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1" transparent="1" />
-	<widget name="key_blue" position="1035,70" size="280,54" font="Regular;20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1" transparent="1" />
+	<widget name="key_red" position="75,70" size="280,54" font="Regular;23" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1" transparent="1" />
+	<widget name="key_green" position="395,70" size="280,54" font="Regular;23" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1" transparent="1" />
+	<widget name="key_yellow" position="715,70" size="280,54" font="Regular;23" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1" transparent="1" />
+	<widget name="key_blue" position="1035,70" size="280,54" font="Regular;23" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1" transparent="1" />
 
 	<eLabel name="textMenu" text="MENU" position="1480,62" size="70,34" font="Regular; 20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="1" transparent="1" />
-	<widget name="textInfo" text="" position="1570,62" size="70,34" font="Regular;20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" transparent="1" zPosition="1" />
+	<widget name="textInfo" text="" position="1570,62" size="70,34" font="Regular;23" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" transparent="1" zPosition="1" />
 	<eLabel name="textText" text="TEXT(L)" position="1655,62" size="80,34" font="Regular; 20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="1" transparent="1" />
 	<eLabel name="textOK" text="OK" position="1750,62" size="70,34" font="Regular; 20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="1" transparent="1" />
 	<eLabel name="textExit" text="EXIT " position="1840,62" size="70,34" font="Regular; 20" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="1" transparent="1" />

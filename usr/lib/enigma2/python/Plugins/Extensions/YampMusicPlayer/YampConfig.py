@@ -2,7 +2,7 @@
 #######################################################################
 #
 #	YAMP - Yet Another Music Player - YampConfig
-#	Version 3.3.1 2024-01-04
+#	Version 3.3.2 2024-03-17
 #	Coded by JohnHenry (c)2013 (up to V2.6.5)
 #	Extended by AlfredENeumann (c)2016-2024
 #	Support: www.vuplus-support.org, board.newnigma2.to
@@ -26,7 +26,9 @@ from Components.ConfigList import *
 
 from Components.Sources.StaticText import StaticText
 from Components.Pixmap import Pixmap
-from myFileList import *
+from Components.FileList import FileList
+from Screens.ChoiceBox import ChoiceBox
+
 from YampFileFunctions import *
 from YampBoxDisplay import *
 
@@ -132,6 +134,14 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 		self["textBouquet"].setText(txtBouq)
 		self.showHidePig(self.videoPreviewOn)			
 		self.startTimer.start(250,True)
+		
+		#remove custom skin options where Yamp.xml is missing
+		skinPath = os.path.join(yampDir, 'skins/')
+		if not os.path.isfile(skinPath + 'custom/Yamp.xml'): self.deleteSkinOption('custom')
+		if not os.path.isfile(skinPath + 'fhdCustom/Yamp.xml'): self.deleteSkinOption('fhdCustom')
+		if not os.path.isfile(skinPath + 'customDreamOS/Yamp.xml'): self.deleteSkinOption('customDreamOS')
+		if not os.path.isfile(skinPath + 'fhdCustomDreamOS/Yamp.xml'): self.deleteSkinOption('fhdCustomDreamOS')
+
 
 	def startActions(self):
 		self.updateLCDText(TEXTLCD, 1)
@@ -158,6 +168,8 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 		newSkin=failed=''
 		newSkin=config.plugins.yampmusicplayer.yampSkin.value
 		failed,oldCustom=self.parent.checkSkinFiles(newSkin)
+		if ('Yamp.xml' in failed) and ('custom' in newSkin.lower()):	#custom skin,Yamp.xml missing: Custom not existing, no message, just deactivate
+			return newSkin, failed
 		if failed:
 			try:
 				msg= _('Skin <%s> not possible, as\n\n%s\n\n(and maybe more) is missing\n\nSkin is disabled now! To enable it again, Yamp has to be restarted') %(self.parent.getSkinName(newSkin), failed)
@@ -174,7 +186,7 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 		return newSkin, failed	
 	
 	def deleteSkinOption(self, skin):
-		LOG('YampConfigScreen: deleteSkinOption: skin: %s' %(skin), 'err') 
+#		LOG('YampConfigScreen: deleteSkinOption: skin: %s' %(skin), 'all') 
 		skinChoices = config.plugins.yampmusicplayer.yampSkin.choices.choices
 		for skinValue in skinChoices:
 			if skinValue[0] == skin:
@@ -512,7 +524,7 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 			elif currSelection == self.confDbPlTitleOnce:
 				self["help"].setText(_("left-right:\n\n On: if there is  more than one song with the same title and artist name or title and genre name in the database, only one will be displayed in the appropriate database list\n\ndefault: On"))
 			elif currSelection == self.confDbPlStandard:
-				self["help"].setText(_("left-right:\n\n On: Titles and artists will be 'titlecased', i.e. start with an upper case letter and continuing with lower case letters. \nThis is useful, when there are different spellings of the same title or artist in the ID3 tags. It works best with words in English language\n\ndefault: On"))
+				self["help"].setText(_("left-right:\n\n On: Titles and artists will be 'titlecased', i.e. start with an upper case letter and continuing with lower case letters. \nThis is useful, when there are different spellings of the same title or artist in the ID3 tags. It works best with words in English language\n\nRemark: In <YampDir> there is a file 'NoTitlecase.txt' where excludes can be defined. Entries in this file will remain unchanged. Default entries: AC-DC, BAP, fun., INXS\n\ndefault: On"))
 			elif currSelection == self.confDbPlPlLayout:
 				self["help"].setText(_("left-right:\n\n Different options for the layout of the playlist.\n\nAttention: this setting is only used for new entries, it will not change already existing entries.\n If you want the same layout for all entries, you should not change this setting on an existing playlist.\n\ndefault: Title and Artist"))
 			elif currSelection == self.confDbPlNext:
@@ -992,6 +1004,8 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 		except Exception as e:
 			LOG('YampConfigScreen: keyGreen: EXCEPT save: %s' %(str(e)), 'err') 
 		skinChanged = self.previousSkin != config.plugins.yampmusicplayer.yampSkin.value
+		if ('fhd' in config.plugins.yampmusicplayer.yampSkin.value)	or ('TV' in config.plugins.yampmusicplayer.yampSkin.value):
+			self.askTvon()
 
 		newModeCover = 'cover' in newLcdMode
 		oldModeCover = 'cover' in self.previousLcdMode
@@ -1027,6 +1041,33 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 		dbPathChanged = self.previousDbPath != config.plugins.yampmusicplayer.databasePath.value
 		
 		self.close(False, skinChanged, dbPathChanged, lcdChanged, lcdXmlChanged, lcdRunningChanged)
+
+	def askTvon(self):
+		if config.plugins.yampmusicplayer.yampShowTV.value == 'no':
+#		if True:
+			choices=[]
+			choices.append((_('no TV at all'), 'no'))
+			choices.append((_('Audio only on Start only'), 'AudioStart'))
+			choices.append((_('With picture on Start only'), 'AudioPicStart'))
+			choices.append((_('Audio always'), 'Audio'))
+			choices.append((_('With picture always'), 'AudioPic'))
+		
+			self.session.openWithCallback(self.askTvonChoice, ChoiceBox, title=_('you selected a skin with video-preview\nPlease select if you want to switch on TV in preview window now:'), list=choices)
+
+	def askTvonChoice(self,choice):
+		if choice is not None:
+			try:
+				config.plugins.yampmusicplayer.yampShowTV.choices.choices=[
+				("no", _("no TV at all")),
+				("AudioStart", _("Audio only on Start only")),
+				("AudioPicStart", _("With picture on Start only")),
+				("Audio", _("Audio always")),
+				("AudioPic", _("With picture always")),
+				]
+			except Exception as e:
+				LOG('YampConfigScreen: askTvonChoice: setchoices: EXCEPT: ' + str(e), 'err') 
+			config.plugins.yampmusicplayer.yampShowTV.value = choice[1]
+			config.plugins.yampmusicplayer.yampShowTV.save()
  
 	def keyBlue(self):
 		pass
@@ -1039,8 +1080,6 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 				config.plugins.yampmusicplayer.lyricsPlayOffsetTime.value *= -1			
 			except Exception as e:
 				LOG('YampConfigScreen: keyYellow1: EXCEPT: ' + str(e), 'err') 
-	 
-													 
 			try:
 				self["config"].instance.moveSelection(self["config"].instance.moveDown)
 				self["config"].instance.moveSelection(self["config"].instance.moveUp)
@@ -1103,25 +1142,6 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 		filename = os.path.join(yampDir, "skins", config.plugins.yampmusicplayer.yampSkin.value, 'YampLCD.xml')
 		msg = _('Could not read cover size from\n\n%s\n\nWrong formatted?\n\nSelection of box-display size <custom> disabled.') %(filename) 
 		self.session.open(MessageBox, msg , type = MessageBox.TYPE_ERROR,timeout = 30 )
-		
-
-	def testapplySkin(self, desktop, parent):
-		LOG('\nYampConfigScreenV33: applySkin: Start', 'err')
-
-		return
-		attribs = []
-		if self.skinAttributes is not None:
-			for (attrib, value) in self.skinAttributes:
-				if attrib == "itemFont":
-					self.itemFont = parseFont(value, ((1,1),(1,1)))
-				else:
-					attribs.append((attrib, value))
-		try:
-			self.skinAttributes = attribs
-		except:
-			LOG('YampDatabaseList: applySkin: SetskinAttributes   EXCEPT', 'err') 
-
-		return GUIComponent.applySkin(self, desktop, parent)
 
 
 class YampSelectPathScreenV33(Screen):
@@ -1149,7 +1169,12 @@ class YampSelectPathScreenV33(Screen):
 			"altMoveTop": self.keyMoveTop,
 			"altMoveEnd": self.keyMoveEnd,
 		}, -1)
-		
+		self.onLayoutFinish.append(self.layoutFinished)
+
+
+	def layoutFinished(self):
+		self.keyOK()
+
 	def keyExit(self):
 		self.close(None)
 

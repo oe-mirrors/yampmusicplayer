@@ -1,0 +1,28 @@
+<!-- Yamp V3.3.1 Full HD Skin for fhdDreamOS by @ekremtt 13.01.2024 -->
+
+<screen name="YampSelectPathScreenV33" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder" >
+<!-- Hintergründe  -->
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffeeDreamOS/bg_yamp_2.png" position="0,0" size="1920,1080" zPosition="-4" alphatest="off" />
+	<eLabel position="55,168" size="1370,50" backgroundColor="#4C453F" zPosition="-1" />
+	<eLabel position="75,220" size="1330,830" backgroundColor="#59514A" zPosition="-1" />
+
+	<widget name="title" position="30,0" size="1550,70" font="Regular;36" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="left" valign="center" zPosition="1" transparent="1" noWrap="1" />
+
+	<widget source="global.CurrentTime" render="Label" position="1595,0" zPosition="1" size="295,36" font="Regular; 32" valign="center" halign="right" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" transparent="1">
+		<convert type="ClockToText">Format:%H:%M:%S</convert>
+	</widget>
+	<widget source="global.CurrentTime" render="Label" position="1595,34" zPosition="1" size="295,36" font="Regular; 26" valign="center" halign="right" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" transparent="1">
+		<convert type="ClockToText">Format:%A %e %b. %Y</convert>
+	</widget>
+
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/common/yamp2.png" position="1570,880" size="200,100" zPosition="3" transparent="1" alphatest="on" />
+	
+	<eLabel position="105,317" size="1270,3" backgroundColor="#808080" zPosition="3" transparent="0" /><!-- separator line target / filelist  00474444-->
+
+	<widget name="target" position="105,225" size="1270,90" font="Regular;28" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" zPosition="2" transparent="1" />
+	<widget name="filelist" position="105,325" size="1270,704" itemHeight="44" transparent="1" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" backgroundColorSelected="#826352" foregroundColorSelected="#00FFAA00" scrollbarSliderBorderWidth="0" scrollbarWidth="6" enableWrapAround="1" scrollbarMode="showOnDemand" />
+	
+	<eLabel text="Cancel" position="40,75" zPosition="1" size="300, 70" font="Regular;23" halign="left" valign="center" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" transparent="1" />
+	<eLabel text="Save" position="364,75" zPosition="1" size="300, 70" font="Regular;23" halign="left" valign="center" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" transparent="1" />	
+	<eLabel name="button exit" text="EXIT " position="1800,75" size="100,70" font="Regular; 20" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="center" valign="center" zPosition="1" transparent="1" />	
+</screen>

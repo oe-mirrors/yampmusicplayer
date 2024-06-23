@@ -20,8 +20,8 @@ If you do not like this, you are free to use Box-Display-configuration "custom".
 -->
 
 <screen name="YampLCDScreenV33" position="0,0" size="400,240"> 
-	<widget name="text1" position="0,0" size="400,80" font="Regular;56" halign="left" foregroundColor="#FFFFFF" zPosition="3"  transparent="1" />
-	<widget name="text2" position="0,80" size="400,80" font="Regular;56" halign="left" foregroundColor="#FFFFFF" zPosition="3" transparent="1" />
-	<widget name="text3" position="0,160" size="400,80" font="Regular;56" halign="left" foregroundColor="#FFFFFF" zPosition="3" transparent="1" />
-	<widget name="coverArt" pixmap="/tmp/coverlcd.png" position="200,20" zPosition="1" size="200,200" transparent="1" alphatest="blend" />
+	<widget name="text1" position="0,0" size="170,80" font="Regular;45" halign="left" foregroundColor="#FFFFFF" zPosition="3"  transparent="1" />
+	<widget name="text2" position="0,80" size="170,80" font="Regular;45" halign="left" foregroundColor="#FFFFFF" zPosition="3" transparent="1" />
+	<widget name="text3" position="0,160" size="170,80" font="Regular;45" halign="left" foregroundColor="#FFFFFF" zPosition="3" transparent="1" />
+	<widget name="coverArt" pixmap="/tmp/coverlcd.png" position="170,5" zPosition="1" size="230,230" transparent="1" alphatest="blend" />
 </screen>

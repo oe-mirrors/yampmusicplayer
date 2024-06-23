@@ -1,4 +1,4 @@
-<!-- Yamp Config fhd Skin @ekremtt - adj. 30.12.2022 AlfredENeumann--> 
+<!-- Yamp Config fhd Skin @ekremtt - adj. 30.12.2022 AlfredENeumann  last change 03.03.024 V3.3.2 ekremtt --> 
 <screen name="YampConfigScreenV33" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
 <!-- Hintergründe ganzer Screen, Titel, Buttonleiste -->
 	<eLabel position="0,0" size="1920,1080" backgroundColor="#0A0A0A" zPosition="-2" />
@@ -22,7 +22,8 @@
 		<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
 	</widget>
 
-	<widget name="config" position="105,225" size="1270,704" itemHeight="44" font="Regular;28" secondfont="Regular;28" zPosition="2" transparent="1" backgroundColorSelected="#565050" foregroundColorSelected="#00E6E6E6" scrollbarSliderBorderWidth="0" scrollbarGap="20" scrollbarKeepGapColor="1" scrollbarWidth="6" enableWrapAround="1" scrollbarMode="showOnDemand" />
+	<widget name="config" position="105,225" size="1270,704" textOffset="10,8" itemHeight="44" font="Regular;28" secondfont="Regular;28" zPosition="2" transparent="1" backgroundColor="#00101214" foregroundColor="#00E6E6E6" backgroundColorSelected="#565050" foregroundColorSelected="#00E6E6E6" scrollbarSliderBorderWidth="0" scrollbarGap="20" scrollbarKeepGapColor="1" scrollbarWidth="6" enableWrapAround="1" scrollbarMode="showOnDemand" />
+	
 	<widget name="help" position="1430,170" size="485,519" backgroundColor="#00101214" foregroundColor="#00E6E6E6" transparent="1" zPosition="1" font="Regular;26" valign="top" halign="center" />
 	
 	<widget source="session.CurrentService" render="Pig" position="1415,689" size="500,281" OverScan="0" zPosition="4" backgroundColor="transparent" transparent="0" />

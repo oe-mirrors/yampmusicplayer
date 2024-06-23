@@ -1,9 +1,16 @@
 <keymap>
     <!--
     enigma2-plugin-extensions-yampmusicplayer - 2017 AlfredENeumann
-		adjusted 30.12.2023 AlfredENeumann
+		adjusted 21.03.2024 AlfredENeumann
 		extended for Keyboard 13.05.2021 v.02 by pclin
-		
+
+	added:  KEY_RECORD (L) for TV for RC without TV (for example Dream TWO)
+			PLAY long for direct play including subdirs
+			KEY_TV long, KEY_RADIO long for RC with combined TV/Radio-key
+			KEY_NEXTSONG (L), KEY_PREVIOUSSONG for %-Jumps 
+			KEY_FASTFORWARD (L), KEY_REWIND (L) for %-Jumps other boxes (for example VU)
+	corrected: KEY_PLAYPAUSE
+
     m = make -> Normal key press
     b = break -> Key released
     l = long -> Long key press
@@ -59,8 +66,10 @@
 		<key id="KEY_NEXT" mapto="nextTitle" flags="m" />
 		<key id="KEY_PREVIOUS" mapto="prevTitle" flags="m" />
 		<key id="KEY_PAUSE" mapto="pause" flags="m" />
-		<key id="KEY_PLAYPAUSE" mapto="pause" flags="m" />
-		<key id="KEY_PLAY" mapto="play" flags="m" />
+		<key id="KEY_PLAYPAUSE" mapto="play" flags="b" />
+		<key id="KEY_PLAYPAUSE" mapto="playLong" flags="l" />
+		<key id="KEY_PLAY" mapto="play" flags="b" />
+		<key id="KEY_PLAY" mapto="playLong" flags="l" />
 		<key id="KEY_STOP" mapto="stop" flags="m" />
 		<key id="KEY_INFO" mapto="info" flags="b" />
 		<key id="KEY_INFO" mapto="infoLong" flags="l" />
@@ -69,6 +78,7 @@
 		<key id="KEY_5" mapto="key5" flags="m" />
 		<key id="KEY_8" mapto="altMoveEnd" flags="m" />
 		<key id="KEY_TV" mapto="Tv" flags="b" />
+		<key id="KEY_RECORD" mapto="Tv" flags="b" />
 		<key id="KEY_RADIO" mapto="Radio" flags="b" />
 		<key id="KEY_VIDEO" mapto="Pvr" flags="m" />
 		<key id="KEY_AUDIO" mapto="Audio" flags="m" />
@@ -81,6 +91,14 @@
 		<key id="KEY_7" mapto="key7" flags="m" />
 		<key id="KEY_9" mapto="key9" flags="m" />
 		<key id="KEY_RED" mapto="redLong" flags="l" />
+		<key id="KEY_NEXTSONG" mapto="keyPercentJumpFw" flags="b" />
+		<key id="KEY_NEXTSONG" mapto="keyPercentJumpFwLong" flags="l" />
+		<key id="KEY_PREVIOUSSONG" mapto="keyPercentJumpBw" flags="b" />
+		<key id="KEY_PREVIOUSSONG" mapto="keyPercentJumpBwLong" flags="l" />
+		<key id="KEY_FASTFORWARD" mapto="keyPercentJumpFw" flags="b" />
+		<key id="KEY_FASTFORWARD" mapto="keyPercentJumpFwLong" flags="l" />
+		<key id="KEY_REWIND" mapto="keyPercentJumpBw" flags="b" />
+		<key id="KEY_REWIND" mapto="keyPercentJumpBwLong" flags="l" />
 	</map>
 	<map context="YampOtherActions">
 		<device name="compatible: pcKeyboard">
@@ -106,6 +124,7 @@
 		<key id="KEY_BLUE" mapto="blue" flags="b" />
 		<key id="KEY_BLUE" mapto="blueLong" flags="l" />
 		<key id="KEY_TV" mapto="TvLong" flags="l" />
+		<key id="KEY_RECORD" mapto="TvLong" flags="l" />
 		<key id="KEY_RADIO" mapto="RadioLong" flags="l" />
 	</map>
 	<map context="YampSeekActions">

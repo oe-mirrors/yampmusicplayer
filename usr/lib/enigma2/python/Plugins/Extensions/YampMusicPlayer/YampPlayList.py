@@ -1,8 +1,8 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 #######################################################################
 #
 #	YAMP - Yet Another Music Player - PlayList
-#	Version 3.3.1 2024-01-02
+#	Version 3.3.2 2024-03-17
 #	Coded by JohnHenry (c)2013
 #	Extended by AlfredENeumann (c)2016-2024
 #	Support: www.vuplus-support.org, board.newnigma2.to
@@ -26,8 +26,9 @@ from Components.config import config
 from Components.GUIComponent import GUIComponent
 from Components.MultiContent import MultiContentEntryText
 
-from enigma import eListboxPythonMultiContent, RT_VALIGN_CENTER, gFont
+from enigma import eListboxPythonMultiContent, RT_VALIGN_TOP, RT_VALIGN_CENTER, RT_VALIGN_BOTTOM, gFont
 import enigma
+from enigma import getDesktop
 
 from random import shuffle
 
@@ -41,19 +42,46 @@ class YampPlayList(MenuList):
 	def __init__(self, enableWrapAround = True):
 		MenuList.__init__(self, [], enableWrapAround, eListboxPythonMultiContent)
 
-		try:   #!!!noch andere Vorgaben fuer FHD
-			self.itemFont = parseFont("Regular;18", ((1,1),(1,1)))
-			self.myItemHeight = 23
-			self.itemPos = parsePosition("25,1", ((1,1),(1,1)))
-			self.itemSize = parseSize("470,22", ((1,1),(1,1)))
-			self.iconPos = parsePosition("5,3", ((1,1),(1,1)))
-			self.iconSize = parseSize("16,16", ((1,1),(1,1)))
-		except:
-			LOG('YampPlayList: init: setDefaults:  EXCEPT', 'err') 
-		
+		self.currentPngPath=yampDir + 'skins/' + config.plugins.yampmusicplayer.yampSkin.value + '/filelist/'
+
+		if getDesktop(0).size().width() > 1280:	#FHD
+			self.itemFont=parseFont("Regular;28", ((1,1),(1,1)))
+			self.myItemWidth = 795
+			self.myItemHeight = 45
+			self.myItemPosX = 85
+			self.myItemPosY = 0
+			self.itemPosXno = 45
+			self.myItemWidthNo = 835
+			self.alignVert = RT_VALIGN_CENTER
+			self.iconPosX = 40
+			self.iconPosY = 7
+			self.iconSizeX = 30
+			self.iconSizeY = 30
+			self.iconPlayPosX = 6
+			self.iconPlayPosY = 10
+			self.iconPlaySizeX = 25
+			self.iconPlaySizeY = 25
+		else:	
+			self.itemFont=parseFont("Regular;18", ((1,1),(1,1)))
+			self.myItemWidth = 520
+			self.myItemHeight = 25
+			self.myItemPosX = 45
+			self.myItemPosY = 1
+			self.itemPosXno = 25
+			self.myItemWidthNo = 560
+			self.alignVert = RT_VALIGN_CENTER
+			self.iconPosX = 5
+			self.iconPosY = 3
+			self.iconSizeX = 16
+			self.iconSizeY = 16
+			self.iconPlayPosX = 2
+			self.iconPlayPosY = 4
+			self.iconPlaySizeX = 16
+			self.iconPlaySizeY = 16
+
 		self.currPlaying = -1
-		self.oldCurrPlaying = -1			#!!!lokale Bilder
-		self.icons = [
+		self.oldCurrPlaying = -1		#!!!lokale Icons??	
+		self.iconsPlayState = [
 			LoadPixmap(resolveFilename(SCOPE_CURRENT_SKIN, "skin_default/icons/ico_mp_play.png")),
 			LoadPixmap(resolveFilename(SCOPE_CURRENT_SKIN, "skin_default/icons/ico_mp_pause.png")),
 			LoadPixmap(resolveFilename(SCOPE_CURRENT_SKIN, "skin_default/icons/ico_mp_stop.png")),
@@ -66,100 +94,127 @@ class YampPlayList(MenuList):
 
 	def applySkin(self, desktop, parent):
 		attribs = []
-		self.iconFilePos = parsePosition("25,3", ((1,1),(1,1)))
 
 		if self.skinAttributes is not None:
-			for (attrib, value) in self.skinAttributes:
-				if attrib == "itemHeight":
-					self.myItemHeight = int(value)
-				elif attrib == "itemFont":
-					self.itemFont = parseFont(value, ((1,1),(1,1)))
-				elif attrib == "itemPos":
-					self.itemPos = parsePosition(value, ((1,1),(1,1)))
-				elif attrib == "itemSize":
-					self.itemSize = parseSize(value, ((1,1),(1,1)))
-				elif attrib == "iconPos":
-					self.iconPos = parsePosition(value, ((1,1),(1,1)))
-				elif attrib == "iconSize":
-					self.iconSize = parseSize(value, ((1,1),(1,1)))
-				elif attrib == "iconFilePos":
-					self.iconFilePos = parsePosition(value, ((1,1),(1,1)))
-				else:
-					attribs.append((attrib, value))
+			try:
+				for (attrib, value) in self.skinAttributes:
+					if attrib == "itemPos":
+						pos = parsePosition(value, ((1,1),(1,1)))
+						self.myItemPosX = pos.x()
+						self.myItemPosY = pos.y()
+					elif attrib == "itemPosXNoIcon":
+						self.itemPosXno = int(value)
+					elif attrib == "itemHeight":	#for compatibility with old versions
+						self.myItemHeight = int(value)
+					elif attrib == "itemSize":
+						size = parseSize(value, ((1,1),(1,1)))
+						self.myItemWidth = size.width()
+						self.myItemHeight = size.height()
+					elif attrib == "itemWidthNoIcon":
+						self.myItemWidthNo = int(value)
+
+					elif attrib == "itemVAlign":
+						if value.lower() == 'top': self.alignVert = RT_VALIGN_TOP
+						elif value.lower() == 'bottom': self.alignVert = RT_VALIGN_BOTTOM
+						else: self.alignVert = RT_VALIGN_CENTER
+					elif attrib == "iconSize":
+						size = parseSize(value, ((1,1),(1,1)))
+						self.iconSizeX = size.width()
+						self.iconSizeY = size.height()
+					elif attrib == "iconFilePos":	#forcompatibility with old version
+						pos = parsePosition(value, ((1,1),(1,1)))
+						self.iconPosX = pos.x()
+						self.iconPosY = pos.y()
+					elif attrib == "iconPos":
+						pos = parsePosition(value, ((1,1),(1,1)))
+						self.iconPosX = pos.x()
+						self.iconPosY = pos.y()
+					elif attrib == "iconPlaySize":
+						size = parseSize(value, ((1,1),(1,1)))
+						self.iconPlaySizeX = size.width()
+						self.iconPlaySizeY = size.height()
+					elif attrib == "iconPlayPos":
+						pos = parsePosition(value, ((1,1),(1,1)))
+						self.iconPlayPosX = pos.x()
+						self.iconPlayPosY = pos.y()
+					elif attrib == "itemFont":
+						self.itemFont = parseFont(value, ((1,1),(1,1)))
+					else:
+						attribs.append((attrib, value))
+			except Exception as e:		
+				LOG('\nYampPlayList: applySkin: EXCEPT: ' + str(e), 'err')
 					
 		try:
 			self.l.setFont(0, self.itemFont)
-		except:
-			LOG('YampPlayList: applySkin: setFont   EXCEPT', 'err') 
+		except Exception as e:		
+			LOG('YampPlayList: applySkin: setFont: EXCEPT: ' + str(e), 'err') 
 		try:
 			self.l.setItemHeight(self.myItemHeight)
-		except:
-			LOG('YampPlayList: applySkin: setHeight   EXCEPT', 'err') 
+		except Exception as e:		
+			LOG('YampPlayList: applySkin: setHeight: EXCEPT: ' + str(e), 'err') 
 		try:
 			self.skinAttributes = attribs
-		except:
-			LOG('YampPlayList: applySkin: SetskinAttributes   EXCEPT', 'err') 
+		except Exception as e:		
+			LOG('YampPlayList: applySkin: SetskinAttributes EXCEPT: ' + str(e), 'err') 
 
 		return GUIComponent.applySkin(self, desktop, parent)
 
 
 	def PlaylistEntryComponent(self, serviceref, state):
-		global currentPngPath
+		noBT_SCALE = False
+		try: from enigma import BT_SCALE
+		except: noBT_SCALE = True
+
 		res = [ serviceref ]
 		text = serviceref.getName()
-		currentSkinPath=yampDir + 'skins/' + config.plugins.yampmusicplayer.yampSkin.value + '/'
-		currentPngPath=currentSkinPath + 'filelist/'
 
 		if text == "":
 			text = os.path.splitext(os.path.basename(serviceref.getPath()))[0]
 		try:
 			path = serviceref.getPath()
-		except:
-			LOG('PlaylistEntryComponent: path: EXCEPT', 'err')
+		except Exception as e:		
+			LOG('YampPlayList: PlaylistEntryComponent: path: EXCEPT: ' + str(e), 'err')
 
-		try:		
-			x = self.itemPos.x()
-			y = self.itemPos.y()
-		except:
-			LOG('PlaylistEntryComponent: Read item x,y: EXCEPT', 'err')
-		try:
-			w = self.itemSize.width()
-			h = self.itemSize.height()
-		except:
-			LOG('PlaylistEntryComponent: Read item w,h : EXCEPT', 'err')
-		xi = self.iconPos.x()
-		yi = self.iconPos.y()
-		wi = self.iconSize.width()
-		hi = self.iconSize.height()
-		xi2 = self.iconFilePos.x()
-		yi2 = self.iconFilePos.y()
-
-		pngType = None
-		if config.plugins.yampmusicplayer.playListIcons.value:
+		notAvailableColor = 0xFF0000 
+		if not config.plugins.yampmusicplayer.playListIcons.value:
+			try:
+				if os.path.isfile(path):
+					res.append((eListboxPythonMultiContent.TYPE_TEXT, self.itemPosXno, self.myItemPosY, self.myItemWidthNo, self.myItemHeight, 0, self.alignVert, text))
+				else:
+					res.append((eListboxPythonMultiContent.TYPE_TEXT, self.itemPosXno, self.myItemPosY, self.myItemWidthNo, self.myItemHeight, 0, self.alignVert, text, notAvailableColor))
+			except Exception as e:		
+				LOG('YampPlayList: PlaylistEntryComponent: append with color: EXCEPT: + str(e)', 'err')
+		else:	#with icons
+			try:
+				if os.path.isfile(path):
+					res.append((eListboxPythonMultiContent.TYPE_TEXT, self.myItemPosX, self.myItemPosY, self.myItemWidth, self.myItemHeight, 0, self.alignVert, text))
+				else:
+					res.append((eListboxPythonMultiContent.TYPE_TEXT, self.myItemPosX, self.myItemPosY, self.myItemWidth, self.myItemHeight, 0, self.alignVert, text, notAvailableColor))
+			except Exception as e:		
+				LOG('YampPlayList: PlaylistEntryComponent: append with color, icon: EXCEPT' + str(e), 'err')
+		
+			png = None
 			extension = path.rsplit('.',1)[-1].lower()
 			if EXTENSIONS.has_key(extension):
-				pngType = LoadPixmap(currentPngPath + EXTENSIONS[extension] + '.png')
-		else: x=xi2
-		
-		notAvailableColor = 0xFF0000 
+				png = LoadPixmap(self.currentPngPath + EXTENSIONS[extension] + '.png')
+			if png is not None:
+				if noBT_SCALE: #TYPE_PIXMAP_ALPHATEST?
+					res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, self.iconPosX, self.iconPosY, self.iconSizeX, self.iconSizeY, png))
+				else:
+					res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, self.iconPosX, self.iconPosY, self.iconSizeX, self.iconSizeY, png, None, None, BT_SCALE))
+		#play, pause, stop icon
 		try:
-			if os.path.isfile(path):
-				res.append((eListboxPythonMultiContent.TYPE_TEXT, x, y, w, h, 0, RT_VALIGN_CENTER, text))
+			if state == STATE_NONE: return res 
+
+			png = self.iconsPlayState[state]
+			if noBT_SCALE:  #TYPE_PIXMAP_ALPHATEST?
+				res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, self.iconPlayPosX, self.iconPlayPosY, self.iconPlaySizeX, self.iconPlaySizeY, png))
 			else:
-				res.append((eListboxPythonMultiContent.TYPE_TEXT, x, y, w, h, 0, RT_VALIGN_CENTER, text, notAvailableColor))
-		except:
-			LOG('PlaylistEntryComponent: append with color: EXCEPT', 'err')
-
-
-		if pngType is not None:
-			res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHATEST, xi2, yi2, 20, 20, pngType))
-
-		try:
-			png = self.icons[state]
-			res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHATEST, xi, yi, wi, hi, png))
-		except:
-			pass
+				res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, self.iconPlayPosX, self.iconPlayPosY, self.iconPlaySizeX, self.iconPlaySizeY, png, None, None, BT_SCALE))
+		except Exception as e:		
+			LOG('YampPlayList: PlaylistEntryComponent: PlayIcon: EXCEPT' + str(e), 'err')
 		return res
+
 
 	def clear(self):
 		del self.list[:]
@@ -169,6 +224,16 @@ class YampPlayList(MenuList):
 		self.oldCurrPlaying = -1
 		self.isShuffeled = False
 		self.sortMode = 0
+
+	def getName(self, index):
+		try:
+			try:
+				return self.list[index][1][7]
+			except:
+				return ''
+		except Exception as e:		
+			LOG('YampPlayList: getName: EXCEPT' + str(e), 'err')
+
 		
 	def getSelection(self):
 		return self.l.getCurrentSelection() and self.l.getCurrentSelection()[0]
@@ -185,10 +250,9 @@ class YampPlayList(MenuList):
 		self.list.insert(index, self.PlaylistEntryComponent(serviceref, STATE_NONE))
 		
 	def deleteService(self, index):
-		currEntry = self.list[self.currPlaying]
+#		currEntry = self.list[self.currPlaying]
 		currRef = self.getServiceRefList()[self.currPlaying]
 		currPath = currRef.getPath()
-
 		del self.shadowList [self.getShadowIndex(index)]
 		del self.list[index] # this must be done AFTER deleting the shadowList entry, because the service to be deleted is searched for there!
 		if self.currPlaying >= index:
@@ -357,6 +421,7 @@ class YampPlayList(MenuList):
 			else: self.currPlaying += 1
 		elif newIndex == lastIndex:						#title was wrapped
 			self.currPlaying -=1
+		if self.currPlaying < -1: self.currPlaying = -1	
 
 		if not self.isShuffeled:
 			elem = self.shadowList.pop(index)
@@ -388,4 +453,3 @@ class YampPlayList(MenuList):
 			elem = self.shadowList.pop(index)
 			self.shadowList.insert(index+1, elem)
 		return newIndex	
-			

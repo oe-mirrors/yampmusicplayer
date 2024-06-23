@@ -2,8 +2,8 @@
 #######################################################################
 #
 #    YAMP - Yet Another Music Player - Globals
-#    Version 3.3.1-T24 2023-06-07
-#    Coded by AlfredENeumann (c)2016-2023
+#    Version 3.3.2 2024-02-28
+#    Coded by AlfredENeumann (c)2016-2024
 #    Support: www.vuplus-support.org, board.newnigma2.to
 #
 #    This program is free software; you can redistribute it and/or
@@ -22,16 +22,9 @@
 yampDir = "/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/"
 audioExtensions = (".mp2", ".mp3", ".wav", ".ogg", ".flac", ".m4a", ".wma")
 
-currentPngPath=''
-currentSkinPath=''
+yampTitlecaseNochange=[]
 minList=[]
 secList=[]
-#filelist Parameters
-x1=1 #Pos x, in code changed to 10 or 35
-y1=1 #Pow y
-sx1=sy1=ix1=iy1=1 #sizex. sizey, in code changed to 1000, 1
-									#iconposx, iconposy, in code change to 1, 3
-isx1=isy1=20  #iconsizex, iconsizey
 
 FANARTTVAPPAPIFILE = yampDir + '.YampFanarttvAppApi.key'
 FANARTTVPERSAPIFILE = yampDir + 'YampFanarttvPersonalApi.key'
@@ -136,11 +129,6 @@ EXTENSIONS = {
 	}
 
 
-# TEMPFILEDBWORKING = '/tmp/yampdbworking.mp'
-# TEMPFILEDBFINISHED = '/tmp/yampdbfinished.mp'
-# TEMPFILEDBCANCEL = '/tmp/yampdbcancel.mp'
-
-
 import os
 import re
 from enigma import eTimer
@@ -148,7 +136,7 @@ from enigma import eTimer
 from Components.ActionMap import ActionMap, HelpableActionMap
 from Components.config import config, ConfigSubsection, ConfigDirectory, ConfigYesNo, ConfigSelection, ConfigInteger, ConfigText, ConfigBoolean, getConfigListEntry, configfile 
 from Components.Label import Label
-from Components.Sources.StaticText import StaticText   #!!!!!neu
+from Components.Sources.StaticText import StaticText
 
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox

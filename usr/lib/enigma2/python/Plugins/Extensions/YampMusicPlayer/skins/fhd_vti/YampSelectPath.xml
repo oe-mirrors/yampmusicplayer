@@ -1,4 +1,4 @@
-<!-- Yamp fhd Skin @ekremtt -->
+<!-- Yamp fhd Skin @ekremtt last change 03.03.024 V3.3.2 ekremtt -->
 <screen name="YampSelectPathScreenV33" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder" >
 	<eLabel position="0,0" size="1920,1080" backgroundColor="#0A0A0A" zPosition="-2" />
 	<eLabel position="0,0" size="1920,60" backgroundColor="#191618" zPosition="-1" />
@@ -19,7 +19,8 @@
 	</widget>
 	<eLabel position="105,317" size="1270,3" backgroundColor="#474444" zPosition="3" transparent="0" />
 	<widget name="target" position="105,225" size="1270,90" font="Regular;32" backgroundColor="#00101214" foregroundColor="#00E6E6E6" zPosition="2" transparent="1" />
-	<widget name="filelist" position="105,325" size="1270,616" itemHeight="44" itemFont="Regular;28" backgroundColor="#00101214" foregroundColor="#00E6E6E6" transparent="1" backgroundColorSelected="#565050" foregroundColorSelected="#00E6E6E6" scrollbarSliderBorderWidth="0" scrollbarGap="10" scrollbarKeepGapColor="1" scrollbarWidth="6" enableWrapAround="1" scrollbarMode="showOnDemand" />
+
+	<widget name="filelist" position="105,325" size="1270,616" itemHeight="44" backgroundColor="#00101214" foregroundColor="#00E6E6E6" transparent="1" backgroundColorSelected="#565050" foregroundColorSelected="#00E6E6E6" scrollbarSliderBorderWidth="0" scrollbarGap="10" scrollbarKeepGapColor="1" scrollbarWidth="6" enableWrapAround="1" scrollbarMode="showOnDemand" />
 
 	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhd_vti/red.png" position="30,79" size="31,31" alphatest="blend" />
 	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhd_vti/green.png" position="350,79" size="31,31" alphatest="blend" />

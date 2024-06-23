@@ -1,4 +1,4 @@
-<!-- Yamp Config fhd Skin @ekremtt - DreamOS changes by AlfredENeumann  last change: 17.12.2023  --> 
+<!-- Yamp Config fhd Skin @ekremtt - DreamOS changes by AlfredENeumann  last change: 07.03.2024  --> 
 <screen name="YampConfigScreenV33" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
 <!-- Hintergründe ganzer Screen, Titel, Buttonleiste -->
 	<eLabel position="0,0" size="1920,1080" backgroundColor="#000A0A0A" zPosition="-2" />
@@ -8,8 +8,8 @@
 	<eLabel position="55,170" size="1370,50" backgroundColor="#00383333" zPosition="-1" />
 	<eLabel position="75,225" size="1330,840" backgroundColor="#00191618" zPosition="-1" />	
 	
-	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhd/smallshadowline_1920.png" position="0,60" size="1920,2" zPosition="2" scale="stretch"/>
-	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhd/smallshadowline_1920.png" position="0,130" size="1920,2" zPosition="2" scale="stretch" />
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdDreamOS/smallshadowline_small.png" position="0,60" size="1920,2" zPosition="2" scale="stretch"/>
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdDreamOS/smallshadowline_small.png" position="0,130" size="1920,2" zPosition="2" scale="stretch" />
 
 	<widget name="title" position="40,0" size="900,60" font="Regular;26" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1"  transparent="1" />
 	<widget source="global.CurrentTime" render="Label" position="1730,0" size="180,60" font="Regular; 32" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="right" valign="center" zPosition="1" transparent="1">
@@ -19,7 +19,8 @@
 		<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
 	</widget>
 
-	<widget name="config" position="105,230" size="1270,830" itemHeight="44" zPosition="2" transparent="1" backgroundColorSelected="#565050" foregroundColorSelected="#00E6E6E6" scrollbarSliderBorderWidth="0" scrollbarWidth="6" enableWrapAround="1" scrollbarMode="showOnDemand" />
+	<widget name="config" position="105,230" size="1270,830" itemHeight="44" zPosition="2" transparent="1" backgroundColor="#00101214" foregroundColor="#00E6E6E6" backgroundColorSelected="#565050" foregroundColorSelected="#00E6E6E6" scrollbarSliderBorderWidth="0" scrollbarWidth="6" enableWrapAround="1" scrollbarMode="showOnDemand" />
+	
 	<widget name="help" position="1430,170" size="485,619" backgroundColor="#00101214" foregroundColor="#00E6E6E6"  transparent="1" zPosition="1" font="Regular;24" valign="top" halign="center" />
 	
 	<widget source="session.CurrentService" render="Pig" position="1415,789" size="500,281" zPosition="4" backgroundColor="transparent" transparent="0" />

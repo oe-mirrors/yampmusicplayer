@@ -1,4 +1,4 @@
-<!-- Yamp fhd Skin @ekremtt -  DreamOS changes by AlfredENeumann    last change: 11.12.2023  -->
+<!-- Yamp fhd Skin @ekremtt -  DreamOS changes by AlfredENeumann    last change: 15.03.2024  -->
 <screen name="YampLyricsScreenV33" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
 <!-- backgrounds  -->
 	<eLabel position="0,0" size="1920,1080" backgroundColor="#000A0A0A" zPosition="-2" />	<!-- background screen -->
@@ -19,7 +19,7 @@
 		<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
 	</widget>
 
-	<widget name="lyrics" position="80,225" size="1140,840" itemHeight="44" itemFont="Regular;29" zPosition="2" transparent="1" backgroundColorSelected="#565050" foregroundColorSelected="#00E6E6E6" scrollbarWidth="6" scrollbarSliderBorderWidth="0" selectionDisabled="1" scrollbarMode="showAlways" />
+	<widget name="lyrics" position="80,225" size="1140,840" itemHeight="44" itemFont="Regular;29" zPosition="2" transparent="1" backgroundColor="#00101214" foregroundColor="#00E6E6E6" backgroundColorSelected="#565050" foregroundColorSelected="#00E6E6E6" scrollbarWidth="6" scrollbarSliderBorderWidth="0" selectionDisabled="1" scrollbarMode="showAlways" />
 <!--grid for lyrics lines -->
 	<eLabel position="80,269" size="1129,44" backgroundColor="#001E1A1D" zPosition="1" />
 	<eLabel position="80,357" size="1129,44" backgroundColor="#001E1A1D" zPosition="1" />
@@ -38,7 +38,7 @@
 	<widget name="Tracknr" position="1290,366" size="100,40" font="Regular;24" backgroundColor="#00101214" foregroundColor="#00555556" halign="left" valign="center" zPosition="5" transparent="1" />
 	<widget name="tracknr" position="1390,366" size="80,40" font="Regular;24" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="5" transparent="1" />
 	<widget name="Length" position="1490,366" size="90,40" font="Regular;24" backgroundColor="#00101214" foregroundColor="#00555556" halign="left" valign="center" zPosition="5" transparent="1" />
-	<widget name="length" position="1580,366" size="80,40" font="Regular;24" backgroundColor="#00101214" foregroundColor="#00FF0000" halign="center" valign="center" zPosition="5" transparent="1" />
+	<widget name="length" position="1580,366" size="80,40" font="Regular;24" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="5" transparent="1" />
 	<widget name="Date" position="1700,366" size="65,40" font="Regular;24" backgroundColor="#00101214" foregroundColor="#00555556" halign="left" valign="center" zPosition="5" transparent="1" />
 	<widget name="date" position="1760,366" size="140,40" font="Regular;24" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="5" transparent="1" />
 
