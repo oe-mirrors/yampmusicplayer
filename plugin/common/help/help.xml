@@ -2,27 +2,27 @@
 <screen name="YampHelpScreenV33" position="center,center" size="1280,720" backgroundColor="#00000000" flags="wfNoBorder">
 
 	<eLabel position="0,0" size="1280,60" backgroundColor="#00242424" />
-	<widget name="title" position="20,0" size="380,60" backgroundColor="#18101214" foregroundColor="#00E6E6E6" transparent="1" zPosition="1" font="Regular;24" valign="center" halign="left" />
+	<widget name="title" position="20,0" size="380,60" backgroundColor="#18101214" foregroundColor="#00E6E6E6" transparent="1" zPosition="1" font="Regular;22" valign="center" halign="left" />
 	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/common/help/RahmenBlau1280x720.png" position="0,0" size="1280,720" zPosition="5" transparent="0" alphatest="blend" />
 	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/common/yamp.png" position="1170,10" size="100,40" zPosition="3" transparent="1" alphatest="on" />
 	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/common/help/smallshadowline.png" position="0,60" size="1280,2" zPosition="2"/>
 
 	<widget name="button_red" position="300,20" size="20,24" backgroundColor="#00FF0000" zPosition="1"  />
-	<widget name="key_red" position="330,0" size="200,60" font="Regular;20" backgroundColor="#00242424" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1" transparent="1" />
+	<widget name="key_red" position="330,0" size="200,60" font="Regular;18" backgroundColor="#00242424" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1" transparent="1" />
 	<widget name="button_green" position="560,20" size="20,24" backgroundColor="#0000FF00" zPosition="1"  />
-	<widget name="key_green" position="590,0" size="150,60" font="Regular;20" backgroundColor="#00242424" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1"  />  
+	<widget name="key_green" position="590,0" size="150,60" font="Regular;18" backgroundColor="#00242424" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1"  />  
 	<widget name="button_yellow" position="780,20" size="20,24" backgroundColor="#00FFFF00" zPosition="1"  />
-	<widget name="key_yellow" position="810,0" size="150,60" font="Regular;20" backgroundColor="#00242424" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1"  /> 
+	<widget name="key_yellow" position="810,0" size="150,60" font="Regular;18" backgroundColor="#00242424" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1"  /> 
 	<widget name="button_blue" position="1000,20" size="20,24" backgroundColor="#000000FF" zPosition="1"  />
-	<widget name="key_blue" position="1030,0" size="150,60" font="Regular;20" backgroundColor="#00242424" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1"  /> 
+	<widget name="key_blue" position="1030,0" size="150,60" font="Regular;18" backgroundColor="#00242424" foregroundColor="#00E6E6E6" halign="left" valign="center" zPosition="1"  /> 
 
 	<widget name="topText" position="40,80" size="1200,60"  halign="center" backgroundColor="#00000000" foregroundColor="#FFA200"  zPosition="3" font="Regular; 26"  />
 
-	<widget name="headLine" position="40,140" size="1200,40"  backgroundColor="#00000000" foregroundColor="#02D7D0"  zPosition="2" font="Regular; 26"  />
+	<widget name="headLine" position="40,140" size="1200,40"  backgroundColor="#00000000" foregroundColor="#02D7D0"  zPosition="2" font="Regular; 24"  />
 <!--
 	<widget name="helpText" position="40,180" size="1200,600"  backgroundColor="#00000000" foregroundColor="#00E6E6E6"  zPosition="2" font="Regular; 22" scrollbarMode="showAlways" scrollbarWidth="30"	/>
 -->
-	<widget name="helpText" position="40,180" size="1200,500"  backgroundColor="#00000000" foregroundColor="#00E6E6E6"  zPosition="2" font="Regular; 22" />
+	<widget name="helpText" position="40,180" size="1200,500"  backgroundColor="#00000000" foregroundColor="#00E6E6E6"  zPosition="2" font="Regular; 20" />
 
 	<widget name="helpPic" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/common/yamp.png" position="0,0" size="1,1" zPosition="3" transparent="1" alphatest="blend" />
 

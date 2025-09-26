@@ -2,8 +2,9 @@
 #######################################################################
 #
 #	YAMP - Yet Another Music Player - Lyrics
-#	Version 3.3.1 2023-12-24
-#	Coded by  by AlfredENeumann (c)2016-2023
+#	Version 3.3.2 2024-03-08
+#	Coded by  by AlfredENeumann (c)2016-2024
+#   Last change: 2025-09-26 by Mr.Servo @OpenATV
 #	Support: www.vuplus-support.org, board.newnigma2.to
 #
 #	This program is free software; you can redistribute it and/or
@@ -18,87 +19,61 @@
 #
 #######################################################################
 
-import os
-import re
-
-import requests
-
-from Screens.MessageBox import MessageBox
-from Components.Label import Label
-
-
-from Components.config import config
-
-from Components.Pixmap import MultiPixmap
-
-from Screens.HelpMenu import HelpableScreen
-from Screens.ChoiceBox import ChoiceBox
-
-
-from Components.ActionMap import ActionMap, HelpableActionMap
-
+from bs4 import BeautifulSoup
+from os import remove
+from os.path import join, exists, isfile
+from re import sub
+from requests import get
 from urllib.parse import quote, unquote
+from twisted.internet.reactor import callInThread
 from xml.etree.cElementTree import fromstring as xml_fromstring
-
-#Lyricslist
-
+from enigma import eListboxPythonMultiContent, eListbox, eTimer, fontRenderClass, RT_VALIGN_CENTER, RT_HALIGN_LEFT
+from Components.ActionMap import ActionMap, HelpableActionMap
+from Components.config import config
 from Components.GUIComponent import GUIComponent
-from Components.MultiContent import MultiContentEntryText
-
 from Components.Input import Input
+from Components.Label import Label
+from Components.MultiContent import MultiContentEntryText
+from Components.Pixmap import MultiPixmap
+from Screens.ChoiceBox import ChoiceBox
+from Screens.HelpMenu import HelpableScreen
 from Screens.InputBox import InputBox
+from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
-
-from enigma import eListboxPythonMultiContent, eListbox, RT_VALIGN_CENTER, RT_HALIGN_LEFT
-
-from skin import parseFont  # , parsePosition, parseSize
-from enigma import fontRenderClass
-from enigma import eTimer
-
-# our own modules
-from . import _
+from Tools.BoundFunction import boundFunction
+from skin import parseFont
 from .YampBoxDisplay import YampLCDRunningScreenV33, YampLCDScreenV33
 from .YampPixmaps import YampCoverArtPixmap
-
-from .YampCommonFunctions import getPage, readID3Infos
-
-from .YampFileFunctions import htmlUnescape
-
-from .YampGlobals import *  # yampDir
-
-from .YampLyricsFunctions import *  # getLyricsFileNames, getLyricsID3, searchLyricsfromFiles, textToList, addTimeOffset, delLyricsLine, lyricsClean
-
+from .YampCommonFunctions import getUrlData, readID3Infos
+from .YampGlobals import yampDir, COVERS_NO, LYRICSS_NO, LYRICSS_AZ, STATE_PLAY, LYRICSS_CHARTL, LYRICSS_LYRDIR, LYRICSS_FILE
+from .YampLyricsFunctions import getLyricsFileNames, getLyricsID3, searchLyricsfromFiles, textToList, addTimeOffset, delLyricsLine, lyricsClean
 from .myLogger import LOG
+from . import _
 
 GETLYRICSTIMEOUT = 10
-
-#class YampLyricsScreenV33Screen, InfoBarSeek):
 
 
 class YampLyricsScreenV33(Screen, HelpableScreen):
 	def __init__(self, session, parent, videoPreviewOnPar):
-
-		try:
-			Screen.__init__(self, session)
-			with open(os.path.join(yampDir, "skins", config.plugins.yampmusicplayer.yampSkin.value, "YampLyrics.xml"), 'r') as f:
-				self.skin = f.read()
-			self.parent = parent
-			self.videoPreviewOn = videoPreviewOnPar
-		except Exception as e:
-			LOG('YampLyricsScreen: init: EXCEPT: ' + str(e), 'err')
-
+		Screen.__init__(self, session)
+		xmlfile = join(yampDir, "skins", config.plugins.yampmusicplayer.yampSkin.value, "YampLyrics.xml")
+		if not exists(xmlfile):
+			LOG('YampLyricsScreenV33: __init__: File not found: "%s"' % xmlfile, 'err')
+			return
+		with open(xmlfile, 'r') as f:
+			self.skin = f.read()
+		self.parent = parent
+		self.videoPreviewOn = videoPreviewOnPar
 		self["title"] = Label(_("YAMP Music Player Lyrics"))
 		self.lyricslist = YampLyricsList()
 		self.lyrics = ''
 		self.lyricsAzError = ''
 		self.lyricsChartError = ''
-
 		self.lyricsEditMode = False
 		self.editIndex = 0
 		self.copiedLine = ''
 		self.pigElement = None
 		self.par1 = None
-
 		self["lyrics"] = self.lyricslist
 		self["songtitle"] = Label("")
 		self["artist"] = Label("")
@@ -110,19 +85,15 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 		self["Date"] = Label(_("Date"))
 		self["date"] = Label("")
 		self["bitrate"] = Label("")
-
 		self["providedby"] = Label(_("songtext provided by:"))
 		self["provider"] = MultiPixmap()
 		self["coverArt"] = YampCoverArtPixmap()
 		self["cprovidedby"] = Label(_("Cover provided by:"))
 		self["cprovider"] = MultiPixmap()
-
 		self["key_red"] = Label(_("Exit"))
 		self["key_green"] = Label("")
 		self["key_yellow"] = Label("")
 		self["key_blue"] = Label("")
-
-		# Action maps
 		self["Menuactions"] = HelpableActionMap(self, "YampActions",
 		{
 			"menu": (self.showMenu, _("Lyrics / Karaoke timestamp edit options")),
@@ -140,8 +111,11 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 			"key6": (self.key6, _("jump forward in title middle")),
 			"key7": (self.key7, _("jump back in title long")),
 			"key9": (self.key9, _("jump forward in title long")),
+			"keyPercentJumpFw": (self.keyPercentJumpFwActions, _("Jump Forward 10%")),
+			"keyPercentJumpBw": (self.keyPercentJumpBwActions, _("Jump Backward 10%")),
+			"keyPercentJumpFwLong": (self.keyPercentJumpFwLActions, _("Jump Forward 20%")),
+			"keyPercentJumpBwLong": (self.keyPercentJumpBwLActions, _("Jump Backward 20%")),
 		}, -2)
-
 		self["actions"] = ActionMap(["YampActions", "YampOtherActions"],
 		{
 			"red": self.keyExit,
@@ -152,12 +126,10 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 			"yellow": self.keyYellow,
 			"blue": self.keyBlue,
 		}, -1)
-
 		self["LyrHelpActions"] = ActionMap(["YampHelpActions"],
 		{
 			"help": self.showHelp,
 		}, -2)
-
 		self.onLayoutFinish.append(self.layoutFinished)
 		self.onClose.append(self.cleanup)
 		self.triggerTimer = eTimer()
@@ -166,7 +138,6 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 		self.updateTimer.callback.append(self.updateInfoCyclic)
 		self.lyricsAutoSaveTimer = eTimer()
 		self.lyricsAutoSaveTimer.callback.append(self.autoSaveLyrics)
-
 		self.LcdText = ''
 		self.autoMoveOn = True
 		self.allowTimeEdit = False
@@ -182,9 +153,10 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 		self.coverArtFile = ''
 		self.pixNumLyrics = LYRICSS_NO
 		self.lyricsFoundPrio = LYRICSS_NO
-
 		self.replaceText = self.parent.infoBarNaReplace
 		self.waitForSaveAnswer = False
+		self.jumpFwLongActive = False
+		self.jumpBwLongActive = False
 
 	def layoutFinished(self):
 		try:
@@ -193,13 +165,11 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 			self.setSongInfo()
 		except Exception as e:
 			LOG('YampLyricsScreen: layoutFinished: setSongInfo: EXCEPT: ' + str(e), 'err')
-
 		self.setTextGreenKey()
 		self.setTextYellowKey()
 		self.setTextBlueKey()
 		self.triggerTimer.start(50, True)
-		self.updateTimer.start(200, False)		#for autoMove
-
+		self.updateTimer.start(200, False)  # for autoMove
 		try:
 			self.getLyrics()
 		except Exception as e:
@@ -235,27 +205,24 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 		self.lyricsFoundPrio = LYRICSS_NO
 		self.lyrics = _("Sorry, (still) no lyrics found")
 		self.lyricsChanged()  # trigger buildNewLyrics (make list)
-
+		songFilename = ""
 		try:
 			if self.parent.playerState == STATE_PLAY:
 				songFilename = self.parent.playlist.getServiceRefList()[self.parent.playlist.getCurrentIndex()].getPath()
 			else:
 				songFilename = self.parent.playlist.getServiceRefList()[self.parent.playlist.getSelectionIndex()].getPath()
 			self.lyricsFileName, self.lyricsFileNameLong, self.lyricsFileNameLrc, self.lyricsFileNameLrcLong = getLyricsFileNames(songFilename)
-
 		except Exception as e:
 			LOG('YampLyricsScreen: getLyrics: songFileName: EXCEPT' + str(e), 'err')
-
 		self.searchId3(songFilename)
 		if self.pixNumLyrics != LYRICSS_NO:
 			self.lyricsChanged()
-
 		if self.searchFile(songFilename):
 			self.lyricsChanged()
 		self.searchAZlyrics()
 		self.searchChartlyrics()
 
-	#Lyrics search azlyrics.com
+	# Lyrics search azlyrics.com
 	def searchAZlyrics(self):
 		self.lyricsAzError = ''
 		if config.plugins.yampmusicplayer.prioLyrics1.value == 'lyricsAZ':
@@ -268,50 +235,40 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 			prio = 4
 		else:
 			return
-
-		LOG('\n\nYampLyricsScreen: searchAzLyrics: Start:  artist: %s title: %s ' % (self.artist, self.songtitle), 'all')
-
+		LOG('\nYampLyricsScreen: searchAzLyrics: Start:  artist: %s title: %s ' % (self.artist, self.songtitle), 'all')
 		if self.lyricsFoundPrio < prio:
-			return		#already found with higher priority
-#		artist = unicode(self.artist, 'utf-8').lower()
-#		title = unicode(self.songtitle, 'utf-8').lower()
+			return  # already found with higher priority
 		artist = self.artist.lower()
 		title = self.songtitle.lower()
-
 		artist = self.replaceAzlyricsSpecial(artist)
-
 		artistList = [artist]
-		artistList.append(re.sub('^the', '', artist))  # remove leading 'the'
-		artistList.append(re.sub('(feat)(.*)', '', artist))  # remove 'featuring....'
-
+		artistList.append(sub('^the', '', artist))  # remove leading 'the'
+		artistList.append(sub('(feat)(.*)', '', artist))  # remove 'featuring....'
+		titleNoBrackets, titleNoExt, titleNoBrackNoExt = "", "", ""
 		try:
-			titleNoBrackets = re.sub(r'\([^)]*\)', '', title)  # remove everything between brackets
+			titleNoBrackets = sub(r'\([^)]*\)', '', title)  # remove everything between brackets
 		except Exception as e:
 			LOG('YampLyricsScreen: searchAzLyrics:NoBrackets: title remove brackets: EXCEPT: ' + str(e), 'err')
 		try:
-			titleNoExt = re.sub(r'\-[\w|\d|"|\'|\s]*$', '', title)  # remove everything beginning with last "-" (title extension)
-			titleNoBrackNoExt = re.sub(r'\-[\w|\d|\s]*$', '', titleNoBrackets)  # same without everything between brackets
+			titleNoExt = sub(r'\-[\w|\d|"|\'|\s]*$', '', title)  # remove everything beginning with last "-" (title extension)
+			titleNoBrackNoExt = sub(r'\-[\w|\d|\s]*$', '', titleNoBrackets)  # same without everything between brackets
 		except Exception as e:
 			LOG('YampLyricsScreen: searchAzLyrics:NoExt title remove Extension: EXCEPT: ' + str(e), 'err')
-
 		title = self.replaceAzlyricsSpecial(title)
 		titleNoBrackets = self.replaceAzlyricsSpecial(titleNoBrackets)
 		titleNoExt = self.replaceAzlyricsSpecial(titleNoExt)
 		titleNoBrackNoExt = self.replaceAzlyricsSpecial(titleNoBrackNoExt)
-
 		titleList = [title, titleNoExt, titleNoBrackets, titleNoBrackNoExt]
 		titleList.append(title[:-1])			 #remove last letter songtitle (maybe ' )
 		titleList.append(titleNoBrackets[:-1])
 		titleList.append(titleNoExt[:-1])
 		titleList.append(titleNoBrackNoExt[:-1])
-		titleList.append(re.sub('^the', '', title))  # remove leading 'the'
-		titleList.append(re.sub('^the', '', titleNoBrackets))
-		titleList.append(re.sub('^the', '', titleNoExt))
-		titleList.append(re.sub('^the', '', titleNoBrackNoExt))
-
+		titleList.append(sub('^the', '', title))  # remove leading 'the'
+		titleList.append(sub('^the', '', titleNoBrackets))
+		titleList.append(sub('^the', '', titleNoExt))
+		titleList.append(sub('^the', '', titleNoBrackNoExt))
 		artistList = sorted(set(artistList), key=artistList.index)  # remove doubles
 		titleList = sorted(set(titleList), key=titleList.index)
-
 		if len(artistList) == 0 or len(titleList) == 0:
 			return
 		servAnswer = 0
@@ -320,66 +277,57 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 		headers = {'User-Agent': user_agent}
 		base = 'https://www.azlyrics.com/'
 		baselyrics = base + 'lyrics/'
-		try:
-			found = False
-			for a in artistList:
-				if found:
+		found = False
+		resp = ""
+		for a in artistList:
+			if found:
+				break
+			for t in titleList:
+				resp = self.checkAzlyricsOptions(baselyrics, headers, a, t)
+				if isinstance(resp, str):  # SSL Error
+					servAnswer = resp
+					servReason = ''
 					break
-				for t in titleList:
-					resp = self.checkAzlyricsOptions(baselyrics, headers, a, t)
-					if isinstance(resp, str):  # SSL Error
-						servAnswer = resp
-						servReason = ''
+				else:
+					if resp.status_code == 200:
+						found = True
 						break
 					else:
-						if resp.status_code == 200:
-							found = True
-							break
-						else:
-							servAnswer = resp.status_code
-							servReason = resp.reason
-		except Exception as e:
-			LOG('\n\nYampLyricsScreen: searchAzLyrics: resp: EXCEPT: ' + str(e), 'err')
-
-		try:
-			from bs4 import BeautifulSoup
-			if isinstance(resp, str):  # SSL Error
-				l = None
-			else:
-				soup = BeautifulSoup(resp.content, "html.parser")
-				l = soup.find_all("div", attrs={"class": None, "id": None})
-			if not l:
-				self.lyricsAzError = _("Not found on azlyrics. Answer from Server: ") + '\n' + str(servAnswer) + ' ' + servReason
-				if self.pixNumLyrics == LYRICSS_NO:  # already found with lower priority?
-					self.lyrics = self.lyricsAzError + '\n\n' + self.lyricsChartError
-					self.lyricsChanged()
-			elif l:
-				t = [x.getText() for x in l]
-				self.lyrics = str(t[0])
-				self.pixNumLyrics = LYRICSS_AZ
-				self.lyricsFoundPrio = prio
+						servAnswer = resp.status_code
+						servReason = resp.reason
+		if isinstance(resp, str):  # SSL Error
+			l = None
+		else:
+			soup = BeautifulSoup(resp.content, "html.parser")
+			l = soup.find_all("div", attrs={"class": None, "id": None})
+		if not l:
+			self.lyricsAzError = _("Not found on azlyrics. Answer from Server: ") + '\n' + str(servAnswer) + ' ' + servReason
+			if self.pixNumLyrics == LYRICSS_NO:  # already found with lower priority?
+				self.lyrics = self.lyricsAzError + '\n\n' + self.lyricsChartError
 				self.lyricsChanged()
-		except Exception as e:
-			LOG('YampLyricsScreen: searchAZlyrics: BeautifulSoup: EXCEPT: ' + str(e), 'err')
+		elif l:
+			t = [x.getText() for x in l]
+			self.lyrics = str(t[0])
+			self.pixNumLyrics = LYRICSS_AZ
+			self.lyricsFoundPrio = prio
+			self.lyricsChanged()
 
 	def checkAzlyricsOptions(self, baselyrics, headers, artist, title):
 		search_url = baselyrics + artist + "/" + title + ".html"
 		try:
-			resp = requests.get(search_url, headers=headers, allow_redirects=True, verify=True)
+			resp = get(search_url, headers=headers, allow_redirects=True, verify=True)
 		except Exception as e:
 			resp = str(e)
 			LOG('YampLyricsScreen: checkAzlyricsOptions: EXCEPT: ' + str(e), 'err')
 		return resp
 
 	def replaceAzlyricsSpecial(self, text):
-		text = re.sub(r'[(,),\',\-,\s]', '', text)
+		text = sub(r'[(,),\',\-,\s]', '', text)
 		text = text.replace("’", "").replace("!", "i")
 		text = text.replace('ä', 'a').replace('ö', 'o').replace('ü', 'u')
 		return text
 
-#---------- hier war genius
-
-	#Lyrics search chartlyrics.com
+	# Lyrics search chartlyrics.com
 	def searchChartlyrics(self):
 		self.lyricsChartError = ''
 		if config.plugins.yampmusicplayer.prioLyrics1.value == 'lyricsChart':
@@ -392,28 +340,22 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 			prio = 4
 		else:
 			return
-
 		if self.lyricsFoundPrio < prio:
-			return		#already found with higher priority
-
+			return  # already found with higher priority
 		artist = self.artist.replace("'", "")
 		title = self.songtitle.replace("'", "")
 		if artist and title:
 			url = "http://api.chartlyrics.com/apiv1.asmx/SearchLyricDirect?artist=%%22%s%%22&song=%%22%s%%22" % (quote(artist), quote(title))
-			try:
-				getPage(url, timeout=GETLYRICSTIMEOUT).addCallback(self.getLyricsParseXML, prio).addErrback(self.getChartlyricsFailed)
-			except Exception as e:
-				LOG('YampLyricsScreen: searchChartlyrics: getPage: EXCEPT: ' + str(e), 'err')
+			callback = boundFunction(self.getLyricsParseXML, prio)
+			callInThread(getUrlData, url, timeout=GETLYRICSTIMEOUT, callback=callback, fail=self.getChartlyricsFailed)
 
-	def getLyricsParseXML(self, xmlstring, prio):
-
+	def getLyricsParseXML(self, prio, xmlstring):
 		if self.lyricsFoundPrio < prio:
-			return		#already found with higher priority
-
+			return  # already found with higher priority
 		xmlElement = xml_fromstring(xmlstring.text)
-		lyrics = htmlUnescape(unquote(xmlElement.findtext("{http://api.chartlyrics.com/}Lyric").encode("utf-8", 'ignore')))
-		title = htmlUnescape(unquote(xmlElement.findtext("{http://api.chartlyrics.com/}LyricSong").encode("utf-8", 'ignore')))
-		artist = htmlUnescape(unquote(xmlElement.findtext("{http://api.chartlyrics.com/}LyricArtist").encode("utf-8", 'ignore')))
+		lyrics = (unquote(xmlElement.findtext("{http://api.chartlyrics.com/}Lyric") or "").encode("utf-8", 'ignore'))
+		title = (unquote(xmlElement.findtext("{http://api.chartlyrics.com/}LyricSong") or "").encode("utf-8", 'ignore'))
+		artist = (unquote(xmlElement.findtext("{http://api.chartlyrics.com/}LyricArtist") or "").encode("utf-8", 'ignore'))
 		if lyrics:
 			try:
 				self.lyrics = lyrics
@@ -428,26 +370,25 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 				self.lyrics = self.lyricsAzError + '\n\n' + self.lyricsChartError
 				self.lyricsChanged()
 
-	def getChartlyricsFailed(self, result):
-		self.lyricsChartError = _("Access to chartlyrics.com failed.") + "\n\n%s" % str(result.getErrorMessage())
+	def getChartlyricsFailed(self, errMsg):
+		self.lyricsChartError = _("Access to chartlyrics.com failed.") + "\n\n%s" % errMsg
 		if self.pixNumLyrics == LYRICSS_NO:  # already found with lower priority?
 			self.lyrics = self.lyricsAzError + '\n\n' + self.lyricsChartError
 			if self.lyricsFoundPrio == LYRICSS_NO:
 				self.lyricsChanged()
 
-	#Lyrics search ID3
+	# Lyrics search ID3
 	def searchId3(self, songFilename):
 		lyrics, pixNumLyrics, self.lyricsFoundPrio = getLyricsID3(songFilename, self.lyricsFoundPrio)
 		if lyrics != '':
 			self.lyrics = lyrics
 			self.pixNumLyrics = pixNumLyrics
 
-	#Lyrics search file
+	# Lyrics search file
 	def searchFile(self, songFilename):
 		lyrics, self.lyricsFileActive, self.lyricsFoundPrio = searchLyricsfromFiles(songFilename, self.lyricsFoundPrio)
 		if lyrics == '':
 			return False
-
 		self.lyrics = lyrics
 		if config.plugins.yampmusicplayer.useSingleLyricsPath.value:
 			self.pixNumLyrics = LYRICSS_LYRDIR
@@ -489,9 +430,9 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 		try:
 			for index in range(len(self.tiStampMsec90) - 1, -1, -1):
 				if self.songPos >= self.tiStampMsec90[index] and self.tiStampMsec90[index] != 0:
-					#new textline has to be displayed
+					# new textline has to be displayed
 					try:
-						if index < self.startIndex:			#list has been manually scrolled down -> scroll back
+						if index < self.startIndex:  # list has been manually scrolled down -> scroll back
 							self.startIndex = index
 							if self.allowTimeEdit:
 								self.buildLyricsMenuList(self.txtLines[self.startIndex:], self.tiStamp[self.startIndex:])
@@ -504,8 +445,8 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 					if self.txtLines[index].strip() == '':
 						self.movedown()
 
-					#check scrolling
-					if self.lenLyricslist > self.scrollMinLines:		#only scroll when more lines than page
+				# check scrolling
+					if self.lenLyricslist > self.scrollMinLines:  # only scroll when more lines than page
 						while self["lyrics"].getSelectionIndex() > self.scrollLine:
 							self.startIndex += 1
 							if self.allowTimeEdit:
@@ -518,48 +459,26 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 
 	def moveup(self):
 		self["lyrics"].up()
-		try:
-			sel = self["lyrics"].getSelection().text.strip()
-		except Exception as e:
-			LOG('YampLyricsScreen: moveup: getSelection: EXCEPT: ' + str(e), 'err')
-		try:
-			selIndex = self["lyrics"].getSelectionIndex()
-		except Exception as e:
-			LOG('YampLyricsScreen: moveup: getSelectionIndex: EXCEPT: ' + str(e), 'err')
-		try:
-			if sel == '' and not self.lyricsEditMode and selIndex < self.scrollLine and self.startIndex == 0:
-				self.moveup()  # extra move empty line
-		except Exception as e:
-			LOG('YampLyricsScreen: moveup: while: EXCEPT: ' + str(e), 'err')
-
-		#check scrolling
+		sel = self["lyrics"].getSelection().text.strip()
+		selIndex = self["lyrics"].getSelectionIndex()
+		if sel == '' and not self.lyricsEditMode and selIndex < self.scrollLine and self.startIndex == 0:
+			self.moveup()  # extra move empty line
+		# check scrolling
 		try:
 			if selIndex > 0:
-				try:
-					selIndex = self["lyrics"].getSelectionIndex()
-				except Exception as e:
-					LOG('YampLyricsScreen: moveup: selIndex: EXCEPT: ' + str(e), 'err')
+				selIndex = self["lyrics"].getSelectionIndex()
 				if selIndex <= self.scrollLine and self.startIndex > 0:
-					try:
-						self.startIndex -= 1
-						if self.startIndex < 0:
-							self.startIndex = 0
-						if self.allowTimeEdit:
-							self.buildLyricsMenuList(self.txtLines[self.startIndex:], self.tiStamp[self.startIndex:])
-						else:
-							self.buildLyricsMenuList(self.txtLines[self.startIndex:])
-					except Exception as e:
-						LOG('YampLyricsScreen: moveup: buildLyricsMenuList: EXCEPT: ' + str(e), 'err')
-					try:
-						self.lyricslist.moveToIndex(self.scrollLine)
-					except Exception as e:
-						LOG('YampLyricsScreen: moveup: moveToIndex: EXCEPT: ' + str(e), 'err')
-					try:
-						sel = self["lyrics"].getSelection().text.strip()
-						if sel == '' and not self.lyricsEditMode:
-							self.moveup()
-					except Exception as e:
-						LOG('YampLyricsScreen: moveup: moveup end: EXCEPT: ' + str(e), 'err')
+					self.startIndex -= 1
+					if self.startIndex < 0:
+						self.startIndex = 0
+					if self.allowTimeEdit:
+						self.buildLyricsMenuList(self.txtLines[self.startIndex:], self.tiStamp[self.startIndex:])
+					else:
+						self.buildLyricsMenuList(self.txtLines[self.startIndex:])
+					self.lyricslist.moveToIndex(self.scrollLine)
+					sel = self["lyrics"].getSelection().text.strip()
+					if sel == '' and not self.lyricsEditMode:
+						self.moveup()
 		except Exception as e:
 			LOG('YampLyricsScreen: moveup: check scrolling: EXCEPT: ' + str(e), 'err')
 
@@ -578,48 +497,30 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 				self.movedown()  # extra move empty line
 		except Exception as e:
 			LOG('YampLyricsScreen: movedown extra: EXCEPT: ' + str(e), 'err')
-
-		#check scrolling
+		# check scrolling
 		try:
-			if self.lenLyricslist > self.scrollMinLines:		#only scroll when more lines than page
-				try:
-					selIndex = self["lyrics"].getSelectionIndex()
-				except Exception as e:
-					LOG('YampLyricsScreen: movedown: selIndex: EXCEPT: ' + str(e), 'err')
-				if selIndex > self.scrollLine:   # and selIndex + self.startIndex <= len(self.txtLines)
-					try:
-						self.startIndex += 1
-						if self.allowTimeEdit:
-							self.buildLyricsMenuList(self.txtLines[self.startIndex:], self.tiStamp[self.startIndex:])
-						else:
-							self.buildLyricsMenuList(self.txtLines[self.startIndex:])
-					except Exception as e:
-						LOG('YampLyricsScreen: movedown: buildLyricsMenuList: EXCEPT: ' + str(e), 'err')
-					try:
-						self.lyricslist.moveToIndex(self.scrollLine)
-					except Exception as e:
-						LOG('YampLyricsScreen: movedown: moveToIndex: EXCEPT: ' + str(e), 'err')
-					try:
-						sel = self["lyrics"].getSelection().text.strip()
-						if sel == '' and not self.lyricsEditMode:
-							self.movedown()
-					except Exception as e:
-						LOG('YampLyricsScreen: movedown: movedown end: EXCEPT: ' + str(e), 'err')
+			if self.lenLyricslist > self.scrollMinLines:  # only scroll when more lines than page
+				selIndex = self["lyrics"].getSelectionIndex()
+				if selIndex > self.scrollLine:  # and selIndex + self.startIndex <= len(self.txtLines)
+					self.startIndex += 1
+					if self.allowTimeEdit:
+						self.buildLyricsMenuList(self.txtLines[self.startIndex:], self.tiStamp[self.startIndex:])
+					else:
+						self.buildLyricsMenuList(self.txtLines[self.startIndex:])
+					self.lyricslist.moveToIndex(self.scrollLine)
+					sel = self["lyrics"].getSelection().text.strip()
+					if sel == '' and not self.lyricsEditMode:
+						self.movedown()
 		except Exception as e:
 			LOG('YampLyricsScreen: movedown: check scrolling: EXCEPT: ' + str(e), 'err')
 
 	def autoSaveLyrics(self):
 		LOG('YampLyricsScreen: autoSaveLyrics start: autoSaveLyrics: %d' % (config.plugins.yampmusicplayer.autoSaveLyrics.value), 'all')
-		try:
-			import os
-		except Exception as e:
-			LOG('YampLyricsScreen: autoSaveLyrics: import: EXCEPT: ' + str(e), 'err')
-
 		if not config.plugins.yampmusicplayer.autoSaveLyrics.value:
 			return
 		if not self.pixNumLyrics == LYRICSS_CHARTL and not self.pixNumLyrics == LYRICSS_AZ:
 			return
-		if (os.path.exists(self.lyricsFileNameLong) or os.path.exists(self.lyricsFileNameLrcLong)) and (os.path.isfile(self.lyricsFileNameLong) or os.path.isfile(self.lyricsFileNameLrcLong)):
+		if (exists(self.lyricsFileNameLong) or exists(self.lyricsFileNameLrcLong)) and (isfile(self.lyricsFileNameLong) or isfile(self.lyricsFileNameLrcLong)):
 			return
 		self.saveLyrics()
 
@@ -646,7 +547,7 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 	def deleteConfirmed(self, answer):
 		try:
 			if answer:
-				os.remove(self.lyricsFileActive)
+				remove(self.lyricsFileActive)
 				try:
 					self.getLyrics()
 				except Exception as e:
@@ -665,18 +566,8 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 				self.length = self.parent.currLength
 				date = self.parent.currDate
 			else:									   #selected title in playlist
-				print("setSongInfo")
-				print("setSongInfo")
-				print("setSongInfo")
-				print("setSongInfo")
-				print("setSongInfo")
 				songFilename = self.parent.playlist.getServiceRefList()[self.parent.playlist.getSelectionIndex()].getPath()
-				print("songFilename")
-				print(songFilename)
-				print("self.parent.playlist.getSelectionIndex()")
-				print(self.parent.playlist.getSelectionIndex())
-				self.songtitle, self.album, genre, self.artist, date, self.length, self.tracknr, self.bitrate = readID3Infos(songFilename)
-
+				self.songtitle, self.album, genre, self.artist, albumartist, date, self.length, self.tracknr, self.bitrate = readID3Infos(songFilename)
 			self["songtitle"].setText(self.songtitle.replace('n/a', self.replaceText))
 			self["artist"].setText(self.artist.replace('n/a', self.replaceText))
 			self["album"].setText(self.album.replace('n/a', self.replaceText))
@@ -688,7 +579,6 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 				self["tracknr"].setText('')
 
 			self["length"].setText(self.length.replace('n/a', self.replaceText))
-
 			try:
 				self["date"].setText(date)
 			except Exception as e:
@@ -703,18 +593,16 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 		lcdMode = config.plugins.yampmusicplayer.yampLcdMode.value
 		if lcdMode != 'off' and lcdMode != 'running':
 			self.summaries.setCover()
-
 			if self.parent.playerState != STATE_PLAY:
 				try:
 					path = self.parent.playlist.getServiceRefList()[self.parent.playlist.getSelectionIndex()].getPath()
 					if path is None:
 						path = ''
 					else:
-						title, album, genre, artist, date, length, tracknr, strBitrate = readID3Infos(path)
+						title, album, genre, artist, albumartist, date, length, tracknr, strBitrate = readID3Infos(path)
 						self.parent.updateCover(artist, album, title, path)
 				except Exception as e:
-					LOG('\nYampLyricsScreen: setCover: from playlistselection: EXCEPT: ' + str(e), 'err')
-
+					LOG('YampLyricsScreen: setCover: from playlistselection: EXCEPT: ' + str(e), 'err')
 		try:
 			newCoverArtFile, newPixNumCover = self.parent.getCoverArtFile()
 			actCoverArtFile = self["coverArt"].getFileName()
@@ -729,7 +617,6 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 		if self.parent.playerState != STATE_PLAY:
 			return
 		self.showHideVideoPreview()
-
 		try:
 			len, self.songPos = self.parent.getSeekData()
 		except Exception as e:
@@ -741,12 +628,11 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 		if self.parent.coverChangedGoogleLyrics:
 			self.parent.coverChangedGoogleLyrics = False
 			self.setCover()
-		if self.songtitle != self.parent.currTitle:		#new Song
+		if self.songtitle != self.parent.currTitle:  # new Song
 			LOG('YampLyricsScreen: updateInfoCyclic: new song: songtitle: %s  parentsongtitle: %s' % (self.songtitle, self.parent.currTitle), 'all')
 			if self.parent.currentIsVideo and not config.plugins.yampmusicplayer.showLyricsOnVideo.value:
 				self.close()
 				return
-
 			self.allowTimeEdit = False
 			self.setTextBlueKey()
 			if self.timeStampChanged or self.lyrisFileChanged:
@@ -757,7 +643,6 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 				return
 			if self.waitForSaveAnswer:
 				return
-
 			self.setSongInfo()
 			self.setLcdText()
 			self.getLyrics()
@@ -773,7 +658,6 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 	def buildNewLyrics(self):
 		LOG('YampLyricsScreen: buildNewLyrics: Start', 'all')
 		self.lyrics = lyricsClean(self.lyrics)
-
 		try:
 			self.tiStamp, self.tiStampMsec90, self.txtLines, tStampMin = textToList(self.lyrics)
 		except Exception as e:
@@ -797,7 +681,6 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 
 	def buildLyricsMenuList(self, text, timeStamp=None):
 		self.lyricslist.list = []
-
 		if len(text) > 1:
 			self.lyricslist.list = []
 		if timeStamp is None:
@@ -821,18 +704,16 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 			self.autoMove()
 
 #--------------- user key reactions -----------
-
 	def keyGreen(self):
 		try:
 			if (self.pixNumLyrics == LYRICSS_FILE or self.pixNumLyrics == LYRICSS_LYRDIR) and not self.allowTimeEdit and not self.timeStampChanged and not self.lyrisFileChanged:
-				if os.path.exists(self.lyricsFileNameLong) and os.path.isfile(self.lyricsFileNameLong):
+				if exists(self.lyricsFileNameLong) and isfile(self.lyricsFileNameLong):
 					self.lyricsFileActive = self.lyricsFileNameLong
-				elif os.path.exists(self.lyricsFileName) and os.path.isfile(self.lyricsFileName):
+				elif exists(self.lyricsFileName) and isfile(self.lyricsFileName):
 					self.lyricsFileActive = self.lyricsFileName
-
 				self.session.openWithCallback(self.deleteConfirmed, MessageBox, _("Do yo want to delete the lyrics file\n%s ?") % (self.lyricsFileActive), default=True)
 			else:
-				if os.path.exists(self.lyricsFileNameLong) and os.path.isfile(self.lyricsFileNameLong):
+				if exists(self.lyricsFileNameLong) and isfile(self.lyricsFileNameLong):
 					self.session.openWithCallback(self.overwriteConfirmed, MessageBox, _("Lyrics-file\n\n%s\n\nexisting already.\n\nDo you really want to overwrite ?") % (self.lyricsFileNameLong), default=False)
 				else:
 					self.saveLyrics()
@@ -919,6 +800,26 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 	def keyNext(self):
 		self.parent.seekOwn(12)
 
+	def keyPercentJumpFwActions(self):
+		if self.jumpFwLongActive:
+			self.jumpFwLongActive = False
+		else:
+			self.parent.seekOwn(21)
+
+	def keyPercentJumpBwActions(self):
+		if self.jumpBwLongActive:
+			self.jumpBwLongActive = False
+		else:
+			self.parent.seekOwn(22)
+
+	def keyPercentJumpFwLActions(self):
+		self.jumpFwLongActive = True
+		self.parent.seekOwn(23)
+
+	def keyPercentJumpBwLActions(self):
+		self.jumpBwLongActive = True
+		self.parent.seekOwn(24)
+
 	def skipToListbegin(self):
 		try:
 			self.lyricslist.moveToIndex(0)
@@ -943,11 +844,13 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 		self.close()
 
 	def showHelp(self):
-		HelpableScreen.showHelp(self)
+		if hasattr(HelpableScreen, 'showHelp'):
+			HelpableScreen.showHelp(self)  # old method
+		else:
+			Screen.showHelp(self)  # new method
 
 #--------------- lyrics edit functions
-
-	def showMenu(self):						#Build Menu Entries
+	def showMenu(self):  # Build Menu Entries
 		menu = []
 		try:
 			if self.lyricsEditMode:
@@ -972,10 +875,9 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 				menu.append(((textMinus + strOffset + ' s'), 'offsetneg'))
 		except Exception as e:
 			LOG('YampLyricsScreen: showMenu: EXCEPT: ' + str(e), 'err')
-
 		if len(menu) >= 1:
 			if self.parent.lyricsKarMsgboxShow:
-				message = _("Lyrics Edit / Karaoke Timestamp Offset\n\nHint: You may try and test as much as you want, changes will be active 'on the fly' immediately, including offset in Karaoke Timestamp.\n\nYou will be asked before the file with any changes will be saved.\n\nThe different edit options also are described in the Help screen, Page 11. Reminder: Help Screen: INFO/EPG LONG\n\nDo you want to deactivate this message for the current session?")
+				message = _("Lyrics Edit / Karaoke Timestamp Offset\n\nHint: You may try and test as much as you want, changes will be active 'on the fly' immediately, including offset in Karaoke Timestamp.\n\nYou will be asked before the file with any changes will be saved.\n\nThe different edit options also are described in the Help screen, Page 15. Reminder: Help Screen: INFO/EPG LONG\n\nDo you want to deactivate this message for the current session?")
 				self.par1 = menu
 				self.session.openWithCallback(self.karMsgboxShowCB, MessageBox, message, default=True, timeout=20)
 			else:
@@ -988,14 +890,12 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 	def menuCallback(self, choice):
 		if choice is None or choice[1] == "noOffset":
 			return
-
 		elif choice[1] == 'offsetval':
 			try:
 				self.session.openWithCallback(self.inputOffsetCb, InputBox, title=_('Please enter timestamp offset value in milliseconds'), text=' ' * 10, maxSize=10, type=Input.NUMBER)
 			except Exception as e:
 				LOG('YampLyricsScreen: menuCallback: OffsetValO EXCEPT: ' + str(e), 'err')
 			return
-
 		elif choice[1] == 'offsetpos' or choice[1] == 'offsetneg':
 			offsetVal = float(config.plugins.yampmusicplayer.karaokeFileOffsetVal.value)
 			if offsetVal == 0.0:
@@ -1010,35 +910,26 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 			except Exception as e:
 				LOG('YampLyricsScreen: menuCallback: addTimeOffset EXCEPT: ' + str(e), 'err')
 			return
-
 		try:
 			self.editIndex = self["lyrics"].getSelectionIndex() + self.startIndex
 		except Exception as e:
 			LOG('YampLyricsScreen: menuCallback: editIndex EXCEPT: ' + str(e), 'err')
-		try:
-			textLine = self['lyrics'].getSelection().text.strip()
-		except Exception as e:
-			LOG('YampLyricsScreen: menuCallback editline: getSelection: EXCEPT: ' + str(e), 'err')
-
+		textLine = self['lyrics'].getSelection().text.strip()
 		if choice[1] == 'editmode':
 			self.lyricsEditMode = not self.lyricsEditMode
 			return
-
 		elif choice[1] == 'editline':
 			try:
 				self.session.openWithCallback(self.editLineCb, InputBox, title=_('Edit lyrics line '), text=textLine, type=Input.TEXT)
 			except Exception as e:
 				LOG('YampLyricsScreen: menuCallback: InputBox editline EXCEPT: ' + str(e), 'err')
-
 		elif choice[1] == 'addline':
 			try:
 				self.session.openWithCallback(self.addLineCb, InputBox, title=_('Add lyrics line '), text='', type=Input.TEXT)
 			except Exception as e:
 				LOG('YampLyricsScreen: menuCallback: InputBox editline EXCEPT: ' + str(e), 'err')
-
 		elif choice[1] == 'copyline':
 			self.copiedLine = textLine
-
 		elif choice[1] == 'insertline':
 			try:
 				newIdx = self.editIndex + 1
@@ -1049,7 +940,6 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 				self.setTextGreenKey()
 			except Exception as e:
 				LOG('YampLyricsScreen: menuCallback: insertline EXCEPT: ' + str(e), 'err')
-
 		elif choice[1] == 'delline':
 			try:
 				delLyricsLine(self.editIndex, self.tiStampMsec90, self.tiStamp, self.txtLines)
@@ -1092,7 +982,6 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 
 #--------------- help functions
 
-
 	def setTextGreenKey(self):
 		if (self.pixNumLyrics == LYRICSS_FILE or self.pixNumLyrics == LYRICSS_LYRDIR) and not self.allowTimeEdit and not self.timeStampChanged and not self.lyrisFileChanged:
 			self["key_green"].setText(_("Delete"))
@@ -1134,7 +1023,7 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 				if 'eVideoWidget' in str(vars(element)):
 					self.pigElement = element
 		except Exception as e:
-			LOG('\nYampLyricsScreen: findPigElement: EXCEPT: ' + str(e), 'err')
+			LOG('YampLyricsScreen: findPigElement: EXCEPT: ' + str(e), 'err')
 
 	def showHideVideoPreview(self):
 		if self.pigElement is not None:
@@ -1146,7 +1035,7 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 			skin = config.plugins.yampmusicplayer.yampSkin.value
 			if 'fhd' not in config.plugins.yampmusicplayer.yampSkin.value:
 				return
-			LOG('\nYampLyricsScreen:showHideVideoPreview: pigElementNone', 'err')
+			LOG('YampLyricsScreen:showHideVideoPreview: pigElementNone', 'err')
 
 	def cleanup(self):
 		self.triggerTimer.stop()
@@ -1183,23 +1072,21 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 	def unlockShow(self):
 		pass
 
-
 #######################################################################
 #
 #	class LyricsList
 #
 #######################################################################
 
+
 class YampLyricsList(GUIComponent):
 	def __init__(self, enableWrapAround=False):   #!!!!
 		GUIComponent.__init__(self)
-
 		try:   #!!!evtl. noch andere Vorgaben fuer FHD
 			self.itemFont = parseFont("Regular;18", ((1, 1), (1, 1)))
 			self.myItemHeight = 23
 		except Exception as e:
 			LOG('YampLyricsList: init: setDefaults:  EXCEPT: ' + str(e), 'err')
-
 		self.list = []
 		self.withTimeStamp = False
 		self.title = ""
@@ -1214,14 +1101,11 @@ class YampLyricsList(GUIComponent):
 	GUI_WIDGET = eListbox
 
 	def buildEntry(self, item):
-
 		self.w = self.l.getItemSize().width()
 		self.h = self.myItemHeight
 		res = [None]
-
 		liney = int(self.fonth * 0.01) + 1
 		lineh = int(self.fonth * 1.05)
-
 		if self.withTimeStamp:
 			if len(item.text.strip()) == 0:
 				item.tiStamp = ''
@@ -1240,11 +1124,9 @@ class YampLyricsList(GUIComponent):
 					self.itemFont = parseFont(value, ((1, 1), (1, 1)))
 				else:
 					attribs.append((attrib, value))
-
 		self.fonth = int(fontRenderClass.getInstance().getLineHeight(self.itemFont))
 		self.myItemHeight = int(self.fonth * 1.15)
 		self.l.setItemHeight(self.myItemHeight)
-
 		try:
 			self.l.setFont(0, self.itemFont)
 		except Exception as e:

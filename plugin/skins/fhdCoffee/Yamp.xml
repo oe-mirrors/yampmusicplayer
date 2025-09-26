@@ -1,0 +1,165 @@
+<!-- Yamp V3.3.1 Full HD Skin 'Coffee' by @ekremtt 13.01.2024  last change: AlfredENeumann 15.03.2024-->
+
+<screen name="YampScreenV33" position="0,0" size="1920,1080" backgroundColor="#00000000" flags="wfNoBorder">
+    <!-- Hintergründe  -->
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/bg_yamp.png" position="0,0" size="1920,1080" zPosition="-4" alphatest="off" />
+	<eLabel position="25,220" size="910,580" backgroundColor="#59514A" zPosition="-1" />	
+	<eLabel position="985,220" size="910,580" backgroundColor="#59514A" zPosition="-1" />
+
+	<widget name="title" position="30,0" size="700,70" font="Regular;26" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="left" valign="center" zPosition="1" transparent="1" noWrap="1" />
+	
+	<widget name="actskin" position="745,0" size="300,70" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" transparent="1" zPosition="1" font="Regular;20" valign="center" halign="left" />
+
+	<widget source="global.CurrentTime" render="Label" position="1595,0" zPosition="1" size="295,36" font="Regular;24" valign="center" halign="right" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" transparent="1">
+		<convert type="ClockToText">Format:%H:%M:%S</convert>
+	</widget>
+	<widget source="global.CurrentTime" render="Label" position="1595,34" zPosition="1" size="295,36" font="Regular;18" valign="center" halign="right" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" transparent="1">
+		<convert type="ClockToText">Format:%A %e. %b %Y</convert>
+	</widget>
+
+	<!-- these lines must not be removed begin !!!! (license reasons) -->
+	<widget name="fanartdownload" position="1045,5" size="220,60" font="Regular;20" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="center" valign="center" zPosition="8" transparent="0" />
+	<widget source="musicbrainzlogo" render="Pixmap" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/musicbrainz.png" position="1290,11" size="91,14" zPosition="8" transparent="0" alphatest="blend">
+		<convert type="ConditionalShowHide" />
+	</widget>
+	<widget source="fanartlogo" render="Pixmap" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/fanarttv.png" position="1290,25" size="122,31" zPosition="8" transparent="0" alphatest="blend">
+		<convert type="ConditionalShowHide" />
+	</widget>
+	<widget name="downloadBackground" position="1045,5" size="370,60" zPosition="6" backgroundColor="#0099887A" transparent="0" />
+	<!-- these lines must not be removed end !!!! -->
+
+	<widget name="leftContentTitle" position="10,170" zPosition="3" size="940,50" font="Regular;24" backgroundColor="#4C453F" foregroundColor="#00F4F4F4" halign="center" valign="center" transparent="0" />
+	
+	<widget name="filelist" position="35,225" size="890,540" itemFont="Regular;24" itemPos="70,0" itemSize="810,45" itemPosXNoIcon="20" itemWidthNoIcon="860" itemVAlign="center" iconSize="30,30" iconPos="15,7"  backgroundColor="#0099887A" foregroundColor="#00F4F4F4" backgroundColorSelected="#826352" foregroundColorSelected="#00FFAA00" transparent="1" scrollbarSliderBorderWidth="0" scrollbarWidth="6" scrollbarMode="showOnDemand" />
+	
+	<widget name="dblist" position="35,225" size="890,540" itemFont0="Regular;24" itemFont1="Regular;18" itemSizeLine1="850,45" itemHeightLine2="22" itemPosLine1="10,3" itemPosLine2="50,40" itemWidthLine1R="80" itemWidthLine2R="180" itemVAlignLine1="top" itemVAlignLine2="bottom" itemColorLine1="#E1E1E1" itemColorSelLine1="#FFB266" itemColorLine2="#AAAA00" itemColorSelLine2="#DCDC00" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" backgroundColorSelected="#826352" foregroundColorSelected="#00FFAA00" zPosition="3" transparent="1" scrollbarSliderBorderWidth="0" scrollbarWidth="6" selectionDisabled="1" scrollbarMode="showOnDemand" />
+       
+ 	<widget name="rightContentTitle" position="970,170" size="940,50" font="Regular;24" backgroundColor="#4C453F" foregroundColor="#00F4F4F4" halign="center" valign="center" zPosition="3" transparent="0" />
+	
+	<widget name="playlist" position="995,225" size="890,540"  itemFont="Regular;24" itemPos="85,0" itemSize="795,45"  itemPosXNoIcon="45" itemWidthNoIcon="835" itemVAlign="center" iconPos="40,7" iconSize="30,30" iconPlayPos="6,10" iconPlaySize="25,25" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" backgroundColorSelected="#826352" foregroundColorSelected="#00FFAA00" zPosition="2" transparent="1" scrollbarSliderBorderWidth="0" scrollbarWidth="6" selectionDisabled="1" scrollbarMode="showAlways" />
+
+	<widget name="txtPlayLen" position="1280,770" zPosition="3" size="100,30" backgroundColor="#0099887A" transparent="1" foregroundColor="#00F4F4F4" font="Regular;16" valign="top" halign="right"/>
+	<widget name="playLen" position="1400,770" size="140,30" font="Regular;16" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="left" valign="top" zPosition="3" transparent="1" />
+
+	<widget name="txtPlayLenRem" position="1540,770" size="100,30" font="Regular;16" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="right" valign="top" transparent="1" zPosition="3" />
+	<widget name="playLenRem" position="1660,770" size="140,30" font="Regular;16" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="left" valign="top" zPosition="3" transparent="1" />
+
+	<widget name="actPlayNumber" position="1650,770" size="200,30" font="Regular;16" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="right" valign="top" zPosition="3" transparent="1" />
+		
+	<eLabel position="995,270" size="879,45" backgroundColor="#514A44" zPosition="1" />
+	<eLabel position="995,360" size="879,45" backgroundColor="#514A44" zPosition="1" />
+	<eLabel position="995,450" size="879,45" backgroundColor="#514A44" zPosition="1" />
+	<eLabel position="995,540" size="879,45" backgroundColor="#514A44" zPosition="1" />
+	<eLabel position="995,630" size="879,45" backgroundColor="#514A44" zPosition="1" />
+	<eLabel position="995,720" size="879,45" backgroundColor="#514A44" zPosition="1" />
+
+	<widget name="songtitle" position="342,872" size="1054,40" font="Regular;30" backgroundColor="#0099887A" foregroundColor="#00FFAA00" halign="left" valign="center" zPosition="7" transparent="1" noWrap="1" />
+	<widget source="session.CurrentService" render="Label" position="1312,834" size="100,32" font="Regular;26" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" valign="center" halign="center" zPosition="7" transparent="1">
+		<convert type="ServicePosition">Length</convert>
+	</widget>
+
+	<eLabel text="Artist" position="336,927" size="164,32" font="Regular;26" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="left" valign="center" transparent="1" zPosition="7" />
+	<widget name="artist" position="532,925" size="874,32" font="Regular;26" backgroundColor="#0099887A" foregroundColor="#00FFAA00" halign="left" valign="center" transparent="1" zPosition="7" noWrap="1" />
+	<eLabel text="Album" position="336,964" size="164,32" font="Regular;26" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="left" valign="center" transparent="1" zPosition="7" />
+	<widget name="album" position="532,964" size="874,32" font="Regular;26" backgroundColor="#0099887A" foregroundColor="#00FFAA00" halign="left" valign="center" transparent="1" zPosition="7" noWrap="1" />
+	<eLabel text="Year" position="336,1001" size="164,32" font="Regular;26" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="left" valign="center" transparent="1" zPosition="7" />
+	<widget name="year" position="532,1001" size="80,32" font="Regular;26" backgroundColor="#0099887A" foregroundColor="#00FFAA00" halign="left" valign="center" transparent="1" zPosition="7" />
+	<eLabel text="Genre" position="638,1001" size="164,32" font="Regular;26" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="left" valign="center" transparent="1" zPosition="7" />
+	<widget name="genre" position="834,1001" size="362,32" font="Regular;26" backgroundColor="#0099887A" foregroundColor="#00FFAA00" halign="left" valign="center" transparent="1" zPosition="7" noWrap="1" />
+	<widget name="bitRate" position="1204,1001" size="202,32" font="Regular;26" backgroundColor="#0099887A" foregroundColor="#00FFAA00" halign="right" valign="center" transparent="1" zPosition="7" />
+
+	<!-- separator lines in infobar -->
+	<eLabel position="332,912" size="1074,2" backgroundColor="#A0A0A0" zPosition="7" />
+	<eLabel position="332,959" size="168,1" backgroundColor="#A0A0A0" zPosition="7" />
+	<eLabel position="528,959" size="878,1" backgroundColor="#A0A0A0" zPosition="7" />
+	<eLabel position="332,996" size="168,1" backgroundColor="#A0A0A0" zPosition="7" />
+	<eLabel position="528,996" size="878,1" backgroundColor="#A0A0A0" zPosition="7" />
+	<eLabel position="332,1033" size="168,1" backgroundColor="#A0A0A0" zPosition="7" />
+	<eLabel position="528,1033" size="78,1" backgroundColor="#A0A0A0" zPosition="7" />
+	<eLabel position="634,1033" size="168,1" backgroundColor="#A0A0A0" zPosition="7" />
+	<eLabel position="830,1033" size="366,1" backgroundColor="#A0A0A0" zPosition="7" />
+	<eLabel position="1224,1033" size="182,1" backgroundColor="#A0A0A0" zPosition="7" />
+	<eLabel position="332,1070" size="168,1" backgroundColor="#A0A0A0" zPosition="7" />
+	<eLabel position="528,1070" size="878,1" backgroundColor="#A0A0A0" zPosition="7" />
+
+	<widget name="coverArt" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/no_coverArt.png" position="50,834" size="230,230" zPosition="7" transparent="1" alphatest="blend" />
+	<widget source="session.CurrentService" render="Pig" position="1443,833" size="427,240" backgroundColor="transparent" zPosition="4" transparent="0" />
+
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/common/yamp2.png" position="1543,933" size="200,100" zPosition="3" transparent="1" alphatest="on" />
+
+	<widget source="session.CurrentService" render="Progress" position="449,845" size="722,12" borderColor="#00F4F4F4" borderWidth="1" zPosition="7" transparent="1">
+		<convert type="ServicePosition">Position</convert>
+	</widget>
+	<widget source="session.CurrentService" render="Label" position="326,834" size="100,32" font="Regular;26" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="center" valign="center" zPosition="7" transparent="1">
+		<convert type="ServicePosition">Position</convert>
+	</widget>
+	<widget source="session.CurrentService" render="Label" position="1196,834" size="100,32" font="Regular;26" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="center" valign="center" zPosition="7" transparent="1">
+		<convert type="ServicePosition">Remaining</convert>
+	</widget>
+
+	<!--<widget name="line2" position="40,970" zPosition="7" size="1070,2" backgroundColor="#00555556" />-->
+	<widget name="nextsong" position="336,1038" size="164,32" font="Regular;26" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="left" valign="center" zPosition="7" transparent="2" noWrap="1" />
+	<widget name="nextsongtitle" position="532,1038" size="874,32" font="Regular;26" backgroundColor="#0099887A" foregroundColor="#00FFAA00" halign="left" valign="center" zPosition="7" transparent="1" noWrap="1" />
+	<widget source="songInfoBg" render="Pixmap" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/Bg_181517_trans.png" position="0,824" size="1430,250" zPosition="6" transparent="1" alphatest="blend">
+		<convert type="ConditionalShowHide" />
+	</widget>
+
+	<widget name="key_red" position="40,75" zPosition="1" size="300, 70" font="Regular;20" halign="left" valign="center" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" transparent="1" />
+	<widget name="key_green" position="364,75" zPosition="1" size="300, 70" font="Regular;20" halign="left" valign="center" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" transparent="1" />
+	<widget name="key_yellow" position="688,75" zPosition="1" size="300, 70" font="Regular;20" halign="left" valign="center" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" transparent="1" />
+	<widget name="key_blue" position="1012,75" zPosition="1" size="300, 70" font="Regular;20" halign="left" valign="center" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" transparent="1" />
+
+	<eLabel name="textMenu" text="MENU" position="1480,78" size="70,34" font="Regular;16" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="center" valign="center" zPosition="1" transparent="1" />
+	<widget name="textInfo" text="" position="1570,78" size="70,34" font="Regular;16" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="center" valign="center" transparent="1" zPosition="1" />
+	<eLabel name="textText" text="TEXT(L)" position="1660,78" size="70,34" font="Regular;16" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="center" valign="center" zPosition="1" transparent="1" />
+	<eLabel name="textOK" text="OK" position="1750,78" size="70,34" font="Regular;16" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="center" valign="center" zPosition="1" transparent="1" />
+	<eLabel name="textExit" text="EXIT " position="1840,78" size="70,34" font="Regular;16" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="center" valign="center" zPosition="1" transparent="1" />
+
+	<eLabel name="textHelp" text="HELP" position="1480,109" size="70,34" font="Regular;16" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="center" valign="center" zPosition="1" transparent="1" />
+	<eLabel name="textAudio" text="AUDIO" position="1570,109" size="70,34" font="Regular;16" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="center" valign="center" zPosition="1" transparent="1" />
+	<eLabel name="textJump" text="2 - 5 - 8" position="1660,109" size="70,34" font="Regular;16" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="center" valign="center" zPosition="1" transparent="1" />
+	<eLabel name="text0" text="0" position="1750,109" size="70,34" font="Regular;16" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="center" valign="center" zPosition="1" transparent="1" />
+
+	<widget name="repeat" pixmaps="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/repeat_off.png,/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/repeat_on.png" position="1320,84" size="32,32" zPosition="3" transparent="1" alphatest="blend" />
+	<widget name="txtRepeat" text="TV" position="1320,112" size="32,32" font="Regular;12" backgroundColor="#0099887A" foregroundColor="#00FFFFFF" halign="center" valign="center" transparent="1" zPosition="3" />
+	<widget name="shuffle" pixmaps="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/shuffle_off.png,/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/shuffle_on.png" position="1370,84" size="32,32" zPosition="3" transparent="1" alphatest="blend" />
+	<widget name="txtShuffle" text="Radio" position="1365,112" size="42,32" font="Regular;12" backgroundColor="#0099887A" foregroundColor="#00FFFFFF" halign="center" valign="center" transparent="1" zPosition="3" />
+	<widget name="saver" pixmaps="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/saver_off.png,/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/saver_on.png" position="1420,84" size="32,32" zPosition="3" transparent="1" alphatest="blend" />
+	<widget name="textSaver" text="" position="1415,112" size="42,32" font="Regular;12" backgroundColor="#0099887A" foregroundColor="#00FFFFFF" halign="center" valign="center" transparent="1" zPosition="3" />
+
+	<!-- Do not change the zPosition of the following 2 widgets, as this is overwritten by the program -->
+	<widget name="screenSaverBackground" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/black.png" position="0,0" size="1920,1080" zPosition="5" transparent="0" alphatest="on" />
+	<widget name="screenSaver" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/black.png" position="0,0" size="1920,1080" backgroundColor="#FF000000" zPosition="9" transparent="0" alphatest="on" />
+
+	<!-- Screensaver individual (Diashow) name of current picture -->
+	<widget name="pathNameSSDia" position="1438,942" size="480,70" font="Regular;24" backgroundColor="#00101214" foregroundColor="#00EAEAEA" halign="center" valign="center" zPosition="17"  transparent="1" />
+	<widget name="pathNameSSDiaBackground" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/Bg_181517_trans.png" position="1438,942" size="480,70" zPosition="16" transparent="1" alphatest="blend">
+	</widget>
+
+	<!-- clock /date for Screensaver only (switchable on/off by configuation -->
+	<widget source="global.CurrentTime" render="Label" position="1766,1014" size="152,60" font="Regular;24" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="16" transparent="1" text="clockHide">
+		<convert type="ClockToText">Format:%H:%M:%S</convert>
+	</widget>
+	<widget name="clockBackground" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/Bg_181517_trans.png" position="1766,1014" size="152,60" zPosition="15" transparent="1" alphatest="blend">
+	</widget>
+
+	<widget source="global.CurrentTime" render="Label" position="1438,1014" size="328,60" font="Regular;18" backgroundColor="#00101214" foregroundColor="#00E6E6E6" halign="center" valign="center" zPosition="16" transparent="1" text="dateHide">
+		<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
+	</widget>
+	<widget name="dateBackground" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/Bg_181517_trans.png" position="1438,1014" size="328,60" zPosition="15" transparent="1" alphatest="blend">
+	</widget>
+
+	<widget name="lyricsLineBackground" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/Bg_181517_trans.png" position="0,0" size="1920,60" zPosition="11" transparent="1" alphatest="blend">
+	</widget>
+	<widget name="lyricsLine" position="0,0" size="1920,60" font="Regular;30" backgroundColor="#00101214" foregroundColor="#00E5B243" halign="center" valign="center" zPosition="12" transparent="1" />
+	<widget source="karaoke" render="Pixmap" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/Karaoke.png" position="2,2" size="32,32" zPosition="11" transparent="0" alphatest="blend">
+		<convert type="ConditionalShowHide" />
+	</widget>
+
+	<widget name="lyricsLineBackgroundBig" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/Bg_181517_trans.png" position="0,0" size="1920,170" zPosition="11" transparent="1" alphatest="blend">
+	</widget>
+	<widget name="lyricsLineBig" position="0,0" size="1920,170" font="Regular;65" backgroundColor="#00101214" foregroundColor="#00ff0000" halign="center" valign="center" zPosition="12" transparent="1" />
+	<widget source="karaokeBig" render="Pixmap" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/Karaoke_Big.png" position="2,2" size="32,32" zPosition="11" transparent="0" alphatest="blend">
+		<convert type="ConditionalShowHide" />
+	</widget>
+</screen>

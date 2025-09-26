@@ -1,7 +1,7 @@
 #######################################################################
 #
 #   Yamp LogFile  2021-02-21
-#	last change: 2024-01-02
+#	last change: 2025-09-19 by Mr.Servo @OpenATV
 #
 #   Coded by AlfredENeumann (c) 2016-2024
 #	Support: www.vuplus-support.org, board.newnigma2.to
@@ -47,18 +47,8 @@ def writeLog(text):
 	try:
 		t = timestamp()
 		with open(config.plugins.yampmusicplayer.debugFile.value, 'a') as f:
-			if len(text) > 0:
-				if text[0] == '\n':
-					if len(text) > 1:
-						f.write('\n' + t + ' ' + text[1:] + '\n')
-					else:
-						f.write('\n' + t + '\n')
-				else:
-					f.write(t + ' ' + text + '\n')
-			else:
-				f.write(t + '\n')
-#		del t, f, text
-	except:
+			f.write('%s' '%s\n' % (t, text))
+	except OSError:
 		pass
 
 

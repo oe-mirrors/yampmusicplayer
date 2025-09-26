@@ -1,8 +1,9 @@
 #######################################################################
 #
 #    YAMP - Yet Another Music Player - Globals
-#    Version 3.3.1-T24 2023-06-07
+#    Version 3.3.2 2024-02-28
 #    Coded by AlfredENeumann (c)2016-2023
+#    Last change: 2025-09-26 by Mr.Servo @OpenATV
 #    Support: www.vuplus-support.org, board.newnigma2.to
 #
 #    This program is free software; you can redistribute it and/or
@@ -17,24 +18,19 @@
 #
 #######################################################################
 
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
-yampDir = "/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/"
+yampDir = resolveFilename(SCOPE_PLUGINS, "Extensions/YampMusicPlayer/")  # e.g. /usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/
+yampTitlecaseNochange = []
+minList, secList = [], []
+FANARTTVAPPAPIFILE = yampDir + '.YampFanarttvAppApi.key'
+FANARTTVPERSAPIFILE = yampDir + 'YampFanarttvPersonalApi.key'
 
-currentPngPath = ''
-currentSkinPath = ''
-minList = []
-secList = []
-
-
-#
 # Constants
-#
-
 STATE_PLAY = 0
 STATE_PAUSE = 1
 STATE_STOP = 2
 STATE_NONE = 5
-
 MENULIST = 0
 ARTISTLIST = 1
 ALBUMLIST = 2
@@ -58,11 +54,8 @@ SEARCHTITLELIST = 25
 SEARCHFILELIST = 26
 SEARCHARTISTTITLELIST = 27
 SEARCHALBUMTITLELIST = 28
-
 THREAD_WORKING = 1
 THREAD_FINISHED = 2
-
-
 #Cover Search
 COVERS_NO = 10
 COVERS_MP3 = 1
@@ -74,9 +67,7 @@ COVERS_MP4 = 6
 COVERS_M4A = 7
 COVERS_TITLE = 8
 COVERS_OGG = 9
-
 COVER_MAXINDEX = 10
-
 #Lyrics_Search
 LYRICSS_NO = 11
 LYRICSS_MP3 = 1
@@ -89,8 +80,6 @@ LYRICSS_M4A = 7
 LYRICSS_OGG = 8
 LYRICSS_LYRDIR = 9
 LYRICSS_AZ = 10
-
-
 EXTENSIONS = {
 		"m4a": "music_m4a",
 		"mp2": "music_mp2",
@@ -118,8 +107,3 @@ EXTENSIONS = {
 		"e2pls": "playl_e2pls",
 		"m3u": "playl_m3u"
 	}
-
-
-# TEMPFILEDBWORKING = '/tmp/yampdbworking.mp'
-# TEMPFILEDBFINISHED = '/tmp/yampdbfinished.mp'
-# TEMPFILEDBCANCEL = '/tmp/yampdbcancel.mp'

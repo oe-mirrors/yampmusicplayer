@@ -1,4 +1,4 @@
-<!-- Yamp Config Skin V3.3.x Standard (HD) mit MiniTV  AlfredENeumann   last change 19.06.2023 -->
+<!-- Yamp Config Skin V3.3.x Standard (HD) mit MiniTV  AlfredENeumann   last change 02.03.2024 -->
 <screen name="YampConfigScreenV33" position="0,0" size="1280,720" backgroundColor="#00060606" flags="wfNoBorder">
 	<eLabel position="0,0" size="1280,65" backgroundColor="#00242424" />
 	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/defaultTV/smallshadowline.png" position="0,65" size="1280,2" zPosition="2"/>
