@@ -1835,7 +1835,6 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 # There are 2 groups of actions, one depends on the active list (filelist, dblist or playlist), the other don't
 # List dependent actions:
 
-
 	def ok(self):
 		# screensaver or Fullscreen Video: go back
 		if self.screenSaverActive or self.isVideoFullScreen:
@@ -2343,23 +2342,13 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 				cursor.execute("SELECT title_id, title, filename, Titles.artist_id, Artists.artist, Titles.album_id, Albums.album FROM Titles INNER JOIN Artists ON Titles.artist_id = Artists.artist_id INNER JOIN Albums ON Titles.album_id = Albums.album_id WHERE Titles.album_id = %d ORDER BY upper(title), upper(Albums.album);" % (ID))
 			except Exception as e:
 				LOG('YampScreen: getAlbumInfo: cursor.execute: EXCEPT: %s' % (str(e)), 'err')
-			try:
-				for row in cursor:
-					path = str(row[2])
-					self.AlbumPath = str(row[2])
-					self.AlbumArtist = str(row[4])
-					self.AlbumTitle = str(row[1])
-					break
-			except Exception as e:
-				LOG('YampScreen: getAlbumInfo: for row: EXCEPT: %s' % (str(e)), 'err')
-			try:
-				cursor.close()
-			except Exception:
-				pass
-			try:
-				con.close()
-			except Exception:
-				pass
+			for row in cursor:
+				self.AlbumPath = str(row[2])
+				self.AlbumArtist = str(row[4])
+				self.AlbumTitle = str(row[1])
+				break
+			cursor.close()
+			con.close()
 		else:
 			LOG('YampScreen: getAlbumInfo: con is none', 'err')
 
@@ -6519,7 +6508,7 @@ def dbInsert(con, cursor, ref, table="titles", update=False):  # Return: 0: skip
 			LOG('YampDbActions: dbInsert: Log Id3Infos: EXCEPT: ' + str(e), 'err')
 		# get New Values of title, add or get artist, album, genre, date
 		# 1a. Artist
-# artistShort = sub('(?i)( +feat)(.*)', '', artist).strip()  # remove Featuring
+		# artistShort = sub('(?i)( +feat)(.*)', '', artist).strip()  # remove Featuring
 		cursor.execute('SELECT artist_id FROM Artists WHERE artist = "%s";' % (artist))
 		row = cursor.fetchone()
 		if row is None:
@@ -6723,7 +6712,7 @@ def titlecase(text, callback=None):
 				continue
 			match = MAC_MC.match(word)
 			if match:
-# if word.lower() != 'machine' and word.lower() != 'machine,' and word.lower() != 'macy':
+				# if word.lower() != 'machine' and word.lower() != 'machine,' and word.lower() != 'macy':
 				tc_line.append("%s%s" % (match.group(1).capitalize(), match.group(2).capitalize()))
 				continue
 			if "/" in word and "//" not in word:
