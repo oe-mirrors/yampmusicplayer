@@ -4,6 +4,7 @@
 #	Version 3.3.1 2024-01-02
 #	Coded by JohnHenry (c)2013
 #	Extended by AlfredENeumann (c)2016-2024
+#   Last change: 2025-09-26 by Mr.Servo @OpenATV
 #	Support: www.vuplus-support.org, board.newnigma2.to
 #
 #	This program is free software; you can redistribute it and/or
@@ -18,27 +19,18 @@
 #
 #######################################################################
 
-import os
-from .myLogger import LOG
-#from .YampGlobals import *
-
-from Components.config import config
-
-from Components.AVSwitch import AVSwitch
-from Components.Pixmap import Pixmap
-
-from enigma import ePicLoad  # , gPixmapPtr
-#from Screens.MessageBox import MessageBox
+from os import listdir, rename
+from os.path import exists
 from random import shuffle
-from enigma import eTimer
+from enigma import ePicLoad, eTimer
+from Components.AVSwitch import AVSwitch
+from Components.config import config
+from Components.Pixmap import Pixmap
 from Tools.LoadPixmap import LoadPixmap
+from .YampGlobals import yampDir
+from .myLogger import LOG
 
-from .YampGlobals import yampDir  # , EXTENSIONS, STATE_STOP, STATE_NONE, STATE_PLAY, STATE_PAUSE
-
-
-#
 # The following class provides methods for showing coverart pictures
-#
 
 
 class YampCoverArtPixmap(Pixmap):
@@ -46,7 +38,10 @@ class YampCoverArtPixmap(Pixmap):
 		Pixmap.__init__(self)
 		self.coverArtFilename = ""
 		self.picload = ePicLoad()
-		self.picload.PictureData.get().append(self.paintCoverArtPixmapCB)
+		if exists("/var/lib/dpkg/status"):
+			self.picload_conn = self.picload.PictureData.connect(self.paintCoverArtPixmapCB)
+		else:
+			self.picload.PictureData.get().append(self.paintCoverArtPixmapCB)
 
 	def applySkin(self, desktop, screen):
 		self.noCoverFile = None
@@ -75,7 +70,7 @@ class YampCoverArtPixmap(Pixmap):
 			try:
 				self.instance.setPixmap(self.noCoverPixmap)
 				LOG('YampCoverArtPixmap: paintCoverArtPixmapCB: ptr = None -> noCoverPixmap', 'all')
-			except:
+			except Exception:
 				LOG('YampCoverArtPixmap: paintCoverArtPixmapCB: ptr = None EXCEPT', 'err')
 
 	def showDefaultCover(self):
@@ -96,20 +91,25 @@ class YampCoverArtPixmap(Pixmap):
 
 	def copyCover(self):
 		# copy cover to unique location for third party apps, use 8192 byte chunks
-		fn = self.coverArtFilename
-		if fn == "":
-			fn = yampDir + "common/no_coverArt.png"		#!!images
-		with open(fn, 'rb') as fsrc:
-			with open("/tmp/.cover", 'wb') as fdst:
-				buf = fsrc.read(8192)
-				while len(buf) > 0:
-					fdst.write(buf)
-					buf = fsrc.read(8192)
+		coverfile = self.coverArtFilename
+		if not coverfile:
+			coverfile = yampDir + "common/no_coverArt.png"		#!!images
+		if exists(coverfile):
+			try:
+				with open(coverfile, 'rb') as fsrc:
+					with open("/tmp/.cover", 'wb') as fdst:
+						buf = fsrc.read(8192)
+						while len(buf) > 0:
+							fdst.write(buf)
+							buf = fsrc.read(8192)
+			except OSError as e:
+				LOG('YampScreenSaver: setList: EXCEPT', 'err')
+		else:
+			LOG('YampScreenSaver: setList: File not found: "%s"' % coverfile, 'fn')
 
-
-#
 # The following class provides methods for showing screen saver slides
-#
+
+
 class YampScreenSaver(Pixmap):
 	def __init__(self):
 		Pixmap.__init__(self)
@@ -117,7 +117,6 @@ class YampScreenSaver(Pixmap):
 		self.picload.PictureData.get().append(self.finish_decode)
 		self.checkDecodeTimer = eTimer()
 		self.checkDecodeTimer.callback.append(self.decodeTimerTimout)
-
 		self.decodeFinished = True
 		self.slideList = []
 		self.slideIndex = self.displayIndex = 9
@@ -127,10 +126,10 @@ class YampScreenSaver(Pixmap):
 	def setList(self, slideList, slideIndex, showImmediate):
 #		try:
 #			pass
-#			LOG('\n\nYampScreenSaver setList: len(slideList): %d' %(len(slideList)), 'spe2')
-#			LOG('YampScreenSaver setList: slideList: %s' %(slideList), 'spe2')
+#			LOG('YampScreenSaver setList: len(slideList): %d' %(len(slideList)), 'spe2')
+#			LOG('YampScreenSaver: setList: slideList: %s' %(slideList), 'spe2')
 #		except:
-#			LOG('YampScreenSaver setList: EXCEPT', 'err')
+#			LOG('YampScreenSaver: setList: EXCEPT', 'err')
 		self.slideList = slideList
 		self.slideIndex = slideIndex
 		if self.slideIndex > len(self.slideList) - 1:
@@ -141,24 +140,28 @@ class YampScreenSaver(Pixmap):
 		self.currPicSav = []
 		self.shownow = showImmediate
 		self.displayIndex = slideIndex
+		try:
+			sc = AVSwitch().getFramebufferScale()
+		except Exception:
+			LOG('YampScreenSaver: setList: getFramebufferScale: EXCEPT', 'err')
+
 		#0=Width 1=Height 2=Aspect 3=use_cache 4=resize_type 5=Background(#AARRGGBB)
 		try:
 			self.picload.setPara((self.instance.size().width(), self.instance.size().height(), 1, 1, False, 0, "#00222222"))
-		except:
-			LOG('YampScreenSaver setList: setPara: EXCEPT', 'err')
+		except Exception:
+			LOG('YampScreenSaver: setList: setPara: EXCEPT', 'err')
 		self.decodeFinished = True
 		self.displayPtr = None
-#		LOG('YampScreenSaver setList end: lenList %d: ' %(len(self.slideList)), 'spe2')
+#		LOG('YampScreenSaver: setList end: lenList %d: ' %(len(self.slideList)), 'spe2')
 		if len(self.slideList) > 0:
-#			LOG('YampScreenSaver setList end: slideList: %s' %(self.slideList), 'spe2')
+#			LOG('YampScreenSaver: setList end: slideList: %s' %(self.slideList), 'spe2')
 			self.start_decode()
 
 	def start_decode(self):
 #		try:
-#			LOG('\n\n\nYampScreenSaver: start_decode:slideIndex: %d slide: %s' %(self.slideIndex,self.slideList), 'spe2')
+#			LOG('YampScreenSaver: start_decode:slideIndex: %d slide: %s' %(self.slideIndex,self.slideList), 'spe2')
 #		except:
-#			LOG('\nYampScreenSaver: start_decode: newtryxx: EXCEPT 1' , 'err')
-
+#			LOG('YampScreenSaver: start_decode: newtryxx: EXCEPT 1' , 'err')
 		if not self.decodeFinished:
 			return
 		self.decodeFinished = False
@@ -170,7 +173,7 @@ class YampScreenSaver(Pixmap):
 		try:
 			self.picload.startDecode(self.slideList[self.slideIndex])
 			self.checkDecodeTimer.start(9000, True)
-		except:
+		except Exception:
 			LOG('YampScreenSaver: start decode END: EXCEPT: self.slideIndex: %d ' % (self.slideIndex), 'err')
 
 	def decodeTimerTimout(self):
@@ -179,15 +182,15 @@ class YampScreenSaver(Pixmap):
 #		else:
 #			LOG('YampScreenSaver: decodeTimerTimout: slide: %s' %(self.slideList[self.slideIndex]) , 'spe2')
 		try:
-#			LOG('YampScreenSaver decodeTimerTimout: vor pop: %d  %s' %(len(self.slideList),self.slideList[self.slideIndex]), 'spe2')
+#			LOG('YampScreenSaver: decodeTimerTimout: vor pop: %d  %s' %(len(self.slideList),self.slideList[self.slideIndex]), 'spe2')
 			self.slideList.pop(self.slideIndex)
-#			LOG('YampScreenSaver decodeTimerTimout: nach pop: %d' %(len(self.slideList)), 'spe2')
+#			LOG('YampScreenSaver: decodeTimerTimout: nach pop: %d' %(len(self.slideList)), 'spe2')
 			self.next()  # correction slideindex only
 			self.showNextPic()
 			self.decodeFinished = True
-		except:
+		except Exception:
 			print("=== decodeTimerTimoutEXCEPT ")
-			LOG('YampScreenSaver decodeTimerTimout: pop/nextPic: EXCEPT', 'err')
+			LOG('YampScreenSaver: decodeTimerTimout: pop/nextPic: EXCEPT', 'err')
 
 	def finish_decode(self, picInfo=""):
 #		try:
@@ -198,8 +201,8 @@ class YampScreenSaver(Pixmap):
 			self.checkDecodeTimer.stop()
 		try:
 			LOG('YampScreenSaver: finish_decode: self.slideIndex: %d' % (self.slideIndex), 'all')
-		except:
-			LOG('YampScreenSaver finish_decode: EXCEPT', 'err')
+		except Exception:
+			LOG('YampScreenSaver: finish_decode: EXCEPT', 'err')
 		self.checkSlide()
 		self.decodeFinished = True
 
@@ -213,10 +216,6 @@ class YampScreenSaver(Pixmap):
 			self.start_decode()
 
 	def refreshPic(self, test=False):
-		try:
-			pass
-		except:
-			LOG('PixMaps: refreshPic: decodeFinished: EXCEPT', 'err')
 		if self.displayPtr is not None:
 			if not test:
 				self.instance.setPixmap(self.displayPtr)
@@ -250,7 +249,7 @@ class YampScreenSaver(Pixmap):
 		if len(self.slideList):
 			try:
 				return self.slideList[self.displayIndex]
-			except:
+			except Exception:
 				return ''
 		else:
 			return ''
@@ -261,7 +260,7 @@ class YampScreenSaver(Pixmap):
 				index = self.displayIndex
 				self.showNextPic()
 				self.slideList.pop(index)
-			except:
+			except Exception:
 				pass
 
 	def removeSlide(self, slidepath):
@@ -269,7 +268,7 @@ class YampScreenSaver(Pixmap):
 			if len(self.slideList) > 1:
 				self.showNextPic()
 				self.slideList.remove(slidepath)
-		except:
+		except Exception:
 			LOG('PixMaps removeSlide: EXCEPT', 'err')
 
 	def getLen(self):
@@ -278,27 +277,26 @@ class YampScreenSaver(Pixmap):
 	def __len__(self):
 		try:
 			return len(self.slideList)
-		except:
+		except Exception:
 			return 0
 
 	def checkAddSlide(self):
 #		try:
-#			LOG('YampScreenSaver checkAddSlide: len(slideList): %d slidelist: %s' %(len(self.slideList),self.slideList), 'spe2')
+#			LOG('YampScreenSaver: checkAddSlide: len(slideList): %d slidelist: %s' %(len(self.slideList),self.slideList), 'spe2')
 #		except:
-#			LOG('YampScreenSaver checkAddSlide: EXCEPT', 'err')
+#			LOG('YampScreenSaver: checkAddSlide: EXCEPT', 'err')
 		if len(self.slideList) < 2:
 			addPath = ''
 			conf = config.plugins.yampmusicplayer.screenSaverMode.value
 			if conf == 'artwork':
 				addPath = config.plugins.yampmusicplayer.screenSaverArtworkPath.value + 'Default/'
-				if not os.path.exists(addPath):
+				if not exists(addPath):
 					addPath = yampDir + "saver/"
 			elif conf == 'custom':
 				addPath = yampDir + "saver/"
-
 			addList = []
-			if os.path.exists(addPath):
-				for filename in os.listdir(addPath):
+			if exists(addPath):
+				for filename in listdir(addPath):
 					addList.append(addPath + filename)
 #			LOG('------YampScreenSaver checkAddSlide: addList: %s' %(addList), 'spe2')
 			lenAdd = len(addList)
@@ -313,15 +311,14 @@ class YampScreenSaver(Pixmap):
 						self.slideList.append(addList[1])
 					else:
 						self.slideList.append(addList[0])
-			elif lenAdd > 0:
-				if addList[0] not in self.slideList:
-					self.slideList.append(addList[0])
+			elif lenAdd > 0 and addList[0] not in self.slideList:
+				self.slideList.append(addList[0])
 			if len(self.slideList) < 2:
 				self.slideList.append(yampDir + "saverblank/black.png")
-#			LOG('YampScreenSaver checkAddSlide end : slidelist: %s' %(self.slideList), 'spe2')
+#			LOG('YampScreenSaver: checkAddSlide end : slidelist: %s' %(self.slideList), 'spe2')
 
 	def checkSlide(self):
-#		LOG('YampScreenSaver checkSlide: len(slideList): %d slidelist: %s' %(len(self.slideList),self.slideList), 'spe2')
+#		LOG('YampScreenSaver: checkSlide: len(slideList): %d slidelist: %s' %(len(self.slideList),self.slideList), 'spe2')
 		if len(self.slideList) == 0:
 			self.checkAddSlide()
 			return
@@ -330,29 +327,28 @@ class YampScreenSaver(Pixmap):
 			self.currPic.append(ptr)
 			self.currPic.append(self.slideIndex)
 #			try:
-#				LOG('YampScreenSaver checkSlide ptrOk: len(currpic): %d slide: %s' %(len(self.currPic), self.slideList[self.currPic[1]]), 'spe2')
+#				LOG('YampScreenSaver: checkSlide ptrOk: len(currpic): %d slide: %s' %(len(self.currPic), self.slideList[self.currPic[1]]), 'spe2')
 #			except:
-#				LOG('YampScreenSaver checkSlide ptrOk: Log EXCEPT)', 'spe2')
-
+#				LOG('YampScreenSaver: checkSlide ptrOk: Log EXCEPT)', 'spe2')
 			self.currPicSav = self.currPic
 		else:
-#			LOG('YampScreenSaver checkSlide ptrNOTok: pic: %s' %(self.slideList[self.slideIndex]), 'spe2')
+#			LOG('YampScreenSaver: checkSlide ptrNOTok: pic: %s' %(self.slideList[self.slideIndex]), 'spe2')
 			#error on load pixmap
 			self.currPic = self.currPicSav
-			os.rename(self.slideList[self.slideIndex], self.slideList[self.slideIndex] + '_corrupt')
+			rename(self.slideList[self.slideIndex], self.slideList[self.slideIndex] + '_corrupt')
 			self.slideList.pop(self.slideIndex)
-#			LOG('YampScreenSaver checkSlide ERROR: currpic(sav): index: %d slide: %s '%(self.currPic[1],self.slideList[self.currPic[1]] ), 'spe2')
-#			LOG('YampScreenSaver checkSlide ERROR: list: %s' %(self.slideList), 'spe2')
+#			LOG('YampScreenSaver: checkSlide ERROR: currpic(sav): index: %d slide: %s '%(self.currPic[1],self.slideList[self.currPic[1]] ), 'spe2')
+#			LOG('YampScreenSaver: checkSlide ERROR: list: %s' %(self.slideList), 'spe2')
 		self.decodeFinished = True
 		try:
 			if len(self.slideList) < 2:
 				try:
 					self.checkAddSlide()
-				except:
-					LOG('YampScreenSaver checkSlide: checkAddSlide: EXCEPText1', 'err')
-		except:
-			LOG('YampScreenSaver checkSlide: add black: EXCEPT2', 'err')
+				except Exception:
+					LOG('YampScreenSaver: checkSlide: checkAddSlide: EXCEPText1', 'err')
+		except Exception:
+			LOG('YampScreenSaver: checkSlide: add black: EXCEPT2', 'err')
 		try:
 			self.showPic()
-		except:
-			LOG('YampScreenSaver finish_decode: show pic: EXCEPT', 'err')
+		except Exception:
+			LOG('YampScreenSaver: finish_decode: show pic: EXCEPT', 'err')

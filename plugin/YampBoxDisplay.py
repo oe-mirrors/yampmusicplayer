@@ -3,6 +3,7 @@
 #    YAMP - Yet Another Music Player - Box Display
 #    Version 3.3.1 2023-01-01
 #    Coded by  by AlfredENeumann (c)2016-2024
+#    Last change: 2025-09-26 by Mr.Servo @OpenATV
 #    Support: www.vuplus-support.org, board.newnigma2.to
 #
 #    This program is free software; you can redistribute it and/or
@@ -20,30 +21,28 @@
 #
 #######################################################################
 
-from .YampGlobals import *
+from os.path import join, exists
+from enigma import eTimer
+from Components.config import config
 from Components.Pixmap import Pixmap
 from Components.Sources.StaticText import StaticText
 from Components.Label import Label
 from Screens.Screen import Screen
-from enigma import eTimer
-import os
-
-from Components.config import config
-
+from Tools.LoadPixmap import LoadPixmap
+from .YampGlobals import yampDir
 from .myLogger import LOG
+from . import _
 
 
 class YampLCDRunningScreenV33(Screen):	  #for LCD 'Running Text'
 	def __init__(self, session, parent):
 		Screen.__init__(self, session, parent=parent)
-
-		filePathName = os.path.join(yampDir, "skins", config.plugins.yampmusicplayer.yampSkin.value, "YampLcdRunning.xml")
-		try:
-			with open(filePathName, 'r') as f:
-				self.skin = f.read()
-		except:
-			LOG(_('YampLCDRunningScreenV33: Failed to open/read %s') % (filePathName), 'err')
-
+		xmlfile = join(yampDir, "skins", config.plugins.yampmusicplayer.yampSkin.value, "YampLcdRunning.xml")
+		if not exists(xmlfile):
+			LOG('YampLCDRunningScreenV33: __init__: File not found: "%s"' % xmlfile, 'err')
+			return
+		with open(xmlfile, 'r') as f:
+			self.skin = f.read()
 		self["lcdRunningText"] = StaticText("")
 		self.onShow.append(self.__onShow)
 		self.onHide.append(self.__onHide)
@@ -63,7 +62,7 @@ class YampLCDRunningScreenV33(Screen):	  #for LCD 'Running Text'
 		self.lcdGetTextTimer.start(1000)
 
 	def setText(self, text, line):		#only for campatibility with standard LCD
-		text = text
+		pass
 
 	def showHideLcdCover(self, show):
 		return
@@ -72,13 +71,12 @@ class YampLCDRunningScreenV33(Screen):	  #for LCD 'Running Text'
 class YampLCDScreenV33(Screen):  # for Standard LCD 1 or 3 lines
 	def __init__(self, session, parent):
 		Screen.__init__(self, session, parent=parent)
-		filePathName = os.path.join(yampDir, "skins", config.plugins.yampmusicplayer.yampSkin.value, "YampLCD.xml")
-		try:
-			with open(filePathName, 'r') as f:
-				self.skin = f.read()
-		except:
-			LOG(_('YampLCDScreenV33: Failed to open/read %s') % (filePathName), 'err')
-
+		xmlfile = join(yampDir, "skins", config.plugins.yampmusicplayer.yampSkin.value, "YampLCD.xml")
+		if not exists(xmlfile):
+			LOG('YampLCDScreenV33: __init__: File not found: "%s"' % xmlfile, 'err')
+			return
+		with open(xmlfile, 'r') as f:
+			self.skin = f.read()
 		self["text1"] = Label("")
 		self["text2"] = Label("")
 		self["text3"] = Label("")
@@ -103,21 +101,17 @@ class YampLCDScreenV33(Screen):  # for Standard LCD 1 or 3 lines
 			self["text3"].setText('')
 
 	def setCover(self):
+		lcdCoverPixmap = None
 		try:
 			if 'cover' not in config.plugins.yampmusicplayer.yampLcdMode.value:
 				self["coverArt"].hide()
 				return
-		except:
+		except Exception:
 			LOG('YampLCDScreen: setCover: hide: EXCEPT', 'err')
-		try:
-			from Tools.LoadPixmap import LoadPixmap
-		except:
-			LOG('YampBoxDisplay: setCover: import: EXCEPT', 'err')
 		try:
 			lcdCoverPixmap = LoadPixmap('/tmp/coverlcd.png', cached=False)
 		except Exception as e:
 			LOG('YampBoxDisplay: setCover: LoadPixmap: EXCEPT', 'err')
-
 		try:
 			self["coverArt"].instance.setPixmap(lcdCoverPixmap)
 		except Exception as e:

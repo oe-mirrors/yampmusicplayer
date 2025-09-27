@@ -1,0 +1,84 @@
+<!-- Yamp V3.3.1 Full HD Skin 'Coffee' by @ekremtt 13.01.2024   last change: AlfredENeumann 14.03.2024-->
+
+<screen name="YampLyricsScreenV33" position="0,0" size="1920,1080" backgroundColor="transparent" flags="wfNoBorder">
+<!-- Hintergründe  -->
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/bg_yamp_2.png" position="0,0" size="1920,1080" zPosition="-4" alphatest="off" />
+	<eLabel position="30,170" size="1240,50" backgroundColor="#4C453F" zPosition="-1" />	
+	<eLabel position="50,220" size="1200,840" backgroundColor="#59514A" zPosition="-1" />
+
+	<widget name="title" position="30,0" size="700,70" font="Regular;26" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="left" valign="center" zPosition="1" transparent="1" noWrap="1" />
+
+	<widget source="global.CurrentTime" render="Label" position="1595,0" zPosition="1" size="295,36" font="Regular;24" valign="center" halign="right" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" transparent="1">
+		<convert type="ClockToText">Format:%H:%M:%S</convert>
+	</widget>
+	<widget source="global.CurrentTime" render="Label" position="1595,34" zPosition="1" size="295,36" font="Regular;18" valign="center" halign="right" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" transparent="1">
+		<convert type="ClockToText">Format:%A %e. %b %Y</convert>
+	</widget>
+
+	<widget name="lyrics" position="80,225" size="1140,792" itemHeight="44" itemFont="Regular;26" zPosition="2" transparent="1" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" backgroundColorSelected="#826352" foregroundColorSelected="#00FFAA00" scrollbarWidth="6" scrollbarSliderBorderWidth="0" selectionDisabled="1" scrollbarMode="showAlways" />
+	
+    <!--grid for lyrics lines -->
+	<eLabel position="80,269" size="1129,44" backgroundColor="#514A44" zPosition="1" />
+	<eLabel position="80,357" size="1129,44" backgroundColor="#514A44" zPosition="1" />
+	<eLabel position="80,445" size="1129,44" backgroundColor="#514A44" zPosition="1" />
+	<eLabel position="80,533" size="1129,44" backgroundColor="#514A44" zPosition="1" />
+	<eLabel position="80,621" size="1129,44" backgroundColor="#514A44" zPosition="1" />
+	<eLabel position="80,709" size="1129,44" backgroundColor="#514A44" zPosition="1" />
+	<eLabel position="80,797" size="1129,44" backgroundColor="#514A44" zPosition="1" />
+	<eLabel position="80,885" size="1129,44" backgroundColor="#514A44" zPosition="1" />
+	<eLabel position="80,973" size="1129,44" backgroundColor="#514A44" zPosition="1" />
+
+	<widget name="songtitle" position="1283,178" size="600,62" font="Regular;30" backgroundColor="#0099887A" foregroundColor="#00FFAA00" halign="center" valign="center" zPosition="5" transparent="1" />
+	<widget name="artist" position="1283,240" size="600,60" font="Regular;26" backgroundColor="#0099887A" foregroundColor="#00FFAA00" halign="center" valign="center" zPosition="5" transparent="1" noWrap="1" />
+	<widget name="album" position="1283,300" size="600,60" font="Regular;26" backgroundColor="#0099887A" foregroundColor="#00FFAA00" halign="center" valign="center" zPosition="5" transparent="1" noWrap="1" />
+	
+	<widget name="Tracknr" position="1283,366" size="110,40" font="Regular;20" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="left" valign="center" zPosition="5" transparent="1" />
+	<widget name="tracknr" position="1395,366" size="80,40" font="Regular;20" backgroundColor="#0099887A" foregroundColor="#00FFAA00" halign="left" valign="center" zPosition="5" transparent="1" />
+	<widget name="Length" position="1478,366" size="90,40" font="Regular;20" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="left" valign="center" zPosition="5" transparent="1" />
+	<widget name="length" position="1560,366" size="80,40" font="Regular;20" backgroundColor="#0099887A" foregroundColor="#00FFAA00" halign="left" valign="center" zPosition="5" transparent="1" />
+	<widget name="Date" position="1673,366" size="70,40" font="Regular;20" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="left" valign="center" zPosition="5" transparent="1" />
+	<widget name="date" position="1754,366" size="140,40" font="Regular;20" backgroundColor="#0099887A" foregroundColor="#00FFAA00" halign="left" valign="center" zPosition="5" transparent="1" />
+
+	<!-- separator lines title, artist, album tracknr, length , lyrics found, cover found -->
+	<eLabel position="1283,240" size="600,1" backgroundColor="#A0A0A0" />
+	<eLabel position="1283,300" size="600,1" backgroundColor="#A0A0A0" />
+	<eLabel position="1283,360" size="600,1" backgroundColor="#A0A0A0" />
+	<!--tracknr -->
+	<eLabel position="1283,406" size="170,1" backgroundColor="#A0A0A0" />
+	<eLabel position="1478,406" size="170,1" backgroundColor="#A0A0A0" />
+	<eLabel position="1673,406" size="220,1" backgroundColor="#A0A0A0" />
+	<eLabel position="1283,558" size="300,1" backgroundColor="#A0A0A0" />
+	<eLabel position="1283,688" size="300,1" backgroundColor="#A0A0A0" />
+
+
+	<widget source="session.CurrentService" render="Progress" position="1383,445" size="400,12" borderColor="#00F4F4F4" borderWidth="1" zPosition="5" transparent="1">
+		<convert type="ServicePosition">Position</convert>
+	</widget>
+	<widget source="session.CurrentService" render="Label" position="1283,430" size="100,40" font="Regular;26" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="center" valign="center" zPosition="5" transparent="1">
+		<convert type="ServicePosition">Position</convert>
+	</widget>
+	<widget source="session.CurrentService" render="Label" position="1783,430" size="100,40" font="Regular;26" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="center" valign="center" zPosition="5" transparent="1">
+		<convert type="ServicePosition">Remaining</convert>
+	</widget>
+
+	<widget name="coverArt" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/no_coverArt.png" position="1647,527" size="230,230" zPosition="7" transparent="1" alphatest="blend" />
+
+	<widget name="providedby" position="1283,518" size="300,40" font="Regular;20" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" halign="center" valign="center" zPosition="5" transparent="1" />
+	<!-- provider Lyrics: 0: black (no) 1: mp3 2: flac 3: saved file song dir: 4: chartlyrics 5: genius 6: mp4 7:m4a 8:ogg 9: saved file common lyrics dir 10: AZlyrics-->
+	<widget name="provider" position="1358,568" size="150,60" pixmaps="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/prov/prov_no.png,/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/prov/prov_mp3.png,/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/prov/prov_flac.png,/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/prov/prov_file.png,/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/prov/prov_chartlyrics.png,/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/prov/prov_genius.png,/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/prov/prov_mp4.png,/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/prov/prov_m4a.png,/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/prov/prov_ogg.png,/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/prov/prov_lyricsdir.png,/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/prov/prov_azlyrics.png" zPosition="5" transparent="0" alphatest="on" />
+
+	<widget name="cprovidedby" position="1283,648" size="300,40" font="Regular;20" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" valign="center" halign="center" zPosition="5" transparent="1" />
+	<!-- provider Cover: 0: black (no) 1:mp3 2:flac 3:file any  4:albumcover.* 5:google 6:mp4 7:m4a 8:file title 9:ogg-->
+	<widget name="cprovider" position="1358,698" size="150,60" pixmaps="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/prov/prov_no.png,/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/prov/prov_mp3.png,/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/prov/prov_flac.png,/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/prov/prov_fileany.png,/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/prov/prov_filealbum.png,/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/prov/prov_google.png,/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/prov/prov_mp4.png,/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/prov/prov_m4a.png,/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/prov/prov_filetitle.png,/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/fhdCoffee/prov/prov_ogg.png" zPosition="5" transparent="0" alphatest="on" />
+
+	<widget source="session.CurrentService" render="Pig" position="1380,820" size="445,250" backgroundColor="transparent" zPosition="4" transparent="0" />
+
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/common/yamp2.png" position="1483,950" size="200,100" zPosition="3" transparent="1" alphatest="on" />
+
+	<widget name="key_red" position="40,75" zPosition="1" size="300, 70" font="Regular;20" halign="left" valign="center" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" transparent="1" />
+	<widget name="key_green" position="364,75" zPosition="1" size="300, 70" font="Regular;20" halign="left" valign="center" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" transparent="1" />
+	<widget name="key_yellow" position="688,75" zPosition="1" size="300, 70" font="Regular;20" halign="left" valign="center" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" transparent="1" />
+	<widget name="key_blue" position="1012,75" zPosition="1" size="300, 70" font="Regular;20" halign="left" valign="center" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" transparent="1" />
+
+	<eLabel name="Menu" position="1552,75" size="350, 70" text="HELP  |  MENU  |  EXIT" font="Regular;16" halign="left" valign="center" backgroundColor="#0099887A" foregroundColor="#00F4F4F4" transparent="1" />
+</screen>

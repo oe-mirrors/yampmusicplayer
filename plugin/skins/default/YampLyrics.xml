@@ -1,9 +1,9 @@
-<!-- Yamp Lyrics Skin V3.3.x Standard (HD) AlfredENeumann   last change 14.12.2023 -->
+<!-- Yamp Lyrics Skin V3.3.x Standard (HD) AlfredENeumann   last change 15.03.2024 -->
 <screen name="YampLyricsScreenV33" position="0,0" size="1280,720" backgroundColor="#00060606" flags="wfNoBorder">
 	<eLabel position="0,0" size="1280,65" backgroundColor="#00242424" />
 	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/default/smallshadowline.png" position="0,65" size="1280,2" zPosition="2"/>
 
-	<widget name="title" position="50,0" size="1085,65" backgroundColor="#00242424" foregroundColor="#00E6E6E6" transparent="1" zPosition="1" font="Regular;20" valign="center" halign="left" />
+	<widget name="title" position="50,0" size="500,65" backgroundColor="#00242424" foregroundColor="#00E6E6E6" transparent="1" zPosition="1" font="Regular;20" valign="center" halign="left" />
 
 	<widget source="global.CurrentTime" render="Label" position="1120,9" size="150,23" backgroundColor="#00242424" foregroundColor="#00E6E6E6" transparent="1" zPosition="1" font="Regular;22" valign="center" halign="right">
 		<convert type="ClockToText">Format:%H:%M:%S</convert>
@@ -25,7 +25,7 @@
 	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YampMusicPlayer/skins/default/smallshadowline.png" position="0,114" size="1280,2" zPosition="2"/>
 
 
-	<widget name="lyrics" position="85,140" zPosition="3" size="895,579" itemFont="Regular;18" backgroundColor="#00000000" foregroundColor="#00E6E6E6" selectionDisabled="1" scrollbarMode="showAlways" scrollbarWidth="3" scrollbarSliderBorderWidth="1" />
+	<widget name="lyrics" position="85,140" zPosition="3" size="895,579" itemFont="Regular;22" backgroundColor="#00000000" foregroundColor="#00E6E6E6" selectionDisabled="1" scrollbarMode="showAlways" scrollbarWidth="3" scrollbarSliderBorderWidth="1" />
 
 	<widget name="songtitle" position="990,136" size="280,30" font="Regular;24" zPosition="5" backgroundColor="#00101214" foregroundColor="#00e5b243" transparent="1" valign="top" halign="center" />
 	<widget name="artist" position="990,168" size="280,25" font="Regular;20" zPosition="5" backgroundColor="#00101214" foregroundColor="#00999999" transparent="1" valign="top" halign="center" />

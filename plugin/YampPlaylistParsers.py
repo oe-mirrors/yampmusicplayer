@@ -4,6 +4,7 @@
 #    Version 3.1.1 2023-07-25
 #    Coded by JohnHenry (c)2013
 #    Extended by AlfredENeumann (c)2016-2023
+#    Last change: 2025-09-26 by Mr.Servo @OpenATV
 #    Support: www.vuplus-support.org
 #
 #    This program is free software; you can redistribute it and/or
@@ -18,12 +19,11 @@
 #
 #######################################################################
 
-#from .YampGlobals import *
-import os
-
-from ServiceReference import ServiceReference
+from os import listdir
+from os.path import join, dirname, exists
+from re import sub
 from enigma import eServiceReference
-
+from ServiceReference import ServiceReference
 from .myLogger import LOG
 
 
@@ -35,7 +35,7 @@ class YampParsers:
 
 	def __init__(self):
 		self.list = []
-		self.mountpoints = os.listdir(self.MOUNTPOINT)
+		self.mountpoints = listdir(self.MOUNTPOINT)
 
 	def clear(self):
 		del self.list[:]
@@ -47,19 +47,16 @@ class YampParsers:
 		for proto in self.REMOTE_PROTOS:
 			if entry.startswith(proto):
 				return None  # no support for streams!
-		if entry[0] == "/":
-			path = entry
-		else:
-			path = os.path.join(os.path.dirname(filename), entry)
-		if not os.path.exists(path):
+		path = entry if entry[0] == "/" else join(dirname(filename), entry)
+		if not exists(path):
 			path = self.tryMountpoints(path)
 		return path and ServiceReference(eServiceReference(4097, 0, path))
 
 	def tryMountpoints(self, abspath):
 		newpath = None
 		for p in self.mountpoints:
-			x = os.path.join(self.MOUNTPOINT, p, abspath[1:])  # ignore leading '/'!
-			if os.path.exists(x):
+			x = join(self.MOUNTPOINT, p, abspath[1:])  # ignore leading '/'!
+			if exists(x):
 				newpath = x
 				break
 		return newpath
@@ -84,10 +81,10 @@ class YampParserE2pls(YampParsers):
 		return self.list
 
 	def save(self, filename=None):
-		file = open(filename, "w")
-		for x in self.list:
-			file.write(str(x) + "\n")
-		file.close()
+		if filename:
+			with open(filename, "w") as file:
+				for x in self.list:
+					file.write(str(x) + "\n")
 		return self.OK
 
 
@@ -121,14 +118,13 @@ class YampParserM3u(YampParsers):
 		file.close()
 		return self.list
 
-	def save(self, filename=None):
-		import re
+	def save(self, filename=""):
 		file = open(filename, "w")
 		file.write('#EXTM3U\n')
 		for x in self.list:
 			try:
-				x = re.sub(r'^4097:', '', str(x))  # remove leading 4097:
-				x = re.sub(r'^([0-9]+:)+', '', x)  # remove all leading xyz:  xyz = 1 or more numbers
+				x = sub(r'^4097:', '', str(x))  # remove leading 4097:
+				x = sub(r'^(\d+:)+', '', x)  # remove all leading xyz:  xyz = 1 or more numbers
 				pos = x.rfind('-')
 				title = x[pos + 1:].strip()
 				x = x[:pos].strip()
@@ -161,6 +157,7 @@ class YampParserPls(YampParsers):
 				if entry == "":
 					break
 				entry = entry.strip().replace('\\', '/')
+				sref = ""
 				if entry.startswith("File"):
 					pos = entry.find('=') + 1
 					newentry = entry[pos:]

@@ -1,8 +1,9 @@
 #######################################################################
 #
 #    YAMP - Yet Another Music Player - Video Special
-#    Version 3.3.1 2023-12-27
-#    Coded by AlfredENeumann (c)2016-2023
+#    Version 3.3.1.2 2024-02-14
+#    Coded by AlfredENeumann (c)2016-2024
+#    Last change: 2025-09-26 by Mr.Servo @OpenATV
 #    Support: www.vuplus-support.org, board.newnigma2.to
 #
 #    This program is free software; you can redistribute it and/or
@@ -20,26 +21,19 @@
 #
 #######################################################################
 
-# our own modules
-
-import os
-
-from . import _
-#from .YampGlobals import *
-
-from .YampGlobals import yampDir, STATE_STOP
-
+from os.path import join, exists
+from enigma import eTimer
+from Components.ActionMap import ActionMap
+from Components.config import config
 from Components.Label import Label
 from Components.Pixmap import Pixmap
 from Components.Sources.Boolean import Boolean
-
+from Screens.Screen import Screen
+from .YampGlobals import yampDir, STATE_STOP
 from .YampPixmaps import YampCoverArtPixmap
 from .YampBoxDisplay import YampLCDRunningScreenV33, YampLCDScreenV33
-from Screens.Screen import Screen
-from enigma import eTimer
-from Components.ActionMap import ActionMap
 from .myLogger import LOG
-from Components.config import config
+from . import _
 
 
 def checkAttributes(element, NameText, searchText):
@@ -49,38 +43,33 @@ def checkAttributes(element, NameText, searchText):
 			try:
 				if attrib == NameText and value == searchText:
 					check = True
-			except:
-				LOG('\nYampScreen: checkAttributes: if ATTR:EXCEPT', 'err')
-
+			except Exception:
+				LOG('YampScreen: checkAttributes: if ATTR:EXCEPT', 'err')
 	return check
-
-#
 
 
 class YampVideoTitleV33(Screen):
 	def __init__(self, session, parent, autoStartTime=0):
 		Screen.__init__(self, session, parent=parent)
-		try:
-			with open(os.path.join(yampDir, "skins", config.plugins.yampmusicplayer.yampSkin.value, "YampVideoTitle.xml"), 'r') as f:
-				self.skin = f.read()
-				self.skinOpenError = False
-		except Exception as e:
-			LOG('YampVideoSpecial: YampVideoTitle: open xml: EXCEPT: %s' % (str(e)), 'err')
+		xmlfile = join(yampDir, "skins", config.plugins.yampmusicplayer.yampSkin.value, "YampVideoTitle.xml")
+		if not exists(xmlfile):
 			self.skinOpenError = True
 			self.close('')
 			return
-
+		with open(xmlfile, 'r') as f:
+			self.skin = f.read()
+		self.skinOpenError = False
 		self.parent = parent
 		self.autoStartTime = autoStartTime
 		self.textLongActive = False
+		self.jumpFwLongActive = False
+		self.jumpBwLongActive = False
 		self.elementClock = self.elementDate = None
 		LOG('YampVideoTitle: START', 'all')
-
 		self.updateTimer = eTimer()
 		self.updateTimer.callback.append(self.updateInfoCyclic)
 		self.startupTimer = eTimer()
 		self.startupTimer.callback.append(self.startupTimerTimeout)
-
 		self["songtitle"] = Label("")
 		self["artist"] = Label("")
 		self["album"] = Label("")
@@ -95,14 +84,12 @@ class YampVideoTitleV33(Screen):
 		self["songInfoBg"] = Boolean(True)
 		self["clockBackground"] = Pixmap()
 		self["dateBackground"] = Pixmap()
-
 		self["lyricsLine"] = Label("")
 		self["lyricsLineBackground"] = Pixmap()
 		self["lyricsLineBig"] = Label("")
 		self["lyricsLineBackgroundBig"] = Pixmap()
 		self["karaoke"] = Boolean(False)
 		self["karaokeBig"] = Boolean(False)
-
 		self["actions"] = ActionMap(["YampActions", "YampOtherActions"],
 		{
 			"exit": self.keyClose,
@@ -123,9 +110,11 @@ class YampVideoTitleV33(Screen):
 			"play": self.keyPlay,
 			"pause": self.keyPause,
 			"stop": self.keyStop,
-
+			"keyPercentJumpFw": self.keyPercentJumpFwActions,
+			"keyPercentJumpBw": self.keyPercentJumpBwActions,
+			"keyPercentJumpFwLong": self.keyPercentJumpFwLActions,
+			"keyPercentJumpBwLong": self.keyPercentJumpBwLActions
 		}, -2)
-
 		self["seekactions"] = ActionMap(["YampActions"],
 		{
 			"key1": self.key1,
@@ -133,17 +122,14 @@ class YampVideoTitleV33(Screen):
 			"key4": self.key4,
 			"key6": self.key6,
 			"key7": self.key7,
-			"key9": self.key9,
+			"key9": self.key9
 		}, -2)
-
 		self.LcdText = ''
-
 		try:
 			LOG('YampVideoTitle: init: autoStartTime: %d' % (autoStartTime), 'spe')
 			LOG('YampVideoTitle: init: autoStartTime: %d' % (self.autoStartTime), 'spe')
-		except:
+		except Exception:
 			LOG('YampVideoTitle: init: parameters: EXCEPT', 'err')
-
 		LOG('YampVideoTitle: init: IsVideo: %d' % (self.parent.currentIsVideo), 'spe')
 		self.actTitle = self.actArtist = self.actAlbum = ''
 		self.onLayoutFinish.append(self.layoutFinished)
@@ -155,14 +141,11 @@ class YampVideoTitleV33(Screen):
 		bgMode = config.plugins.yampmusicplayer.karaokeBg.value
 		self.findClockElement()
 		self.showHideClock("Video")
-
 		self["songInfoBg"].setBoolean(config.plugins.yampmusicplayer.showInfoBarBg.value)
-
 		self["lyricsLine"].hide()
 		self["lyricsLineBackground"].hide()
 		self["lyricsLineBig"].hide()
 		self["lyricsLineBackgroundBig"].hide()
-
 		self.updateSongInfo()
 		self.updateTimer.start(300, False)
 		if self.autoStartTime > 0:
@@ -197,15 +180,13 @@ class YampVideoTitleV33(Screen):
 							self["lyricsLineBackgroundBig"].hide()
 			self["karaoke"].setBoolean(self.parent.lyricsLineShow)
 			self["karaokeBig"].setBoolean(self.parent.lyricsLineShowBig)
-		except:
+		except Exception:
 			LOG('YampVideoTitleV33: displayKaraoke: EXCEPT', 'err')
 
 	def startupTimerTimeout(self):
 		LOG('YampVideoTitle: startupTimerTimeout: close: IsVideo: %d' % (self.parent.currentIsVideo), 'spe')
-
 		if not self.parent.currentIsVideo:
 			self.updateTimer.stop()
-
 		self.close('startupTimerTimeout')
 
 	def updateSongInfo(self):
@@ -216,26 +197,23 @@ class YampVideoTitleV33(Screen):
 		try:
 			if self.parent.lyricsLineShow or self.parent.lyricsLineShowBig:
 				self["lyricsLine"].setText(self.parent.displayLyricsText)
-		except:
+		except Exception:
 			LOG('YampVideoTitle: updateSongInfo: lyricsLine SetText: EXCEPT', 'err')
 		try:
 			coverArtFile, PixNumCover = self.parent.getCoverArtFile()
 			if PixNumCover > 0:
 				self["coverArt"].showCoverArt(coverArtFile)
-		except:
+		except Exception:
 			LOG('YampVideoTitle: updateSongInfo: cover: EXCEPT', 'err')
-
 		replaceText = self.parent.infoBarNaReplace
 		newTitle = self.parent.currTitle.replace('n/a', replaceText)
 		newArtist = self.parent.currArtist.replace('n/a', replaceText)
 		newAlbum = self.parent.currAlbum.replace('n/a', replaceText)
-
 		if self.actTitle != newTitle or self.actArtist != newArtist or self.actAlbum != newAlbum:
 			if self.autoStartTime > 0:
 				if self.startupTimer.isActive():
 					self.startupTimer.stop()
 				self.startupTimer.start(self.autoStartTime * 1000, True)
-
 			self.actTitle = newTitle
 			self.actArtist = newArtist
 			self.actAlbum = newAlbum
@@ -289,7 +267,7 @@ class YampVideoTitleV33(Screen):
 				self.parent.lyricsLineShow = not self.parent.lyricsLineShow  # !!!noch Restzeit autostart
 				self.parent.lyricsLineShowBig = False
 				self.displayKaraoke()
-			except:
+			except Exception:
 				LOG('YampVideoTitle: keyText: EXCEPT', 'err')
 
 	def keyTextLong(self):
@@ -297,6 +275,26 @@ class YampVideoTitleV33(Screen):
 		self.parent.lyricsLineShowBig = not self.parent.lyricsLineShowBig
 		self.parent.lyricsLineShow = False
 		self.displayKaraoke()
+
+	def keyPercentJumpFwActions(self):
+		if self.jumpFwLongActive:
+			self.jumpFwLongActive = False
+		else:
+			self.parent.seekOwn(21)
+
+	def keyPercentJumpBwActions(self):
+		if self.jumpBwLongActive:
+			self.jumpBwLongActive = False
+		else:
+			self.parent.seekOwn(22)
+
+	def keyPercentJumpFwLActions(self):
+		self.jumpFwLongActive = True
+		self.parent.seekOwn(23)
+
+	def keyPercentJumpBwLActions(self):
+		self.jumpBwLongActive = True
+		self.parent.seekOwn(24)
 
 	def keyClose(self):
 		self.close('keyClose')
@@ -337,7 +335,7 @@ class YampVideoTitleV33(Screen):
 	def keyStop(self):
 		try:
 			self.parent.stopEntry()
-		except:
+		except Exception:
 			LOG('YampVideoTitle: keyStop: EXCEPT', 'err')
 		self.close('keyStop')
 
@@ -368,7 +366,7 @@ class YampVideoTitleV33(Screen):
 		if config.plugins.yampmusicplayer.yampLcdMode.value == 'rolling':
 			try:
 				self.LcdText = text
-			except:
+			except Exception:
 				pass
 		else:
 			self.summaries.setCover()
@@ -383,72 +381,65 @@ class YampVideoTitleV33(Screen):
 		lcdMode = config.plugins.yampmusicplayer.yampLcdMode.value
 		if lcdMode == 'off':
 			return
-		if lcdMode == 'rolling':
-			return YampLCDRunningScreenV33
-		else:
-			return YampLCDScreenV33
+		return YampLCDRunningScreenV33 if lcdMode == 'rolling' else YampLCDScreenV33
 
 	def findClockElement(self):
-		LOG('\YampVideoTitle: findClockElement: Start', 'all')
+		LOG('YampVideoTitle: findClockElement: Start', 'all')
 		try:
 			for element in self.renderer:
 				if "Converter.ClockToText." in str(vars(element)):
 					if checkAttributes(element, "text", "clockHide"):
-						LOG('\nYampVideoTitle: findClockElement: FOUND clockHide!!!', 'all')
+						LOG('YampVideoTitle: findClockElement: FOUND clockHide!!!', 'all')
 						self.elementClock = element
 					elif checkAttributes(element, "text", "dateHide"):
-						LOG('\nYampVideoTitle: findClockElement: FOUND dateHide!!!', 'all')
+						LOG('YampVideoTitle: findClockElement: FOUND dateHide!!!', 'all')
 						self.elementDate = element
-		except:
-			LOG('\YampVideoTitle: findClockElement: EXCEPT', 'err')
+		except Exception:
+			LOG('YampVideoTitle: findClockElement: EXCEPT', 'err')
 
 	def showHideClock(self, Modus="Standard"):  # "Video"
-		LOG('\nVideoTitleScreen: showHideClock START: Modus %s ' % (Modus), 'all')
-
+		LOG('VideoTitleScreen: showHideClock START: Modus %s ' % (Modus), 'all')
 		try:
 			configVid = config.plugins.yampmusicplayer.showClockVideo.value
-			LOG('\nVideoTitleScreen: showHideClock: configVid: %s' % (configVid), 'all')
-
+			LOG('VideoTitleScreen: showHideClock: configVid: %s' % (configVid), 'all')
 			if self.elementClock is not None:
 				if Modus == "Standard":
 					self.elementClock.instance.hide()
 					self["clockBackground"].hide()
-					LOG('\nVideoTitleScreen: showHideClock: Clock & BG Hide 1', 'all')
+					LOG('VideoTitleScreen: showHideClock: Clock & BG Hide 1', 'all')
 				elif Modus == "Video":
 					if configVid == "no" or configVid == "date" or configVid == "datebg":
 						self.elementClock.instance.hide()
 						self["clockBackground"].hide()
-						LOG('\nVideoTitleScreen: showHideClock: Clock & BG Hide 2', 'all')
+						LOG('VideoTitleScreen: showHideClock: Clock & BG Hide 2', 'all')
 					elif configVid == "clock" or configVid == "clockdate":
 						self.elementClock.instance.show()
 						self["clockBackground"].hide()
-						LOG('\nVideoTitleScreen: showHideClock: Clock Show, BG Hide', 'all')
+						LOG('VideoTitleScreen: showHideClock: Clock Show, BG Hide', 'all')
 					elif configVid == "clockbg" or configVid == "clockdatebg":
 						self.elementClock.instance.show()
 						self["clockBackground"].show()
-						LOG('\nYampVideoSpecial: VideoTitleScreen: showHideClock: Clock & BG Show', 'all')
-
+						LOG('YampVideoSpecial: VideoTitleScreen: showHideClock: Clock & BG Show', 'all')
 			if self.elementDate is not None:
 				if Modus == "Standard":
 					self.elementDate.instance.hide()
 					self["dateBackground"].hide()
-					LOG('\nYampVideoSpecial: VideoTitleScreen: showHideClock: Date & BG Hide 1', 'all')
+					LOG('YampVideoSpecial: VideoTitleScreen: showHideClock: Date & BG Hide 1', 'all')
 				elif Modus == "Video":
 					if configVid == "no" or configVid == "clock" or configVid == "clockbg":
 						self.elementDate.instance.hide()
 						self["dateBackground"].hide()
-						LOG('\nYampVideoSpecial: VideoTitleScreen: showHideClock: Date & BG Hide 2', 'all')
+						LOG('YampVideoSpecial: VideoTitleScreen: showHideClock: Date & BG Hide 2', 'all')
 					elif configVid == "date" or configVid == "clockdate":
 						self.elementDate.instance.show()
 						self["dateBackground"].hide()
-						LOG('\nYampVideoSpecial: VideoTitleScreen: showHideClock: Date Show, BG Hide', 'all')
+						LOG('YampVideoSpecial: VideoTitleScreen: showHideClock: Date Show, BG Hide', 'all')
 					elif configVid == "datebg" or configVid == "clockdatebg":
 						self.elementDate.instance.show()
 						self["dateBackground"].show()
-						LOG('\n\nYampVideoSpecial: VideoTitleScreen: showHideClock: Date & BG Show', 'all')
-
-		except:
-			LOG('\nVideoTitleScreen: showHideClock: EXCEPT', 'err')
+						LOG('\nYampVideoSpecial: VideoTitleScreen: showHideClock: Date & BG Show', 'all')
+		except Exception:
+			LOG('VideoTitleScreen: showHideClock: EXCEPT', 'err')
 
 	def lockShow(self):
 		pass
@@ -461,7 +452,7 @@ class YampVideoLyricsV33(Screen):
 	def __init__(self, session, parent):
 		Screen.__init__(self, session, parent=parent)
 		try:
-			with open(os.path.join(yampDir, "skins", config.plugins.yampmusicplayer.yampSkin.value, "YampVideoLyrics.xml"), 'r') as f:
+			with open(join(yampDir, "skins", config.plugins.yampmusicplayer.yampSkin.value, "YampVideoLyrics.xml"), 'r') as f:
 				self.skin = f.read()
 				self.skinOpenError = False
 		except Exception as e:
@@ -469,14 +460,11 @@ class YampVideoLyricsV33(Screen):
 			self.skinOpenError = True
 			self.close()
 			return
-
 		self.parent = parent
 		self.textLongActive = False
 		self.updateTimer = eTimer()
 		self.elementClock = self.elementDate = None
-
 		self.updateTimer.callback.append(self.updateInfoCyclic)
-
 		self["lyricsLine"] = Label("")
 		self["lyricsLineBackground"] = Pixmap()
 		self["lyricsLineBig"] = Label("")
@@ -485,7 +473,6 @@ class YampVideoLyricsV33(Screen):
 		self["karaokeBig"] = Boolean(False)
 		self["clockBackground"] = Pixmap()
 		self["dateBackground"] = Pixmap()
-
 		self["actions"] = ActionMap(["YampActions", "YampOtherActions"],
 		{
 			"exit": self.keyClose,
@@ -507,7 +494,6 @@ class YampVideoLyricsV33(Screen):
 			"pause": self.keyPause,
 			"stop": self.keyStop,
 		}, -2)
-
 		self["seekactions"] = ActionMap(["YampActions"],
 		{
 			"key1": self.key1,
@@ -517,9 +503,7 @@ class YampVideoLyricsV33(Screen):
 			"key7": self.key7,
 			"key9": self.key9,
 		}, -2)
-
 		self.LcdText = ''
-
 		self.actTitle = self.actArtist = self.actAlbum = ''
 		self.onLayoutFinish.append(self.layoutFinished)
 		self.onClose.append(self.cleanup)
@@ -532,7 +516,6 @@ class YampVideoLyricsV33(Screen):
 		self["lyricsLineBackground"].hide()
 		self["lyricsLineBig"].hide()
 		self["lyricsLineBackgroundBig"].hide()
-
 		self.updateSongInfo()
 		self.updateTimer.start(300, False)
 		self.displayKaraoke()
@@ -565,7 +548,7 @@ class YampVideoLyricsV33(Screen):
 							self["lyricsLineBackgroundBig"].hide()
 			self["karaoke"].setBoolean(self.parent.lyricsLineShow)
 			self["karaokeBig"].setBoolean(self.parent.lyricsLineShowBig)
-		except:
+		except Exception:
 			LOG('YampVideoSpecial: YampVideoLyrics: displayKaraoke: EXCEPT', 'err')
 
 	def updateSongInfo(self):
@@ -577,14 +560,12 @@ class YampVideoLyricsV33(Screen):
 		try:
 			if self.parent.lyricsLineShow or self.parent.lyricsLineShowBig:
 				self["lyricsLine"].setText(self.parent.displayLyricsText)
-		except:
+		except Exception:
 			LOG('YampVideoSpecial: YampVideoLyrics: updateSongInfo: lyricsLine SetText: EXCEPT', 'err')
-
 		replaceText = self.parent.infoBarNaReplace
 		newTitle = self.parent.currTitle.replace('n/a', replaceText)
 		newArtist = self.parent.currArtist.replace('n/a', replaceText)
 		newAlbum = self.parent.currAlbum.replace('n/a', replaceText)
-
 		if self.actTitle != newTitle or self.actArtist != newArtist or self.actAlbum != newAlbum:
 			self.actTitle = newTitle
 			self.actArtist = newArtist
@@ -630,7 +611,7 @@ class YampVideoLyricsV33(Screen):
 				self.parent.lyricsLineShow = not self.parent.lyricsLineShow  # !!!noch Restzeit autostart
 				self.parent.lyricsLineShowBig = False
 				self.displayKaraoke()
-			except:
+			except Exception:
 				LOG('YampVideoSpecial: YampVideoLyrics: keyText: EXCEPT', 'err')
 
 	def keyTextLong(self):
@@ -666,19 +647,19 @@ class YampVideoLyricsV33(Screen):
 	def keyPlay(self):
 		try:
 			self.parent.play()
-		except:
+		except Exception:
 			LOG('YampVideoSpecial: YampVideoLyrics: keyPlay: EXCEPT', 'err')
 
 	def keyPause(self):
 		try:
 			self.parent.pause()
-		except:
+		except Exception:
 			LOG('YampVideoSpecial: YampVideoLyrics: keyPause: EXCEPT', 'err')
 
 	def keyStop(self):
 		try:
 			self.parent.stopEntry()
-		except:
+		except Exception:
 			LOG('YampVideoSpecial: YampVideoLyrics: keyStop: EXCEPT', 'err')
 		self.close('keyStop')
 
@@ -707,7 +688,7 @@ class YampVideoLyricsV33(Screen):
 		if config.plugins.yampmusicplayer.yampLcdMode.value == 'rolling':
 			try:
 				self.LcdText = text
-			except:
+			except Exception:
 				pass
 		else:
 			self.summaries.setCover()
@@ -722,10 +703,7 @@ class YampVideoLyricsV33(Screen):
 		lcdMode = config.plugins.yampmusicplayer.yampLcdMode.value
 		if lcdMode == 'off':
 			return
-		if lcdMode == 'rolling':
-			return YampLCDRunningScreenV33
-		else:
-			return YampLCDScreenV33
+		return YampLCDRunningScreenV33 if lcdMode == 'rolling' else YampLCDScreenV33
 
 	def findClockElement(self):
 		try:
@@ -735,53 +713,52 @@ class YampVideoLyricsV33(Screen):
 						self.elementClock = element
 					elif checkAttributes(element, "text", "dateHide"):
 						self.elementDate = element
-		except:
-			LOG('\YampVideoLyrics: findClockElement: EXCEPT', 'err')
+		except Exception:
+			LOG('YampVideoLyrics: findClockElement: EXCEPT', 'err')
 
 	def showHideClock(self, Modus="Standard"):  # "SS", "Video"
-		LOG('\nVideoLyricsScreen: showHideClock: Modus %s ' % (Modus), 'all')
+		LOG('VideoLyricsScreen: showHideClock: Modus %s ' % (Modus), 'all')
 		try:
 			configVid = config.plugins.yampmusicplayer.showClockVideo.value
-			LOG('\nVideoLyricsScreen: showHideClock: configVid: %s' % (configVid), 'all')
+			LOG('VideoLyricsScreen: showHideClock: configVid: %s' % (configVid), 'all')
 			if self.elementClock is not None:
 				if Modus == "Standard":
 					self.elementClock.instance.hide()
 					self["clockBackground"].hide()
-					LOG('\nVideoLyricsScreen: showHideClock: Clock & BG Hide 1', 'all')
+					LOG('VideoLyricsScreen: showHideClock: Clock & BG Hide 1', 'all')
 				elif Modus == "Video":
 					if configVid == "no" or configVid == "date" or configVid == "datebg":
 						self.elementClock.instance.hide()
 						self["clockBackground"].hide()
-						LOG('\nVideoLyricsScreen: showHideClock: Clock & BG Hide 2', 'all')
+						LOG('VideoLyricsScreen: showHideClock: Clock & BG Hide 2', 'all')
 					elif configVid == "clock" or configVid == "clockdate":
 						self.elementClock.instance.show()
 						self["clockBackground"].hide()
-						LOG('\nVideoLyricsScreen: showHideClock: Clock Show, BG Hide', 'all')
+						LOG('VideoLyricsScreen: showHideClock: Clock Show, BG Hide', 'all')
 					elif configVid == "clockbg" or configVid == "clockdatebg":
 						self.elementClock.instance.show()
 						self["clockBackground"].show()
-						LOG('\n\nVideoLyricsScreen: showHideClock: Clock & BG Show', 'all')
-
+						LOG('\nVideoLyricsScreen: showHideClock: Clock & BG Show', 'all')
 			if self.elementDate is not None:
 				if Modus == "Standard":
 					self.elementDate.instance.hide()
 					self["dateBackground"].hide()
-					LOG('\nVideoLyricsScreen: showHideClock: Date & BG Hide 1', 'all')
+					LOG('VideoLyricsScreen: showHideClock: Date & BG Hide 1', 'all')
 				elif Modus == "Video":
 					if configVid == "no" or configVid == "clock" or configVid == "clockbg":
 						self.elementDate.instance.hide()
 						self["dateBackground"].hide()
-						LOG('\nVideoLyricsScreen: showHideClock: Date & BG Hide 2', 'all')
+						LOG('VideoLyricsScreen: showHideClock: Date & BG Hide 2', 'all')
 					elif configVid == "date" or configVid == "clockdate":
 						self.elementDate.instance.show()
 						self["dateBackground"].hide()
-						LOG('\nVideoLyricsScreen: showHideClock: Date Show, BG Hide', 'all')
+						LOG('VideoLyricsScreen: showHideClock: Date Show, BG Hide', 'all')
 					elif configVid == "datebg" or configVid == "clockdatebg":
 						self.elementDate.instance.show()
 						self["dateBackground"].show()
-						LOG('\n\nVideoLyricsScreen: showHideClock: Date & BG Show', 'all')
-		except:
-			LOG('\nVideoLyricsScreen: showHideClock: EXCEPT', 'err')
+						LOG('\nVideoLyricsScreen: showHideClock: Date & BG Show', 'all')
+		except Exception:
+			LOG('VideoLyricsScreen: showHideClock: EXCEPT', 'err')
 
 	def lockShow(self):
 		pass

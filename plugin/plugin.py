@@ -4,6 +4,7 @@
 #    Version 3.3.1 2024-01-02
 #    Coded by JohnHenry (c)2013
 #    Extended by AlfredENeumann (c)2016-2024
+#    Last change: 2025-09-26 by Mr.Servo @OpenATV
 #    Support: www.vuplus-support.org, board.newnigma2.to
 #
 #    This program is free software; you can redistribute it and/or
@@ -21,16 +22,13 @@
 #
 #######################################################################
 
-from Components.config import config  # , ConfigSubsection, ConfigYesNo
+from os import listdir
 from enigma import getDesktop
+from Components.config import config
 from Plugins.Plugin import PluginDescriptor
 from Screens.MessageBox import MessageBox
-
-from . import _
-
-#from .YampGlobals import *
-import os
 from .Yamp import YampScreenV33
+from . import _
 
 pname = _("YAMP Music Player")
 pdesc = _("Music Player with Artist-Art Background")
@@ -42,20 +40,13 @@ def main(session, **kwargs):
 		session.open(MessageBox, _("This plugin needs a HD or FHD skin"), type=MessageBox.TYPE_ERROR, timeout=10)
 		return
 	MOUNTPOINT = "/media"
-
 	try:
-		mountpoints = os.listdir(MOUNTPOINT)
-	except:
+		mountpoints = listdir(MOUNTPOINT)
+	except Exception:
 		msgtext = _("Cannot open mountpoint %s") % (MOUNTPOINT)
 		session.open(MessageBox, msgtext, type=MessageBox.TYPE_ERROR, timeout=15)
 		return
-
-#	reload(Yamp)
-	try:
-		session.openWithCallback(closePlayer, YampScreenV33)
-	except:
-		import traceback
-		traceback.print_exc()
+	session.openWithCallback(closePlayer, YampScreenV33)
 
 
 def closePlayer(session, service=None):
@@ -70,9 +61,9 @@ def menu(menuid, **kwargs):
 
 
 def Plugins(**kwargs):
-	list = [PluginDescriptor(name=pname, description=pdesc, where=[PluginDescriptor.WHERE_PLUGINMENU], icon="yamp.png", needsRestart=True, fnc=main)]
+	plist = [PluginDescriptor(name=pname, description=pdesc, where=[PluginDescriptor.WHERE_PLUGINMENU], icon="yamp.png", needsRestart=True, fnc=main)]
 	if config.plugins.yampmusicplayer.yampInExtendedPluginlist.value:
-		list.append(PluginDescriptor(name=pname, description=pdesc, where=[PluginDescriptor.WHERE_EXTENSIONSMENU], needsRestart=True, fnc=main))
+		plist.append(PluginDescriptor(name=pname, description=pdesc, where=[PluginDescriptor.WHERE_EXTENSIONSMENU], needsRestart=True, fnc=main))
 	if config.plugins.yampmusicplayer.yampInMainMenu.value:
-		list.append(PluginDescriptor(name=pname, description=pdesc, where=[PluginDescriptor.WHERE_MENU], needsRestart=True, fnc=menu))
-	return list
+		plist.append(PluginDescriptor(name=pname, description=pdesc, where=[PluginDescriptor.WHERE_MENU], needsRestart=True, fnc=menu))
+	return plist

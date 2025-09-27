@@ -1,8 +1,9 @@
 #######################################################################
 #
 #  Yamp Lyrics Functions
-#  Version 3.3.1 2023-12-06
-#  Coded by AlfredENeumann (c) 2021-2023
+#  Version 3.3.2 2024-02-27
+#  Coded by AlfredENeumann (c) 2021-2024
+#  Last change: 2025-09-26 by Mr.Servo @OpenATV
 #  Support: www.vuplus-support.org, board.newnigma2.to
 #
 #	This program is free software; you can redistribute it and/or
@@ -17,19 +18,15 @@
 #
 #######################################################################
 
-from .YampGlobals import *
-import re
-import os
-
-import mutagen
+from os.path import join, exists, splitext, dirname
+from re import findall, sub
+from mutagen import File
 from mutagen.flac import FLAC
 from mutagen.id3 import ID3
-
-
 from Components.config import config
+from .YampGlobals import LYRICSS_NO, LYRICSS_MP3, LYRICSS_MP4, LYRICSS_M4A, LYRICSS_FLAC
+from .YampCommonFunctions import readID3Infos
 from .myLogger import LOG
-
-from .YampCommonFunctions import getEncodedString, readID3Infos
 
 
 def searchLyricsfromFiles(songFilename, foundPrio):
@@ -44,43 +41,36 @@ def searchLyricsfromFiles(songFilename, foundPrio):
 		prio = 4
 	else:
 		return '', '', foundPrio
-
 	if foundPrio < prio:
 		return '', '', foundPrio  # already found with higher priority
-
 	lyricsFileName, lyricsFileNameLong, lyricsFileNameLrc, lyricsFileNameLrcLong = getLyricsFileNames(songFilename)
-
-	try:
-		file = open(lyricsFileNameLong, "r")
-		lyrics = file.read()
-		file.close()
-		lyricsFileActive = lyricsFileNameLong
-	except:
-		try:
-			file = open(lyricsFileName, "r")
+	if exists(lyricsFileNameLong):
+		with open(lyricsFileNameLong, "r") as file:
 			lyrics = file.read()
-			file.close()
-			lyricsFileActive = lyricsFileName
-		except:
-			try:
-				file = open(lyricsFileNameLrcLong, "r")
+		lyricsFileActive = lyricsFileNameLong
+	else:  # first fallback
+		if exists(lyricsFileName):
+			with open(lyricsFileName, "r") as file:
 				lyrics = file.read()
-				file.close()
-				lyricsFileActive = lyricsFileNameLrcLong
-			except:
-				try:
-					file = open(lyricsFileNameLrc, "r")
+			lyricsFileActive = lyricsFileName
+		else:  # and second fallback
+			if exists(lyricsFileNameLrcLong):
+				with open(lyricsFileNameLrcLong, "r") as file:
 					lyrics = file.read()
-					file.close()
+				lyricsFileActive = lyricsFileNameLrcLong
+			else:  # final fallback
+				if exists(lyricsFileNameLrc):
+					with open(lyricsFileNameLrc, "r") as file:
+						lyrics = file.read()
 					lyricsFileActive = lyricsFileNameLrc
-				except:
-					pass
+				else:
+					LOG('YampLyricsFunctions: searchLyricsfromFiles: None of the files found: "%s", "%s", "%s", "%s"' % (lyricsFileNameLong, lyricsFileName, lyricsFileNameLrcLong, lyricsFileNameLrc), 'err')
 	if len(lyrics):
 		foundPrio = prio
 	return lyrics, lyricsFileActive, foundPrio
 
-
 #get Lyrics from ID3 (mp3, flac, m4a, mp4)
+
 
 def getLyricsID3(songFilename, foundPrio):
 	if config.plugins.yampmusicplayer.prioLyrics1.value == 'lyricsID3':
@@ -93,78 +83,57 @@ def getLyricsID3(songFilename, foundPrio):
 		prio = 4
 	else:
 		return '', LYRICSS_NO, foundPrio
-
 	lyrics = ''
 	pixNumLyrics = LYRICSS_NO
-
 	if foundPrio < prio:
 		return '', LYRICSS_NO, foundPrio  # already found with higher priority
-
 	if songFilename.lower().endswith(".mp3"):
 		#Lyrics search mp3
 		try:
 			audio = ID3(songFilename)
-		except:
+		except Exception:
 			audio = None
 		if audio:
 			for frame in audio.values():
 				if frame.FrameID == "USLT":
-					try:
-						lyrics = getEncodedString(frame.text).replace("\r\n", "\n").replace("\r", "\n")
-					except Exception as e:
-						LOG('\nYampLyricsFunctions:getLyricsID3mp3: lyrics getEncodedString: EXCEPT: ' + str(e), 'err')
+					lyrics = frame.text.replace("\r\n", "\n").replace("\r", "\n")
 					pixNumLyrics = LYRICSS_MP3
 					foundPrio = prio
 					break
-
 			return lyrics, pixNumLyrics, foundPrio
-
 	elif songFilename.lower().endswith(".m4a") or songFilename.lower().endswith(".mp4"):
+		f = {}
 		try:
-			f = mutagen.File(songFilename)
+			f = File(songFilename)
 		except Exception as e:
-			LOG('\nYampLyricsScreen:searchId3_m4a: mutagen: EXCEPT: ' + str(e), 'err')
+			LOG('YampLyricsScreen:searchId3_m4a: mutagen: EXCEPT: ' + str(e), 'err')
 		try:
 			for key in f.keys():
 				if key.endswith('lyr'):
-					lyrics = getEncodedString(f[key][0]).replace("\r\n", "\n").replace("\r", "\n")
+					lyrics = f[key][0].replace("\r\n", "\n").replace("\r", "\n")
 					if songFilename.lower().endswith(".mp4"):
 						pixNumLyrics = LYRICSS_MP4
 					else:
 						pixNumLyrics = LYRICSS_M4A
 					foundPrio = prio
 		except Exception as e:
-			LOG('\nYampLyricsScreen:searchId3mp4m4a: key: EXCEPT: ' + str(e), 'err')
+			LOG('YampLyricsScreen:searchId3mp4m4a: key: EXCEPT: ' + str(e), 'err')
 		return lyrics, pixNumLyrics, foundPrio
-
 	elif songFilename.lower().endswith(".flac"):
 		#Lyrics search flac
 		try:
 			flacInfo = FLAC(songFilename)
-		except:
+		except Exception:
 			flacInfo = None
 		try:
 			if flacInfo:
-				if 'lyrics' not in flacInfo:
-					pass
-				else:
-					try:
-						text = flacInfo['lyrics']
-					except Exception as e:
-						LOG('YampLyricsFunctions: getLyricsID3: FLAC: text: EXCEPT: ' + str(e), 'err')
-					try:
-						lyrics = text[0]
-					except Exception as e:
-						LOG('YampLyricsFunctions: getLyricsID3: FLAC: lyrics 1: EXCEPT: ' + str(e), 'err')
-					try:
-						lyrics = getEncodedString(lyrics).replace("\r\n", "\n").replace("\r", "\n")
-					except Exception as e:
-						LOG('YampLyricsFunctions: getLyricsID3: FLAC: lyrics encode: EXCEPT: ' + str(e), 'err')
-					try:
-						pixNumLyrics = LYRICSS_FLAC
-						foundPrio = prio
-					except Exception as e:
-						LOG('YampLyricsFunctions: getLyricsID3: FLAC: lyrics 5: EXCEPT: ' + str(e), 'err')
+				text = ""
+				if 'lyrics' in flacInfo:
+					text = flacInfo['lyrics']
+					lyrics = text[0]
+					lyrics = lyrics.replace("\r\n", "\n").replace("\r", "\n")
+					pixNumLyrics = LYRICSS_FLAC
+					foundPrio = prio
 		except Exception as e:
 			LOG('YampLyricsFunctions: getLyricsID3: FLAC: FlacInfo EXCEPT: ' + str(e), 'err')
 	return lyrics, pixNumLyrics, foundPrio
@@ -183,7 +152,7 @@ def textToList(text):
 	try:
 		for line in textLines:
 			tx = ''
-			timeStamp = re.findall(r'\[[0-9]+:[0-9]+.?[0-9]*\]', line)
+			timeStamp = findall(r'\[\d+:\d+.?\d*\]', line)
 			if len(timeStamp):
 				tx = timeStamp[len(timeStamp) - 1]
 			else:
@@ -195,47 +164,41 @@ def textToList(text):
 			seconds = float(tx[4:9])
 			posMsec90 = int(((minutes * 60.0 + seconds) * 1000.0) * 90.0)
 			tStampmsecs90.append(posMsec90)
-			if posMsec90 > 0:
-				if posMsec90 < tStampMin or tStampMin == -1:
-					tStampMin = posMsec90
+			if posMsec90 > 0 and posMsec90 < tStampMin or tStampMin == -1:
+				tStampMin = posMsec90
 	except Exception as e:
 		LOG('YampLyricsFunctions: textToList: timeStamp: EXCEPT: ' + str(e), 'err')
 	try:
-		textLines = re.sub(r'\[[0-9]+:[0-9]+.?[0-9]*\]', '', text)  # remove leading timecode [00:00.00]
+		textLines = sub(r'\[\d+:\d+.?\d*\]', '', text)  # remove leading timecode [00:00.00]
 		textLines = textLines.split('\n')
 	except Exception as e:
-		LOG('YampLyricsFunctions: textToList: re.sub: EXCEPT: ' + str(e), 'err')
+		LOG('YampLyricsFunctions: textToList: sub: EXCEPT: ' + str(e), 'err')
 	return tStamp, tStampmsecs90, textLines, tStampMin
 
 
 def getLyricsFileNames(songFilepathExt):
-
-	title, album, genre, artist, date, length, tracknr, strBitrate = readID3Infos(songFilepathExt)
-
-	songFilepath = os.path.splitext(songFilepathExt)[0]
+	title, album, genre, artist, albumartist, date, length, tracknr, strBitrate = readID3Infos(songFilepathExt)
+	songFilepath = splitext(songFilepathExt)[0]
 	songFilepathSplit = songFilepath.split('/')
 	titleFromFileName = songFilepathSplit[-1].replace('/', '_')
-
 	artist = artist.replace('/', '_').upper()
 	artist = artist.replace(':', '_').upper()
 	album = album.replace('/', '_').upper()
 	album = album.replace(':', '_').upper()
-
 	lyricsFileName = titleFromFileName + '.txt'
 	lyricsFileNameLrc = titleFromFileName + '.lrc'
 	lyricsFileNameLong = artist + ' - ' + album + ' - ' + titleFromFileName + '.txt'
 	lyricsFileNameLrcLong = artist + ' - ' + album + ' - ' + titleFromFileName + '.lrc'
-
 	if config.plugins.yampmusicplayer.useSingleLyricsPath.value:
-		lyricsFileName = os.path.join(config.plugins.yampmusicplayer.lyricsPath.value, lyricsFileName)
-		lyricsFileNameLong = os.path.join(config.plugins.yampmusicplayer.lyricsPath.value, lyricsFileNameLong)
-		lyricsFileNameLrc = os.path.join(config.plugins.yampmusicplayer.lyricsPath.value, lyricsFileNameLrc)
-		lyricsFileNameLrcLong = os.path.join(config.plugins.yampmusicplayer.lyricsPath.value, lyricsFileNameLrcLong)
+		lyricsFileName = join(config.plugins.yampmusicplayer.lyricsPath.value, lyricsFileName)
+		lyricsFileNameLong = join(config.plugins.yampmusicplayer.lyricsPath.value, lyricsFileNameLong)
+		lyricsFileNameLrc = join(config.plugins.yampmusicplayer.lyricsPath.value, lyricsFileNameLrc)
+		lyricsFileNameLrcLong = join(config.plugins.yampmusicplayer.lyricsPath.value, lyricsFileNameLrcLong)
 	else:
-		lyricsFileName = os.path.splitext(songFilepathExt)[0] + ".txt"
-		lyricsFileNameLong = os.path.dirname(songFilepathExt) + '/' + lyricsFileNameLong
-		lyricsFileNameLrc = os.path.splitext(songFilepathExt)[0] + ".lrc"
-		lyricsFileNameLrcLong = os.path.dirname(songFilepathExt) + '/' + lyricsFileNameLrcLong
+		lyricsFileName = splitext(songFilepathExt)[0] + ".txt"
+		lyricsFileNameLong = dirname(songFilepathExt) + '/' + lyricsFileNameLong
+		lyricsFileNameLrc = splitext(songFilepathExt)[0] + ".lrc"
+		lyricsFileNameLrcLong = dirname(songFilepathExt) + '/' + lyricsFileNameLrcLong
 	return (lyricsFileName, lyricsFileNameLong, lyricsFileNameLrc, lyricsFileNameLrcLong)
 
 
@@ -251,19 +214,16 @@ def delLyricsLine(idx, tiStampMsec90, tiStamp, txtLines):
 def addTimeOffset(offsetMsec, tiStampMsec90, tiStamp):
 	try:
 		offsetMsec90 = offsetMsec * 90
-
 		for idx in range(len(tiStampMsec90)):
 			if tiStampMsec90[idx] > 0:
 				tiStampMsec90[idx] = tiStampMsec90[idx] + offsetMsec90
 				if tiStampMsec90[idx] < 0:
 					tiStampMsec90[idx] = 90
-
 				milliseconds = (tiStampMsec90[idx] / 90)
 				if milliseconds < 0:
 					milliseconds = 0
 				minutes = milliseconds / 60000
 				seconds = (milliseconds % 60000) / 1000.0
-
 				tiStamp[idx] = '[%02d:%05.2f]' % (minutes, seconds)
 	except Exception as e:
 		LOG('YampLyricsFunctions: addTimeOffset: EXCEPT: ' + str(e), 'err')
@@ -271,20 +231,18 @@ def addTimeOffset(offsetMsec, tiStampMsec90, tiStamp):
 
 def lyricsClean(text):
 	try:
-		text = re.sub(r'\[ar:.*\]', '', text)								#remove artist string [ar:xxx]
-		text = re.sub(r'\[ti:.*\]', '', text)								#remove title string [ti:xxx]
-		text = re.sub(r'\[offset:.*\]', '', text)							#remove offset string [ofset:xxx]
-		text = re.sub(r'\[Offset:.*\]', '', text)							#remove offset string [ofset:xxx]
-		text = re.sub(r'\[ap:.*\]', '', text)								#remove ap string [ap:xxx]
-		text = re.sub(r'\[al:.*\]', '', text)								#remove al string [al:xxx]
-		text = re.sub(r'\[by:.*\]', '', text)								#remove by string [by:xxx]
-		text = re.sub(r'<!--.*-->', '', text)								#remove xml comment
-		text = re.sub(r'<script.*/script>', '', text)						#remove xml script
-		text = re.sub(r'</em>', '', text)									#remove xml em class end
-		text = re.sub(r'<em class=.*>', '', text)							#remove xml em class
-
+		text = sub(r'\[ar:.*\]', '', text)								#remove artist string [ar:xxx]
+		text = sub(r'\[ti:.*\]', '', text)								#remove title string [ti:xxx]
+		text = sub(r'\[offset:.*\]', '', text)							#remove offset string [ofset:xxx]
+		text = sub(r'\[Offset:.*\]', '', text)							#remove offset string [ofset:xxx]
+		text = sub(r'\[ap:.*\]', '', text)								#remove ap string [ap:xxx]
+		text = sub(r'\[al:.*\]', '', text)								#remove al string [al:xxx]
+		text = sub(r'\[by:.*\]', '', text)								#remove by string [by:xxx]
+		text = sub(r'<!--.*-->', '', text)								#remove xml comment
+		text = sub(r'<script.*/script>', '', text)						#remove xml script
+		text = text.replace('</em>', '')								#remove xml em class end
+		text = sub(r'<em class=.*>', '', text)							#remove xml em class
 		text = text.strip()		#remove empty lines at beginning / end
-
 	except Exception as e:
 		LOG('YampLyricsFunctions: LyricsClean: text: EXCEPT: ' + str(e), 'err')
 	return text
