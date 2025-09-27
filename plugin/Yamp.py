@@ -80,10 +80,9 @@ from .YampHelp import YampHelpScreenV33
 from .YampCommonFunctions import getUrlData
 from .YampGlobals import *  # exceptionally with '*' because there are dozens of globals
 from .myLogger import LOG
-from . import _
+from . import _, __version__
 
-VERSIONNUMBER = "3.3.2-r0"
-YAMPVERSION = 'V ' + VERSIONNUMBER + '  2025-09-27'
+YAMPVERSION = 'V ' + __version__ + '  2025-09-27'
 VERSIONDATE = 20240322
 DOWNLOADBASETIME = 125
 FANARTDLTIMEMUL = 48
@@ -529,7 +528,6 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 		InfoBarBase.__init__(self)
 		InfoBarNotifications.__init__(self)
 		HelpableScreen.__init__(self)
-		self.versionNumber = VERSIONNUMBER
 		self.screenSaverFirstCall = True  # avoid switching to next picture on first call of timer
 		self.screenSaverManOff = False
 		self.isVideoFullScreen = False
