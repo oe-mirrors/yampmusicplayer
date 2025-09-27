@@ -3598,8 +3598,8 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 				self.nextEntry()
 			else:
 				self.playPosition = datapos
-				if len and datapos and config.plugins.yampmusicplayer.gapCorrection.value:  # and not self.currentIsVideo:
-					if (len - datapos) <= 945000:  # 90.000 = 1 second -> check gap for the last 10.5 seconds
+				if datalen and datapos and config.plugins.yampmusicplayer.gapCorrection.value:  # and not self.currentIsVideo:
+					if (datalen - datapos) <= 945000:  # 90.000 = 1 second -> check gap for the last 10.5 seconds
 						if not self.gapTimer.isActive():
 							self.gapTimer.start(100)
 		if self.eofbugTimer.isActive():
