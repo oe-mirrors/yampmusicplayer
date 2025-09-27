@@ -1,9 +1,10 @@
 #######################################################################
 #
-#   Yamp LogFile  2021-02-21
+# Yamp LogFile  2021-02-21
 # last change: 2025-09-19 by Mr.Servo @OpenATV
 #
-#   Coded by AlfredENeumann (c) 2016-2024
+# Coded by AlfredENeumann (c) 2016-2024
+# Last change: 2025-09-27 by Mr.Servo @OpenATV
 # Support: www.vuplus-support.org, board.newnigma2.to
 #
 # This program is free software; you can redistribute it and/or

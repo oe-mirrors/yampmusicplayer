@@ -1,21 +1,21 @@
 #######################################################################
 #
-#    YAMP - Yet Another Music Player
-#    Version 3.1.1 2023-07-25
-#    Coded by JohnHenry (c)2013
-#    Extended by AlfredENeumann (c)2016-2023
-#    Last change: 2025-09-26 by Mr.Servo @OpenATV
-#    Support: www.vuplus-support.org
+# YAMP - Yet Another Music Player
+# Version 3.1.1 2023-07-25
+# Coded by JohnHenry (c)2013
+# Extended by AlfredENeumann (c)2016-2023
+# Last change: 2025-09-27 by Mr.Servo @OpenATV
+# Support: www.vuplus-support.org
 #
-#    This program is free software; you can redistribute it and/or
-#    modify it under the terms of the GNU General Public License
-#    as published by the Free Software Foundation; either version 2
-#    of the License, or (at your option) any later version.
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
 #
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
 #
 #######################################################################
 

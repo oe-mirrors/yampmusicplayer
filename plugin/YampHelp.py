@@ -3,7 +3,7 @@
 #  Yamp Help Screen
 #  Version 3.3.1 2024-01-07
 #  Coded by AlfredENeumann (c) 2023-2024
-#  Last change: 2025-09-26 by Mr.Servo @OpenATV
+#  Last change: 2025-09-27 by Mr.Servo @OpenATV
 #  Support: www.vuplus-support.org, board.newnigma2.to
 #
 #    This program is free software; you can redistribute it and/or

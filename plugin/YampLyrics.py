@@ -4,7 +4,7 @@
 # YAMP - Yet Another Music Player - Lyrics
 # Version 3.3.2 2024-03-08
 # Coded by  by AlfredENeumann (c)2016-2024
-#   Last change: 2025-09-26 by Mr.Servo @OpenATV
+# Last change: 2025-09-27 by Mr.Servo @OpenATV
 # Support: www.vuplus-support.org, board.newnigma2.to
 #
 # This program is free software; you can redistribute it and/or
@@ -400,28 +400,16 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 	def setTimestamp(self):
 		if not self.allowTimeEdit:
 			return
-		try:
-			selIndex = self["lyrics"].getSelectionIndex()
-			index = selIndex + self.startIndex
-		except Exception as e:
-			LOG('YampLyricsScreen: setTimestamp: set index: EXCEPT: ' + str(e), 'err')
-		try:
-			milliseconds = (self.songPos / 90) - self.timeStampOffset
-			if milliseconds < 0:
-				milliseconds = 10
-			minutes = milliseconds / 60000
-			seconds = (milliseconds % 60000) / 1000.0
-		except Exception as e:
-			LOG('YampLyricsScreen: setTimestamp: calculate time: EXCEPT: ' + str(e), 'err')
-		try:
-			self.tiStamp[index] = '[%02d:%05.2f]' % (minutes, seconds)
-			self.timeStampChanged = True
-		except Exception as e:
-			LOG('YampLyricsScreen: setTimestamp: tiStamp: EXCEPT: ' + str(e), 'err')
-		try:
-			self.buildLyricsMenuList(self.txtLines[self.startIndex:], self.tiStamp[self.startIndex:])
-		except Exception as e:
-			LOG('YampLyricsScreen: setTimestamp: buildLyricsMenuList: EXCEPT: ' + str(e), 'err')
+		selIndex = self["lyrics"].getSelectionIndex()
+		index = selIndex + self.startIndex
+		milliseconds = (self.songPos / 90) - self.timeStampOffset
+		if milliseconds < 0:
+			milliseconds = 10
+		minutes = milliseconds / 60000
+		seconds = (milliseconds % 60000) / 1000.0
+		self.tiStamp[index] = '[%02d:%05.2f]' % (minutes, seconds)
+		self.timeStampChanged = True
+		self.buildLyricsMenuList(self.txtLines[self.startIndex:], self.tiStamp[self.startIndex:])
 		self.movedown()
 
 	def autoMove(self):
@@ -484,19 +472,10 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 
 	def movedown(self):
 		self["lyrics"].down()
-		try:
-			sel = self["lyrics"].getSelection().text.strip()
-		except Exception as e:
-			LOG('YampLyricsScreen: movedown: getSelection: EXCEPT: ' + str(e), 'err')
-		try:
-			selIndex = self["lyrics"].getSelectionIndex()
-		except Exception as e:
-			LOG('YampLyricsScreen: movedown: getSelectionIndex: EXCEPT: ' + str(e), 'err')
-		try:
-			if sel == '' and not self.lyricsEditMode and ((selIndex <= self.scrollLine and self.startIndex == 0) or self.lenLyricslist <= self.scrollMinLines):
-				self.movedown()  # extra move empty line
-		except Exception as e:
-			LOG('YampLyricsScreen: movedown extra: EXCEPT: ' + str(e), 'err')
+		sel = self["lyrics"].getSelection().text.strip()
+		selIndex = self["lyrics"].getSelectionIndex()
+		if sel == '' and not self.lyricsEditMode and ((selIndex <= self.scrollLine and self.startIndex == 0) or self.lenLyricslist <= self.scrollMinLines):
+			self.movedown()  # extra move empty line
 		# check scrolling
 		try:
 			if self.lenLyricslist > self.scrollMinLines:  # only scroll when more lines than page
@@ -821,16 +800,10 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 		self.parent.seekOwn(24)
 
 	def skipToListbegin(self):
-		try:
-			self.lyricslist.moveToIndex(0)
-		except Exception:
-			pass
+		self.lyricslist.moveToIndex(0)
 
 	def skipToListend(self):
-		try:
-			self.lyricslist.moveToIndex(len(self.lyricslist) - 1)
-		except Exception:
-			pass
+		self.lyricslist.moveToIndex(len(self.lyricslist) - 1)
 
 	def keyExit(self):
 		if self.timeStampChanged or self.lyrisFileChanged:
@@ -982,7 +955,6 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 
 # --------------- help functions
 
-
 	def setTextGreenKey(self):
 		if (self.pixNumLyrics == LYRICSS_FILE or self.pixNumLyrics == LYRICSS_LYRDIR) and not self.allowTimeEdit and not self.timeStampChanged and not self.lyrisFileChanged:
 			self["key_green"].setText(_("Delete"))
@@ -1048,10 +1020,7 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 
 	def updateLCDText(self, text, line):
 		if config.plugins.yampmusicplayer.yampLcdMode.value == 'running':
-			try:
-				self.LcdText = text
-			except Exception:
-				pass
+			self.LcdText = text
 		else:
 			self.summaries.setText(text, line)
 

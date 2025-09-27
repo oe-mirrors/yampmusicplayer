@@ -4,7 +4,7 @@
 # Version 3.3.2 2024-03-17
 # Coded by JohnHenry (c)2013 (up to V2.6.5)
 # Extended by AlfredENeumann (c)2016-2024
-#   Last change: 2025-09-26 by Mr.Servo @OpenATV
+# Last change: 2025-09-27 by Mr.Servo @OpenATV
 # Support: www.vuplus-support.org, board.newnigma2.to
 #
 # This program is free software; you can redistribute it and/or
@@ -107,9 +107,6 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 		self.skinFaultcustom = self.skinFaultfhdCustom = False
 		config.plugins.yampmusicplayer.lcdTextLeftMin.value = 6  # text position x
 		config.plugins.yampmusicplayer.lcdTextTopMin.value = 5  # text position y
-# else:
-# config.plugins.yampmusicplayer.lcdTextLeftMin.value = 0   #text position x
-# config.plugins.yampmusicplayer.lcdTextTopMin.value = 0  # text position y
 
 	def layoutFinished(self):
 		dummy1, dummy2, txtBouq = readRcButtonTexts()
@@ -168,7 +165,6 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 		return newSkin, failed
 
 	def deleteSkinOption(self, skin):
-# LOG('YampConfigScreen: deleteSkinOption: skin: %s' % (skin), 'err')
 		skinChoices = config.plugins.yampmusicplayer.yampSkin.choices.choices
 		for skinValue in skinChoices:
 			if skinValue[0] == skin:
@@ -432,7 +428,7 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 				self.list.append(self.confCoverColor)
 				self.list.append(self.confCoverHoriz)
 				self.list.append(self.confCoverVert)
-		else:  # custom	display size
+		else: # custom display size
 			self.list.append(self.confCoverSize)
 			self.list.append(self.confCoverColor)
 		# Miscellaneous
@@ -710,7 +706,7 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 				coverInModePrev = ('cover' in self.previousLcdMode)
 				lcdSizeChanged = self.previousLcdSize != lcdSize
 				if lcdSizeChanged:  # or self.previousLcdMode != lcdMode:
-						# LCD size changed: Set preset values
+					# LCD size changed: Set preset values
 					self.previousLcdSize = lcdSize
 					if lcdSizeChanged:
 						if lcdSize == '800x480':
@@ -964,7 +960,6 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 
 	def askTvon(self):
 		if config.plugins.yampmusicplayer.yampShowTV.value == 'no':
-# if True:
 			choices = []
 			choices.append((_('no TV at all'), 'no'))
 			choices.append((_('Audio only on Start only'), 'AudioStart'))
