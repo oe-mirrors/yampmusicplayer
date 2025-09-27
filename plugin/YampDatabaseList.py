@@ -19,8 +19,7 @@
 #
 #######################################################################
 
-from enigma import eListboxPythonMultiContent, eListbox, fontRenderClass, RT_VALIGN_CENTER, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER
-from enigma import eListboxPythonMultiContent, eListbox, getDesktop, RT_VALIGN_TOP, RT_VALIGN_CENTER, RT_VALIGN_BOTTOM, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER
+from enigma import eListboxPythonMultiContent, eListbox, fontRenderClass, getDesktop, RT_VALIGN_TOP, RT_VALIGN_CENTER, RT_VALIGN_BOTTOM, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER
 from Components.GUIComponent import GUIComponent
 from Components.MultiContent import MultiContentEntryText
 from skin import parseFont, parsePosition, parseSize, parseColor

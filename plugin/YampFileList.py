@@ -189,7 +189,7 @@ class YampFileList(MenuList):
 
 	def getCurrentEvent(self):
 		l = self.l.getCurrentSelection()
-		return self.serviceHandler.info(l[0][0]).getEvent(l[0][0]) if l or l[0][1] == True else None
+		return self.serviceHandler.info(l[0][0]).getEvent(l[0][0]) if l or l[0][1] is True else None
 
 	def getFileList(self):
 		return self.list
@@ -418,7 +418,7 @@ class MultiFileSelectList(FileList):
 						realPathname = x[0][0]
 					else:
 						realPathname = self.current_directory + x[0][0]
-					if x[0][2] == True:
+					if x[0][2] is True:
 						SelectState = False
 						for entry in self.selectedFiles:
 							if entry == realPathname:

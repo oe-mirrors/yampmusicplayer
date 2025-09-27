@@ -22,7 +22,7 @@
 from os.path import splitext, basename, isfile
 from operator import itemgetter
 from random import shuffle
-from enigma import getDesktop, eListboxPythonMultiContent, RT_VALIGN_TOP, RT_VALIGN_CENTER, RT_VALIGN_BOTTOM
+from enigma import getDesktop, eListboxPythonMultiContent, BT_SCALE, RT_VALIGN_TOP, RT_VALIGN_CENTER, RT_VALIGN_BOTTOM
 from Components.config import config
 from Components.GUIComponent import GUIComponent
 from Components.MenuList import MenuList

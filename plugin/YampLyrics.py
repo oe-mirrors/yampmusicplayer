@@ -688,7 +688,7 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 				self.lyricslist.setWithTimeStamp(False)
 				for line in text:
 					self.lyricslist.append(LyricslistEntryComponent(text=line))
-			except:
+			except Exception:
 				pass
 		else:
 			try:
@@ -823,13 +823,13 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 	def skipToListbegin(self):
 		try:
 			self.lyricslist.moveToIndex(0)
-		except:
+		except Exception:
 			pass
 
 	def skipToListend(self):
 		try:
 			self.lyricslist.moveToIndex(len(self.lyricslist) - 1)
-		except:
+		except Exception:
 			pass
 
 	def keyExit(self):
@@ -1049,7 +1049,7 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 		if config.plugins.yampmusicplayer.yampLcdMode.value == 'running':
 			try:
 				self.LcdText = text
-			except:
+			except Exception:
 				pass
 		else:
 			self.summaries.setText(text, line)

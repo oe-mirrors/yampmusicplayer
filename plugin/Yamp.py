@@ -80,10 +80,9 @@ from .YampHelp import YampHelpScreenV33
 from .YampCommonFunctions import getUrlData
 from .YampGlobals import *  # exceptionally with '*' because there are dozens of globals
 from .myLogger import LOG
-from . import _
+from . import _, __version__
 
-VERSIONNUMBER = "3.3.2-r0"
-YAMPVERSION = 'V ' + VERSIONNUMBER + '  2025-09-26'
+YAMPVERSION = 'V ' + __version__ + '  2025-09-26'
 VERSIONDATE = 20240322
 DOWNLOADBASETIME = 125
 FANARTDLTIMEMUL = 48
@@ -172,12 +171,11 @@ config.plugins.yampmusicplayer.lyricsPath = ConfigDirectory(default="/media/hdd/
 config.plugins.yampmusicplayer.screenSaverSlidePath = ConfigDirectory(default="/media/hdd/")
 config.plugins.yampmusicplayer.screenSaverArtworkPath = ConfigDirectory(default="/media/hdd/Yamp/ArtistPics/")
 for cpath in [
-				config.plugins.yampmusicplayer.debugPath.value,
-				config.plugins.yampmusicplayer.databasePath.value,
-				config.plugins.yampmusicplayer.lyricsPath.value,
-				config.plugins.yampmusicplayer.playlistPath.value,
-				config.plugins.yampmusicplayer.screenSaverArtworkPath.value
-			 ]:
+	config.plugins.yampmusicplayer.debugPath.value,
+	config.plugins.yampmusicplayer.databasePath.value,
+	config.plugins.yampmusicplayer.lyricsPath.value,
+	config.plugins.yampmusicplayer.playlistPath.value,
+	config.plugins.yampmusicplayer.screenSaverArtworkPath.value]:
 	if not exists(cpath):
 		makedirs(cpath)
 
@@ -4531,12 +4529,13 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 		if self.playerState == STATE_STOP and artist == album == title == path == "":
 			self.coverChanged("")
 			return
-		prioList = [config.plugins.yampmusicplayer.prioCover1.value,
-			  		config.plugins.yampmusicplayer.prioCover2.value,
-					config.plugins.yampmusicplayer.prioCover3.value,
-					config.plugins.yampmusicplayer.prioCover4.value,
-					config.plugins.yampmusicplayer.prioCover5.value
-					]
+		prioList = [
+			config.plugins.yampmusicplayer.prioCover1.value,
+			config.plugins.yampmusicplayer.prioCover2.value,
+			config.plugins.yampmusicplayer.prioCover3.value,
+			config.plugins.yampmusicplayer.prioCover4.value,
+			config.plugins.yampmusicplayer.prioCover5.value
+		]
 		LOG('YampScreen: UpdateCover prioList: %s' % (prioList), 'spe')
 		filename = self.searchCoverID3(path, prioList)
 		LOG('YampScreen: updateCover: before searchCoverDirectoryTitle: filename: %s' % (filename), 'spe')
