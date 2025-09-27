@@ -1,10 +1,10 @@
-#######################################################################
+﻿#######################################################################
 #
 # YAMP - Yet Another Music Player - PlayList
 # Version 3.3.2 2024-03-17
 # Coded by JohnHenry (c)2013
 # Extended by AlfredENeumann (c)2016-2024
-#   Last change: 2025-09-26 by Mr.Servo @OpenATV
+# Last change: 2025-09-27 by Mr.Servo @OpenATV
 # Support: www.vuplus-support.org, board.newnigma2.to
 #
 # This program is free software; you can redistribute it and/or
@@ -181,7 +181,7 @@ class YampPlayList(MenuList):
 			if png is not None:
 				try:
 					res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, self.iconPosX, self.iconPosY, self.iconSizeX, self.iconSizeY, png, None, None, BT_SCALE))
-				except Exception:  # fallback if 'BT_SCALE' not available
+				except Exception:  # fallback if 'BT_SCALE' is not available
 					res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, self.iconPosX, self.iconPosY, self.iconSizeX, self.iconSizeY, png))
 		# play, pause, stop icon
 		try:
@@ -190,7 +190,7 @@ class YampPlayList(MenuList):
 			png = self.iconsPlayState[state]
 			try:
 				res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, self.iconPlayPosX, self.iconPlayPosY, self.iconPlaySizeX, self.iconPlaySizeY, png, None, None, BT_SCALE))
-			except Exception:  # fallback if 'BT_SCALE' not available
+			except Exception:  # fallback if 'BT_SCALE' isnot available
 				res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, self.iconPlayPosX, self.iconPlayPosY, self.iconPlaySizeX, self.iconPlaySizeY, png))
 		except Exception as e:
 			LOG('YampPlayList: PlaylistEntryComponent: PlayIcon: EXCEPT' + str(e), 'err')
@@ -251,18 +251,6 @@ class YampPlayList(MenuList):
 
 	def updateList(self):
 		self.l.setList(self.list)
-
-# def getCurrentIndex(self):
-# print("YampPlayList getCurrentIndex", self.currPlaying)
-# return self.currPlaying
-
-# def setCurrentIndex(self, index):
-# print("YampPlayList setCurrentIndex", index)
-# try:
-# self.oldCurrPlaying = self.currPlaying
-# self.currPlaying = index
-# except:
-# LOG('setCurrentIndex: EXCEPT', 'err')
 
 	def getServiceRefList(self):
 		return [x[0] for x in self.list]
@@ -366,7 +354,7 @@ class YampPlayList(MenuList):
 
 	def moveEntryUp(self, index, wrap):
 		lastIndex = len(self.list) - 1
-		if index == 0:											# first entry
+		if index == 0:  # first entry
 			newIndex = lastIndex if wrap else index
 		else:
 			newIndex = index - 1
@@ -392,8 +380,7 @@ class YampPlayList(MenuList):
 			index = self.moveEntryDown(index, wrap)
 
 	def moveEntryDown(self, index, wrap):
-# print("YampPlayList moveEntryDown", index)
-		if index == len(self.list) - 1:				# last entry
+		if index == len(self.list) - 1:  # last entry
 			newIndex = 0 if wrap else index
 		else:
 			newIndex = index + 1

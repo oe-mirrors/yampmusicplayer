@@ -1,21 +1,21 @@
 #######################################################################
 #
-#    YAMP - Yet Another Music Player - DatabaseList
-#    Version 3.3.2 2024-03-10
-#    Coded by JohnHenry (c)2013 (up to V2.6.5)
-#    Extended by AlfredENeumann (c)2016-2024
-#    Last change: 2025-09-26 by Mr.Servo @OpenATV
-#    Support: www.vuplus-support.org, board.newnigma2.to
+# YAMP - Yet Another Music Player - DatabaseList
+# Version 3.3.2 2024-03-10
+# Coded by JohnHenry (c)2013 (up to V2.6.5)
+# Extended by AlfredENeumann (c)2016-2024
+# Last change: 2025-09-26 by Mr.Servo @OpenATV
+# Support: www.vuplus-support.org, board.newnigma2.to
 #
-#    This program is free software; you can redistribute it and/or
-#    modify it under the terms of the GNU General Public License
-#    as published by the Free Software Foundation; either version 2
-#    of the License, or (at your option) any later version.
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
 #
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
 #
 #######################################################################
 
@@ -50,20 +50,16 @@ class YampDatabaseList(GUIComponent):
 		# skinning parameters
 		self.parItemSizeLine1exist = False  # itemSizeLine1
 		self.parHeightLine2exist = False  # itemHeightLine2
-
 		self.parItemPosLine1exist = False  # itemPosLine1
 		self.parItemPosLine2exist = False  # itemPosLine2
 											# itemWidthLine1R
 											# itemWidthLine2R
-
 											# itemVAlignLine1
 											# itemVAlignLine2
-
 		self.parItemCol1exist = False  # itemColorLine1
 		self.parItemCol2exist = False  # itemColorLine2
 		self.parItemColSel1exist = False  # itemColorSelLine1
 		self.parItemColSel2exist = False  # itemColorSelLine2
-
 		# set default values, if not skinned
 		if getDesktop(0).size().width() > 1280:  # FHD
 			font0 = "Regular;28"

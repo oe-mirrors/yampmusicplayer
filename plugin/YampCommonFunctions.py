@@ -1,10 +1,10 @@
 #######################################################################
 #
-#  Yamp Common Functions
-#  Version 3.3.2 2024-02-27
-#  Coded by AlfredENeumann (c) 2021-2024
-#  Last change: 2025-09-26 by Mr.Servo @OpenATV
-#  Support: www.vuplus-support.org, board.newnigma2.to
+# Yamp Common Functions
+# Version 3.3.2 2024-02-27
+# Coded by AlfredENeumann (c) 2021-2024
+# Last change: 2025-09-27 by Mr.Servo @OpenATV
+# Support: www.vuplus-support.org, board.newnigma2.to
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License

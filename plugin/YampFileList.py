@@ -4,7 +4,7 @@
 #    Version 3.3.2 2024-03-08
 #    Coded by JohnHenry (c)2013
 #    Extended by AlfredENeumann (c)2016-2024
-#    Last change: 2025-09-26 by Mr.Servo @OpenATV
+#    Last change: 2025-09-27 by Mr.Servo @OpenATV
 #    Support: www.vuplus-support.org, board.newnigma2.to
 #
 #    This program is free software; you can redistribute it and/or
