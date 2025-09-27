@@ -1,31 +1,31 @@
 #######################################################################
 #
-#	YAMP - Yet Another Music Player
-#	Version 3.3.2 2024-03-22
-#	Coded by JohnHenry (c)2013 (up to V2.6.5)
-#	Extended by AlfredENeumann (c)2016-2024
+# YAMP - Yet Another Music Player
+# Version 3.3.2 2024-03-22
+# Coded by JohnHenry (c)2013 (up to V2.6.5)
+# Extended by AlfredENeumann (c)2016-2024
 #   Last change: 2025-09-26 by Mr.Servo @OpenATV
-#	Support: www.vuplus-support.org, board.newnigma2.to
+# Support: www.vuplus-support.org, board.newnigma2.to
 #
-#	This program is free software; you can redistribute it and/or
-#	modify it under the terms of the GNU General Public License
-#	as published by the Free Software Foundation; either version 2
-#	of the License, or (at your option) any later version.
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
 #
-#	This program is distributed in the hope that it will be useful,
-#	but WITHOUT ANY WARRANTY; without even the implied warranty of
-#	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#	GNU General Public License for more details.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
 #
-#	Thanks to the authors of Merlin Music Player and OpenPli Media
-#	Player for ideas and code snippets
+# Thanks to the authors of Merlin Music Player and OpenPli Media
+# Player for ideas and code snippets
 #
 #######################################################################
-#TYPES OF LOGGING:
-#spe:	Coversuche
-#spe2:	Bildschirmschoner checks
-#spe3:
-#spe4:
+# TYPES OF LOGGING:
+# spe:	Coversuche
+# spe2:	Bildschirmschoner checks
+# spe3:
+# spe4:
 
 from base64 import b64decode
 from datetime import datetime
@@ -89,7 +89,7 @@ FANARTDLTIMEMUL = 48
 FANARTDLTIMEPERSONALMUL = 4
 FANARTDLTIME = DOWNLOADBASETIME * FANARTDLTIMEMUL
 FANARTDLTIMEPERSONAL = DOWNLOADBASETIME * FANARTDLTIMEPERSONALMUL
-FANARTTVPERSAPIFILE = '/etc/enigma2/YampFanarttvPersonalApi.key'  #TOTO resolveFilename
+FANARTTVPERSAPIFILE = '/etc/enigma2/YampFanarttvPersonalApi.key'  # TOTO resolveFilename
 INFOBARTEXTLIST = ('n/a', '   ', ' - ', ' . ')
 COVER_EXTENSIONS = [".jpg", ".jpeg", ".png", ".webp", ".gif"]
 AUDIO_EXTENSIONS = (".mp2", ".mp3", ".wav", ".ogg", ".flac", ".m4a", ".wma")
@@ -129,7 +129,7 @@ config.plugins.yampmusicplayer.yampDebugMode = ConfigSelection(default="error", 
 			])
 skinTexts = [_("Standard skin HD"), _("Standard skin HD with Video Preview"), _("Custom skin HD"), ("Full HD standard skin"), ("Full HD coffee skin"), _("Full HD standard skin (special VTi)"), _("Custom Full HD skin")]
 
-#General Adjustments
+# General Adjustments
 RESOLUTION = "FHD" if getDesktop(0).size().width() > 1280 else "HD"
 if RESOLUTION == "FHD":
 	config.plugins.yampmusicplayer.yampSkin = ConfigSelection(default="fhd", choices=[
@@ -179,7 +179,7 @@ for cpath in [
 	if not exists(cpath):
 		makedirs(cpath)
 
-#Databaselist / Playlist
+# Databaselist / Playlist
 config.plugins.yampmusicplayer.fileListTitleLayout = ConfigSelection(default="titleAndPath", choices=[
 		("titleOnly", _("Title Only")),
 		("pathOnly", _("Path Only")),
@@ -232,7 +232,7 @@ config.plugins.yampmusicplayer.wrapMovePlaylist = ConfigYesNo(default=True)
 config.plugins.yampmusicplayer.startImmediate = ConfigYesNo(default=False)
 config.plugins.yampmusicplayer.gapCorrection = ConfigInteger(0, limits=(0, 100))
 
-#Cover Search
+# Cover Search
 coverSearchChoices = [
 		("0", _("off")),
 		("coverID3", _("search in ID3-tags (mp3, flac, m4a, mp4)")),
@@ -256,14 +256,14 @@ config.plugins.yampmusicplayer.saveCover = ConfigSelection(default="0", choices=
 		("albumAlways", _("save albumcover.<ext>, overwrite existing")),
 		])
 
-#Lyrics Search
+# Lyrics Search
 lyrSearchChoices = [
 		("0", _("off")),
 		("lyricsFile", _("search in lyrics-directory")),
 		("lyricsID3", _("search in ID3-tags (mp3, flac, m4a, mp4)")),
 		("lyricsAZ", _("search at azlyrics.com online")),
 		("lyricsChart", _("search at chartlyrics.com online")),
-#		("lyricsGenius", _("search at genius.com online")),
+# ("lyricsGenius", _("search at genius.com online")),
 		]
 config.plugins.yampmusicplayer.prioLyrics1 = ConfigSelection(default="lyricsFile", choices=lyrSearchChoices)
 config.plugins.yampmusicplayer.prioLyrics2 = ConfigSelection(default="lyricsID3", choices=lyrSearchChoices)
@@ -271,7 +271,7 @@ config.plugins.yampmusicplayer.prioLyrics3 = ConfigSelection(default="lyricsAZ",
 config.plugins.yampmusicplayer.prioLyrics4 = ConfigSelection(default="lyricsChart", choices=lyrSearchChoices)
 config.plugins.yampmusicplayer.autoSaveLyrics = ConfigYesNo(default=False)
 
-#Fanart Search
+# Fanart Search
 config.plugins.yampmusicplayer.searchFanart = ConfigSelection(default="60", choices=[
 		("off", _("off")),
 		("newArtists", _("search only for new artists")),
@@ -282,7 +282,7 @@ config.plugins.yampmusicplayer.searchFanart = ConfigSelection(default="60", choi
 		("180", _("search every 180 days")),
 		("always", _("search always")),
 		])
-config.plugins.yampmusicplayer.fanarttvPersonal = ConfigText(default='1234567890abcdef7890123456789012', fixed_size=True, visible_width=33)			 #personal api key
+config.plugins.yampmusicplayer.fanarttvPersonal = ConfigText(default='1234567890abcdef7890123456789012', fixed_size=True, visible_width=33)  # personal api key
 config.plugins.yampmusicplayer.fanarttvPersonal.setUseableChars('0123456789abcdef')
 config.plugins.yampmusicplayer.searchMbidMode = ConfigSelection(default="standard", choices=[
 		("standard", _("standard like on muscicbrainz website")),
@@ -290,7 +290,7 @@ config.plugins.yampmusicplayer.searchMbidMode = ConfigSelection(default="standar
 		])
 config.plugins.yampmusicplayer.searchMbidMinScore = ConfigInteger(95, limits=(1, 100))
 
-#Screensaver
+# Screensaver
 config.plugins.yampmusicplayer.screenSaverMode = ConfigSelection(default="artwork", choices=[
 		("blank", _("Blank screen")),
 		("standard", _("Standard Screensaver")),
@@ -322,7 +322,7 @@ config.plugins.yampmusicplayer.showClockSS = ConfigSelection(default="no", choic
 		("clockdatebg", _("clock and date with background")),
 		])
 
-#Operation / Display
+# Operation / Display
 config.plugins.yampmusicplayer.playlistMoveMulti = ConfigInteger(10, limits=(2, 50))
 config.plugins.yampmusicplayer.coverScrollTime = ConfigInteger(10, limits=(0, 600))
 config.plugins.yampmusicplayer.fileListIcons = ConfigYesNo(default=True)
@@ -364,7 +364,7 @@ else:
 		("AudioPic", _("With picture always")),
 		])
 
-#Lyrics
+# Lyrics
 config.plugins.yampmusicplayer.lyricsMinLinesScroll = ConfigInteger(20, limits=(0, 100))
 config.plugins.yampmusicplayer.lyricsScrollLine = ConfigInteger(7, limits=(1, 100))
 config.plugins.yampmusicplayer.lyricsOffsetTime = ConfigInteger(1000, limits=(0, 5000))
@@ -377,7 +377,7 @@ config.plugins.yampmusicplayer.karaokeBg = ConfigSelection(default="both", choic
 		("both", _("small and big karaoke line")),
 		])
 
-#Video
+# Video
 config.plugins.yampmusicplayer.videoAutoFull = ConfigSelection(default="screensaver", choices=[
 		("immediate", _("immediate")),
 		("screensaver", _("screensaver delay")),
@@ -397,7 +397,7 @@ config.plugins.yampmusicplayer.showLyricsOnVideo = ConfigYesNo(default=True)
 config.plugins.yampmusicplayer.insertBlankVideo = ConfigYesNo(default=False)
 config.plugins.yampmusicplayer.blankVideoDelay = ConfigInteger(250, limits=(0, 6000))
 
-#Box Display
+# Box Display
 try:
 	config.plugins.yampmusicplayer.yampLcdMode = ConfigSelection(default="threelines", choices=[
 			("off", _("off - useful for LCD4linux or similar")),
@@ -450,7 +450,7 @@ except Exception:
 	pass
 config.plugins.yampmusicplayer.lcdRunningFontSize = ConfigInteger(38, limits=(1, 500))
 
-#Miscellaneous
+# Miscellaneous
 config.plugins.yampmusicplayer.yampInExtendedPluginlist = ConfigYesNo(default=True)
 config.plugins.yampmusicplayer.yampInMainMenu = ConfigYesNo(default=False)
 config.plugins.yampmusicplayer.yampDebugMode = ConfigSelection(default="error", choices=[
@@ -465,8 +465,8 @@ config.plugins.yampmusicplayer.yampDebugMode = ConfigSelection(default="error", 
 config.plugins.yampmusicplayer.debugPath = ConfigDirectory(default="/home/root/logs")
 config.plugins.yampmusicplayer.yampDebugMemory = ConfigYesNo(default=False)
 
-#config entries not configurable by user
-#--------------------------------------------
+# config entries not configurable by user
+# --------------------------------------------
 config.plugins.yampmusicplayer.lastVersionDate = ConfigInteger(0)
 config.plugins.yampmusicplayer.startWithDatabase = ConfigYesNo(default=False)
 config.plugins.yampmusicplayer.shuffle = ConfigYesNo(default=False)
@@ -500,14 +500,14 @@ def checkAttributes(element, NameText, searchText):
 
 
 class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, HelpableScreen):
-#	@classmethod
+# @classmethod
 	def __init__(self, session):
 		global selectedDirExcludeValue
 		global yampTitlecaseNochange
 		self.logpath = config.plugins.yampmusicplayer.debugPath.value
 		self.timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 		config.plugins.yampmusicplayer.debugFile.value = self.logpath + 'yamp_debug_' + self.timestamp + '.log'
-		try:  #create a coverlcd.png in /tmp
+		try:  # create a coverlcd.png in /tmp
 			filename1 = yampDir + 'common/coverlcddummy.png'
 			filename2 = '/tmp/coverlcd.png'
 			system("cp %s %s" % (filename1, filename2))
@@ -854,7 +854,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 		except Exception:
 			pass
 		try:
-			for req in ('Yamp.xml', 'YampConfig.xml', 'YampDatabase.xml', 'YampLCD.xml', 'YampLyrics.xml', 'YampSelectPath.xml', 'YampVideoLyrics.xml', 'YampVideoTitle.xml', 'YampLcdRunning.xml'):  #check Xml
+			for req in ('Yamp.xml', 'YampConfig.xml', 'YampDatabase.xml', 'YampLCD.xml', 'YampLyrics.xml', 'YampSelectPath.xml', 'YampVideoLyrics.xml', 'YampVideoTitle.xml', 'YampLcdRunning.xml'):  # check Xml
 				if req not in flist:
 					failed = path + '/' + req
 					break
@@ -887,7 +887,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 			LOG('YampScreen: checkSkinFiles: EXCEPT skinReqPngFile: %s' % (str(e)), 'err')
 		try:
 			if not failed and (skin == 'default' or skin == 'defaultTV' or skin == 'custom'):
-#				LOG('YampScreen: checkSkinFiles: check  skinReqPngHD', 'err')
+# LOG('YampScreen: checkSkinFiles: check  skinReqPngHD', 'err')
 				for req in ('Bg_181517_trans.png', 'black.png', 'smallshadowline.png',):
 					if req not in flist:
 						failed = path + '/' + req
@@ -896,7 +896,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 			LOG('YampScreen: checkSkinFiles: EXCEPT skinReqPngHD: %s' % (str(e)), 'err')
 		try:
 			if not failed and (skin == 'fhd' or skin == 'fhdCoffee' or skin == 'fhdCustom'):
-#				LOG('YampScreen: checkSkinFiles: check  skinReqPngFHD', 'err')
+# LOG('YampScreen: checkSkinFiles: check  skinReqPngFHD', 'err')
 				for req in ('Bg_181517_trans.png', 'black.png', 'smallshadowline_1920.png'):
 					if req not in flist:
 						failed = path + '/' + req
@@ -1379,11 +1379,11 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 
 	def setScreensaverBg(self):
 		try:
-#			if config.plugins.yampmusicplayer.screenSaverBg.value:
+# if config.plugins.yampmusicplayer.screenSaverBg.value:
 			if self.ssBackground:
 				self["screenSaverBackground"].setZPosition(4)  # 4  5
 				self["screenSaver"].setZPosition(5)  # 5  9
-#				self["songInfoBg"].setBoolean(True)
+# self["songInfoBg"].setBoolean(True)
 			else:
 				self["screenSaverBackground"].setZPosition(9)  # 9  1
 				self["screenSaver"].setZPosition(10)  # 10 10
@@ -1523,7 +1523,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 				config.plugins.yampmusicplayer.lastSlide.value = self["screenSaver"].getCurrentSlide()
 			else:
 				config.plugins.yampmusicplayer.lastSlide.value = ""
-			config.plugins.yampmusicplayer.lastSlide.value = ""  #!!!! Test
+			config.plugins.yampmusicplayer.lastSlide.value = ""  # !!!! Test
 			config.plugins.yampmusicplayer.lastSlide.save()
 			self.currentIsVideo = False
 			configfile.save()
@@ -1570,7 +1570,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 			self.nextSongDisplay = self.nextsongtitle
 
 	def updateNextSong(self):
-#		LOG('updateNextSong: Start', 'spe3')
+# LOG('updateNextSong: Start', 'spe3')
 		if self.memlog:
 			self.memoryLog()
 		try:
@@ -1842,7 +1842,6 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 # There are 2 groups of actions, one depends on the active list (filelist, dblist or playlist), the other not
 # List dependent actions:
 
-
 	def ok(self):
 		# screensaver or Fullscreen Video: go back
 		if self.screenSaverActive or self.isVideoFullScreen:
@@ -2024,7 +2023,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 				secs = jumplong
 			elif key == 22:  # 10% BW
 				secs = jumplong * (-1)
-			elif key == 23:   #20% FW
+			elif key == 23:  # 20% FW
 				secs = jumplong * 2
 			elif key == 24:   # 20% BW
 				secs = jumplong * (-2)
@@ -2649,7 +2648,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 		except Exception:
 			navx = False
 		if navx:
-#		if self.dblist.getSelection().nav:
+# if self.dblist.getSelection().nav:
 			entry = self.popDblistStack()
 			self.buildDbMenuList(mode=entry.mode, query=entry.query, menutitle=entry.menutitle, queryString=entry.queryString)
 			self.dblist.moveToIndex(entry.selIndex)
@@ -3208,7 +3207,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 				self.addFileToDb(pathfilename)
 			# Save m3u
 			if self.par1 == 2 or self.par1 == 3:
-#				LOG('YampScreen: savePlaylistCallback: m3u', 'err')
+# LOG('YampScreen: savePlaylistCallback: m3u', 'err')
 				fname = name + ".m3u"
 				pathfilename = join(config.plugins.yampmusicplayer.playlistPath.value, fname)
 				try:
@@ -3524,7 +3523,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 				pass
 		except Exception as e:
 			pass
-#			LOG('YampScreen: videoTitleClosedCB: EXCEPT: %s' % (str(e)), 'err')
+# LOG('YampScreen: videoTitleClosedCB: EXCEPT: %s' % (str(e)), 'err')
 
 	def videoLyricsClosedCB(self, param):
 		try:  # because sometimes "modal open are allowed only from a screen which is modal!" is created, reason unknown
@@ -3617,7 +3616,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 
 	def getSeekData(self):
 		service = self.session.nav.getCurrentService()
-#		seek = service and service.seek()
+# seek = service and service.seek()
 		seek = service.seek()
 		if seek is None:
 			return (0, 0)
@@ -3712,7 +3711,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 					break
 				ind += 1
 			if len(slideList) == 0:
-				slideList.append(join(yampDir + "saverblank/", "black.png"))  #delete old pic on config change, if list empty
+				slideList.append(join(yampDir + "saverblank/", "black.png"))  # delete old pic on config change, if list empty
 			self["screenSaver"].setList(slideList, slideIndex, showImmediate=True)
 
 	def checkBlackList(self, slidelist, basepath):
@@ -4346,7 +4345,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 		filename = join(yampDir, "skins", config.plugins.yampmusicplayer.yampSkin.value, which)
 		msg = _('Box display configuration file\n\n%s\n\ncould not be written!\n\nWrite protected? Wrong format?\n\nIf not corrected, changes will be lost...') % (filename)
 		self.session.open(MessageBox, msg, type=MessageBox.TYPE_ERROR, timeout=30)
-#-------------------- Update methods for title info and cover
+# -------------------- Update methods for title info and cover
 
 	def updateMusicInformation(self, path="", clear=False, current=True, isAlbum=False):
 		title, album, genre, artist, albumartist, date, length, tracknr, strBitrate = readID3Infos(path)
@@ -4514,14 +4513,14 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 						return
 			try:
 				self.readWriteFileBinary(srcpath, destpath)
-#				self.session.open(MessageBox, _("Cover saved"), type = MessageBox.TYPE_INFO,timeout = 5 )
+# self.session.open(MessageBox, _("Cover saved"), type = MessageBox.TYPE_INFO,timeout = 5 )
 			except Exception as e:
 				LOG('YampScreen: saveCoverAuto: writecover: EXCEPT: %s' % (str(e)), 'err')
-#				self.session.open(MessageBox, _("Saving cover failed"), type = MessageBox.TYPE_INFO,timeout = 30 )
+# self.session.open(MessageBox, _("Saving cover failed"), type = MessageBox.TYPE_INFO,timeout = 30 )
 		except Exception as e:
 			LOG('YampScreen: saveCoverAuto: END: EXCEPT: %s' % (str(e)), 'err')
 
-#Look for cover in ID3 tag (mp3/mp4/m4a/flac/ogg), in current directory, albumCover in current directory, Search cover with Google, if enabled
+# Look for cover in ID3 tag (mp3/mp4/m4a/flac/ogg), in current directory, albumCover in current directory, Search cover with Google, if enabled
 	def updateCover(self, artist, album, title, path=""):
 		self.coverFoundPrio = COVERS_NO
 		self.pixNumCover = COVERS_NO
@@ -4550,7 +4549,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 		LOG('YampScreen: updateCover: before searchCoverGoogle', 'spe')
 		self.searchCoverGoogle(artist, album, title, prioList)
 
-#Search cover with Google, if enabled
+# Search cover with Google, if enabled
 
 	def searchCoverGoogle(self, artist, album, title, prioList):
 		if 'coverGoogle' in prioList:
@@ -4662,7 +4661,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 			apicframes = audio.getall("APIC")
 			if len(apicframes) > 0:
 				mime = apicframes[0].mime
-				data = apicframes[0].data  #  check for type=3 (FrontCover)?
+				data = apicframes[0].data  # check for type=3 (FrontCover)?
 				ftype = apicframes[0].type
 		if path.lower().endswith(".mp4") or path.lower().endswith(".m4a"):
 			if path.lower().endswith(".mp4"):
@@ -4697,7 +4696,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 				picture_list = flacInfo.pictures
 				if len(picture_list) > 0:
 					mime = picture_list[0].mime
-					data = picture_list[0].data  #  check for type=3 (FrontCover)?
+					data = picture_list[0].data  # check for type=3 (FrontCover)?
 					ftype = picture_list[0].type
 		elif path.lower().endswith(".ogg"):
 			LOG('YampScreen: searchCoverID3: ogg', 'spe')
@@ -4715,7 +4714,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 					if picture is not None:
 						isOgg = True
 						mime = picture.mime
-						data = picture.data  #  check for type=3 (FrontCover)?
+						data = picture.data  # check for type=3 (FrontCover)?
 						ftype = 3
 			except Exception:
 				print_exc()
@@ -4745,8 +4744,8 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 					img.thumbnail((600, 450) if RESOLUTION == "FHD" else (400, 300), Image.LANCZOS)
 					img.save(filename, format="jpeg", quality=25)
 					img.close()
-#					with open(filename, 'wb') as coverArtFile:  # save coverArtFile with original size
-#						coverArtFile.write(data)
+# with open(filename, 'wb') as coverArtFile:  # save coverArtFile with original size
+# coverArtFile.write(data)
 				if isMp4:
 					self.pixNumCover = COVERS_MP4
 				elif isM4a:
@@ -4771,7 +4770,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 		if self.coverFoundPrio < prio:
 			return fullname  # already found with higher priority
 		pdir = dirname(path)
-		titleFileName = ''  #!!!check
+		titleFileName = ''  # !!!check
 		try:  # !!!!
 			titleFileName = basename(splitext(self.playlist.getServiceRefList()[self.playlist.getCurrentIndex()].getPath())[0])
 		except Exception:
@@ -4840,7 +4839,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 			LOG('YampScreen: searchCoverDirectoryAny: end: coverArtfile: %s' % (fullname), 'spe')
 		return fullname
 
-	#	Look for albumCover in current directory
+	# Look for albumCover in current directory
 	def searchCoverAlbum(self, path, fullname, prioList):
 		if 'coverAlbum' in prioList:
 			prio = prioList.index('coverAlbum') + 1
@@ -4849,7 +4848,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 		LOG('YampScreen: searchCoverAlbum: prio: %d  coverFoundPrio: %d' % (prio, self.coverFoundPrio), 'spe')
 		if self.coverFoundPrio < prio:
 			LOG('YampScreen: searchCoverAlbum: already found: fullname %s' % (fullname), 'spe')
-			return fullname		#already found with higher priority
+			return fullname  # already found with higher priority
 		pdir = dirname(path)
 		LOG('YampScreen: searchCoverAlbum: pdir: %s' % (pdir), 'spe')
 		filelist = list(self.fileListByExt(pdir, COVER_EXTENSIONS, False, COVER_MINSIZE))
@@ -4956,7 +4955,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 		else:
 			self["actPlayNumber"].setText('0 / 0')
 
-#--------------------- Box display methods
+# --------------------- Box display methods
 	def updateLCDInfo(self):
 		lcdMode = config.plugins.yampmusicplayer.yampLcdMode.value
 		if lcdMode == 'off':
@@ -5005,7 +5004,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 	def getLcdText(self):  # for LCD Running Text
 		return (self.LcdText)
 
-#---------------- Filelist actions
+# ---------------- Filelist actions
 	def searchFilelist1(self):  # Search in pathname
 		self.virtKeyboardActive = True
 		self.session.openWithCallback(self.searchFilelistCallback1, VirtualKeyBoard, title=_("YAMP - Please enter query:"), text=self.lastTextSearch)
@@ -5028,7 +5027,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 			self.updateLCDInfo()
 		self.virtKeyboardActive = False
 
-#--------------- Database actions within YampScreen
+# --------------- Database actions within YampScreen
 # Only quick actions are executed in foreground
 # Slow actions are executed in background and are interruptable, ideally without changes to the database
 	def addFileToDb(self, f=''):
@@ -5114,7 +5113,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 			except Exception:
 				pass
 			con.close()
-#			self.updateDbMenuList()
+# self.updateDbMenuList()
 
 	def deleteArtistMbidAll(self):
 		self.session.openWithCallback(self.deleteArtistMbidAllConfirmed, MessageBox, _("Do you really want to delete the musicbrainz-IDs for all artists from database?"))
@@ -5398,7 +5397,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 			except Exception as e:
 				LOG('YampScreen: clearDatabaseConfirmed: close Database: EXCEPT: %s' % (str(e)), 'err')
 
-#-------------- Artist Art functions
+# -------------- Artist Art functions
 	def getArtistPics(self, artist):
 		if self.searchFanartConfig == 'off':
 			return
@@ -6065,7 +6064,7 @@ class YampDatabaseScreenV33(Screen):
 		self["key_green"] = Label("")
 		self["message1"] = Label()
 		self["message2"] = Label()
-#		self["message3"] = Label()
+# self["message3"] = Label()
 		self["actions"] = ActionMap(["YampActions", "YampOtherActions"],
 		{
 			"exit": self.keyCancel,
@@ -6556,7 +6555,7 @@ def dbInsert(con, cursor, ref, table="titles", update=False):  # Return: 0: skip
 			title, album, genre, artist, albumartist, date, length, tracknr, strBitrate = readID3Infos(f)
 		except Exception as e:
 			LOG('YampDbActions: dbInsert: readID3Infos: EXCEPT: ' + str(e), 'err')
-		artistShort = sub('(?i)( +feat)(.*)', '', artist).strip()  #  remove Featuring
+		artistShort = sub('(?i)( +feat)(.*)', '', artist).strip()  # remove Featuring
 		if config.plugins.yampmusicplayer.capitalizeTitleAndArtist.value:
 			title = titlecase(title)
 			artist = titlecase(artist).replace('"', '""')
@@ -6567,7 +6566,7 @@ def dbInsert(con, cursor, ref, table="titles", update=False):  # Return: 0: skip
 			LOG('YampDbActions: dbInsert: Log Id3Infos: EXCEPT: ' + str(e), 'err')
 		# get New Values of title, add or get artist, album, genre, date
 		# 1a. Artist
-#		artistShort = sub('(?i)( +feat)(.*)', '', artist).strip()  # remove Featuring
+# artistShort = sub('(?i)( +feat)(.*)', '', artist).strip()  # remove Featuring
 		cursor.execute('SELECT artist_id FROM Artists WHERE artist = "%s";' % (artist))
 		row = cursor.fetchone()
 		if row is None:
@@ -6576,7 +6575,7 @@ def dbInsert(con, cursor, ref, table="titles", update=False):  # Return: 0: skip
 		else:
 			artistID = row[0]
 		# 1b. Albumartist
-		albumartistShort = sub('(?i)( +feat)(.*)', '', albumartist).strip()  #  remove Featuring
+		albumartistShort = sub('(?i)( +feat)(.*)', '', albumartist).strip()  # remove Featuring
 		cursor.execute('SELECT artist_id FROM Artists WHERE artist = "%s";' % (albumartist))
 		row = cursor.fetchone()
 		if row is None:
@@ -6622,7 +6621,7 @@ def dbInsert(con, cursor, ref, table="titles", update=False):  # Return: 0: skip
 			dateID = cursor.lastrowid
 		else:
 			dateID = row[0]
-		if rowFile is None:  #new title: insert
+		if rowFile is None:  # new title: insert
 			# 5. Titles
 			try:
 				cursor.execute("INSERT INTO Titles (filename,title,artist_id,album_id,genre_id,date_id, length,date,tracknr,sref,albumartist_id ) VALUES(?,?,?,?,?,?,?,?,?,?,?);", (f, title, artistID, albumID, genreID, dateID, length, date, tracknr, sref, albumartistID))
@@ -6691,11 +6690,11 @@ def dbInsert(con, cursor, ref, table="titles", update=False):  # Return: 0: skip
 
 
 #######################################################################
-#	titlecase()
+# titlecase()
 #
-#	Original Perl version by: John Gruber http://daringfireball.net/ 10 May 2008
-#	Python version by Stuart Colville http://muffinresearch.co.uk
-#	License: http://www.opensource.org/licenses/mit-license.php
+# Original Perl version by: John Gruber http://daringfireball.net/ 10 May 2008
+# Python version by Stuart Colville http://muffinresearch.co.uk
+# License: http://www.opensource.org/licenses/mit-license.php
 # Adapted by AlfredENeumann, Jan. 2016, Jan 2023, Feb. 2024
 #
 #######################################################################
@@ -6771,7 +6770,7 @@ def titlecase(text, callback=None):
 				continue
 			match = MAC_MC.match(word)
 			if match:
-#				if word.lower() != 'machine' and word.lower() != 'machine,' and word.lower() != 'macy':
+# if word.lower() != 'machine' and word.lower() != 'machine,' and word.lower() != 'macy':
 				tc_line.append("%s%s" % (match.group(1).capitalize(), match.group(2).capitalize()))
 				continue
 			if "/" in word and "//" not in word:

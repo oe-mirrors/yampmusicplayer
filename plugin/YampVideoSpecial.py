@@ -224,8 +224,8 @@ class YampVideoTitleV33(Screen):
 			self["genre"].setText(self.parent.currGenre.replace('n/a', replaceText))
 			self["nextsongtitle"].setText(self.parent.nextSongDisplay.replace('n/a', replaceText))
 			self["bitrate"].setText(self.parent.currBitRate.replace('n/a', replaceText))
-#		self["line1"] = Label (".")
-#		self["line2"] = Label (".")
+# self["line1"] = Label (".")
+# self["line2"] = Label (".")
 
 	def updateInfoCyclic(self):
 		self.displayKaraoke()

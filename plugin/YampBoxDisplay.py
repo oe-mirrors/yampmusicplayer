@@ -34,7 +34,7 @@ from .myLogger import LOG
 from . import _
 
 
-class YampLCDRunningScreenV33(Screen):	  #for LCD 'Running Text'
+class YampLCDRunningScreenV33(Screen):  # for LCD 'Running Text'
 	def __init__(self, session, parent):
 		Screen.__init__(self, session, parent=parent)
 		xmlfile = join(yampDir, "skins", config.plugins.yampmusicplayer.yampSkin.value, "YampLcdRunning.xml")
@@ -61,7 +61,7 @@ class YampLCDRunningScreenV33(Screen):	  #for LCD 'Running Text'
 			self["lcdRunningText"].text = lcdRunningText
 		self.lcdGetTextTimer.start(1000)
 
-	def setText(self, text, line):		#only for campatibility with standard LCD
+	def setText(self, text, line):  # only for campatibility with standard LCD
 		pass
 
 	def showHideLcdCover(self, show):

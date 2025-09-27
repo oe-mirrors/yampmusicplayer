@@ -1,21 +1,21 @@
 
 #######################################################################
 #
-#	YAMP - Yet Another Music Player - Lyrics
-#	Version 3.3.2 2024-03-08
-#	Coded by  by AlfredENeumann (c)2016-2024
+# YAMP - Yet Another Music Player - Lyrics
+# Version 3.3.2 2024-03-08
+# Coded by  by AlfredENeumann (c)2016-2024
 #   Last change: 2025-09-26 by Mr.Servo @OpenATV
-#	Support: www.vuplus-support.org, board.newnigma2.to
+# Support: www.vuplus-support.org, board.newnigma2.to
 #
-#	This program is free software; you can redistribute it and/or
-#	modify it under the terms of the GNU General Public License
-#	as published by the Free Software Foundation; either version 2
-#	of the License, or (at your option) any later version.
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
 #
-#	This program is distributed in the hope that it will be useful,
-#	but WITHOUT ANY WARRANTY; without even the implied warranty of
-#	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#	GNU General Public License for more details.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
 #
 #######################################################################
 
@@ -145,7 +145,7 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 		self.songtitle = self.artist = self.album = ''
 		self.scrollMinLines = config.plugins.yampmusicplayer.lyricsMinLinesScroll.value
 		self.scrollLine = config.plugins.yampmusicplayer.lyricsScrollLine.value - 1
-		self.timeStampOffset = config.plugins.yampmusicplayer.lyricsOffsetTime.value  #milliseconds offset
+		self.timeStampOffset = config.plugins.yampmusicplayer.lyricsOffsetTime.value  # milliseconds offset
 		self.timeStampChanged = False
 		self.lyrisFileChanged = False
 		self.lyricsFileName = self.lyricsFileNameLrc = self.lyricsFileNameLong = self.lyricsFileNameLrcLong = self.lyricsFileActive = ''
@@ -194,11 +194,11 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 			LOG('YampLyricsScreen: lyricsChanged: buildNewLyrics: EXCEPT: ' + str(e), 'err')
 		self.setTextGreenKey()
 
-#-----------------------------
+# -----------------------------
 # Show Lyrics methods
 #
 # 1. Look for lyrics in ID3 tag (for mp3s, flac), 2. Look for lyrics in lyrics directory, 3. Search lyrics with azlyrics.com 4. Search lyrics with chartlyrics.com
-#1..4 are only the 4 methods; the actual search sequence is defined in the config
+# 1..4 are only the 4 methods; the actual search sequence is defined in the config
 
 	def getLyrics(self):
 		self.pixNumLyrics = LYRICSS_NO
@@ -259,7 +259,7 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 		titleNoExt = self.replaceAzlyricsSpecial(titleNoExt)
 		titleNoBrackNoExt = self.replaceAzlyricsSpecial(titleNoBrackNoExt)
 		titleList = [title, titleNoExt, titleNoBrackets, titleNoBrackNoExt]
-		titleList.append(title[:-1])			 #remove last letter songtitle (maybe ' )
+		titleList.append(title[:-1])  # remove last letter songtitle (maybe ' )
 		titleList.append(titleNoBrackets[:-1])
 		titleList.append(titleNoExt[:-1])
 		titleList.append(titleNoBrackNoExt[:-1])
@@ -396,7 +396,7 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 			self.pixNumLyrics = LYRICSS_FILE
 		return True
 
-#--------------------- edit karaoke timestamp
+# --------------------- edit karaoke timestamp
 	def setTimestamp(self):
 		if not self.allowTimeEdit:
 			return
@@ -557,7 +557,7 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 
 	def setSongInfo(self):
 		try:
-			if self.parent.playerState == STATE_PLAY:  #actual playing title
+			if self.parent.playerState == STATE_PLAY:  # actual playing title
 				self.songtitle = self.parent.currTitle
 				self.artist = self.parent.currArtist
 				self.album = self.parent.currAlbum
@@ -565,13 +565,13 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 				self.bitrate = self.parent.currBitRate
 				self.length = self.parent.currLength
 				date = self.parent.currDate
-			else:									   #selected title in playlist
+			else:  # selected title in playlist
 				songFilename = self.parent.playlist.getServiceRefList()[self.parent.playlist.getSelectionIndex()].getPath()
 				self.songtitle, self.album, genre, self.artist, albumartist, date, self.length, self.tracknr, self.bitrate = readID3Infos(songFilename)
 			self["songtitle"].setText(self.songtitle.replace('n/a', self.replaceText))
 			self["artist"].setText(self.artist.replace('n/a', self.replaceText))
 			self["album"].setText(self.album.replace('n/a', self.replaceText))
-			if self.tracknr > 999:  #including CD-number
+			if self.tracknr > 999:  # including CD-number
 				self["tracknr"].setText(str(self.tracknr / 1000) + '-' + str(self.tracknr % 1000))
 			elif self.tracknr > 0:
 				self["tracknr"].setText(str(self.tracknr))
@@ -703,7 +703,7 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 		if len(self.lyricslist) > 1:
 			self.autoMove()
 
-#--------------- user key reactions -----------
+# --------------- user key reactions -----------
 	def keyGreen(self):
 		try:
 			if (self.pixNumLyrics == LYRICSS_FILE or self.pixNumLyrics == LYRICSS_LYRDIR) and not self.allowTimeEdit and not self.timeStampChanged and not self.lyrisFileChanged:
@@ -849,7 +849,7 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 		else:
 			Screen.showHelp(self)  # new method
 
-#--------------- lyrics edit functions
+# --------------- lyrics edit functions
 	def showMenu(self):  # Build Menu Entries
 		menu = []
 		try:
@@ -980,7 +980,8 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 		self.buildLyricsMenuList(self.txtLines[self.startIndex:])
 
 
-#--------------- help functions
+# --------------- help functions
+
 
 	def setTextGreenKey(self):
 		if (self.pixNumLyrics == LYRICSS_FILE or self.pixNumLyrics == LYRICSS_LYRDIR) and not self.allowTimeEdit and not self.timeStampChanged and not self.lyrisFileChanged:
@@ -1074,15 +1075,15 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 
 #######################################################################
 #
-#	class LyricsList
+# class LyricsList
 #
 #######################################################################
 
 
 class YampLyricsList(GUIComponent):
-	def __init__(self, enableWrapAround=False):   #!!!!
+	def __init__(self, enableWrapAround=False):  # !!!!
 		GUIComponent.__init__(self)
-		try:   #!!!evtl. noch andere Vorgaben fuer FHD
+		try:  # !!!evtl. noch andere Vorgaben fuer FHD
 			self.itemFont = parseFont("Regular;18", ((1, 1), (1, 1)))
 			self.myItemHeight = 23
 		except Exception as e:

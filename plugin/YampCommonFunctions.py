@@ -6,15 +6,15 @@
 #  Last change: 2025-09-26 by Mr.Servo @OpenATV
 #  Support: www.vuplus-support.org, board.newnigma2.to
 #
-#	This program is free software; you can redistribute it and/or
-#	modify it under the terms of the GNU General Public License
-#	as published by the Free Software Foundation; either version 2
-#	of the License, or (at your option) any later version.
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
 #
-#	This program is distributed in the hope that it will be useful,
-#	but WITHOUT ANY WARRANTY; without even the implied warranty of
-#	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#	GNU General Public License for more details.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
 #
 #######################################################################
 
@@ -52,13 +52,13 @@ def readID3Infos(path):
 			length = str(int(tag.duration / 60)) + ':' + str(int(tag.duration % 60))
 		return str(tag.title), str(tag.album), str(tag.genre), str(tag.artist), str(tag.albumartist), str(tag.year), length, int(tag.track), str(tag.bitrate)
 	elif path.lower().endswith(".mp3"):
-		#{'musicbrainz_albumstatus': [u'official'], 'releasecountry': [u'NO'], 'date': [u'1996'], 'albumartist': [u'Toto'], 'musicbrainz_albumartistid': [u'aab5c954-cabe-432e-899e-1c4f99757327'], 'composer': [u'David Paich'], 'catalognumber': [u'485 122 2'], 'tracknumber': [u'5/15'], 'musicbrainz_trackid': [u'5bfbc273-73f4-42df-971b-8075b0414aae'], 'album': [u'Greatest Hits'], 'musicbrainz_artistid': [u'aab5c954-cabe-432e-899e-1c4f99757327'], 'title': [u'Rosanna'], 'media': [u'CD'], 'artistsort': [u'Toto'], 'acoustid_id': [u'41a25f1c-c3f2-4b15-8217-850ad13f1287'], 'musicbrainz_releasegroupid': [u'e1645597-bb35-3dc5-8a19-22510ef85971'], 'barcode': [u'5099748512222'], 'musicbrainz_albumtype': [u'album/compilation'], 'genre': [u'Rock'], 'isrc': [u'USSM18200245/USSM19801976'], 'discnumber': [u'1/1'], 'originaldate': [u'1996'], 'artist': [u'Toto'], 'musicbrainz_albumid': [u'd426efc6-00ce-48fa-9f26-b304938961c6'], 'organization': [u'Columbia'], 'musicbrainz_releasetrackid': [u'3b1f7257-9a10-3736-a251-db36f90ca085']}
+		# {'musicbrainz_albumstatus': [u'official'], 'releasecountry': [u'NO'], 'date': [u'1996'], 'albumartist': [u'Toto'], 'musicbrainz_albumartistid': [u'aab5c954-cabe-432e-899e-1c4f99757327'], 'composer': [u'David Paich'], 'catalognumber': [u'485 122 2'], 'tracknumber': [u'5/15'], 'musicbrainz_trackid': [u'5bfbc273-73f4-42df-971b-8075b0414aae'], 'album': [u'Greatest Hits'], 'musicbrainz_artistid': [u'aab5c954-cabe-432e-899e-1c4f99757327'], 'title': [u'Rosanna'], 'media': [u'CD'], 'artistsort': [u'Toto'], 'acoustid_id': [u'41a25f1c-c3f2-4b15-8217-850ad13f1287'], 'musicbrainz_releasegroupid': [u'e1645597-bb35-3dc5-8a19-22510ef85971'], 'barcode': [u'5099748512222'], 'musicbrainz_albumtype': [u'album/compilation'], 'genre': [u'Rock'], 'isrc': [u'USSM18200245/USSM19801976'], 'discnumber': [u'1/1'], 'originaldate': [u'1996'], 'artist': [u'Toto'], 'musicbrainz_albumid': [u'd426efc6-00ce-48fa-9f26-b304938961c6'], 'organization': [u'Columbia'], 'musicbrainz_releasetrackid': [u'3b1f7257-9a10-3736-a251-db36f90ca085']}
 		try:
 			audio = MP3(path, ID3=EasyID3)
 		except Exception:
 			audio = None
 	elif path.lower().endswith(".flac"):
-		#{'albumartistsort': [u'Various Artists'], 'disctotal': [u'4'], 'catalognumber': [u'88875085792'], 'releasecountry': [u'DE'], 'totaldiscs': [u'4'], 'date': [u'2015-09-25'], 'originalyear': [u'2015'], 'albumartist': [u'Various Artists'], 'musicbrainz_albumartistid': [u'89ad4ac3-39f7-470e-963a-56509c546377'], 'artists': [u'Patti Smith Group'], 'tracknumber': [u'1'], 'tracktotal': [u'19'], 'album': [u'Ultimate Rock'], 'asin': [u'B00TY9FGR0'], 'musicbrainz_artistid': [u'26638df8-ef34-40d1-8d93-616836b72878'], 'script': [u'Latn'], 'media': [u'CD'], 'musicbrainz_trackid': [u'f6655c59-8b0f-475e-8962-516ee897e7bb'], 'label': [u'Sony Music'], 'artistsort': [u'Smith, Patti, Group'], 'acoustid_id': [u'34a3aff6-61fb-463a-8db0-c01484a14665'], 'musicbrainz_releasegroupid': [u'591ee08d-4ad8-4445-a860-6deef34a5a7b'], 'compilation': [u'1'], 'barcode': [u'888750857927'], 'releasestatus': [u'official'], 'genre': [u'Rock'], 'isrc': [u'USAR17800008', u'USAR17800224', u'USAR18700224', u'USSM10002053'], 'discnumber': [u'3'], 'originaldate': [u'2015-09-25'], 'artist': [u'Patti Smith Group'], 'title': [u'Because the Night'], 'releasetype': [u'album', u'compilation'], 'musicbrainz_albumid': [u'5943b41a-c858-4d1c-93d6-35199b0efe4c'], 'totaltracks': [u'19'], 'musicbrainz_releasetrackid': [u'b9d87317-e868-49ac-8cab-9238210fee88']}
+		# {'albumartistsort': [u'Various Artists'], 'disctotal': [u'4'], 'catalognumber': [u'88875085792'], 'releasecountry': [u'DE'], 'totaldiscs': [u'4'], 'date': [u'2015-09-25'], 'originalyear': [u'2015'], 'albumartist': [u'Various Artists'], 'musicbrainz_albumartistid': [u'89ad4ac3-39f7-470e-963a-56509c546377'], 'artists': [u'Patti Smith Group'], 'tracknumber': [u'1'], 'tracktotal': [u'19'], 'album': [u'Ultimate Rock'], 'asin': [u'B00TY9FGR0'], 'musicbrainz_artistid': [u'26638df8-ef34-40d1-8d93-616836b72878'], 'script': [u'Latn'], 'media': [u'CD'], 'musicbrainz_trackid': [u'f6655c59-8b0f-475e-8962-516ee897e7bb'], 'label': [u'Sony Music'], 'artistsort': [u'Smith, Patti, Group'], 'acoustid_id': [u'34a3aff6-61fb-463a-8db0-c01484a14665'], 'musicbrainz_releasegroupid': [u'591ee08d-4ad8-4445-a860-6deef34a5a7b'], 'compilation': [u'1'], 'barcode': [u'888750857927'], 'releasestatus': [u'official'], 'genre': [u'Rock'], 'isrc': [u'USAR17800008', u'USAR17800224', u'USAR18700224', u'USSM10002053'], 'discnumber': [u'3'], 'originaldate': [u'2015-09-25'], 'artist': [u'Patti Smith Group'], 'title': [u'Because the Night'], 'releasetype': [u'album', u'compilation'], 'musicbrainz_albumid': [u'5943b41a-c858-4d1c-93d6-35199b0efe4c'], 'totaltracks': [u'19'], 'musicbrainz_releasetrackid': [u'b9d87317-e868-49ac-8cab-9238210fee88']}
 		try:
 			audio = FLAC(path)
 			LOG('YampCommonFunctions: readID3Infos: FLAC', 'all')
@@ -72,17 +72,17 @@ def readID3Infos(path):
 		except Exception:
 			audio = None
 	elif path.lower().endswith(".m4a") or path.lower().endswith(".mp4"):
-		#{'album': [u'Zeig Dich!'], 'albumartistsort': [u'BRDigung'], 'musicbrainz_artistid': [u'6926d482-159b-40cd-9603-1d18bc28c734'], 'musicbrainz_albumstatus': [u'official'], 'title': [u'Nur einen Sommer lang'], 'artist': [u'BRDigung'], 'musicbrainz_trackid': [u'f26bf366-8288-42e1-bd98-3aa8120aa8b2'], 'genre': [u'Deutsch Rock'], 'albumartist': [u'BRDigung'], 'musicbrainz_albumartistid': [u'6926d482-159b-40cd-9603-1d18bc28c734'], 'artistsort': [u'BRDigung'], 'musicbrainz_albumtype': [u'album'], 'date': [u'2020-01-31'], 'tracknumber': [u'13/14'], 'discnumber': [u'1/1'], 'musicbrainz_albumid': [u'67660d8a-8a57-48b0-8550-b7b529b44920']}
+		# {'album': [u'Zeig Dich!'], 'albumartistsort': [u'BRDigung'], 'musicbrainz_artistid': [u'6926d482-159b-40cd-9603-1d18bc28c734'], 'musicbrainz_albumstatus': [u'official'], 'title': [u'Nur einen Sommer lang'], 'artist': [u'BRDigung'], 'musicbrainz_trackid': [u'f26bf366-8288-42e1-bd98-3aa8120aa8b2'], 'genre': [u'Deutsch Rock'], 'albumartist': [u'BRDigung'], 'musicbrainz_albumartistid': [u'6926d482-159b-40cd-9603-1d18bc28c734'], 'artistsort': [u'BRDigung'], 'musicbrainz_albumtype': [u'album'], 'date': [u'2020-01-31'], 'tracknumber': [u'13/14'], 'discnumber': [u'1/1'], 'musicbrainz_albumid': [u'67660d8a-8a57-48b0-8550-b7b529b44920']}
 		try:
-			audio = EasyMP4(path)		#old method
+			audio = EasyMP4(path)  # old method
 		except Exception:
 			audio = None
 			try:
-				audio = File(path, easy=True)		#new method
+				audio = File(path, easy=True)  # new method
 			except Exception:
 				audio = None
 	elif path.lower().endswith(".ogg"):
-		#{'albumartistsort': [u'Anastacia'], 'lyrics': [u""], 'date': [u'2003'], 'albumartist': [u'Anastacia'], 'musicbrainz_albumartistid': [u'd3b2bec4-b70e-460e-b433-a865ceac2de8'], 'tracknumber': [u'01'], 'musicbrainz_albumid': [u'ea9fba23-896b-4847-96ce-8c16d0c05c0f'], 'album': [u'Not That Kind'], 'musicbrainz_artistid': [u'd3b2bec4-b70e-460e-b433-a865ceac2de8'], 'disctotal': [u'1'], 'title': [u'Not That Kind'], 'tracktotal': [u'12'], 'artistsort': [u'Anastacia'], 'metadata_block_picture': [''], 'musicbrainz_releasegroupid': [u'bf780e6d-0ad3-3517-977a-a2be9b81ae3e'], 'mediatype': [u'CD'], 'encoder': [u'Lavc59.1.100 libvorbis'], 'genre': [u'Pop'], 'isrc': [u'USSM19928913'], 'discnumber': [u'1'], 'artist': [u'Anastacia'], 'country': [u'GB'], 'musicbrainz_trackid': [u'aa80e7d9-22e2-4443-aec4-a6555f0bb9d4'], 'musicbrainz_releasetrackid': [u'c5ffb4f8-78eb-33db-8512-c9b4352985cd']}
+		# {'albumartistsort': [u'Anastacia'], 'lyrics': [u""], 'date': [u'2003'], 'albumartist': [u'Anastacia'], 'musicbrainz_albumartistid': [u'd3b2bec4-b70e-460e-b433-a865ceac2de8'], 'tracknumber': [u'01'], 'musicbrainz_albumid': [u'ea9fba23-896b-4847-96ce-8c16d0c05c0f'], 'album': [u'Not That Kind'], 'musicbrainz_artistid': [u'd3b2bec4-b70e-460e-b433-a865ceac2de8'], 'disctotal': [u'1'], 'title': [u'Not That Kind'], 'tracktotal': [u'12'], 'artistsort': [u'Anastacia'], 'metadata_block_picture': [''], 'musicbrainz_releasegroupid': [u'bf780e6d-0ad3-3517-977a-a2be9b81ae3e'], 'mediatype': [u'CD'], 'encoder': [u'Lavc59.1.100 libvorbis'], 'genre': [u'Pop'], 'isrc': [u'USSM19928913'], 'discnumber': [u'1'], 'artist': [u'Anastacia'], 'country': [u'GB'], 'musicbrainz_trackid': [u'aa80e7d9-22e2-4443-aec4-a6555f0bb9d4'], 'musicbrainz_releasetrackid': [u'c5ffb4f8-78eb-33db-8512-c9b4352985cd']}
 		try:
 			audio = OggVorbis(path)
 		except Exception:
@@ -149,13 +149,13 @@ def searchTrackAndDiscNumber(audio):
 		tracknr = int(audio.get('tracknumber', ['-1'])[0].split("/")[0])
 	except Exception:
 		pass
-	#option1: disctotal out of discnumber  (3/4)
+	# option1: disctotal out of discnumber  (3/4)
 	discNrkomplett = audio.get('discnumber', ['1'])
 	discNrSplit = discNrkomplett[0].split("/")
 	discNr = int(discNrSplit[0])
 	if len(discNrSplit) > 1:
 		discTotal = int(discNrSplit[1])
-	#option2: disctotal out of direct tag
+	# option2: disctotal out of direct tag
 	if discTotal == 0:
 		discTotal = int(audio.get('disctotal', ['0'])[0])
 	if discTotal > 1:

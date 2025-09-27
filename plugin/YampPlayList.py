@@ -1,21 +1,21 @@
 #######################################################################
 #
-#	YAMP - Yet Another Music Player - PlayList
-#	Version 3.3.2 2024-03-17
-#	Coded by JohnHenry (c)2013
-#	Extended by AlfredENeumann (c)2016-2024
+# YAMP - Yet Another Music Player - PlayList
+# Version 3.3.2 2024-03-17
+# Coded by JohnHenry (c)2013
+# Extended by AlfredENeumann (c)2016-2024
 #   Last change: 2025-09-26 by Mr.Servo @OpenATV
-#	Support: www.vuplus-support.org, board.newnigma2.to
+# Support: www.vuplus-support.org, board.newnigma2.to
 #
-#	This program is free software; you can redistribute it and/or
-#	modify it under the terms of the GNU General Public License
-#	as published by the Free Software Foundation; either version 2
-#	of the License, or (at your option) any later version.
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
 #
-#	This program is distributed in the hope that it will be useful,
-#	but WITHOUT ANY WARRANTY; without even the implied warranty of
-#	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#	GNU General Public License for more details.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
 #
 #######################################################################
 
@@ -72,7 +72,7 @@ class YampPlayList(MenuList):
 			self.iconPlaySizeX = 16
 			self.iconPlaySizeY = 16
 		self.currPlaying = -1
-		self.oldCurrPlaying = -1		#!!!lokale Icons??
+		self.oldCurrPlaying = -1  # !!!lokale Icons??
 		self.iconsPlayState = [
 			LoadPixmap(resolveFilename(SCOPE_CURRENT_SKIN, "skin_default/icons/ico_mp_play.png")),
 			LoadPixmap(resolveFilename(SCOPE_CURRENT_SKIN, "skin_default/icons/ico_mp_pause.png")),
@@ -183,7 +183,7 @@ class YampPlayList(MenuList):
 					res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, self.iconPosX, self.iconPosY, self.iconSizeX, self.iconSizeY, png, None, None, BT_SCALE))
 				except Exception:  # fallback if 'BT_SCALE' not available
 					res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, self.iconPosX, self.iconPosY, self.iconSizeX, self.iconSizeY, png))
-		#play, pause, stop icon
+		# play, pause, stop icon
 		try:
 			if state == STATE_NONE:
 				return res
@@ -252,17 +252,17 @@ class YampPlayList(MenuList):
 	def updateList(self):
 		self.l.setList(self.list)
 
-#	def getCurrentIndex(self):
-#		print("YampPlayList getCurrentIndex", self.currPlaying)
-#		return self.currPlaying
+# def getCurrentIndex(self):
+# print("YampPlayList getCurrentIndex", self.currPlaying)
+# return self.currPlaying
 
-#	def setCurrentIndex(self, index):
-#		print("YampPlayList setCurrentIndex", index)
-#		try:
-#			self.oldCurrPlaying = self.currPlaying
-#			self.currPlaying = index
-#		except:
-#			LOG('setCurrentIndex: EXCEPT', 'err')
+# def setCurrentIndex(self, index):
+# print("YampPlayList setCurrentIndex", index)
+# try:
+# self.oldCurrPlaying = self.currPlaying
+# self.currPlaying = index
+# except:
+# LOG('setCurrentIndex: EXCEPT', 'err')
 
 	def getServiceRefList(self):
 		return [x[0] for x in self.list]
@@ -373,14 +373,14 @@ class YampPlayList(MenuList):
 		elem = self.list.pop(index)
 		self.list.insert(newIndex, elem)
 		self.moveToIndex(newIndex)
-		if self.currPlaying == index:					#move current playing
+		if self.currPlaying == index:  # move current playing
 			self.currPlaying = newIndex
-		elif self.currPlaying == index - 1:			#move across current playing
+		elif self.currPlaying == index - 1:  # move across current playing
 			if wrap and newIndex == lastIndex:
 				self.currPlaying -= 1
 			else:
 				self.currPlaying += 1
-		elif newIndex == lastIndex:						#title was wrapped
+		elif newIndex == lastIndex:  # title was wrapped
 			self.currPlaying -= 1
 		if not self.isShuffeled:
 			elem = self.shadowList.pop(index)
@@ -392,7 +392,7 @@ class YampPlayList(MenuList):
 			index = self.moveEntryDown(index, wrap)
 
 	def moveEntryDown(self, index, wrap):
-#		print("YampPlayList moveEntryDown", index)
+# print("YampPlayList moveEntryDown", index)
 		if index == len(self.list) - 1:				# last entry
 			newIndex = 0 if wrap else index
 		else:
@@ -400,14 +400,14 @@ class YampPlayList(MenuList):
 		elem = self.list.pop(index)
 		self.list.insert(newIndex, elem)
 		self.moveToIndex(newIndex)
-		if self.currPlaying == index:					#move current playing
+		if self.currPlaying == index:  # move current playing
 			self.currPlaying = newIndex
-		elif self.currPlaying == index + 1:			#move across current playing
+		elif self.currPlaying == index + 1:  # move across current playing
 			if wrap and newIndex == 0:
 				self.currPlaying += 1
 			else:
 				self.currPlaying -= 1
-		elif newIndex == 0:										#title was wrapped
+		elif newIndex == 0:  # title was wrapped
 			self.currPlaying += 1
 		if not self.isShuffeled:
 			elem = self.shadowList.pop(index)

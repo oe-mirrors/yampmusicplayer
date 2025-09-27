@@ -1,21 +1,21 @@
 #######################################################################
 #
-#	YAMP - Yet Another Music Player - YampConfig
-#	Version 3.3.2 2024-03-17
-#	Coded by JohnHenry (c)2013 (up to V2.6.5)
-#	Extended by AlfredENeumann (c)2016-2024
+# YAMP - Yet Another Music Player - YampConfig
+# Version 3.3.2 2024-03-17
+# Coded by JohnHenry (c)2013 (up to V2.6.5)
+# Extended by AlfredENeumann (c)2016-2024
 #   Last change: 2025-09-26 by Mr.Servo @OpenATV
-#	Support: www.vuplus-support.org, board.newnigma2.to
+# Support: www.vuplus-support.org, board.newnigma2.to
 #
-#	This program is free software; you can redistribute it and/or
-#	modify it under the terms of the GNU General Public License
-#	as published by the Free Software Foundation; either version 2
-#	of the License, or (at your option) any later version.
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
 #
-#	This program is distributed in the hope that it will be useful,
-#	but WITHOUT ANY WARRANTY; without even the implied warranty of
-#	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#	GNU General Public License for more details.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
 #
 #######################################################################
 
@@ -83,7 +83,7 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 		self.updateTimer = eTimer()
 		self.updateTimer.callback.append(self.updateTimerActions)
 		self.LcdText = ''
-		#save previous values to detect necessary restart/filesave actions
+		# save previous values to detect necessary restart/filesave actions
 		self.previousSkin = config.plugins.yampmusicplayer.yampSkin.value
 		self.previousDbPath = config.plugins.yampmusicplayer.databasePath.value
 		self.previousLcdMode = self.prevMode = config.plugins.yampmusicplayer.yampLcdMode.value
@@ -107,16 +107,16 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 		self.skinFaultcustom = self.skinFaultfhdCustom = False
 		config.plugins.yampmusicplayer.lcdTextLeftMin.value = 6  # text position x
 		config.plugins.yampmusicplayer.lcdTextTopMin.value = 5  # text position y
-#		else:
-#			config.plugins.yampmusicplayer.lcdTextLeftMin.value = 0   #text position x
-#			config.plugins.yampmusicplayer.lcdTextTopMin.value = 0  # text position y
+# else:
+# config.plugins.yampmusicplayer.lcdTextLeftMin.value = 0   #text position x
+# config.plugins.yampmusicplayer.lcdTextTopMin.value = 0  # text position y
 
 	def layoutFinished(self):
 		dummy1, dummy2, txtBouq = readRcButtonTexts()
 		self["textBouquet"].setText(txtBouq)
 		self.showHidePig(self.videoPreviewOn)
 		self.startTimer.start(250, True)
-		#remove custom skin options where Yamp.xml is missing
+		# remove custom skin options where Yamp.xml is missing
 		skinPath = join(yampDir, 'skins/')
 		if not isfile(skinPath + 'custom/Yamp.xml'):
 			self.deleteSkinOption('custom')
@@ -168,7 +168,7 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 		return newSkin, failed
 
 	def deleteSkinOption(self, skin):
-#		LOG('YampConfigScreen: deleteSkinOption: skin: %s' % (skin), 'err')
+# LOG('YampConfigScreen: deleteSkinOption: skin: %s' % (skin), 'err')
 		skinChoices = config.plugins.yampmusicplayer.yampSkin.choices.choices
 		for skinValue in skinChoices:
 			if skinValue[0] == skin:
@@ -192,7 +192,7 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 		WIDTH = 151 if getDesktop(0).size().width() > 1280 else 130
 		EMPTYLINE = "".ljust(WIDTH, " ")
 
-		#General Adjustments
+		# General Adjustments
 		self.confSepGen = getConfigListEntry(_('  General Adjustments  ').center(WIDTH, "-"), config.plugins.yampmusicplayer.separator)
 		self.list.append(self.confSepGen)
 		self.groupIdx.append([x[0] for x in self.list].index(self.confSepGen[0]))
@@ -215,7 +215,7 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 		self.confArtworkPath = getConfigListEntry(_("Artwork slideshow base directory"), config.plugins.yampmusicplayer.screenSaverArtworkPath)
 		self.list.append(self.confArtworkPath)
 
-		#Databaselist / Playlist
+		# Databaselist / Playlist
 		self.confSepDbPl = getConfigListEntry(_('  Filelist / Databaselist / Playlist  ').center(WIDTH, "-"), config.plugins.yampmusicplayer.separator)
 		self.list.append(self.confSepDbPl)
 		self.groupIdx.append([x[0] for x in self.list].index(self.confSepDbPl[0]))
@@ -246,7 +246,7 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 		self.confDbPlGap = getConfigListEntry(_("Gap reduction (1/10 seconds, 0 = off)"), config.plugins.yampmusicplayer.gapCorrection)
 		self.list.append(self.confDbPlGap)
 
-		#Cover Search
+		# Cover Search
 		self.confSepCoverSearch = getConfigListEntry(_('  Cover Search / Auto Save  ').center(WIDTH, "-"), config.plugins.yampmusicplayer.separator)
 		self.list.append(self.confSepCoverSearch)
 		self.groupIdx.append([x[0] for x in self.list].index(self.confSepCoverSearch[0]))
@@ -265,7 +265,7 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 		self.confCoverSave = getConfigListEntry(_("Google cover auto save in title directory"), config.plugins.yampmusicplayer.saveCover)
 		self.list.append(self.confCoverSave)
 
-		#Lyrics Search
+		# Lyrics Search
 		self.confSepLyrSearch = getConfigListEntry(_('  Lyrics Search / Auto Save  ').center(WIDTH, "-"), config.plugins.yampmusicplayer.separator)
 		self.list.append(self.confSepLyrSearch)
 		self.groupIdx.append([x[0] for x in self.list].index(self.confSepLyrSearch[0]))
@@ -280,7 +280,7 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 		self.confLyrAutoSave = getConfigListEntry(_("Auto-save lyrics found online"), config.plugins.yampmusicplayer.autoSaveLyrics)
 		self.list.append(self.confLyrAutoSave)
 
-		#Fanart Search
+		# Fanart Search
 		self.confSepFanartSearch = getConfigListEntry(_('  Artist-Art / MbId Search  ').center(WIDTH, "-"), config.plugins.yampmusicplayer.separator)
 		self.list.append(self.confSepFanartSearch)
 		self.groupIdx.append([x[0] for x in self.list].index(self.confSepFanartSearch[0]))
@@ -293,7 +293,7 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 		self.confFanartMbidScore = getConfigListEntry(_("Musicbrainz Artist identification min score"), config.plugins.yampmusicplayer.searchMbidMinScore)
 		self.list.append(self.confFanartMbidScore)
 
-		#Screensaver
+		# Screensaver
 		self.confSepSS = getConfigListEntry(_('  Screensaver / Dia-Show / Artist-Art  ').center(WIDTH, "-"), config.plugins.yampmusicplayer.separator)
 		self.list.append(self.confSepSS)
 		self.groupIdx.append([x[0] for x in self.list].index(self.confSepSS[0]))
@@ -322,7 +322,7 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 		self.confSSclock = getConfigListEntry(_("Show clock while screensaver active"), config.plugins.yampmusicplayer.showClockSS)
 		self.list.append(self.confSSclock)
 
-		#Operation / Display
+		# Operation / Display
 		self.confSepOper = getConfigListEntry(_('  Operation / Display  ').center(WIDTH, "-"), config.plugins.yampmusicplayer.separator)
 		self.list.append(self.confSepOper)
 		self.groupIdx.append([x[0] for x in self.list].index(self.confSepOper[0]))
@@ -357,7 +357,7 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 		self.confOperTV = getConfigListEntry(_("Show TV during Yamp"), config.plugins.yampmusicplayer.yampShowTV)
 		self.list.append(self.confOperTV)
 
-		#Lyrics
+		# Lyrics
 		self.confSepLyrics = getConfigListEntry(_('  Lyrics - Scroll / Time Edit - Karaoke  ').center(WIDTH, "-"), config.plugins.yampmusicplayer.separator)
 		self.list.append(self.confSepLyrics)
 		self.groupIdx.append([x[0] for x in self.list].index(self.confSepLyrics[0]))
@@ -374,7 +374,7 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 		self.confLyrKarBlack = getConfigListEntry(_("Black background on Lyrics Line (Karaoke)"), config.plugins.yampmusicplayer.karaokeBg)
 		self.list.append(self.confLyrKarBlack)
 
-		#Video
+		# Video
 		self.confSepVideo = getConfigListEntry(_('  Videoclip settings  ').center(WIDTH, "-"), config.plugins.yampmusicplayer.separator)
 		self.list.append(self.confSepVideo)
 		self.groupIdx.append([x[0] for x in self.list].index(self.confSepVideo[0]))
@@ -391,7 +391,7 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 		self.confVidBlankDel = getConfigListEntry(_("Blank Video runtime (ms)"), config.plugins.yampmusicplayer.blankVideoDelay)
 		self.list.append(self.confVidBlankDel)
 
-		#Box Display
+		# Box Display
 		self.confSepDisp = getConfigListEntry(_('  Box Display  ').center(WIDTH, "-"), config.plugins.yampmusicplayer.separator)
 		self.list.append(self.confSepDisp)
 		self.groupIdx.append([x[0] for x in self.list].index(self.confSepDisp[0]))
@@ -432,10 +432,10 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 				self.list.append(self.confCoverColor)
 				self.list.append(self.confCoverHoriz)
 				self.list.append(self.confCoverVert)
-		else: 	#custom	display size
+		else:  # custom	display size
 			self.list.append(self.confCoverSize)
 			self.list.append(self.confCoverColor)
-		#Miscellaneous
+		# Miscellaneous
 		self.confSepMisc = getConfigListEntry(_('  Miscellaneous / Debug  ').center(WIDTH, "-"), config.plugins.yampmusicplayer.separator)
 		self.list.append(self.confSepMisc)
 		self.groupIdx.append([x[0] for x in self.list].index(self.confSepMisc[0]))
@@ -710,7 +710,7 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 				coverInModePrev = ('cover' in self.previousLcdMode)
 				lcdSizeChanged = self.previousLcdSize != lcdSize
 				if lcdSizeChanged:  # or self.previousLcdMode != lcdMode:
-						#LCD size changed: Set preset values
+						# LCD size changed: Set preset values
 					self.previousLcdSize = lcdSize
 					if lcdSizeChanged:
 						if lcdSize == '800x480':
@@ -743,9 +743,9 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 						else:
 							textLen = lcdWidth - 2 * textMinLeft
 					self.previousLcdMode = lcdMode
-				#set new limits
-				limitTextLenMax = lcdWidth - textMinLeft * 2		#LCD width
-				limitCoverSizeMax = int(lcdSizeList[1])		#LCD height
+				# set new limits
+				limitTextLenMax = lcdWidth - textMinLeft * 2  # LCD width
+				limitCoverSizeMax = int(lcdSizeList[1])  # LCD height
 				config.plugins.yampmusicplayer.lcdTextLen.limits = [(limitTextLenMin, limitTextLenMax),]
 				config.plugins.yampmusicplayer.lcdTextLen.value = textLen
 				config.plugins.yampmusicplayer.lcdFontSize.value = fontSize
@@ -944,7 +944,7 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 		oldModeText1 = self.previousLcdMode == 'oneline' or self.previousLcdMode == 'cover1'
 		oldModeText3 = self.previousLcdMode == 'threelines' or self.previousLcdMode == 'cover3'
 		newModeRunning = newLcdMode == 'running'
-		#lcdModeChanged: only True for mode changes which require restart
+		# lcdModeChanged: only True for mode changes which require restart
 		lcdModeChanged = (self.previousLcdMode != newLcdMode)
 		lcdTextChanged = newModeText1 != oldModeText1 or newModeText3 != oldModeText3
 		lcdSizeChanged = self.previousLcdSize != newLcdSize
@@ -957,14 +957,14 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 		if not newLcdOffOrCustom:
 			lcdXmlChanged = lcdTextChanged or lcdFontChanged or lcdTextLenChanged or lcdTextLeftChanged or lcdTextAlignChanged or lcdColor1Changed or lcdColor2Changed or lcdColor3Changed or lcdCoverSizeChanged or covAlignChanged
 			lcdRunningChanged = lcdRunFontChanged
-		#lcdChanged: only True for mode changes which require restart
+		# lcdChanged: only True for mode changes which require restart
 		lcdChanged = lcdModeChanged or lcdSizeChanged or lcdXmlChanged or lcdRunningChanged
 		dbPathChanged = self.previousDbPath != config.plugins.yampmusicplayer.databasePath.value
 		self.close(False, skinChanged, dbPathChanged, lcdChanged, lcdXmlChanged, lcdRunningChanged)
 
 	def askTvon(self):
 		if config.plugins.yampmusicplayer.yampShowTV.value == 'no':
-#		if True:
+# if True:
 			choices = []
 			choices.append((_('no TV at all'), 'no'))
 			choices.append((_('Audio only on Start only'), 'AudioStart'))
@@ -1044,7 +1044,7 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 			if selection == self.confSizeOfLcd or selection == self.confModeLcd:
 				self.buildConfig()
 				self["config"].setList(self.list)
-			#bring selection back to previous selected item, if Mode no longer displayed
+			# bring selection back to previous selected item, if Mode no longer displayed
 			if selection == self.confModeLcd:
 				if config.plugins.yampmusicplayer.yampLcdMode.value == 'off':
 					self["config"].instance.moveSelectionTo(actidx - 1)

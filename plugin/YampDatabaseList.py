@@ -29,7 +29,7 @@ from .myLogger import LOG
 class YampDatabaseList(GUIComponent):
 	def __init__(self, enableWrapAround=True):
 		GUIComponent.__init__(self)
-		try:   #!!!evtl. noch andere Vorgaben fuer FHD
+		try:  # !!!evtl. noch andere Vorgaben fuer FHD
 			self.itemFont0 = parseFont("Regular;18", ((1, 1), (1, 1)))
 			self.itemFont1 = parseFont("Regular;16", ((1, 1), (1, 1)))
 			self.myItemHeight = 23
@@ -47,24 +47,24 @@ class YampDatabaseList(GUIComponent):
 		except Exception as e:
 			LOG('YampDatabaseList:__init__:setBuildFunc: EXCEPT: ' + str(e), 'err')
 
-		#skinning parameters
+		# skinning parameters
 		self.parItemSizeLine1exist = False  # itemSizeLine1
 		self.parHeightLine2exist = False  # itemHeightLine2
 
 		self.parItemPosLine1exist = False  # itemPosLine1
 		self.parItemPosLine2exist = False  # itemPosLine2
-											#itemWidthLine1R
-											#itemWidthLine2R
+											# itemWidthLine1R
+											# itemWidthLine2R
 
-											#itemVAlignLine1
-											#itemVAlignLine2
+											# itemVAlignLine1
+											# itemVAlignLine2
 
-		self.parItemCol1exist = False		#itemColorLine1
-		self.parItemCol2exist = False		#itemColorLine2
+		self.parItemCol1exist = False  # itemColorLine1
+		self.parItemCol2exist = False  # itemColorLine2
 		self.parItemColSel1exist = False  # itemColorSelLine1
 		self.parItemColSel2exist = False  # itemColorSelLine2
 
-		#set default values, if not skinned
+		# set default values, if not skinned
 		if getDesktop(0).size().width() > 1280:  # FHD
 			font0 = "Regular;28"
 			font1 = "Regular;21"
@@ -113,23 +113,23 @@ class YampDatabaseList(GUIComponent):
 				res.append(MultiContentEntryText(pos=(self.line1PosX, self.line1PosY), size=(self.line1sizeX, self.line1sizeY), font=0, flags=align1, text="%s" % item.text))
 		else:  # 2 lines
 			if self.parItemCol1exist and self.parItemColSel1exist:
-				#line 1 with color
+				# line 1 with color
 				if item.nav:
 					res.append(MultiContentEntryText(pos=(self.line1PosX, self.line1PosY), size=(self.line1sizeX, self.line1sizeY), font=0, color=self.colorLine1, color_sel=self.colorSelLine1, flags=align1, text="%s" % item.text))
 				else:
 					res.append(MultiContentEntryText(pos=(self.line1PosX, self.line1PosY), size=(self.line1sizeX - self.line1PosX - self.widthLine1Right, self.line1sizeY), font=0, color=self.colorLine1, color_sel=self.colorSelLine1, flags=align1, text="%s%s  -  %s" % (item.text, item.title, item.artist)))
-					#length, 1st line right
+					# length, 1st line right
 					res.append(MultiContentEntryText(pos=(self.posXline1Right, self.line1PosY), size=(self.widthLine1Right, self.line1sizeY), font=0, color=self.colorLine1, color_sel=self.colorSelLine1, flags=RT_HALIGN_RIGHT | self.alignVertLine1, text="%s" % item.length))
 			else:  # line 1 no color
 				if item.nav:
 					res.append(MultiContentEntryText(pos=(self.line1PosX, self.line1PosY), size=(self.line1sizeX, self.line1sizeY), font=0, flags=align1, text="%s" % item.text))
 				else:
 					res.append(MultiContentEntryText(pos=(self.line1PosX, self.line1PosY), size=(self.line1sizeX - self.line1PosX - self.widthLine1Right, self.line1sizeY), font=0, flags=align1, text="%s%s  -  %s" % (item.text, item.title, item.artist)))
-					#length, 1st line right
+					# length, 1st line right
 					res.append(MultiContentEntryText(pos=(self.posXline1Right, self.line1PosY), size=(self.widthLine1Right, self.line1sizeY), font=0, flags=RT_HALIGN_RIGHT | self.alignVertLine1, text="%s" % item.length))
 			if not item.nav:  # line 2
 				res.append(MultiContentEntryText(pos=(self.line2PosX, self.line2PosY), size=(self.line1sizeX - self.line2PosX - self.widthLine2Right, self.line2sizeY), font=1, color=self.colorLine2, color_sel=self.colorSelLine2, flags=RT_HALIGN_LEFT | self.alignVertLine2, text="%s  (%s)" % (item.album, item.date)))
-				#genre, line 2 right
+				# genre, line 2 right
 				res.append(MultiContentEntryText(pos=(self.posXline2Right, self.line2PosY), size=(self.widthLine2Right, self.line2sizeY), font=1, color=self.colorLine2, color_sel=self.colorSelLine2, flags=RT_HALIGN_RIGHT | self.alignVertLine2, text="%s" % item.genre))
 		return res
 

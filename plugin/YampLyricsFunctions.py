@@ -6,15 +6,15 @@
 #  Last change: 2025-09-26 by Mr.Servo @OpenATV
 #  Support: www.vuplus-support.org, board.newnigma2.to
 #
-#	This program is free software; you can redistribute it and/or
-#	modify it under the terms of the GNU General Public License
-#	as published by the Free Software Foundation; either version 2
-#	of the License, or (at your option) any later version.
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
 #
-#	This program is distributed in the hope that it will be useful,
-#	but WITHOUT ANY WARRANTY; without even the implied warranty of
-#	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#	GNU General Public License for more details.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
 #
 #######################################################################
 
@@ -69,7 +69,7 @@ def searchLyricsfromFiles(songFilename, foundPrio):
 		foundPrio = prio
 	return lyrics, lyricsFileActive, foundPrio
 
-#get Lyrics from ID3 (mp3, flac, m4a, mp4)
+# get Lyrics from ID3 (mp3, flac, m4a, mp4)
 
 
 def getLyricsID3(songFilename, foundPrio):
@@ -88,7 +88,7 @@ def getLyricsID3(songFilename, foundPrio):
 	if foundPrio < prio:
 		return '', LYRICSS_NO, foundPrio  # already found with higher priority
 	if songFilename.lower().endswith(".mp3"):
-		#Lyrics search mp3
+		# Lyrics search mp3
 		try:
 			audio = ID3(songFilename)
 		except Exception:
@@ -120,7 +120,7 @@ def getLyricsID3(songFilename, foundPrio):
 			LOG('YampLyricsScreen:searchId3mp4m4a: key: EXCEPT: ' + str(e), 'err')
 		return lyrics, pixNumLyrics, foundPrio
 	elif songFilename.lower().endswith(".flac"):
-		#Lyrics search flac
+		# Lyrics search flac
 		try:
 			flacInfo = FLAC(songFilename)
 		except Exception:
@@ -231,18 +231,18 @@ def addTimeOffset(offsetMsec, tiStampMsec90, tiStamp):
 
 def lyricsClean(text):
 	try:
-		text = sub(r'\[ar:.*\]', '', text)								#remove artist string [ar:xxx]
-		text = sub(r'\[ti:.*\]', '', text)								#remove title string [ti:xxx]
-		text = sub(r'\[offset:.*\]', '', text)							#remove offset string [ofset:xxx]
-		text = sub(r'\[Offset:.*\]', '', text)							#remove offset string [ofset:xxx]
-		text = sub(r'\[ap:.*\]', '', text)								#remove ap string [ap:xxx]
-		text = sub(r'\[al:.*\]', '', text)								#remove al string [al:xxx]
-		text = sub(r'\[by:.*\]', '', text)								#remove by string [by:xxx]
-		text = sub(r'<!--.*-->', '', text)								#remove xml comment
-		text = sub(r'<script.*/script>', '', text)						#remove xml script
-		text = text.replace('</em>', '')								#remove xml em class end
-		text = sub(r'<em class=.*>', '', text)							#remove xml em class
-		text = text.strip()		#remove empty lines at beginning / end
+		text = sub(r'\[ar:.*\]', '', text)  # remove artist string [ar:xxx]
+		text = sub(r'\[ti:.*\]', '', text)  # remove title string [ti:xxx]
+		text = sub(r'\[offset:.*\]', '', text)  # remove offset string [ofset:xxx]
+		text = sub(r'\[Offset:.*\]', '', text)  # remove offset string [ofset:xxx]
+		text = sub(r'\[ap:.*\]', '', text)  # remove ap string [ap:xxx]
+		text = sub(r'\[al:.*\]', '', text)  # remove al string [al:xxx]
+		text = sub(r'\[by:.*\]', '', text)  # remove by string [by:xxx]
+		text = sub(r'<!--.*-->', '', text)  # remove xml comment
+		text = sub(r'<script.*/script>', '', text)  # remove xml script
+		text = text.replace('</em>', '')  # remove xml em class end
+		text = sub(r'<em class=.*>', '', text)  # remove xml em class
+		text = text.strip()  # remove empty lines at beginning / end
 	except Exception as e:
 		LOG('YampLyricsFunctions: LyricsClean: text: EXCEPT: ' + str(e), 'err')
 	return text
