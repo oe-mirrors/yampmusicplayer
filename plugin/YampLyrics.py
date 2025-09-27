@@ -870,8 +870,8 @@ class YampLyricsScreenV33(Screen, HelpableScreen):
 				LOG('YampLyricsScreen: menuCallback: OffsetValO EXCEPT: ' + str(e), 'err')
 			return
 		elif choice[1] == 'offsetpos' or choice[1] == 'offsetneg':
-			offsetVal = float(config.plugins.yampmusicplayer.karaokeFileOffsetVal.value)
-			if offsetVal == 0.0:
+			offsetVal = config.plugins.yampmusicplayer.karaokeFileOffsetVal.value
+			if not offsetVal:
 				return
 			if choice[1] == 'offsetneg':
 				offsetVal = offsetVal * (-1)
