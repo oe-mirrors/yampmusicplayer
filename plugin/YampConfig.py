@@ -428,7 +428,7 @@ class YampConfigScreenV33(Screen, ConfigListScreen):
 				self.list.append(self.confCoverColor)
 				self.list.append(self.confCoverHoriz)
 				self.list.append(self.confCoverVert)
-		else: # custom display size
+		else:  # custom display size
 			self.list.append(self.confCoverSize)
 			self.list.append(self.confCoverColor)
 		# Miscellaneous

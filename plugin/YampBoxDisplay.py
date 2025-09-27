@@ -17,7 +17,7 @@
 # GNU General Public License for more details.
 #
 # Thanks to the authors of Merlin Music Player and OpenPli Media
-#Player for ideas and code snippets
+# Player for ideas and code snippets
 #
 #######################################################################
 

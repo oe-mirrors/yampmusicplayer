@@ -21,11 +21,11 @@
 # Player for ideas and code snippets
 #
 #######################################################################
-#TYPES OF LOGGING:
-#spe : Coversuche
-#spe2: Bildschirmschoner checks
-#spe3:
-#spe4:
+# TYPES OF LOGGING:
+# spe : Coversuche
+# spe2: Bildschirmschoner checks
+# spe3:
+# spe4:
 
 from base64 import b64decode
 from datetime import datetime
@@ -1834,6 +1834,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 # YAMP Main Screen actions
 # There are 2 groups of actions, one depends on the active list (filelist, dblist or playlist), the other don't
 # List dependent actions:
+
 
 	def ok(self):
 		# screensaver or Fullscreen Video: go back
@@ -6518,7 +6519,7 @@ def dbInsert(con, cursor, ref, table="titles", update=False):  # Return: 0: skip
 			LOG('YampDbActions: dbInsert: Log Id3Infos: EXCEPT: ' + str(e), 'err')
 		# get New Values of title, add or get artist, album, genre, date
 		# 1a. Artist
-#		artistShort = sub('(?i)( +feat)(.*)', '', artist).strip()  # remove Featuring
+# artistShort = sub('(?i)( +feat)(.*)', '', artist).strip()  # remove Featuring
 		cursor.execute('SELECT artist_id FROM Artists WHERE artist = "%s";' % (artist))
 		row = cursor.fetchone()
 		if row is None:
@@ -6722,7 +6723,7 @@ def titlecase(text, callback=None):
 				continue
 			match = MAC_MC.match(word)
 			if match:
-#				if word.lower() != 'machine' and word.lower() != 'machine,' and word.lower() != 'macy':
+# if word.lower() != 'machine' and word.lower() != 'machine,' and word.lower() != 'macy':
 				tc_line.append("%s%s" % (match.group(1).capitalize(), match.group(2).capitalize()))
 				continue
 			if "/" in word and "//" not in word:
