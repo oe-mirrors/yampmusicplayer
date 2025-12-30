@@ -252,6 +252,18 @@ class YampPlayList(MenuList):
 	def updateList(self):
 		self.l.setList(self.list)
 
+	def getCurrentIndex(self):
+		print("YampPlayList getCurrentIndex", self.currPlaying)
+		return self.currPlaying
+
+	def setCurrentIndex(self, index):
+		print("YampPlayList setCurrentIndex", index)
+		try:
+			self.oldCurrPlaying = self.currPlaying
+			self.currPlaying = index
+		except:
+			LOG('setCurrentIndex: EXCEPT', 'err')
+
 	def getServiceRefList(self):
 		return [x[0] for x in self.list]
 
