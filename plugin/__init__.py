@@ -5,7 +5,7 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 PluginLanguageDomain = "YampMusicPlayer"
 PluginLanguagePath = "Extensions/YampMusicPlayer/locale"
 
-__version__ = "3.3.2"
+__version__ = "3.3.3"
 
 
 def localeInit():
