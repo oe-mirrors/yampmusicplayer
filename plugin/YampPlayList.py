@@ -253,11 +253,17 @@ class YampPlayList(MenuList):
 		self.l.setList(self.list)
 
 	def getCurrentIndex(self):
-		return self.currPlaying
+		try:  # try new MenuList funcionality if available (e.g. for OpenATV)
+			return MenuList.getCurrentIndex(self)
+		except Exception:
+			return self.currPlaying
 
 	def setCurrentIndex(self, index):
-		self.oldCurrPlaying = self.currPlaying
-		self.currPlaying = index
+		try:  # try new MenuList funcionality if available (e.g. for OpenATV)
+			MenuList.setCurrentIndex(self, index)
+		except Exception:
+			self.oldCurrPlaying = self.currPlaying
+			self.currPlaying = index
 
 	def getServiceRefList(self):
 		return [x[0] for x in self.list]
