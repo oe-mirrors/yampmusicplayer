@@ -830,7 +830,7 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 		except Exception as e:
 			LOG('YampScreen: checkSkinFiles: EXCEPT path1: %s' % (str(e)), 'err')
 		try:
-			versionFile = path + '/V' + VERSIONNUMBER + '.ver'
+			versionFile = path + '/V' + __version__ + '.ver'
 			oldCustom = not isfile(versionFile) and 'custom' in skin.lower()
 		except Exception as e:
 			LOG('YampScreen: checkSkinFiles: EXCEPT checkversion: %s' % (str(e)), 'err')
@@ -4699,6 +4699,9 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 				if data:
 					img = Image.open(BytesIO(data))  # save coverArtFile with max fixed size or smaller
 					img.thumbnail((600, 450) if RESOLUTION == "FHD" else (400, 300), Image.LANCZOS)
+					# Convert to RGB for JPEG
+					if img.mode != 'RGB':
+						img = img.convert('RGB')
 					img.save(filename, format="jpeg", quality=25)
 					img.close()
 				if isMp4:
