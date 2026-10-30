@@ -3547,19 +3547,23 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 		if self.blankVideoInserted != -1:
 			return
 		if self.playerState == STATE_PLAY:
-			datalen, datapos = self.getSeekData()
-			self.playLength = datalen
-			if config.plugins.yampmusicplayer.showPlayListLen.value:
-				self.playedSec = int(datapos / 90000)
-				self.calcRemainPlaylistCyclic()
-			if self.playPosition == datapos:
-				self.nextEntry()
+			dataLength, dataPosition = self.getSeekData()
+			if dataLength or dataPosition:
+				self.playLength = dataLength
+				if config.plugins.yampmusicplayer.showPlayListLen.value:
+					self.playedSec = int(dataPosition / 90000)
+					self.calcRemainPlaylistCyclic()
+				if self.playPosition == dataPosition:
+					self.nextEntry()
+				else:
+					self.playPosition = dataPosition
+					if dataLength and dataPosition and config.plugins.yampmusicplayer.gapCorrection.value:
+						if (dataLength - dataPosition) <= 945000:  # 90,000 = 1 second; check the last 10.5 seconds.
+							if not self.gapTimer.isActive():
+								self.gapTimer.start(100)
 			else:
-				self.playPosition = datapos
-				if datalen and datapos and config.plugins.yampmusicplayer.gapCorrection.value:  # and not self.currentIsVideo:
-					if (datalen - datapos) <= 945000:  # 90.000 = 1 second -> check gap for the last 10.5 seconds
-						if not self.gapTimer.isActive():
-							self.gapTimer.start(100)
+				# Missing position data is not EOF; start a fresh comparison when playback resumes.
+				self.playPosition = -1
 		if self.eofbugTimer.isActive():
 			self.eofbugTimer.stop()
 		self.eofbugTimer.start(1000)
@@ -3567,8 +3571,10 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 	def checkGap(self):
 		try:
 			gap = config.plugins.yampmusicplayer.gapCorrection.value
-			datalen, datapos = self.getSeekData()
-			if (datalen - datapos) <= (gap * 9000 + 4500):  # add 4500 = 0.05 seconds / software delay
+			dataLength, dataPosition = self.getSeekData()
+			if not dataLength:
+				self.gapTimer.stop()  # checkEOF restarts gap detection once valid data is available.
+			elif (dataLength - dataPosition) <= (gap * 9000 + 4500):  # Add 4500 = 0.05 seconds / software delay.
 				if self.CheckIfNormalSongStarted():
 					self.nextEntry()
 				self.gapTimer.stop()
@@ -3577,14 +3583,14 @@ class YampScreenV33(Screen, InfoBarBase, InfoBarSeek, InfoBarNotifications, Help
 
 	def getSeekData(self):
 		service = self.session.nav.getCurrentService()
-		seek = service.seek()
+		seek = service.seek() if service is not None else None
 		if seek is None:
 			return (0, 0)
-		playlen = seek.getLength()
-		playpos = seek.getPlayPosition()
-		if playlen[0] or playpos[0]:
+		playLength = seek.getLength()
+		playPosition = seek.getPlayPosition()
+		if playLength[0] or playPosition[0]:
 			return (0, 0)
-		return (playlen[1], playpos[1])
+		return (playLength[1], playPosition[1])
 
 # Yamp Screen Saver
 	def initScreenSaver(self, artist=''):
